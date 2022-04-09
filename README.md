@@ -11,3 +11,4 @@ modules. The modules are: -
     4. Role authorization module.
     5. Refer assigning module
     6. Department registry module
+    7. nothing
