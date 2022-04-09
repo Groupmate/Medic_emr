@@ -18,14 +18,14 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('create_organization') }}" :active="request()->routeIs('create_organization')">
+                    <x-jet-nav-link href="{{ route('create_regionalbureau') }}" :active="request()->routeIs('create_regionalbureau')">
                         {{ __('Create one') }}
                     </x-jet-nav-link>
                 </div>
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
-                
+
                 <!-- Settings Dropdown -->
                 <div class="ml-3 relative">
                     <x-jet-dropdown align="right" width="48">
