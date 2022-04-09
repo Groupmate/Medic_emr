@@ -194,13 +194,21 @@ class Federal extends Component
      */
     public function read()
     {
-        return Organization::paginate(5);
+        //return Organization::paginate(5);
     }
 
+    /**
+     * display organizations based on
+     * their type when executing the
+     * regional and zonal level
+     *
+     * @return void
+     */
     public function render()
     {
-        $organsization = Organization::latest()->paginate(5);
+        $organization = Organization::latest()->paginate(5);
 
-        return view('livewire.federal',[ 'organizations'=>$this->read(), $this->organizations=Organization::all(),]);
+        return view('livewire.federal',[ 'organizations'=>$this->read(),
+                $this->organizations=Organization::whereIn('type' , [1,2,3])->get(),]);
     }
 }
