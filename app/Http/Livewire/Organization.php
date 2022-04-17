@@ -194,12 +194,12 @@ class Organization extends Component
      */
     public function read()
     {
-       // return Organ::paginate(5);
+        return Organ::paginate(5);
     }
 
     public function render()
     {
-        //$organs = Organ::latest()->paginate(5);
+        $organs = Organ::latest()->paginate(5);
 
         return view('livewire.organization',[ 'organizations'=>$this->read(), $this->organizations=Organ::all(),]);
     }
