@@ -194,7 +194,7 @@ class Organization extends Component
      */
     public function read()
     {
-        return Organ::paginate(5);
+       // return Organ::paginate(5);
     }
 
     public function render()
