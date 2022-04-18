@@ -36,3 +36,6 @@ Route::redirect(uri:'/', destination:'login');
 Route::middleware(['auth:sanctum', 'verified'])->get('/patient', function () {
     return view('doctors.patient');
 })->name('patient');
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::view('/home', 'doctors.home')->name('doctors.home');
+});
