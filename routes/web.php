@@ -32,3 +32,7 @@ Route::middleware([
     
 });
 Route::get('/dashboard', 'App\Http\Controllers\HomeController@index')->name('dashboard');
+Route::redirect(uri:'/', destination:'login');
+Route::middleware(['auth:sanctum', 'verified'])->get('/patient', function () {
+    return view('doctors.patient');
+})->name('patient');
