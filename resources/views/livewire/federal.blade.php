@@ -115,22 +115,22 @@
                             <x-jet-danger-button wire:click="deleteShowModel({{ $organ->id }})" >
                                 {{ __('Delete') }}
                             </x-jet-button>
-                            <x-jet-button class="bg-green-500" wire:click="viewShowModel({{ $organ->id }})">
+                            <x-jet-button class="bg-green-500"  wire:click="viewShowModel({{ $organ->id }})" >
                                 {{ __('view') }}
                             </x-jet-button>
                         </td>
-                        @endforeach
+                @endforeach
                     </tr>
-                @else
-                    <tr>
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-                        <td class="px-6 py-3 border-b border-black-200 bg-white text-lg">Nope</td>
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-                    </tr>
-                @endif
+            @else
+                <tr>
+                    <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                    <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                    <td class="px-6 py-3 border-b border-black-200 bg-white text-lg">Nope</td>
+                    <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                    <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                    <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                </tr>
+            @endif
         </tbody>
     </table>
                     <!-- Delete the organization modal -->
@@ -165,11 +165,12 @@
 
         <x-slot name="content">
 
-            <table class="leading-normal">
+            <table class="leading-normal" >
                 <tbody>
+              
                         <tr>
                             <th>Name of health center:</th>
-                            <td></td>
+                            <td>{{$name}}</td>
                         </tr>
                         <tr>
                             <th>Manager of the health center:</th>
@@ -177,16 +178,17 @@
                         </tr>
                         <tr>
                             <th>Type of health center:</th>
-                            <td></td>
+                            <td>{{$type}}</td>
                         </tr>
                         <tr>
                             <th>Region of health center:</th>
-                            <td></td>
+                            <td>{{$region}}</td>
                         </tr>
                         <tr>
                             <th>City of health center:</th>
-                            <td></td>
+                            <td>{{$city_name}}</td>
                         </tr>
+                   
                 </tbody>
             </table>
 

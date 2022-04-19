@@ -24,6 +24,7 @@ class Federal extends Component
     public $city_name;
     public $organizations;
     public $modelId;
+  
 
     /**
      * createShowModel show modal

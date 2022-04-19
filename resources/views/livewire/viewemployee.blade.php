@@ -11,16 +11,17 @@
             </tr>
         </thead>
         <tbody>
-                    <!-- @foreach($employes as $organ)
-                                                    <tr>
-                                                        <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->first_name}}</td>
-                                                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->last_name}}</td>
-                                                        <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->type}}</td>
-                                                        <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->image}}</td>
-                                                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->address}}</td>
-                                                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->phone}}</td>
-                                                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->age}}</td>
-                                            </tr>
-                        @endforeach -->
+                   
+                <tr>
+                    <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$first_name}}</td>
+                    <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$last_name}}</td>
+                    <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$type}}</td>
+                    <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$image}}</td>
+                    <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$address}}</td>
+                    <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$phone}}</td>
+                    <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$age}}</td>
+
+                </tr>
+                    
         </tbody>
 </table>

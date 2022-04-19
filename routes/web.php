@@ -29,6 +29,15 @@ Route::middleware([
     Route::get('/create_regionalbureau', function () {
         return view('federal.create_regionalbureau');
     })->name('create_regionalbureau');
+
+    
+    Route::get('/employee', function () {
+        return view('HR.employee');
+    })->name('employee');
+    
+    Route::get('/viewemployee', function () {
+        return view('HR.viewemployee');
+    })->name('viewemployee');
     
 });
 Route::get('/dashboard', 'App\Http\Controllers\HomeController@index')->name('dashboard');
