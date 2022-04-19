@@ -23,11 +23,12 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    // Route::get('/dashboard', function () {
-    //     return view('dashboard');
-    // })->name('dashboard');
+    
     Route::get('/create_regionalbureau', function () {
         return view('federal.create_regionalbureau');
+    })->name('create_regionalbureau');
+    Route::get('/profile', function () {
+        return view('federal.profile');
     })->name('create_regionalbureau');
 
     
