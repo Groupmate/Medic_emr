@@ -99,7 +99,7 @@
     <p class="menu-label">General</p>
     <ul class="menu-list">
       <li class="--set-active-index-html">
-        <a href="index.html">
+        <a href="{{ url('/dashboard') }}">
           <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
           <span class="menu-item-label">Dashboard</span>
         </a>
