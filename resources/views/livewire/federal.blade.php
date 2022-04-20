@@ -167,28 +167,28 @@
 
             <table class="leading-normal" >
                 <tbody>
-              
+
                         <tr>
                             <th>Name of health center:</th>
-                            <td>{{$name}}</td>
+                            <td> </td>
                         </tr>
                         <tr>
                             <th>Manager of the health center:</th>
-                            <td></td>
+                            <td> </td>
                         </tr>
                         <tr>
                             <th>Type of health center:</th>
-                            <td>{{$type}}</td>
+                            <td> </td>
                         </tr>
                         <tr>
                             <th>Region of health center:</th>
-                            <td>{{$region}}</td>
+                            <td> </td>
                         </tr>
                         <tr>
                             <th>City of health center:</th>
-                            <td>{{$city_name}}</td>
+                            <td> </td>
                         </tr>
-                   
+
                 </tbody>
             </table>
 
