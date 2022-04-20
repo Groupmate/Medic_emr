@@ -23,7 +23,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    
+
     Route::get('/create_regionalbureau', function () {
         return view('federal.create_regionalbureau');
     })->name('create_regionalbureau');
@@ -31,15 +31,15 @@ Route::middleware([
         return view('federal.profile');
     })->name('create_regionalbureau');
 
-    
+
     Route::get('/employee', function () {
         return view('HR.employee');
     })->name('employee');
-    
+
     Route::get('/viewemployee', function () {
         return view('HR.viewemployee');
     })->name('viewemployee');
-    
+
 });
 Route::get('/dashboard', 'App\Http\Controllers\HomeController@index')->name('dashboard');
 Route::redirect(uri:'/', destination:'login');
