@@ -35,7 +35,10 @@ Route::middleware([
         return view('regional.create_zonalbureau');
     })->name('create_zonalbureau');
 // create Zonal organization
-    
+    Route::get('/create_woredabureau', function () {
+        return view('zonal.create_woredabureau');
+    })->name('create_woredabureau');
+//-----------------------------------------------------------//
     Route::get('/employee', function () {
         return view('HR.employee');
     })->name('employee');
