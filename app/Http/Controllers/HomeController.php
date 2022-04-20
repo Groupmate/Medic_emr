@@ -13,10 +13,10 @@ class HomeController extends Controller
             return view('federal.create_regionalbureau');
         }
         if(Auth()->user()->role == 2){
-            return view('regional.dashboard');
+            return view('regional.create_zonalbureau');
         }
         if(Auth()->user()->role == 3){
-            return view('zonal.dashboard');
+            return view('zonal.create_woredabereau');
         }
         if(Auth()->user()->role == 4){
             return view('doctors.dashboard');

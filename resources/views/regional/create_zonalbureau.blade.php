@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Federal Amdin Dashboard</title>
+  <title> Regional Admin Dashboard</title>
 
   <!-- Tailwind is included -->
  
@@ -40,7 +40,7 @@
     <p class="menu-label">General</p>
     <ul class="menu-list">
       <li class="--set-active-index-html">
-        <a href="{{ url('dashboard1') }}">
+        <a href="{{ url('dashboard2') }}">
           <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
           <span class="menu-item-label">Dashboard</span>
         </a>
@@ -50,23 +50,18 @@
     <ul class="menu-list">
      
       <li class="--set-active-profile-html">
-        <a  href="{{ url('/create_regionalbureau') }}">
+        <a  href="{{ url('/create_zonalbureau') }}">
           <span class="icon"><i class="mdi mdi-account-circle"></i></span>
-          <span class="menu-item-label">Add Organization</span>
+          <span class="menu-item-label">Create Zone Bureau</span>
         </a>
       </li>
       <li>
     
-      <li class="--set-active-forms-html">
-        <a  href="{{ url('profile') }}">
-          <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
-          <span class="menu-item-label">Profile</span>
-        </a>
-      </li>
+      
         <li class="--set-active-tables-html">
         <a href="">
           <span class="icon"><i class="mdi mdi-table"></i></span>
-          <span class="menu-item-label">HR_Roles</span>
+          <span class="menu-item-label">Reports</span>
         </a>
       </li>
      
@@ -80,12 +75,12 @@
         <ul>
           <li>
             <a href="#void">
-              <span>Sub-item One</span>
+              <span>Chats</span>
             </a>
           </li>
           <li>
             <a href="#void">
-              <span>Sub-item Two</span>
+              <span>Notifications</span>
             </a>
           </li>
         </ul>
@@ -98,6 +93,12 @@
         <a href="" class="has-icon">
           <span class="icon"><i class="mdi mdi-help-circle"></i></span>
           <span class="menu-item-label">About</span>
+        </a>
+      </li>
+      <li class="--set-active-forms-html">
+        <a  href="{{ url('profile') }}">
+          <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
+          <span class="menu-item-label">Profile</span>
         </a>
       </li>
       <li class="--set-active-forms-html">
@@ -130,7 +131,7 @@
       <section class="is-hero-bar">
     <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
       <h2 class="title">
-        <strong>Federal Organization Information</strong>
+        <strong>Regional Organization Information</strong>
       </h2>
    
     </div>
@@ -151,7 +152,7 @@
           <div class="user-avatar">
             <img src="https://avatars.dicebear.com/v2/initials/john-doe.svg" alt="Dr" class="rounded-full">
           </div>
-          <div class="is-user-name"><span> Dr. Natnael</span></div>
+          <div class="is-user-name"><span> </span></div>
           <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
         </a>
         <div class="navbar-dropdown">
@@ -195,6 +196,7 @@
    
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                {{--  @livewire('regional') --}}
                 @livewire('federal')
             </div>
         </div>

@@ -23,14 +23,18 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    
+ // create federal organization
     Route::get('/create_regionalbureau', function () {
         return view('federal.create_regionalbureau');
     })->name('create_regionalbureau');
     Route::get('/profile', function () {
         return view('federal.profile');
     })->name('create_regionalbureau');
-
+// create regional organization
+    Route::get('/create_zonalbureau', function () {
+        return view('regional.create_zonalbureau');
+    })->name('create_zonalbureau');
+// create Zonal organization
     
     Route::get('/employee', function () {
         return view('HR.employee');
