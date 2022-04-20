@@ -1,10 +1,23 @@
-@extends('layouts.header ')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('header')
-  <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
-  <link href="{{ asset('frontend/css/report.sass') }}" rel="stylesheet">  
-  <title>EMR</title>
-@endsection
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Doctors Home</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
+    <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
+    
+    @livewireStyles
+</head>
 
 <!-- start navbar -->
 <body class="bg-gray-900">
@@ -45,16 +58,44 @@
 
           <button class="menu-btn focus:outline-none focus:shadow-outline flex flex-wrap items-center">
             <div class="w-8 h-8 overflow-hidden rounded-full">
-                <img class="w-full h-full object-cover" src="{{asset('frontend/img/user.svg')}}" >
+                <img class="w-full h-full object-cover" src="<?php echo e(asset('frontend/img/user.svg')); ?>" >
             </div> 
 
             <div class="ml-2 capitalize flex ">
-              <h1 class="text-sm text-gray-800 font-semibold m-0 p-0 leading-none">Doctor</h1>
-              <i class="fad fa-chevron-down ml-2 text-xs leading-none"></i>
-            </div>                        
-          </button>
+              <strong class="text-sm text-gray-800 font-semibold m-0 p-0 leading-none"></strong>
+             
+                 <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span
+                                    class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->username }}</span>
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    {{ __('Logout') }}
+                                </a>
 
-          <button class="hidden fixed top-0 left-0 z-10 w-full h-full menu-overflow"></button>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+                
+              
+            </div>                        
+           
 
           <div class="text-gray-500 menu hidden md:mt-10 md:w-full rounded bg-white shadow-md absolute z-20 right-0 w-40 mt-5 py-2 animated faster">
 
@@ -132,13 +173,13 @@
             <p class="uppercase text-xs text-gray-600 mb-4 tracking-wider">Homes</p>
 
             <!-- link -->
-            <a href="{{ url('/index/home/patient_record') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+            <a href="{{ url('/dashboard') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
                 <i class="far fa-clinic-medical text-xl mr-2" ></i>        
                 Dashboard
             </a>   <hr class="border-t border-gray-400 my-0">
 
                  <div id="dropdown" x-show="show" class="ml-2">
-                    <a href="{{ url('/index/home/patient_record') }}" class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500">
+                    <a href="{{ url('/patient') }}" class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500">
                       <i class="far fa-files-medical text-xl mr-2"></i>
                           patient record
                       </a>
@@ -171,346 +212,41 @@
                     Generate Medical Certificate
                     </a>
                     <br>
+                    <br>
                     <hr class="border-t border-gray-400 my-0">        
                 </div>
                 <!-- end link -->
                 </div>
                 <!-- end sidebar content -->
             </div>
-            <!-- end sidbar  
-
-            General Report -->
-           
-        <div class="bg-gray-100 flex-1 p-6 md:mt-16"> 
-
-            <div class="bg-white p-8 rounded-md w-full">
-            <div class="flex items-center justify-between pb-6">
-                <div>
-                <h2 class="text-gray-600 font-semibold">Find Patient </h2>
-                <span class="text-xs">List of assigned patients </span>
-                </div>
-                <div class="flex items-center justify-between">
-                <div class="flex bg-gray-50 items-center p-2 rounded-md">
-                    <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 text-gray-400"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    >
-                    <path
-                        fill-rule="evenodd"
-                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                        clip-rule="evenodd"
-                    />
-                    </svg>
-                    <input
-                    class="bg-gray-50 outline-none ml-1 block"
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="search..."
-                    />
-                </div>
-                <div class="lg:ml-40 ml-10 space-x-8">
-                    <button
-                    class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer"
-                    >
-                    New Report
-                    </button>
-                    <button
-                    class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer"
-                    >
-                    Create
-                    </button>
-                </div>
-                </div>
+            <!-- end sidbar  -->
+        <!-- middle display --> 
+            <div class="bg-gray-100 flex-1 p-4 md:mt-16"> 
+            
+        
             </div>
-            <div>
-                <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-                <div
-                    class="inline-block min-w-full shadow rounded-lg overflow-hidden"
-                >
-                    <table class="min-w-full leading-normal">
-                    <thead>
-                        <tr>
-                        <th
-                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"
-                        >
-                            Name
-                        </th>
-                        <th
-                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"
-                        >
-                            products
-                        </th>
-                        <th
-                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"
-                        >
-                            Created at
-                        </th>
-                        <th
-                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"
-                        >
-                            QRT
-                        </th>
-                        <th
-                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"
-                        >
-                            Status
-                        </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <td
-                            class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
-                        >
-                            <div class="flex items-center">
-                            <div class="flex-shrink-0 w-10 h-10">
-                                <img
-                                class="w-full h-full rounded-full"
-                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                alt=""
-                                />
-                                
-                            </div>
-                            <div class="ml-3">
-                                <p class="text-gray-900 whitespace-no-wrap">
-                                Vera Carpenter
-                                </p>
-                            </div>
-                            </div>
-                        </td>
-                        <td
-                            class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
-                        >
-                            <p class="text-gray-900 whitespace-no-wrap">Admin</p>
-                        </td>
-                        <td
-                            class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
-                        >
-                            <p class="text-gray-900 whitespace-no-wrap">Jan 21, 2020</p>
-                        </td>
-                        <td
-                            class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
-                        >
-                            <p class="text-gray-900 whitespace-no-wrap">43</p>
-                        </td>
-                        <td
-                            class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
-                        >
-                            <span
-                            class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight"
-                            >
-                            <span
-                                aria-hidden
-                                class="absolute inset-0 bg-green-200 opacity-50 rounded-full"
-                            ></span>
-                            <span class="relative">Activo</span>
-                            </span>
-                        </td>
-                        </tr>
-                        <tr>
-                        <td
-                            class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
-                        >
-                            <div class="flex items-center">
-                            <div class="flex-shrink-0 w-10 h-10">
-                                <img
-                                class="w-full h-full rounded-full"
-                                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                alt=""
-                                />
-                            </div>
-                            <div class="ml-3">
-                                <p class="text-gray-900 whitespace-no-wrap">
-                                Blake Bowman
-                                </p>
-                            </div>
-                            </div>
-                        </td>
-                        <td
-                            class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
-                        >
-                            <p class="text-gray-900 whitespace-no-wrap">Editor</p>
-                        </td>
-                        <td
-                            class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
-                        >
-                            <p class="text-gray-900 whitespace-no-wrap">Jan 01, 2020</p>
-                        </td>
-
-                        <td
-                            class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
-                        >
-                            <p class="text-gray-900 whitespace-no-wrap">77</p>
-                        </td>
-                        <td
-                            class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
-                        >
-                            <span
-                            class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight"
-                            >
-                            <span
-                                aria-hidden
-                                class="absolute inset-0 bg-green-200 opacity-50 rounded-full"
-                            ></span>
-                            <span class="relative">Activo</span>
-                            </span>
-                        </td>
-                        </tr>
-                        <tr>
-                        <td
-                            class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
-                        >
-                            <div class="flex items-center">
-                            <div class="flex-shrink-0 w-10 h-10">
-                                <img
-                                class="w-full h-full rounded-full"
-                                src="https://images.unsplash.com/photo-1540845511934-7721dd7adec3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                alt=""
-                                />
-                            </div>
-                            <div class="ml-3">
-                                <p class="text-gray-900 whitespace-no-wrap">
-                                Dana Moore
-                                </p>
-                            </div>
-                            </div>
-                        </td>
-                        <td
-                            class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
-                        >
-                            <p class="text-gray-900 whitespace-no-wrap">Editor</p>
-                        </td>
-                        <td
-                            class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
-                        >
-                            <p class="text-gray-900 whitespace-no-wrap">Jan 10, 2020</p>
-                        </td>
-
-                        <td
-                            class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
-                        >
-                            <p class="text-gray-900 whitespace-no-wrap">64</p>
-                        </td>
-                        <td
-                            class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
-                        >
-                            <span
-                            class="relative inline-block px-3 py-1 font-semibold text-orange-900 leading-tight"
-                            >
-                            <span
-                                aria-hidden
-                                class="absolute inset-0 bg-orange-200 opacity-50 rounded-full"
-                            ></span>
-                            <span class="relative">Suspended</span>
-                            </span>
-                        </td>
-                        </tr>
-                        <tr>
-                        <td class="px-5 py-5 bg-white text-sm">
-                            <div class="flex items-center">
-                            <div class="flex-shrink-0 w-10 h-10">
-                                <img
-                                class="w-full h-full rounded-full"
-                                src="https://images.unsplash.com/photo-1522609925277-66fea332c575?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&h=160&w=160&q=80"
-                                alt=""
-                                />
-                            </div>
-                            <div class="ml-3">
-                                <p class="text-gray-900 whitespace-no-wrap">
-                                Alonzo Cox
-                                </p>
-                            </div>
-                            </div>
-                        </td>
-                        <td class="px-5 py-5 bg-white text-sm">
-                            <p class="text-gray-900 whitespace-no-wrap">Admin</p>
-                        </td>
-                        <td class="px-5 py-5 bg-white text-sm">
-                            <p class="text-gray-900 whitespace-no-wrap">Jan 18, 2020</p>
-                        </td>
-                        <td class="px-5 py-5 bg-white text-sm">
-                            <p class="text-gray-900 whitespace-no-wrap">70</p>
-                        </td>
-                        <td class="px-5 py-5 bg-white text-sm">
-                            <span
-                            class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight"
-                            >
-                            <span
-                                aria-hidden
-                                class="absolute inset-0 bg-red-200 opacity-50 rounded-full"
-                            ></span>
-                            <span class="relative">Inactive</span>
-                            </span>
-                        </td>
-                        </tr>
-                    </tbody>
-                    </table>
-                    <div
-                    class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between"
-                    >
-                    <span class="text-xs xs:text-sm text-gray-900">
-                        Showing 1 to 4 of 50 Entries
-                    </span>
-                    <div class="inline-flex mt-2 xs:mt-0">
-                        <button
-                        class="text-sm text-indigo-50 transition duration-150 hover:bg-indigo-500 bg-indigo-600 font-semibold py-2 px-4 rounded-l"
-                        >
-                        Prev
-                        </button>
-                        &nbsp; &nbsp;
-                        <button
-                        class="text-sm text-indigo-50 transition duration-150 hover:bg-indigo-500 bg-indigo-600 font-semibold py-2 px-4 rounded-r"
-                        >
-                        Next
-                        </button>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-          </div>
-           
-          </div>
-
-            </div>
-
-        </div>
-  <!-- end content -->
+        <!-- middle display --> 
+        
 
 </div>
 <!-- end wrapper -->
 
-<!-- script -->
-<script src="{{ asset('js/scripts.js') }}" rel="stylesheet">
-<script src="{{ asset('frontend/js/report.sass') }}" rel="stylesheet">
-<script src="{{ asset('frontend/js/scripts.js')}}" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
-<script>
-    window.addEventListener('DOMContentLoaded', ()=> {
-        const menuBtn = document.querySelector('#menu-btn')
-        const dropdown = document.querySelector('#dropdown')
-        
-        menuBtn.addEventListener('click', () => {
-            /* if(dropdown.classList.contains('hidden')){
-                dropdown.classList.remove('hidden');
-                dropdown.classList.add('flex');
-            }else{
-                dropdown.classList.remove('flex')
-                dropdown.classList.add('hidden')
-            } */
-
-            dropdown.classList.toggle('hidden')
-            dropdown.classList.toggle('flex')
-        })
-
-    })
-</script>
 <!-- end script -->
+    <!-- Custom scripts for all pages-->
+    <script src="{{ asset('js/sb-admin.min.js') }}"></script>
+    @stack('modals')
+    @livewireScripts
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
+    <script>
+        window.addEventListener('modal', event => {
+            $(event.detail.modalId).modal(event.detail.actionModal)
+        })
+    </script>
+    <script>
+        $("#birthDate").flatpickr();
+        $("#dateHired").flatpickr();
+    </script>
 </body>
 </html>

@@ -1,32 +1,48 @@
-@extends('layouts.header')
-@extends('layouts.navbar')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('header')
-  <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
-  <link href="{{ asset('frontend/css/report.sass') }}" rel="stylesheet">  
-  <title>EMR</title>
-@endsection
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
+    <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
+    
+    @livewireStyles
+</head>
+<body class="bg-gray-100">
+
 
 <!-- start navbar -->
 <body class="bg-gray-900">
 <!-- start navbar -->
 <div class="md:fixed md:w-full md:top-0 md:z-20 flex flex-row flex-wrap items-center bg-white p-6 border-b border-gray-300">
+    
+    <!-- logo -->
     <div class="flex-none w-56 flex flex-row items-center">
-        <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/light-with-button-svg3.svg" alt="logo" />
+      <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/light-with-button-svg3.svg" alt="logo" />
+      
         <strong class="capitalize ml-1 flex-1">Medic-EMR</strong>
-        
-        <button id="sliderBtn" class="flex-none text-right text-gray-900 hidden  md:block">
-        <i class="fad fa-list-ul"></i>
-        </button>   
-    </div>
-  
 
+        <button id="sliderBtn" class="flex-none text-right text-gray-900 hidden md:block">
+        <i class="fad fa-list-ul"></i>
+        </button>
+    </div>
+    
     <!-- navbar content toggle -->
     <button id="navbarToggle" class="hidden md:block md:fixed right-0 mr-6">
       <i class="fad fa-chevron-double-down"></i>
     </button>
     <!-- end navbar content toggle -->
-   
+
     <!-- navbar content -->
     <div id="navbar" class="animated md:hidden md:fixed md:top-0 md:w-full md:left-0 md:mt-16 md:border-t md:border-b md:border-gray-200 md:p-10 md:bg-white flex-1 pl-3 flex flex-row flex-wrap justify-between items-center md:flex-col md:items-center">
       <!-- left -->
@@ -37,8 +53,7 @@
         <a class="mr-2 transition duration-500 ease-in-out hover:text-gray-900" href="#" title="email"><i class="fad fa-calendar-exclamation"></i></a>        
       </div>
       <!-- end left -->      
-
-      <!-- right -->
+        <!-- right -->
       <div class="flex flex-row-reverse items-center"> 
 
         <!-- user -->
@@ -46,16 +61,44 @@
 
           <button class="menu-btn focus:outline-none focus:shadow-outline flex flex-wrap items-center">
             <div class="w-8 h-8 overflow-hidden rounded-full">
-                <img class="w-full h-full object-cover" src="{{asset('frontend/img/user.svg')}}" >
+                <img class="w-full h-full object-cover" src="<?php echo e(asset('frontend/img/user.svg')); ?>" >
             </div> 
 
             <div class="ml-2 capitalize flex ">
-              <h1 class="text-sm text-gray-800 font-semibold m-0 p-0 leading-none">Doctor</h1>
-              <i class="fad fa-chevron-down ml-2 text-xs leading-none"></i>
-            </div>                        
-          </button>
+              <strong class="text-sm text-gray-800 font-semibold m-0 p-0 leading-none"></strong>
+             
+                 <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span
+                                    class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->username }}</span>
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    {{ __('Logout') }}
+                                </a>
 
-          <button class="hidden fixed top-0 left-0 z-10 w-full h-full menu-overflow"></button>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+                
+              
+            </div>                        
+           
 
           <div class="text-gray-500 menu hidden md:mt-10 md:w-full rounded bg-white shadow-md absolute z-20 right-0 w-40 mt-5 py-2 animated faster">
 
@@ -113,7 +156,7 @@
 
 
 <!-- strat wrapper -->
-<div class="h-screen flex flex-row flex-wrap">
+<div class="screen flex flex-row flex-wrap">
   
     <!-- start sidebar -->
   <div id="sideBar" class="relative flex flex-col flex-wrap bg-white border-r border-gray-300 p-6 flex-none w-64 md:-ml-64 md:fixed md:top-0 md:z-30 md:h-screen md:shadow-xl animated faster">
@@ -130,11 +173,11 @@
       </div>
       <!-- end sidebar toggle -->
 
-      <p class="uppercase text-xs text-gray-600 mb-4 tracking-wider">Doctor_homes</p>
+      <p class="uppercase text-xs text-gray-600 mb-4 tracking-wider">homes</p>
 
       <!-- link -->
      
-      <a href="{{ url('/') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+      <a href="./index.html" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
         <i class="fad fa-shopping-cart text-xl mr-2"></i>         
          Dashboard
       </a>  
@@ -195,7 +238,7 @@
                     <!-- bottom -->
                     <div class="mt-8">
                         <h1 class="h5 num-4"></h1>
-                        <a href="{{ url('index/home') }}">New assigned patients</a>
+                        <a href="{{ url('/home') }}">New assigned patients</a>
                     </div>                
                     <!-- end bottom -->
         
@@ -304,7 +347,7 @@
             
             <!-- top -->
             <div class="p-5 flex flex-row flex-wrap justify-between items-center">
-                <div class="font-bold text-lg"> Graphs For Monthly and Weekly Trends</div>
+                <div class="font-bold text-lg">Monthly and Weekly Trends</div>
                 <div class="flex flex-row justify-center items-center">
                     <a href="#" class="btn mr-4 text-sm py-2 block">Month</a>
                     <a href="#" class="btn-shadow text-sm py-2 block">Week</a>
@@ -404,12 +447,8 @@
 <!-- end wrapper -->
 
 <!-- script -->
-<script src="{{ asset('js/scripts.js') }}" rel="stylesheet">
-<script src="{{ asset('frontend/js/report.sass') }}" rel="stylesheet">
-<script src="{{ asset('frontend/js/scripts.js')}}" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
+<script src="js/scripts.js"></script>
 <script>
     window.addEventListener('DOMContentLoaded', ()=> {
         const menuBtn = document.querySelector('#menu-btn')
