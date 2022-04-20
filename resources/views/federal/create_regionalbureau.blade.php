@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" class="">
 <head>
@@ -10,6 +9,7 @@
   <!-- Tailwind is included -->
  
   <link href="{{ asset('csss/main.css?v=1628755089081') }}" rel="stylesheet">
+  
   <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
 
@@ -56,16 +56,17 @@
         </a>
       </li>
       <li>
-      <li class="--set-active-tables-html">
-        <a href="">
-          <span class="icon"><i class="mdi mdi-table"></i></span>
-          <span class="menu-item-label">HR_Roles</span>
-        </a>
-      </li>
+    
       <li class="--set-active-forms-html">
         <a  href="{{ url('profile') }}">
           <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
           <span class="menu-item-label">Profile</span>
+        </a>
+      </li>
+        <li class="--set-active-tables-html">
+        <a href="">
+          <span class="icon"><i class="mdi mdi-table"></i></span>
+          <span class="menu-item-label">HR_Roles</span>
         </a>
       </li>
      
@@ -100,7 +101,7 @@
         </a>
       </li>
       <li class="--set-active-forms-html">
-        <a href="">
+        <a href="{{ route('logout') }}">
           <span class="icon"><i class="mdi mdi-lock"></i></span>
           <span class="menu-item-label">Logout</span>
         </a>
@@ -110,7 +111,7 @@
 </aside>
 
 
-<section class="is-hero-bar">
+{{-- <section class="is-hero-bar">
     <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
       <h1 class="title">
         Federal Organization Information
@@ -118,7 +119,7 @@
    
     </div>
 
-</section>
+</section> --}}
 <section>
 <nav id="navbar-main" class="navbar is-fixed-top">
   <div class="navbar-brand">
@@ -126,7 +127,15 @@
       <span class="icon"><i class="mdi mdi-forwardburger mdi-24px"></i></span>
     </a>
     <div class="navbar-item">
-      <div class="control"><input placeholder="Search organization"></div>
+      <section class="is-hero-bar">
+    <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+      <h2 class="title">
+        <strong>Federal Organization Information</strong>
+      </h2>
+   
+    </div>
+
+</section>
     </div>
   </div>
   <div class="navbar-brand is-right">
@@ -140,9 +149,9 @@
       <div class="navbar-item dropdown has-divider has-user-avatar">
         <a class="navbar-link">
           <div class="user-avatar">
-            <img src="https://avatars.dicebear.com/v2/initials/john-doe.svg" alt="John Doe" class="rounded-full">
+            <img src="https://avatars.dicebear.com/v2/initials/john-doe.svg" alt="Dr" class="rounded-full">
           </div>
-          <div class="is-user-name"><span>John Doe</span></div>
+          <div class="is-user-name"><span> Dr. Natnael</span></div>
           <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
         </a>
         <div class="navbar-dropdown">
@@ -165,14 +174,14 @@
           </a>
         </div>
       </div>
-      <a href="https://justboil.me/tailwind-admin-templates" class="navbar-item has-divider desktop-icon-only">
+      {{-- <a href="https://justboil.me/tailwind-admin-templates" class="navbar-item has-divider desktop-icon-only">
         <span class="icon"><i class="mdi mdi-help-circle-outline"></i></span>
         <span>About</span>
       </a>
       <a href="https://github.com/Naty-Tefera/Medic_emr_backup.git" class="navbar-item has-divider desktop-icon-only">
         <span class="icon"><i class="mdi mdi-github-circle"></i></span>
         <span>GitHub</span>
-      </a>
+      </a> --}}
       <a title="Log out" class="navbar-item desktop-icon-only">
         <span class="icon"><i class="mdi mdi-logout"></i></span>
         <span>Log out</span>
@@ -211,7 +220,10 @@
 
 
 <!-- Scripts below are for demo only -->
-<script type="text/javascript" src="js/main.min.js?v=1628755089081"></script>
+<script src="{{asset('js/main.min.js?v=1628755089081')}}"></script>
+<script  src="{{asset('js/chart.sample.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+
 
 
 <script>

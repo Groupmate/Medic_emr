@@ -4,7 +4,7 @@
     <div class="flex items-center justify-end px-4 py-3 text-right sm:px-6">
         <x-jet-button wire:click="createShowModal">
                 {{ __('Add Employee') }}
-         </x-jet-button>
+    </x-jet-button>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                                 <div class="mt-4">
