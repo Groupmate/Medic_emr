@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" class="">
 <head>
@@ -8,7 +7,7 @@
   <title> Federal Amdin Dashboard</title>
 
   <!-- Tailwind is included -->
- 
+
   <link href="{{ asset('csss/main.css?v=1628755089081') }}" rel="stylesheet">
   <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
@@ -28,7 +27,7 @@
   <div class="aside-tools">
     <div class="flex-none w-56 flex flex-row items-center">
       <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/light-with-button-svg3.svg" alt="logo" />
-      
+
         <strong class="capitalize ml-1 flex-1">Medic-EMR</strong>
 
         <button id="sliderBtn" class="flex-none text-right text-gray-900 hidden md:block">
@@ -48,7 +47,7 @@
     </ul>
     <p class="menu-label">HOMES</p>
     <ul class="menu-list">
-     
+
       <li class="--set-active-profile-html">
         <a  href="{{ url('/create_regionalbureau') }}">
           <span class="icon"><i class="mdi mdi-account-circle"></i></span>
@@ -68,7 +67,7 @@
           <span class="menu-item-label">Profile</span>
         </a>
       </li>
-     
+
       <li>
       <li>
         <a class="dropdown">
@@ -92,7 +91,7 @@
     </ul>
     <p class="menu-label">About</p>
     <ul class="menu-list">
-     
+
       <li>
         <a href="" class="has-icon">
           <span class="icon"><i class="mdi mdi-help-circle"></i></span>
@@ -115,7 +114,7 @@
       <h1 class="title">
         Federal Organization Information
       </h1>
-   
+
     </div>
 
 </section>
@@ -136,7 +135,7 @@
   </div>
   <div class="navbar-menu" id="navbar-menu">
      <div class="navbar-end">
-    
+
       <div class="navbar-item dropdown has-divider has-user-avatar">
         <a class="navbar-link">
           <div class="user-avatar">
@@ -183,10 +182,10 @@
 
 <x-app-layout>
  <div class="py-12">
-   
+
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                @livewire('federal')
+                @livewire('federal.create-regional')
             </div>
         </div>
     </div>
@@ -233,5 +232,4 @@
 
 </body>
 </html>
-
-    
+ 

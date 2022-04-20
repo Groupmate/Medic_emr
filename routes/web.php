@@ -22,7 +22,7 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
-])->group(function () {
+])->group(function () { 
 
     Route::get('/create_regionalbureau', function () {
         return view('federal.create_regionalbureau');
