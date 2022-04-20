@@ -21,5 +21,8 @@ class HomeController extends Controller
         if(Auth()->user()->role == 4){
             return view('doctors.dashboard');
         }
+        if(Auth()->user()->role == 5){
+            return view('Hospital_Hr.dashboard');
+        }
     }
 }

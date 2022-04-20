@@ -30,6 +30,9 @@ Route::middleware([
     Route::get('/profile', function () {
         return view('federal.profile');
     })->name('create_regionalbureau');
+    Route::get('/dashboard1', function () {
+        return view('federal.dashboard1');
+    })->name('dashboard1');
 // create regional organization
     Route::get('/create_zonalbureau', function () {
         return view('regional.create_zonalbureau');
