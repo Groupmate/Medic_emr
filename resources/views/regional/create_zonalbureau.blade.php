@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Federal Admin Dashboard</title>
+  <title> Regional Admin Dashboard</title>
 
   <!-- Tailwind is included -->
-
+ 
   <link href="{{ asset('csss/main.css?v=1628755089081') }}" rel="stylesheet">
-
+  
   <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
 
@@ -28,7 +28,7 @@
   <div class="aside-tools">
     <div class="flex-none w-56 flex flex-row items-center">
       <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/light-with-button-svg3.svg" alt="logo" />
-
+      
         <strong class="capitalize ml-1 flex-1">Medic-EMR</strong>
 
         <button id="sliderBtn" class="flex-none text-right text-gray-900 hidden md:block">
@@ -40,7 +40,7 @@
     <p class="menu-label">General</p>
     <ul class="menu-list">
       <li class="--set-active-index-html">
-        <a href="{{ url('dashboard1') }}">
+        <a href="{{ url('dashboard2') }}">
           <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
           <span class="menu-item-label">Dashboard</span>
         </a>
@@ -48,21 +48,23 @@
     </ul>
     <p class="menu-label">HOMES</p>
     <ul class="menu-list">
-
+     
       <li class="--set-active-profile-html">
-        <a  href="{{ url('/create_regionalbureau') }}">
+        <a  href="{{ url('/create_zonalbureau') }}">
           <span class="icon"><i class="mdi mdi-account-circle"></i></span>
-          <span class="menu-item-label">Add Organization</span>
+          <span class="menu-item-label">Create Zone Bureau</span>
         </a>
       </li>
       <li>
-
-      <li class="--set-active-forms-html">
-        <a  href="{{ url('profile') }}">
-          <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
-          <span class="menu-item-label">Profile</span>
+    
+      
+        <li class="--set-active-tables-html">
+        <a href="">
+          <span class="icon"><i class="mdi mdi-table"></i></span>
+          <span class="menu-item-label">Reports</span>
         </a>
       </li>
+     
       <li>
       <li>
         <a class="dropdown">
@@ -73,12 +75,12 @@
         <ul>
           <li>
             <a href="#void">
-              <span>Sub-item One</span>
+              <span>Chats</span>
             </a>
           </li>
           <li>
             <a href="#void">
-              <span>Sub-item Two</span>
+              <span>Notifications</span>
             </a>
           </li>
         </ul>
@@ -86,7 +88,7 @@
     </ul>
     <p class="menu-label">About</p>
     <ul class="menu-list">
-
+     
       <li>
         <a href="" class="has-icon">
           <span class="icon"><i class="mdi mdi-help-circle"></i></span>
@@ -94,12 +96,16 @@
         </a>
       </li>
       <li class="--set-active-forms-html">
-        <form method="POST" action="{{ route('logout') }}" x-data>
-            <a href="">
-                <span class="icon"><i class="mdi mdi-lock"></i></span>
-                <span class="menu-item-label">Logout</span>
-            </a>
-        </form>
+        <a  href="{{ url('profile') }}">
+          <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
+          <span class="menu-item-label">Profile</span>
+        </a>
+      </li>
+      <li class="--set-active-forms-html">
+        <a href="{{ route('logout') }}">
+          <span class="icon"><i class="mdi mdi-lock"></i></span>
+          <span class="menu-item-label">Logout</span>
+        </a>
       </li>
     </ul>
   </div>
@@ -111,7 +117,7 @@
       <h1 class="title">
         Federal Organization Information
       </h1>
-
+   
     </div>
 
 </section> --}}
@@ -125,9 +131,9 @@
       <section class="is-hero-bar">
     <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
       <h2 class="title">
-        <strong>Federal Organization Information</strong>
+        <strong>Regional Organization Information</strong>
       </h2>
-
+   
     </div>
 
 </section>
@@ -140,13 +146,13 @@
   </div>
   <div class="navbar-menu" id="navbar-menu">
      <div class="navbar-end">
-
+    
       <div class="navbar-item dropdown has-divider has-user-avatar">
         <a class="navbar-link">
           <div class="user-avatar">
             <img src="https://avatars.dicebear.com/v2/initials/john-doe.svg" alt="Dr" class="rounded-full">
           </div>
-          <div class="is-user-name"><span> Dr. Natnael</span></div>
+          <div class="is-user-name"><span> </span></div>
           <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
         </a>
         <div class="navbar-dropdown">
@@ -176,8 +182,8 @@
       <a href="https://github.com/Naty-Tefera/Medic_emr_backup.git" class="navbar-item has-divider desktop-icon-only">
         <span class="icon"><i class="mdi mdi-github-circle"></i></span>
         <span>GitHub</span>
-      </a>
-      <a href="{{ route('logout') }}" title="Log out" class="navbar-item desktop-icon-only">
+      </a> --}}
+      <a title="Log out" class="navbar-item desktop-icon-only">
         <span class="icon"><i class="mdi mdi-logout"></i></span>
         <span>Log out</span>
       </a>
@@ -187,10 +193,11 @@
 
 <x-app-layout>
  <div class="py-12">
-
+   
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                @livewire('federal.create-regional')
+                {{--  @livewire('regional') --}}
+                @livewire('federal')
             </div>
         </div>
     </div>
@@ -240,3 +247,5 @@
 
 </body>
 </html>
+
+    

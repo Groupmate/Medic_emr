@@ -23,7 +23,6 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-
     Route::get('/create_regionalbureau', function () {
         return view('federal.create_regionalbureau');
     })->name('create_regionalbureau');

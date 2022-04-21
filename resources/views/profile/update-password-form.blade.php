@@ -1,3 +1,4 @@
+
 <x-jet-form-section submit="updatePassword">
     <x-slot name="title">
         {{ __('Update Password') }}
@@ -25,6 +26,41 @@
             <x-jet-input id="password_confirmation" type="password" class="mt-1 block w-full" wire:model.defer="state.password_confirmation" autocomplete="new-password" />
             <x-jet-input-error for="password_confirmation" class="mt-2" />
         </div>
+             <div class="card-content">
+        <form>
+          {{-- <div class="field">
+            <label class="label">Current password</label>
+            <div class="control">
+              <input type="password" name="password_current" autocomplete="current-password" class="input" required>
+            </div>
+            <p class="help">Required. Your current password</p>
+          </div>
+          <hr>
+          <div class="field">
+            <label class="label">New password</label>
+            <div class="control">
+              <input type="password" autocomplete="new-password" name="password" class="input" required>
+            </div>
+            <p class="help">Required. New password</p>
+          </div>
+          <div class="field">
+            <label class="label">Confirm password</label>
+            <div class="control">
+              <input type="password" autocomplete="new-password" name="password_confirmation" class="input" required>
+            </div>
+            <p class="help">Required. New password one more time</p>
+          </div>
+          <hr>
+          <div class="field">
+            <div class="control">
+              <button type="submit" class="button green">
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div> --}}
     </x-slot>
 
     <x-slot name="actions">
