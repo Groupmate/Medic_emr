@@ -5,12 +5,11 @@ namespace App\Http\Livewire\Federal;
 use Livewire\Component;
 use Illuminate\Validation\Rule;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class CreateManager extends Component
 {
-
-    public $a = 2;
     public $first_name, $last_name, $email, $orgn_id, $phone, $address, $sex, $date_of_birth, $type,
     $department, $password, $role;
     public $modelId;
@@ -22,7 +21,8 @@ class CreateManager extends Component
      */
     public function create()
     {
-        //dd('asdfa');
+        $this->validate();
+
         User::create($this->modeldata());
     }
 
@@ -45,8 +45,9 @@ class CreateManager extends Component
             'sex'=>$this->sex,
             'date_of_birth'=>$this->date_of_birth,
             'type'=>$this->type,
+            'profile_pic'=> "asfas",
             'department'=>$this->department,
-            'password' => $this->password,
+            'password' => Hash::make($this->password),
             'role'=>$this->role,
         ];
     }

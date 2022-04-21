@@ -172,7 +172,7 @@
         <span class="icon"><i class="mdi mdi-github-circle"></i></span>
         <span>GitHub</span>
       </a>
-      <a title="Log out" class="navbar-item desktop-icon-only">
+      <a href="{{ route('logout') }}" title="Log out" class="navbar-item desktop-icon-only">
         <span class="icon"><i class="mdi mdi-logout"></i></span>
         <span>Log out</span>
       </a>
@@ -232,4 +232,3 @@
 
 </body>
 </html>
- 

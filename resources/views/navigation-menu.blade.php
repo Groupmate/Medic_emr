@@ -5,17 +5,17 @@
             <div class="flex">
 
 
-                {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('create_regionalbureau') }}" :active="request()->routeIs('create_regionalbureau')">
                         {{ __('Create Health Bureaus') }}
                     </x-jet-nav-link>
-                </div> --}}
+                </div>
 
-                {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('create_manager') }}" :active="request()->routeIs('create_manager')">
                         {{ __('Create managers') }}
                     </x-jet-nav-link>
-                </div> --}}
+                </div>
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">

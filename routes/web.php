@@ -22,11 +22,14 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
-])->group(function () { 
+])->group(function () {
 
     Route::get('/create_regionalbureau', function () {
         return view('federal.create_regionalbureau');
     })->name('create_regionalbureau');
+    Route::get('/create_manager', function () {
+        return view('federal.create_manager');
+    })->name('create_manager');
     Route::get('/profile', function () {
         return view('federal.profile');
     })->name('create_regionalbureau');
