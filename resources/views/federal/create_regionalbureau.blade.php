@@ -99,10 +99,12 @@
         </a>
       </li>
       <li class="--set-active-forms-html">
-        <a href="">
-          <span class="icon"><i class="mdi mdi-lock"></i></span>
-          <span class="menu-item-label">Logout</span>
-        </a>
+        <form method="POST" action="{{ route('logout') }}" x-data>
+            <a href="">
+                <span class="icon"><i class="mdi mdi-lock"></i></span>
+                <span class="menu-item-label">Logout</span>
+            </a>
+        </form>
       </li>
     </ul>
   </div>

@@ -172,10 +172,12 @@
         <span class="icon"><i class="mdi mdi-github-circle"></i></span>
         <span>GitHub</span>
         </a>
-        <a title="Log out" class="navbar-item desktop-icon-only">
-        <span class="icon"><i class="mdi mdi-logout"></i></span>
-        <span>Log out</span>
-        </a>
+        <form method="POST" action="{{ route('logout') }}" x-data>
+            <a  title="Log out" class="navbar-item desktop-icon-only">
+            <span class="icon"><i class="mdi mdi-logout"></i></span>
+            <span>Log out</span>
+            </a>
+        </form>
     </div>
     </div>
 </nav>

@@ -33,7 +33,9 @@
             <x-jet-label for="role" value="{{ __('Role') }}" />
             <select wire:model.defer="role" class="block mt-1 w-full border-gray-300 focus:border" >
                 <option>---Select Role---</option>
-                <option value="1">Federal Admin</option>
+                <option value="2">Regional Admin</option>
+                <option value="2">City Adminstration Admin</option>
+                <option value="2">Speciality Clinic</option>
             </select>
         </div>
 
