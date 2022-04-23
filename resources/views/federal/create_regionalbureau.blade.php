@@ -55,6 +55,12 @@
           <span class="menu-item-label">Add Organization</span>
         </a>
       </li>
+      <li class="--set-active-profile-html">
+        <a  href="{{ url('/create_manager') }}">
+          <span class="icon"><i class="mdi mdi-account-circle"></i></span>
+          <span class="menu-item-label">Create Managers</span>
+        </a>
+      </li>
       <li>
 
       <li class="--set-active-forms-html">
@@ -88,7 +94,7 @@
     <ul class="menu-list">
 
       <li>
-        <a href="" class="has-icon">
+        <a href="https://github.com/Naty-Tefera/Medic_emr_backup.git" class="has-icon">
           <span class="icon"><i class="mdi mdi-help-circle"></i></span>
           <span class="menu-item-label">About</span>
         </a>
@@ -169,7 +175,7 @@
           </a>
         </div>
       </div>
-      {{-- <a href="https://justboil.me/tailwind-admin-templates" class="navbar-item has-divider desktop-icon-only">
+   <a href="https://justboil.me/tailwind-admin-templates" class="navbar-item has-divider desktop-icon-only">
         <span class="icon"><i class="mdi mdi-help-circle-outline"></i></span>
         <span>About</span>
       </a>
@@ -201,7 +207,7 @@
   <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0">
     <div class="flex items-center justify-start space-x-3">
       <div>
-        © 2021, JustBoil.me
+               © 2022, JustBoil.copyright
       </div>
       <a href="https://github.com/Naty-Tefera/Medic_emr_backup.git" style="height: 20px">
         <img src="https://img.shields.io/github/v/release/justboil/admin-one-tailwind?color=%23999">

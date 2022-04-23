@@ -22,8 +22,8 @@ class CreateManager extends Component
     public function create()
     {
         $this->validate();
-
         User::create($this->modeldata());
+        $this->reset();
     }
 
     public function rules()
@@ -55,5 +55,6 @@ class CreateManager extends Component
     public function render()
     {
         return view('livewire.federal.create-manager');
+
     }
 }
