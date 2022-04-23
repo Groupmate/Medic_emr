@@ -6,21 +6,66 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Employe;
 use Illuminate\Validation\Rule;
+use Livewire\WithPagination;
 class Employee extends Component
 
 {
     use WithFileUploads;
-    public $modelFormVisible=false;
-    public $employes;
+    use WithPagination; 
+
+
+    public $modelFormVisible=false; public $modalConfirmDeleteVisible=false; public $modalViewDetailVisible=false;
+    public $employes;    public $modelId;
+    public $images=[];
     public $first_name;  public $middel_name;  public $last_name;  public $user_id; public $organization_id; public $age;
-    public $sex;  public $password; public $email; public $birth_date; public $image; public $type; public $phone; public $address;
+    public $sex;  public $password; public $email; public $birth_date; public $image; public $type; public $phone; public $address;    
+    /**
+     * createShowModal show modal
+     *
+     * @return void
+     */
     public function createShowModal()
     {
         $this->resetValidation();
          $this->resetVars();
        $this->modelFormVisible=true;
 
-    }          
+    }       
+    /**
+     * updateShowModal
+     *
+     * @param  mixed $id
+     * @return void
+     */
+    public function updateShowModal($id)
+    {
+        $this->modelId = $id;
+        $this->modelFormVisible=true;
+         $this->loadModel();
+    }      
+    /**
+     * deleteShowModel
+     *
+     * @param  mixed $id
+     * @return void
+     */
+    public function deleteShowModel($id)
+    {
+        $this->modelId=$id;
+        $this->modalConfirmDeleteVisible=true;
+    }    
+    /**
+     * viewShowModel
+     *
+     * @param  mixed $id
+     * @return void
+     */
+    public function viewShowModel($id)
+    {
+        $this->modelId=$id;
+        $this->modalViewDetailVisible=true;
+        $this->loadModel();
+    }
     /**
      * create store data to database
      *;
@@ -28,11 +73,39 @@ class Employee extends Component
      */
     public function create()
     {
+        foreach($this->images as $key=>$image){
+            $this->images[$key]= $image->store('image','public');
+        }
+        $this->images =json_encode($this->images);
         $this->validate();
        Employe::create($this->modeldata());
+       session()->flash('message', 'Employee registered Successfully.');
         $this->modelFormVisible= false;
         $this->resetvars();
-    }    
+    }     
+    /**
+     * update
+     *
+     * @return void
+     */
+    public function update()
+    {
+        $this->validate();
+        Employe::find($this->modelId)->update($this->modelData());
+        $this->modelFormVisible= false;
+        $this->resetvars();
+    }       
+    /**
+     * delete
+     *
+     * @return void
+     */
+    public function delete()
+    {
+        Employe::destroy($this->modelId);
+        $this->modalConfirmDeleteVisible=false;
+        $this->resetpage();
+    }
     /**
      * modelData
      *
@@ -65,7 +138,7 @@ class Employee extends Component
      */
     public function resetvars()
     {
-       
+        $this->modelId =null;
         $this->first_name=null;
         $this->middel_name=null;
         $this->last_name=null;
@@ -105,9 +178,48 @@ class Employee extends Component
             'address'=>'required',
             'birth_date'=>'required',
         ];
-    }
+    }       
+    /**
+     * loadModel in edit get old value
+     *
+     * @return void
+     */
+    public function loadModel()
+    {
+        $employes=Employe::find($this->modelId);
+            $this->first_name= $employes->first_name;
+            $this->middel_name= $employes->middel_name;
+            $this->last_name= $employes->last_name;
+            $this->age= $employes->age;
+            $this->user_id= $employes->user_id;
+            $this->phone= $employes->phone;
+            $this->address= $employes->address;
+            $this->email= $employes->email;
+            $this->sex= $employes->sex;
+            $this->image= $employes->image;
+            $this->organization_id= $employes->organization_id;
+            $this->birth_date= $employes->birth_date;
+            $this->type= $employes->type;
+        
+    }     
+    /**
+     * read
+     *
+     * @return void
+     */
+    public function read()
+    {
+      return Employe::paginate(5);
+    }    
+    /**
+     * render
+     *
+     * @return void
+     */
     public function render()
     {
-        return view('livewire.employee');
+        $employes = Employe::latest()->paginate(5);
+        return view('livewire.employee',[ 'employes'=>$this->read(), 
+        $this->employes=Employe::all(),]);
     }
 }
