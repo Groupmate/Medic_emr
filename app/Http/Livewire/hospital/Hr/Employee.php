@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Livewire;
-
+namespace App\Http\Livewire\Hospital\Hr;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Employe;
 use Illuminate\Validation\Rule;
 use Livewire\WithPagination;
 class Employee extends Component
-
 {
     use WithFileUploads;
     use WithPagination; 
@@ -219,7 +217,7 @@ class Employee extends Component
     public function render()
     {
         $employes = Employe::latest()->paginate(5);
-        return view('livewire.employee',[ 'employes'=>$this->read(), 
+        return view('livewire.hospital.hr.employee',[ 'employes'=>$this->read(), 
         $this->employes=Employe::all(),]);
     }
 }

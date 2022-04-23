@@ -250,7 +250,7 @@
                                                 </tr>
                                                <tr>
                                                     <th class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">Age:</th>
-                                                    <td class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">{{$type}}</td>
+                                                    <td class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">{{$age}}</td>
                                                 </tr>
                                                 <tr>
                                                     <th class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">User-Id:</th>

@@ -19,10 +19,15 @@ class HomeController extends Controller
             return view('zonal.create_woredabureau');
         }
         if(Auth()->user()->role == 4){
-            return view('doctors.dashboard');
+            return view('hospital.hr.dashboard');
         }
         if(Auth()->user()->role == 5){
-            return view('Hospital_Hr.dashboard');
+            return view('hospital.reception.dashboard');
         }
+        if(Auth()->user()->role == 6){
+            return view('hospital.doctors.dashboard');
+        }
+        
+        
     }
 }
