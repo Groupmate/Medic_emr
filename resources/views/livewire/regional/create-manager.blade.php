@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Federal Admin Dashboard</title>
+  <title> Region Admin Dashboard</title>
 
   <!-- Tailwind is included -->
 
@@ -94,7 +94,7 @@
     <ul class="menu-list">
 
       <li>
-        <a href="https://github.com/Naty-Tefera/Medic_emr_backup.git" class="has-icon">
+        <a href="" class="has-icon">
           <span class="icon"><i class="mdi mdi-help-circle"></i></span>
           <span class="menu-item-label">About</span>
         </a>
@@ -110,7 +110,6 @@
     </ul>
   </div>
 </aside>
-
 <section>
 <nav id="navbar-main" class="navbar is-fixed-top">
   <div class="navbar-brand">
@@ -121,7 +120,7 @@
       <section class="is-hero-bar">
     <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
       <h2 class="title">
-        <strong>Federal Organization Information</strong>
+        <strong>Regional Organization Information</strong>
       </h2>
 
     </div>
@@ -165,8 +164,7 @@
           </a>
         </div>
       </div>
-      <a href="https://justboil.me/tailwind-admin-templates" class="navbar-item has-divider desktop-icon-only">
-
+   <a href="https://justboil.me/tailwind-admin-templates" class="navbar-item has-divider desktop-icon-only">
         <span class="icon"><i class="mdi mdi-help-circle-outline"></i></span>
         <span>About</span>
       </a>
@@ -182,15 +180,15 @@
   </div>
 </nav>
 
-<x-app-layout>
- <div class="py-12">
+    <x-app-layout>
+        <div class="py-12">
 
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                @livewire('federal.create-regional')
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    @livewire('regional.create-manager')
+                </div>
             </div>
         </div>
-    </div>
     </x-app-layout>
 </section>
 
@@ -198,7 +196,7 @@
   <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0">
     <div class="flex items-center justify-start space-x-3">
       <div>
-               © 2022, JustBoil.copyright
+               © 2022, watchacopyright
       </div>
       <a href="https://github.com/Naty-Tefera/Medic_emr_backup.git" style="height: 20px">
         <img src="https://img.shields.io/github/v/release/justboil/admin-one-tailwind?color=%23999">

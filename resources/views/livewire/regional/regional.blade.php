@@ -1,12 +1,12 @@
 <div class="p-6">
     <div class="flex items-center justify-end px-4 py-3 text-right sm:px-6">
         <x-jet-button wire:click="createShowModal">
-                {{ __('Add Zonal Health Bureaus') }}
+                {{ __('Add Health Bureau') }}
          </x-jet-button>
     </div>
     <x-jet-dialog-modal wire:model="modelFormVisible">
         <x-slot name="title">
-            {{ __('Add Zonal Health Bureau') }} {{$modelId}}
+            {{ __('Add Health Bureau') }} {{$modelId}}
         </x-slot>
 
         <x-slot name="content">
@@ -24,9 +24,11 @@
             <div class="mt-4">
                 <x-jet-label for="type" value="{{ __('Type') }}" />
                 <select name="type" class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="type" />
-                :value="old('type')" required autofocus autocomplete="type">
-                    <option>---Select Type---</option>
-                    <option value="4">Zone Health bureau</option>
+                 :value="old('type')" required autofocus autocomplete="type">
+                    <option>------Select Type------</option>
+                    <option value="2">Regional Health bureau</option>
+                    <option value="3">City Adminstration</option>
+                    <option value="4">Speciality Clinics</option>
                 </select>
                 @error('type') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
@@ -55,17 +57,18 @@
                 <x-jet-input id="city_name" class="block mt-1 w-full" type="text" name="city_name" wire:model.debounce.800ms="city_name" />
                 @error('city_name') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
+
         </x-slot>
 
         <x-slot name="footer">
             @if($modelId)
-                <x-jet-secondary-button class="bg-green-500" wire:click="update" wire:loading.attr="disabled">
+                <x-jet-danger-button class="bg-green-500" wire:click="update" wire:loading.attr="disabled">
                     {{ __('update') }}
-                </x-jet-secondary-button>
-            @else
-                <x-jet-secondary-button class="bg-green-500" wire:click="create" wire:loading.attr="disabled">
+                </x-jet-danger-button>
+                @else
+                <x-jet-danger-button class="bg-green-500" wire:click="create" wire:loading.attr="disabled">
                     {{ __('create') }}
-                </x-jet-secondary-button>
+                </x-jet-danger-button>
             @endif
 
 
@@ -93,12 +96,18 @@
                     <tr>
                         <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->name}}</td>
                         <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->manager_id}}</td>
+                        @if( $organ->type ==2 )
+                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">Regional</td>
+                        @endif
+                        @if( $organ->type ==3 )
+                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">City Adminstration</td>
+                        @endif
                         @if( $organ->type ==4 )
-                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">Zonal</td>
+                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">Speciality Clinic</td>
                         @endif
                         <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->region}}</td>
                         <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->city_name}}</td>
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                        <td  class="px-6 py-3 border-b border-gray-4200 bg-white text-sm">
 
                             <x-jet-button wire:click="updateShowModal({{ $organ->id }})">
                                 {{ __('update') }}
@@ -106,21 +115,21 @@
                             <x-jet-danger-button wire:click="deleteShowModel({{ $organ->id }})" >
                                 {{ __('Delete') }}
                             </x-jet-button>
-                            <x-jet-button class="bg-green-500" wire:click="viewShowModel({{ $organ->id }})">
+                            <x-jet-button class="bg-green-500"  wire:click="viewShowModel({{ $organ->id }})" >
                                 {{ __('view') }}
                             </x-jet-button>
                         </td>
-                    </tr>
                 @endforeach
-            @else
-                    <tr>
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-                        <td class="px-6 py-3 border-b border-black-200 bg-white text-lg">Nope</td>
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
                     </tr>
+            @else
+                <tr>
+                    <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                    <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                    <td class="px-6 py-3 border-b border-black-200 bg-white text-lg">Nope</td>
+                    <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                    <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                    <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                </tr>
             @endif
         </tbody>
     </table>
@@ -156,31 +165,27 @@
 
         <x-slot name="content">
 
-            <table class="leading-normal">
+            <table class="leading-normal" >
                 <tbody>
                         <tr>
                             <th>Name of health center:</th>
-                            <td> {{ $name }}</td>
+                            <td> </td>
                         </tr>
                         <tr>
                             <th>Manager of the health center:</th>
-                            <td> {{ $manager_id }}</td>
+                            <td> </td>
                         </tr>
                         <tr>
                             <th>Type of health center:</th>
-                            <td>
-                                @if ($type == 4)
-                                    Zonal
-                                @endif
-                            </td>
+                            <td> </td>
                         </tr>
                         <tr>
                             <th>Region of health center:</th>
-                            <td> {{ $region }} </td>
+                            <td> </td>
                         </tr>
                         <tr>
                             <th>City of health center:</th>
-                            <td> {{ $city_name }} </td>
+                            <td> </td>
                         </tr>
                 </tbody>
             </table>

@@ -107,7 +107,6 @@
                         <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->region}}</td>
                         <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->city_name}}</td>
                         <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-
                             <x-jet-button wire:click="updateShowModal({{ $organ->id }})">
                                 {{ __('update') }}
                             </x-jet-button>
@@ -122,12 +121,12 @@
                     </tr>
                 @else
                     <tr>
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                        <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                        <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
                         <td class="px-6 py-3 border-b border-black-200 bg-white text-lg">Nope</td>
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                        <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                        <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                        <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
                     </tr>
                 @endif
         </tbody>
@@ -177,11 +176,11 @@
                         <tr>
                             <th>Type of health center:</th>
                             <td>
-                                @if ($type == 1)
+                                @if ($type == 2)
                                     Regional
-                                @elseif ($type == 2)
-                                    City Adminstration
                                 @elseif ($type == 3)
+                                    City Adminstration
+                                @elseif ($type == 4)
                                     Speciality Clinics
                                 @endif
                             </td>
@@ -198,7 +197,7 @@
             </table>
 
         </x-slot>
-
+ 
         <x-slot name="footer">
             <x-jet-secondary-button wire:click="$toggle('modalViewDetailVisible')" wire:loading.attr="disabled">
                 {{ __('Cancel') }}

@@ -7,9 +7,9 @@
   <title> Regional Admin Dashboard</title>
 
   <!-- Tailwind is included -->
- 
+
   <link href="{{ asset('csss/main.css?v=1628755089081') }}" rel="stylesheet">
-  
+
   <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
 
@@ -28,7 +28,7 @@
   <div class="aside-tools">
     <div class="flex-none w-56 flex flex-row items-center">
       <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/light-with-button-svg3.svg" alt="logo" />
-      
+
         <strong class="capitalize ml-1 flex-1">Medic-EMR</strong>
 
         <button id="sliderBtn" class="flex-none text-right text-gray-900 hidden md:block">
@@ -48,7 +48,7 @@
     </ul>
     <p class="menu-label">HOMES</p>
     <ul class="menu-list">
-     
+
       <li class="--set-active-profile-html">
         <a  href="{{ url('/create_zonalbureau') }}">
           <span class="icon"><i class="mdi mdi-account-circle"></i></span>
@@ -56,15 +56,16 @@
         </a>
       </li>
       <li>
-    
-      
-        <li class="--set-active-tables-html">
-        <a href="">
-          <span class="icon"><i class="mdi mdi-table"></i></span>
-          <span class="menu-item-label">Reports</span>
-        </a>
-      </li>
-     
+
+
+
+        <li class="--set-active-profile-html">
+            <a  href="{{ url('/create_zonalmanager') }}">
+              <span class="icon"><i class="mdi mdi-account-circle"></i></span>
+              <span class="menu-item-label">Create Managers</span>
+            </a>
+          </li>
+
       <li>
       <li>
         <a class="dropdown">
@@ -88,7 +89,7 @@
     </ul>
     <p class="menu-label">About</p>
     <ul class="menu-list">
-     
+
       <li>
         <a href="" class="has-icon">
           <span class="icon"><i class="mdi mdi-help-circle"></i></span>
@@ -111,16 +112,6 @@
   </div>
 </aside>
 
-
-{{-- <section class="is-hero-bar">
-    <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-      <h1 class="title">
-        Federal Organization Information
-      </h1>
-   
-    </div>
-
-</section> --}}
 <section>
 <nav id="navbar-main" class="navbar is-fixed-top">
   <div class="navbar-brand">
@@ -133,7 +124,7 @@
       <h2 class="title">
         <strong>Regional Organization Information</strong>
       </h2>
-   
+
     </div>
 
 </section>
@@ -146,7 +137,7 @@
   </div>
   <div class="navbar-menu" id="navbar-menu">
      <div class="navbar-end">
-    
+
       <div class="navbar-item dropdown has-divider has-user-avatar">
         <a class="navbar-link">
           <div class="user-avatar">
@@ -175,14 +166,6 @@
           </a>
         </div>
       </div>
-      {{-- <a href="https://justboil.me/tailwind-admin-templates" class="navbar-item has-divider desktop-icon-only">
-        <span class="icon"><i class="mdi mdi-help-circle-outline"></i></span>
-        <span>About</span>
-      </a>
-      <a href="https://github.com/Naty-Tefera/Medic_emr_backup.git" class="navbar-item has-divider desktop-icon-only">
-        <span class="icon"><i class="mdi mdi-github-circle"></i></span>
-        <span>GitHub</span>
-      </a> --}}
       <a title="Log out" class="navbar-item desktop-icon-only">
         <span class="icon"><i class="mdi mdi-logout"></i></span>
         <span>Log out</span>
@@ -193,11 +176,10 @@
 
 <x-app-layout>
  <div class="py-12">
-   
+
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                {{--  @livewire('regional') --}}
-                @livewire('federal')
+                @livewire('regional.create-zonal')
             </div>
         </div>
     </div>
@@ -248,4 +230,3 @@
 </body>
 </html>
 
-    

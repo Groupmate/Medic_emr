@@ -12,19 +12,8 @@ class CreateRegional extends Component
 
     use WithPagination;
 
-    public $modelFormVisible=false;
-    public $modalConfirmDeleteVisible=false;
-    public $modalViewDetailVisible=false;
-    public $name;
-    public $manager_id;
-    public $type;
-    public $zone;
-    public $woreda;
-    public $kebele;
-    public $region;
-    public $city_name;
-    public $organizations;
-    public $modelId;
+    public $modelFormVisible, $modalConfirmDeleteVisible, $modalViewDetailVisible=false;
+    public $name, $manager_id ,$type, $zone, $woreda, $kebele, $region, $city_name, $organizations, $modelId;
 
     /**
      * createShowModel show modal
@@ -210,6 +199,6 @@ class CreateRegional extends Component
         $organization = Organization::latest()->paginate(5);
 
         return view('livewire.federal.create-regional',[ 'organizations'=>$this->read(),
-                $this->organizations=Organization::whereIn('type' , [1,2,3])->get(),]);
+                $this->organizations=Organization::whereIn('type' , [4,2,3])->get(),]);
     }
 }

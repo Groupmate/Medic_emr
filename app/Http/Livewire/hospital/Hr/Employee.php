@@ -9,14 +9,14 @@ use Livewire\WithPagination;
 class Employee extends Component
 {
     use WithFileUploads;
-    use WithPagination; 
+    use WithPagination;
 
 
     public $modelFormVisible=false; public $modalConfirmDeleteVisible=false; public $modalViewDetailVisible=false;
     public $employes;    public $modelId;
     public $images=[];
     public $first_name;  public $middel_name;  public $last_name;  public $user_id; public $organization_id; public $age;
-    public $sex;  public $password; public $email; public $birth_date; public $image; public $type; public $phone; public $address;    
+    public $sex;  public $password; public $email; public $birth_date; public $image; public $type; public $phone; public $address;
     /**
      * createShowModal show modal
      *
@@ -28,7 +28,7 @@ class Employee extends Component
          $this->resetVars();
        $this->modelFormVisible=true;
 
-    }       
+    }
     /**
      * updateShowModal
      *
@@ -40,7 +40,7 @@ class Employee extends Component
         $this->modelId = $id;
         $this->modelFormVisible=true;
          $this->loadModel();
-    }      
+    }
     /**
      * deleteShowModel
      *
@@ -51,7 +51,7 @@ class Employee extends Component
     {
         $this->modelId=$id;
         $this->modalConfirmDeleteVisible=true;
-    }    
+    }
     /**
      * viewShowModel
      *
@@ -71,16 +71,20 @@ class Employee extends Component
      */
     public function create()
     {
-        foreach($this->images as $key=>$image){
-            $this->images[$key]= $image->store('image','public');
+        $filename="";
+        if($this->image){
+            $filename=$this->image->store('posts','public');
         }
-        $this->images =json_encode($this->images);
+        else{
+            $filename=Null;
+        }
+
         $this->validate();
        Employe::create($this->modeldata());
        session()->flash('message', 'Employee registered Successfully.');
         $this->modelFormVisible= false;
         $this->resetvars();
-    }     
+    }
     /**
      * update
      *
@@ -92,7 +96,7 @@ class Employee extends Component
         Employe::find($this->modelId)->update($this->modelData());
         $this->modelFormVisible= false;
         $this->resetvars();
-    }       
+    }
     /**
      * delete
      *
@@ -126,9 +130,9 @@ class Employee extends Component
             'address'=>$this->address,
             'birth_date'=>$this->birth_date,
             'image'=>$this->image,
-           
+
         ];
-    }    
+    }
     /**
      * resetvars reset values
      *
@@ -151,8 +155,8 @@ class Employee extends Component
         $this->birth_date=null;
         $this->phone=null;
         $this->address=null;
-       
-    }    
+
+    }
     /**
      * rules validate
      *
@@ -176,7 +180,7 @@ class Employee extends Component
             'address'=>'required',
             'birth_date'=>'required',
         ];
-    }       
+    }
     /**
      * loadModel in edit get old value
      *
@@ -198,8 +202,8 @@ class Employee extends Component
             $this->organization_id= $employes->organization_id;
             $this->birth_date= $employes->birth_date;
             $this->type= $employes->type;
-        
-    }     
+
+    }
     /**
      * read
      *
@@ -208,7 +212,7 @@ class Employee extends Component
     public function read()
     {
       return Employe::paginate(5);
-    }    
+    }
     /**
      * render
      *
@@ -217,7 +221,7 @@ class Employee extends Component
     public function render()
     {
         $employes = Employe::latest()->paginate(5);
-        return view('livewire.hospital.hr.employee',[ 'employes'=>$this->read(), 
+        return view('livewire.hospital.hr.employee',[ 'employes'=>$this->read(),
         $this->employes=Employe::all(),]);
     }
 }

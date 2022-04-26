@@ -7,6 +7,16 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
+
+    /**
+     * 1, federal man
+     * 2, regional man
+     * 3, city man
+     * 4, zone man
+     * 5, hospital man
+     *
+     * @return void
+     */
     public function index()
     {
         if(Auth()->user()->role == 1){
@@ -27,7 +37,7 @@ class HomeController extends Controller
         if(Auth()->user()->role == 6){
             return view('hospital.doctors.dashboard');
         }
-        
-        
+
+
     }
 }
