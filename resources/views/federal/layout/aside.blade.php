@@ -97,7 +97,7 @@
         <section class="is-hero-bar">
       <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
         <h2 class="title">
-          <strong>Regional Organization Information</strong>
+          <strong>At Federal Level Information Reagrding Regional, City Adminstration And Speciality Health Bereaus</strong>
         </h2>
 
       </div>

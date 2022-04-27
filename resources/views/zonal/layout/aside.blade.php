@@ -26,7 +26,7 @@
         <li class="--set-active-profile-html">
           <a  href="{{ url('/create_hospital') }}">
             <span class="icon"><i class="mdi mdi-account-circle"></i></span>
-            <span class="menu-item-label">Create hospital</span>
+            <span class="menu-item-label">Register Health Organ</span>
           </a>
         </li>
         <li class="--set-active-profile-html">
@@ -94,7 +94,7 @@
         <section class="is-hero-bar">
       <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
         <h2 class="title">
-          <strong>Regional Organization Information</strong>
+          <strong>Information Regrading Zone Health Bureaus</strong>
         </h2>
 
       </div>
