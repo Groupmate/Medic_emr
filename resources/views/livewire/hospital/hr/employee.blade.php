@@ -32,17 +32,13 @@
         <x-slot name="content">
           <form  class="w-full max-w-lg" action="">
             @csrf
-              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
                                 <div class="mt-4">
                                     <x-jet-label for="first_name" value="{{ __('First-Name') }}" />
                                     <x-jet-input id="first_name" class="appearance-none block w-full bg-gray-200 text-gray-500 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="first_name" wire:model.debounce.800ms="first_name" />
                                     @error('first_name') <span class="error text-red-600">{{$message}}</span>@enderror
                                 </div>
-                            <div class="mt-4">
-                                <x-jet-label for="middel_name" value="{{ __('Middel-Name') }}" />
-                                <x-jet-input id="middel_name" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="middel_name" wire:model.debounce.800ms="middel_name" />
-                                @error('middel_name') <span class="error text-red-600">{{$message}}</span>@enderror
-                            </div>
+                           
                           <div class="mt-4">
                               <x-jet-label for="last_name" value="{{ __('Last-Name') }}" />
                               <x-jet-input id="last_name" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="last_name" wire:model.debounce.800ms="last_name" />
@@ -50,18 +46,7 @@
                           </div>
             
                 </div>
-                <div  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
-                            <div class="mt-4">
-                                <x-jet-label for="user_id" value="{{ __('User-Id') }}" />
-                                <x-jet-input id="user_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="user_id" wire:model.debounce.800ms="user_id" />
-                                @error('user_id') <span class="error text-red-600">{{$message}}</span>@enderror
-                            </div>
-                            <div class="mt-4">
-                                <x-jet-label for="organization_id" value="{{ __('Organization_Id') }}" />
-                                <x-jet-input id="organization_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="organization_id" wire:model.debounce.800ms="organization_id" />
-                                @error('organization_id') <span class="error text-red-600">{{$message}}</span>@enderror
-                            </div>
-                  </div>
+               
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
                         <div class="mt-4">
                               <x-jet-label for="email" value="{{ __('Email') }}" />
@@ -79,9 +64,9 @@
                 
                   <div  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
                             <div class="mt-4">
-                                <x-jet-label for="age" value="{{ __('Age') }}" />
-                                <x-jet-input id="age" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="age" wire:model.debounce.800ms="age" />
-                                @error('age') <span class="error text-red-600">{{$message}}</span>@enderror
+                                <x-jet-label for="department" value="{{ __('Department') }}" />
+                                <x-jet-input id="department" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="department" wire:model.debounce.800ms="department" />
+                                @error('department') <span class="error text-red-600">{{$message}}</span>@enderror
                             </div>
                             <div class="mt-4">
                                   <x-jet-label for="sex" value="{{ __('Sex') }}" />
@@ -107,27 +92,45 @@
                                 @error('address') <span class="error text-red-600">{{$message}}</span>@enderror
                             </div>
                           <div class="mt-4">
-                              <x-jet-label for="birth_date" value="{{ __('Birth-Date') }}" />
-                              <x-jet-input id="birth_date" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="date" name="birth_date" wire:model.debounce.800ms="birth_date" />
-                              @error('birth_date') <span class="error text-red-600">{{$message}}</span>@enderror
+                              <x-jet-label for="date_of_birth" value="{{ __('Birth-Date') }}" />
+                              <x-jet-input id="date_of_birth" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="date" name="date_of_birth" wire:model.debounce.800ms="date_of_birth" />
+                              @error('date_of_birth') <span class="error text-red-600">{{$message}}</span>@enderror
                           </div>
             
                 </div>
-                <div  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
+                <div  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                             <div class="mt-4">
-                                <x-jet-label for="image" value="{{ __('Profile-Picture') }}" />
-                                <x-jet-input id="image" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="file" name="image" wire:model.debounce.800ms="image" />
-                                @error('image') <span class="error text-red-600">{{$message}}</span>@enderror
+                                <x-jet-label for="profile_pic" value="{{ __('Profile-Picture') }}" />
+                                <x-jet-input id="profile_pic" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="file" name="profile_pic" wire:model.debounce.800ms="profile_pic" />
+                                @error('profile_pic') <span class="error text-red-600">{{$message}}</span>@enderror
                             </div>
+                            <!-- <div class="mt-4">
+                                <x-jet-label for="type" value="{{ __('Type') }}" />
+                                <x-jet-input id="type" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="type" wire:model.debounce.800ms="type" />
+                                @error('type') <span class="error text-red-600">{{$message}}</span>@enderror
+                            </div> -->
                                 <div class="mt-4">
                                         <x-jet-label for="type" value="{{ __('Type') }}" />
                                         <select name="type" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" wire:model.debounce.800ms="type" />
                                         :value="old('type')" required autofocus autocomplete="sex">
                                             <option>---Select type---</option>
-                                            <option value="doctor">Doctor</option>
-                                            <option value="recept">Receptionist</option>
-                                            <option value="pharmacy">Pharmacy</option>
-                                            <option value="labratory">Lababratory</option>
+                                            <option value="1">Doctor</option>
+                                            <option value="2">Receptionist</option>
+                                            <option value="3">Pharmacy</option>
+                                            <option value="4">Lababratory</option>
+                                          
+                                        </select>
+                                        @error('type') <span class="error text-red-600">{{$message}}</span>@enderror
+                              </div>
+                              <div class="mt-4">
+                                        <x-jet-label for="role" value="{{ __('Role') }}" />
+                                        <select name="role" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" wire:model.debounce.800ms="role" />
+                                        :value="old('role')" required autofocus autocomplete="sex">
+                                            <option>---Select role---</option>
+                                            <option value="5">Doctor</option>
+                                            <option value="6">Receptionist</option>
+                                            <option value="5">Pharmacy</option>
+                                            <option value="5">Lababratory</option>
                                           
                                         </select>
                                         @error('type') <span class="error text-red-600">{{$message}}</span>@enderror
@@ -167,19 +170,32 @@
                                             <th  class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">last-name</th>
                                             <th  class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">type</th>
                                             <th   class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">address</th>
-                                            <th   class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">profile-picture</th>
+                                            <th   class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">phone</th>
                                             <th   class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">action</th>
                                         
                                         </tr>
                                 </thead>
                             <tbody>
+                                
                             @foreach($employes as $employe)
+                               @if($employe->role==5&&6)
                                 <tr>
                                             <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->first_name}}</td>
                                             <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->last_name}}</td>
-                                            <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->type}}</td>
+                                            @if($employe->type==1)
+                                             <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">doctor</td>
+                                            @endif
+                                            @if($employe->type==2)
+                                             <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">receptionist</td>
+                                            @endif
+                                            @if($employe->type==3)
+                                             <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">pharmacist</td>
+                                            @endif
+                                            @if($employe->type==4)
+                                             <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">lab technician</td>
+                                            @endif
                                             <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->address}}</td>
-                                            <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->image}}</td>
+                                            <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->phone}}</td>
                                             <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
                                                         
                                                 <x-jet-button wire:click="updateShowModal({{ $employe->id }})">
@@ -192,10 +208,11 @@
                                                     {{ __('view') }}
                                                 </x-jet-button>
                                             </td>
+                                          @endif
                                  @endforeach
                                         </tr>
                                
-                                   
+                              
                             </tbody>
                     </table>
                 <x-jet-dialog-modal wire:model="modalConfirmDeleteVisible">
@@ -236,10 +253,7 @@
                                                     <th class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">First-Name:</th>
                                                     <td class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">{{$first_name}}</td>
                                                 </tr>
-                                                <tr>
-                                                    <th class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">Middel-Name:</th>
-                                                    <td class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">{{$middel_name}}</td>
-                                                </tr>
+                                               
                                                 <tr>
                                                     <th class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">Last-Name:</th>
                                                     <td class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">{{$last_name}}</td>
@@ -249,13 +263,10 @@
                                                     <td class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">{{$sex}}</td>
                                                 </tr>
                                                <tr>
-                                                    <th class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">Age:</th>
-                                                    <td class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">{{$age}}</td>
+                                                    <th class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">department:</th>
+                                                    <td class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">{{$department}}</td>
                                                 </tr>
-                                                <tr>
-                                                    <th class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">User-Id:</th>
-                                                    <td class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">{{$user_id}}</td>
-                                                </tr>
+                                               
                                                 <tr>
                                                     <th class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">Phone-Number:</th>
                                                     <td class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">{{$phone}}</td>
