@@ -78,7 +78,7 @@
           </a>
         </li>
         <li class="--set-active-forms-html">
-          <a href="{{ route('logout') }}">
+          <a href="">
             <span class="icon"><i class="mdi mdi-lock"></i></span>
             <span class="menu-item-label">Logout</span>
           </a>

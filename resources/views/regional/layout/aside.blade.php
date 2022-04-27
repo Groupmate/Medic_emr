@@ -30,7 +30,7 @@
           </a>
         </li>
         <li class="--set-active-profile-html">
-          <a  href="{{ url('/create_manager') }}">
+          <a  href="{{ url('/create_zonalmanager') }}">
             <span class="icon"><i class="mdi mdi-account-circle"></i></span>
             <span class="menu-item-label">Create Managers</span>
           </a>
