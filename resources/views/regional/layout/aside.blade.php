@@ -138,7 +138,7 @@
             </a>
           </div>
         </div>
-     <a href="https://justboil.me/tailwind-admin-templates" class="navbar-item has-divider desktop-icon-only">
+     <a href="https://github.com/Naty-Tefera/Medic_emr_backup.git" class="navbar-item has-divider desktop-icon-only">
           <span class="icon"><i class="mdi mdi-help-circle-outline"></i></span>
           <span>About</span>
         </a>

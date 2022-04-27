@@ -17,7 +17,7 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/profile', function ()  { return view('federal.profile'); })->name('create_regionalbureau');
         Route::get('/create_zonalbureau', function () { return view('regional.create_zonalbureau'); })->name('create_zonalbureau');
         Route::get('/create_zonalmanager', function ()  {  return view('regional.create_manager');})->name('create_zonalmanager');
-        Route::get('/profile', function ()  { return view('regional.profile'); })->name('create_regionalbureau');
+        Route::get('/regionalprofile', function ()  { return view('regional.profile'); })->name('create_regionalbureau');
         Route::get('/create_hospital', function () { return view('zonal.create_hospital'); })->name('create_hospital');
         Route::get('/create_hospitalmanager', function ()  {  return view('zonal.create_manager');})->name('create_hospitalmanager');
         Route::get('/hospitalmanagerprofile', function ()  { return view('zonal.profile'); })->name('create_hospitalmanagerprofile');

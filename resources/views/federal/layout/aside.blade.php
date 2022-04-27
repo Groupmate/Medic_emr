@@ -15,7 +15,7 @@
       <p class="menu-label">General</p>
       <ul class="menu-list">
         <li class="--set-active-index-html">
-          <a href="{{ url('dashboard2') }}">
+          <a href="{{ url('dashboard') }}">
             <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
             <span class="menu-item-label">Dashboard</span>
           </a>
@@ -66,13 +66,13 @@
       <ul class="menu-list">
 
         <li>
-          <a href="" class="has-icon">
+          <a href="https://github.com/Naty-Tefera/Medic_emr_backup.git" class="has-icon">
             <span class="icon"><i class="mdi mdi-help-circle"></i></span>
             <span class="menu-item-label">About</span>
-          </a>
+          </a>  
         </li>
         <li class="--set-active-forms-html">
-          <a  href="{{ url('profile') }}">
+          <a  href="{{ url('/profile') }}">
             <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
             <span class="menu-item-label">Profile</span>
           </a>
