@@ -176,11 +176,11 @@
                         <tr>
                             <th>Type of health center:</th>
                             <td>
-                                @if ($type == 2)
+                                @if ($type == 1)
                                     Regional
-                                @elseif ($type == 3)
+                                @elseif ($type == 2)
                                     City Adminstration
-                                @elseif ($type == 4)
+                                @elseif ($type == 3)
                                     Speciality Clinics
                                 @endif
                             </td>

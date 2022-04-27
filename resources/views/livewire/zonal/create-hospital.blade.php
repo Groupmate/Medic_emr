@@ -26,7 +26,7 @@
                 <select name="type" class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="type" />
                 :value="old('type')" required autofocus autocomplete="type">
                     <option>---Select Type---</option>
-                    <option value="4">Zone Health bureau</option>
+                    <option value="5">Zone Health bureau</option>
                 </select>
                 @error('type') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
@@ -93,7 +93,7 @@
                     <tr>
                         <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->name}}</td>
                         <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->manager_id}}</td>
-                        @if( $organ->type ==4 )
+                        @if( $organ->type ==5 )
                             <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">Zonal</td>
                         @endif
                         <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->region}}</td>
