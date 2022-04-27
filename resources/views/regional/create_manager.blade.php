@@ -50,13 +50,13 @@
     <ul class="menu-list">
 
       <li class="--set-active-profile-html">
-        <a  href="{{ url('/create_zonalbureau') }}">
+        <a  href="{{ url('/create_regionalbureau') }}">
           <span class="icon"><i class="mdi mdi-account-circle"></i></span>
           <span class="menu-item-label">Add Organization</span>
         </a>
       </li>
       <li class="--set-active-profile-html">
-        <a  href="{{ url('/create_zonalmanager') }}">
+        <a  href="{{ url('/create_manager') }}">
           <span class="icon"><i class="mdi mdi-account-circle"></i></span>
           <span class="menu-item-label">Create Managers</span>
         </a>
