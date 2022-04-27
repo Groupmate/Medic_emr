@@ -199,6 +199,6 @@ class CreateRegional extends Component
         $organization = Organization::latest()->paginate(5);
 
         return view('livewire.federal.create-regional',[ 'organizations'=>$this->read(),
-                $this->organizations=Organization::whereIn('type' , [4,2,3])->get(),]);
+                $this->organizations=Organization::whereIn('type' , [1,2,3])->get(),]);
     }
 }
