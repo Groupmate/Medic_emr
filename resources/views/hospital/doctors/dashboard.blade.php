@@ -12,9 +12,9 @@
     <title>Dashboard</title>
 
     <!-- Custom fonts for this template-->
+   
     <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
-    <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
     
     @livewireStyles
 </head>

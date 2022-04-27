@@ -22,7 +22,7 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/create_hospitalmanager', function ()  {  return view('zonal.create_manager');})->name('create_hospitalmanager');
         Route::get('/hospitalmanagerprofile', function ()  { return view('zonal.profile'); })->name('create_hospitalmanagerprofile');
         Route::get('/employee', function () { return view('hospital.hr.employee');})->name('employee');
-        Route::get('/employe', function () { return view('hospital.doct.employe');})->name('employe');
+        Route::get('/employe', function () { return view('hospital.reception.employe');})->name('employe');
         Route::get('/viewemployee', function () {  return view('hospital.hr.viewemployee');})->name('viewemployee');
         Route::get('/patient', function () { return view('hospital.doctors.patient'); })->name('patient');
         Route::get('/home', function () { return view('hospital.doctors.home'); })->name('doctors.home');

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Hospital\Doct;
+namespace App\Http\Livewire\Hospital\Reception;
 
 use Livewire\Component;
 
@@ -8,6 +8,6 @@ class Employe extends Component
 {
     public function render()
     {
-        return view('livewire.hospital.doct.employe');
+        return view('livewire.hospital.reception.employe');
     }
 }
