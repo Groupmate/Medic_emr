@@ -26,4 +26,7 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/viewemployee', function () {  return view('hospital.hr.viewemployee');})->name('viewemployee');
         Route::get('/patient', function () { return view('hospital.doctors.patient'); })->name('patient');
         Route::get('/home', function () { return view('hospital.doctors.home'); })->name('doctors.home');
+        Route::get('/appointment', function () { return view('hospital.doctors.appointment'); })->name('doctors.home');
+        Route::get('/dash', function () { return view(' hospital.doctors.dashboard'); })->name('doctors.dash');
+       
 });

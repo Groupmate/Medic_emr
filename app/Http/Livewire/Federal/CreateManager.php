@@ -23,6 +23,7 @@ class CreateManager extends Component
     {
         $this->validate();
         User::create($this->modeldata());
+        session()->flash('message', 'Managere registered Successfully.');
         $this->reset();
     }
 

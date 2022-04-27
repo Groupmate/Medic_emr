@@ -177,13 +177,13 @@
 
       <!-- link -->
      
-      <a href="./index.html" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+      <a href="{{ url('/dash') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
         <i class="fad fa-shopping-cart text-xl mr-2"></i>         
          Dashboard
       </a>  
       
         <div id="dropdown" x-show="show" class="ml-4">
-            <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
+            <a  href="{{ url('/appointment') }}" class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
             <i class="fad fa-calendar-check text-xl mr-3"></i>
                 Appointement
             </a>

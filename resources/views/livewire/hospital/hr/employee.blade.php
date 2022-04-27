@@ -127,8 +127,8 @@
                                         <select name="role" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" wire:model.debounce.800ms="role" />
                                         :value="old('role')" required autofocus autocomplete="sex">
                                             <option>---Select role---</option>
-                                            <option value="5">Doctor</option>
-                                            <option value="6">Receptionist</option>
+                                            <option value="6">Doctor</option>
+                                            <option value="5">Receptionist</option>
                                             <option value="5">Pharmacy</option>
                                             <option value="5">Lababratory</option>
                                           

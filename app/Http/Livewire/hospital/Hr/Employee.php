@@ -5,6 +5,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\User;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
 use Livewire\WithPagination;
 class Employee extends Component
 {
@@ -81,7 +82,7 @@ class Employee extends Component
 
         $this->validate();
        User::create($this->modeldata());
-       session()->flash('message', 'Employee registered Successfully.');
+       session()->flash('message', 'Employee Registered Successfully.');
         $this->modelFormVisible= false;
         $this->resetvars();
     }
@@ -119,7 +120,7 @@ class Employee extends Component
             'first_name'=>$this->first_name,
            
             'last_name'=>$this->last_name,
-            'password'=>$this->password,
+            'password' => Hash::make($this->password),
             'email'=>$this->email,
           
             // 'organ_id'=>$this->organization_id,
