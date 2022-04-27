@@ -25,8 +25,8 @@ class HomeController extends Controller
         if(Auth()->user()->role == 2){
             return view('regional.create_zonalbureau');
         }
-        if(Auth()->user()->role == 3){
-            return view('zonal.create_woredabureau');
+        if(Auth()->user()->role == 3 ){
+            return view('zonal.create_hospital');
         }
         if(Auth()->user()->role == 4){
             return view('hospital.hr.dashboard');
