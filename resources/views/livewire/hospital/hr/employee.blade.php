@@ -1,23 +1,15 @@
 
 
 <div class="p-6">
-            @if (session()->has('message'))
-
-                    <div class=" flex bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
-
-                                    <div class="flex">
-
-                                                <div>
-
-                                                    <p class="text-sm border-teal-500 rounded-b text-teal-900">{{ session('message') }}</p>
-
-                                                </div>
-
-                                    </div>
-
+    @if (session()->has('message'))
+        <div class=" flex bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
+                <div class="flex">
+                    <div>
+                    <p class="text-sm border-teal-500 rounded-b text-teal-900">{{ session('message') }}</p>
                     </div>
-
-            @endif
+                </div>
+         </div>
+    @endif
     <div class="flex items-center justify-end px-4 py-3 text-right sm:px-6 bg-blue-600 ">
         <x-jet-button  wire:click="createShowModal" >
                 {{ __('Add Employee') }}
@@ -127,10 +119,10 @@
                                         <select name="role" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" wire:model.debounce.800ms="role" />
                                         :value="old('role')" required autofocus autocomplete="sex">
                                             <option>---Select role---</option>
-                                            <option value="6">Doctor</option>
                                             <option value="5">Receptionist</option>
-                                            <option value="5">Pharmacy</option>
-                                            <option value="5">Lababratory</option>
+                                            <option value="6">Doctor</option>
+                                            <option value="7">Pharmacy</option>
+                                            <option value="7">Lababratory</option>
                                           
                                         </select>
                                         @error('type') <span class="error text-red-600">{{$message}}</span>@enderror
@@ -178,7 +170,7 @@
                             <tbody>
                                 
                             @foreach($employes as $employe)
-                               @if($employe->role==5&&6)
+                               @if($employe->role==5 && 6)
                                 <tr>
                                             <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->first_name}}</td>
                                             <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->last_name}}</td>

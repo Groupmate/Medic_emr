@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Livewire;
-
+namespace App\Http\Livewire\Hospital\Reception;
 use Livewire\Component;
 use App\Models\Patient;
 use Livewire\WithPagination;
 
 
-class Patients extends Component
+class Viewpatient extends Component
 {
     use WithPagination;
     public $active;
@@ -42,8 +41,8 @@ class Patients extends Component
          
           $query   = $patient->toSql();
           $patient = $patient->paginate(8);
-           
-        return view('livewire.patients', [
+          return view('livewire.hospital.reception.viewpatient', [
+        // return view('livewire.patients', [
          'patient' => $patient
         ]);
     }
