@@ -2,13 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Livewire\ShowBooking;
+use App\Http\Livewire\CreateBooking;
+use App\Http\Controllers\BookingController;
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
+
+
 Route::redirect(uri:'/', destination:'login');
 Route::get('/dashboard', 'App\Http\Controllers\HomeController@index')->name('dashboard');
+
+Route::get('/bookings/create', CreateBooking::class);
+Route::get('bookings/{appointment:uuid}', ShowBooking::class)->name('bookings.show');
+
 
 Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
     ])->group(function () {
