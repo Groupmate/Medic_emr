@@ -38,7 +38,7 @@
         <li>
 
         <li class="--set-active-forms-html">
-          <a  href="{{ url('profile') }}">
+          <a  href="{{ url('regionalprofile') }}">
             <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
             <span class="menu-item-label">Profile</span>
           </a>
