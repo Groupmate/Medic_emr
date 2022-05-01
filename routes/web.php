@@ -32,12 +32,9 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/home', function () { return view('hospital.doctors.home'); })->name('doctors.home');
         Route::get('/appointment', function () { return view('hospital.doctors.appointment'); })->name('doctors.home');
         //Hospital or HealthCenter ->> Reception
-        Route::get('/register_patient', function () { return view('hospital.reception.registerpatient'); })->name('patientRegister');
-        Route::get('/viewpatient', function () { return view('hospital.reception.viewpatient'); })->name('viewreception');
-
         Route::get('/dash', function () { return view(' hospital.reception.dashboard'); })->name('doctors.dash');
-
+        Route::get('/register_patient', function () { return view('hospital.reception.registerpatient'); })->name('patientRegister');
         Route::get('/viewpatients', function () { return view('hospital.reception.viewpatients'); })->name('viewreception');
-        Route::get('/dash', function () { return view(' hospital.doctors.dashboard'); })->name('doctors.dash');
-
+        //None
+        Route::get('/viewpatient', function () { return view('hospital.reception.viewpatient'); })->name('viewreception');
 });
