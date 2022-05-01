@@ -10,7 +10,7 @@
 
   <link href="{{ asset('csss/main1.css?v=1628755089081') }}" rel="stylesheet">
 
-  <link href="{{ asset('frontend/csss/style.css') }}" rel="stylesheet">
+  <link href="{{ asset('frontend/csss/style1.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
 
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>

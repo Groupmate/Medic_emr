@@ -1,57 +1,64 @@
-  <!-- strat wrapper -->
-          <div class="h-screen flex flex-row flex-wrap">
-          
-              <!-- start sidebar -->
-          <div id="sideBar" class="relative flex flex-col flex-wrap bg-white border-r border-gray-300 p-6 flex-none w-64 md:-ml-64 md:fixed md:top-0 md:z-30 md:h-screen md:shadow-xl animated faster">
-              
-
-              <!-- sidebar content -->
-              <div class="flex flex-col"> 
-
-              <!-- sidebar toggle -->
-              <div class="text-right hidden md:block mb-4">
-                  <button id="sideBarHideBtn">
-                  <i class="fad fa-times-circle"></i>
-                  </button>
-              </div>
-              <!-- end sidebar toggle -->
-
-              <p class="uppercase text-xs text-gray-600 mb-4 tracking-wider">Homes</p>
-
-              <!-- link -->
-              <a href="{{ url('') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
-                  <i class="far fa-clinic-medical text-xl mr-2" ></i>        
-                     Home
-              </a>   <hr class="border-t border-gray-400 my-0">
-
-                  <div id="dropdown" x-show="show" class="ml-2">
-                      <a href="{{ url('/register_patient') }}" class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500">
-                        <i class="far fa-files-medical text-xl mr-2"></i>
-                            Add Patient
-                        </a>
-                      
-                      <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
-                      <i class="far fa-calendar-check text-xl mr-2"></i>
-                          Book An Appointement</a>
-                      </a>
-                      <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
-                      <i class="far fa-hospital-user text-xl mr-2"></i>
-                         Profile
-                      </a>
-                      <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
-                      <i class="far fa-calendar-check text-xl mr-2"></i>
-                          Logout</a>
-                      </a>
-                      <br>
-                      <hr class="border-t border-gray-400 my-0">        
-                  </div>
-                  <!-- end link -->
-                  </div>
-                  <!-- end sidebar content -->
-              </div>
-              <!-- end sidbar  -->
-          <!-- middle display --> 
-              <div class="bg-gray-100 flex-1 p-4 md:mt-16"> 
-              
-          
+  
+<aside class="aside is-placed-left is-expanded">
+  <div class="aside-tools">
+    
+    <div class="flex-none w-30 flex flex-row items-center">
+      <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/light-with-button-svg3.svg" alt="logo" />
       
+        <strong class="capitalize  flex-1">Medic-EMR</strong>
+
+    </div>
+  </div>
+  <div class="menu is-menu-main">
+    <p class="menu-label">General</p>
+    <ul class="menu-list">
+      <li class="">
+        <a  href="{{ url('/dash') }}">
+          <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
+          <span class="menu-item-label"><strong>Dashboard</strong></span>
+        </a>
+      </li>
+    </ul>
+    <p class="menu-label">HOMES</p>
+    <ul class="menu-list">
+     
+      <li class="--set-active-profile-html">
+        <a href="{{ url('/register_patient') }}">
+          <span class="icon"><i class="mdi mdi-account-circle"></i></span>
+          <span class="menu-item-label"><strong> Add Patient    </strong></span>
+        </a>
+      </li>
+       <li class="--set-active-forms-html">
+        <a href="">
+          <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
+          <span class="menu-item-label"><strong>Book an appointment</strong></span>
+        </a>
+      </li>
+      <li>
+      <li class="--set-active-tables-html">
+        <a href="">
+          <span class="icon"><i class="mdi mdi-table"></i></span>
+          <span class="menu-item-label"><strong>Profile</strong></span>
+        </a>
+      </li>
+    
+    </ul>
+    <p class="menu-label"><strong>About</strong></p>
+    <ul class="menu-list">
+      
+      <li>
+        <a href="https://justboil.me/tailwind-admin-templates" class="has-icon">
+          <span class="icon"><i class="mdi mdi-help-circle"></i></span>
+          <span class="menu-item-label"><strong>About</strong></span>
+        </a>
+      </li>
+      <li class="--set-active-forms-html">
+        <a href="">
+          <span class="icon"><i class="mdi mdi-lock"></i></span>
+          <span class="menu-item-label"><strong>Logout</strong></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside>
+<section class="section main-section">

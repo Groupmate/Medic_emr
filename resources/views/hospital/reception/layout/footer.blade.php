@@ -1,12 +1,6 @@
 
-              </div>
-          <!-- middle display --> 
-          
+</section>
+</div>
 
-  </div>
-  <!-- end wrapper -->
-  
-    @livewireScripts
-   
 </body>
 </html>
