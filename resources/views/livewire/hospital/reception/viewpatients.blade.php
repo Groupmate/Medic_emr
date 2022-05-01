@@ -47,6 +47,9 @@
                                           <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
                                         </svg> {{ __('Edit') }}
                                       </x-jet-button>
+                                         {{-- <x-jet-button wire:click="viewShowModel({{ $patient->id }})" class="bg-green-500">
+                                        {{ __('view') }}
+                                        </x-jet-button> --}}
                                       <x-jet-danger-button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"  wire:click="deleteShowModel({{ $patient->id }})" >
                                         <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"viewBox="0 0 20 20">
                                           <path
@@ -58,9 +61,7 @@
                                     {{ __('Edit') }}
                                     </x-jet-button>
                                     
-                                    <x-jet-button wire:click="viewShowModel({{ $patient->id }})" class="bg-green-500">
-                                        {{ __('view') }}
-                                    </x-jet-button>
+                                 
                                     <x-jet-danger-button wire:click="deleteShowModel({{ $patient->id }})" >
                                         {{ __('Delete') }}
                                     </x-jet-button> --}}

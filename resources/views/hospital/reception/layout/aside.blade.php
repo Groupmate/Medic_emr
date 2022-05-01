@@ -29,7 +29,7 @@
         </a>
       </li>
        <li class="--set-active-forms-html">
-        <a href="">
+        <a href="{{ url('/viewpatients') }}">
           <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
           <span class="menu-item-label"><strong>Book an appointment</strong></span>
         </a>
