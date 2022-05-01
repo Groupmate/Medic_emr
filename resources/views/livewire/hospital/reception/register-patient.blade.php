@@ -14,10 +14,10 @@
         <p class="text-red text-xs italic">Please fill out this field.</p>
       </div>
       <div class="md:w-1/2 px-3">
-        <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">
+        <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="email">
          Email
         </label>
-        <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-last-name" type="text" placeholder="Email">
+        <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-last-name" type="email" placeholder="Email">
       </div>
       <div class="md:w-1/2 px-3 mb-6 md:mb-0">
         <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-city">
@@ -76,10 +76,10 @@
 
     <div class="-mx-3 md:flex mb-6">
       <div class="md:w-full px-3">
-        <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-password">
+        <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"  >
          Date Of Birth
         </label>
-        <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-password" type="password" placeholder="******************">
+        <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3"  placeholder="">
         <p class="text-grey-dark text-xs italic">Make it as long and as crazy as you'd like</p>
       
     </div>
@@ -130,15 +130,12 @@
           </div>     
         </div>
       </div>
-      <button type="submit" class="
-          px-1
-          py-4
-          bg-blue-600
-          text-white
-          font-medium
-          text-xs
-          
-          ">Submit</button>
+     <button
+              type="submit"
+              class="my-5 w-7 px-14 py-4 flex justify-center bg-blue-500 text-gray-100 p-4 rounded-full tracking-wide font-semibold focus:outline-none focus:shadow-outline hover:bg-blue-600 shadow-lg cursor-pointer transition ease-in duration-300"
+            >
+             Submit
+            </button>
     </div>
   </div>
 </div>
