@@ -5,13 +5,16 @@ namespace App\Http\Livewire\Hospital\Reception;
 use Livewire\Component;
 use Illuminate\Validation\Rule;
 use Livewire\WithPagination;
+use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Patientss;
 
 class RegisterPatient extends Component
 {
+    use WithFileUploads;
+
     public $firstname; public $lastname; public $phone_no; public $profile_pic; public $patient_id; public $date_of_birth; public $email;
-    public $religion;public $blood_group;public $kebele;public $zone;public $wereda;public $region;public $cityname;public $middelname;public $sex;
+    public $religion;public $blood_group;public $kebele;public $zone;public $woreda;public $region;public $cityname;public $middelname;public $sex;
 
     
     /**
@@ -37,13 +40,13 @@ class RegisterPatient extends Component
             'firstname'=>$this->firstname,
             'lastname'=>$this->lastname,
             'sex'=>$this->sex,
-            'marriage_status'=>$this->middelname,
+            'middelname'=>$this->middelname,
             'patient_id'=>$this->patient_id,
             'phone_no'=>$this->phone_no,
             'email'=>$this->email,
             'religion'=>$this->religion,
             'profil_pic'=>$this->profile_pic,
-            'date_of_birth'=>$this->date_of_birth,
+            'data_of_birth'=>$this->date_of_birth,
             'blood_group'=>$this->blood_group,
            
             'region'=>$this->region,
@@ -65,10 +68,10 @@ class RegisterPatient extends Component
             'lastname'=>'required',
             'middelname'=>'required',
             'region'=>'required',
-            'profil_pic'=>'required',
+            'profile_pic'=>'required',
             'patient_id'=>'required',
             'date_of_birth'=>'required',
-            'wereda'=>'required',
+            'woreda'=>'required',
             
         ];
     }

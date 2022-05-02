@@ -14,6 +14,7 @@ class Viewpatients extends Component
     //  public $patients;
     public $modalConfirmDeleteVisible=false;
     public $modelId;
+    public $modelFormVisible=false;
 
     public $firstname; public $lastname; public $phone_no; public $profil_pic; public $patient_id; public $birth_of_date; public $email;
     public $religion;public $blood_group;public $kebele;public $zone;public $wereda;public $region;public $cityname;public $marriage_status;
@@ -30,6 +31,15 @@ class Viewpatients extends Component
         $this->modelId=$id;
         $this->modalConfirmDeleteVisible=true;
     }
+
+
+    public function updateShowModal($id)
+    {
+        $this->modelId = $id;
+        $this->modelFormVisible=true;
+        //  $this->loadModel();
+    }
+
     public function delete()
     {
       Patientss::destroy($this->modelId);

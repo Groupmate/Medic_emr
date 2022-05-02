@@ -66,9 +66,9 @@
                                 </div>
                                   <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                                 
-                                      <x-jet-label for="wereda" value="{{ __           ('wereda') }}"/>
-                                      <x-jet-input id="wereda" class="block mt-1 w-full" type="text" placeholder="wereda" wire:model.debounce.800ms="wereda"/>
-                                      @error('wereda') <span class="error">{{$message}}</span>@enderror
+                                      <x-jet-label for="woreda" value="{{ __           ('woreda') }}"/>
+                                      <x-jet-input id="woreda" class="block mt-1 w-full" type="text" placeholder="woreda" wire:model.debounce.800ms="woreda"/>
+                                      @error('woreda') <span class="error">{{$message}}</span>@enderror
                                   </div>
                                 
                                     <div class="md:w-1/2 px-3 mb-6 md:mb-0">
