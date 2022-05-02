@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('lastname');
             $table->string('middelname'); 
             $table->string('patient_id');
+            $table->string('sex');
             $table->string('email')->unique()->nullable();
             $table ->integer('phone_no')->nullable();
             $table->string('profil_pic'); 

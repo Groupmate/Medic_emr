@@ -10,6 +10,9 @@ use App\Models\Patientss;
 
 class RegisterPatient extends Component
 {
+    public $firstname; public $lastname; public $phone_no; public $profile_pic; public $patient_id; public $date_of_birth; public $email;
+    public $religion;public $blood_group;public $kebele;public $zone;public $wereda;public $region;public $cityname;public $middelname;public $sex;
+
     
     /**
      * create
@@ -33,6 +36,7 @@ class RegisterPatient extends Component
         return [
             'firstname'=>$this->firstname,
             'lastname'=>$this->lastname,
+            'sex'=>$this->sex,
             'marriage_status'=>$this->middelname,
             'patient_id'=>$this->patient_id,
             'phone_no'=>$this->phone_no,
