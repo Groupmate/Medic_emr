@@ -16,9 +16,9 @@ Route::redirect(uri:'/', destination:'login');
 Route::get('/dashboard', 'App\Http\Controllers\HomeController@index')->name('dashboard');
 
 Route::get('/bookings/create', CreateBooking::class);
-Route::get('bookings/{appointment:uuid}', ShowBooking::class)->name('bookings.show');
 
 
+Route::get('/show', function () { return view('show-booking'); })->name('bookings.show');
 Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
     ])->group(function () {
         // Federal level
@@ -35,6 +35,7 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/hospitalmanagerprofile', function ()  { return view('zonal.profile'); })->name('create_hospitalmanagerprofile');
         //Hospital or HealthCenter ->> HR Manager
         Route::get('/employee', function () { return view('hospital.hr.employee');})->name('employee');
+        Route::get('/service', function () { return view('hospital.hr.service');})->name('service');
         Route::get('/viewemployee', function () {  return view('hospital.hr.viewemployee');})->name('viewemployee');
         //Hospital or HealthCenter ->> Dashboard
         Route::get('/patient', function () { return view('hospital.doctors.patient'); })->name('patient');
@@ -45,6 +46,12 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/register_patient', function () { return view('hospital.reception.registerpatient'); })->name('patientRegister');
         Route::get('/viewpatients', function () { return view('hospital.reception.viewpatients'); })->name('viewreception');
 
+
         Route::get('/doctorshift', function () { return view('hospital.reception.doctorshift'); })->name('dshift');
        
+
+        //None
+        Route::get('/viewpatient', function () { return view('hospital.reception.viewpatient'); })->name('viewreception');
+     
+
 });

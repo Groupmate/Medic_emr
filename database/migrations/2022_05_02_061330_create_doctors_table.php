@@ -18,7 +18,7 @@ class CreateDoctorsTable extends Migration
             $table->string('name');
             $table->string('lastname');
             $table->string('middelname');
-            $table->string('staff_id');             //fk
+           
             $table->string('orgn_id')->nullable();   //fk 1 - M
             $table->string('email')->unique();
             $table->string('password');
