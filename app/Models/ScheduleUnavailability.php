@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class ScheduleUnavailability extends Model
 {
@@ -14,7 +14,7 @@ class ScheduleUnavailability extends Model
         'end_time' => 'datetime',
     ];
 
-    public function schedule()
+    public function schedules()
     {
         return $this->belongsTo(Schedule::class);
     }

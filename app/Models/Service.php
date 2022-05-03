@@ -9,9 +9,10 @@ class Service extends Model
 {
     use HasFactory;
 
-    public function employees()
+
+    public function doctors()
     {
-        return $this->belongsToMany(Employee::class);
+        return $this->belongsToMany(Doctor::class);
     }
 
 }

@@ -10,7 +10,7 @@ use App\Bookings\Filters\UnavailabilityFilter;
 use App\Bookings\Filters\SlotsPassedTodayFilter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Employee extends Model
+class Doctor extends Model
 {
     use HasFactory;
 

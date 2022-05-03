@@ -5,16 +5,16 @@ namespace App\Http\Livewire;
 use Carbon\Carbon;
 use Livewire\Component;
 use App\Models\Service;
-use App\Models\Employee;
+use App\Models\Doctor;
 use App\Models\Appointment;
 
 class CreateBooking extends Component
 {
-    public $employees;
+    public $doctors;
 
     public $state = [
         'service' => '',
-        'employee' => '',
+        'doctor' => '',
         'time' => '',
         'name' => '',
         'email' => ''
@@ -26,7 +26,7 @@ class CreateBooking extends Component
 
     public function mount()
     {
-        $this->employees = collect();
+        $this->doctors = collect();
     }
 
     public function setTime($time)
@@ -38,7 +38,7 @@ class CreateBooking extends Component
     {
         return [
             'state.service' => 'required|exists:services,id',
-            'state.employee' => 'required|exists:employees,id',
+            'state.doctor' => 'required|exists:doctors,id',
             'state.time' => 'required|numeric',
             'state.name' => 'required|string',
             'state.email' => 'required|email',
@@ -60,7 +60,7 @@ class CreateBooking extends Component
         ]);
 
         $appointment->service()->associate($this->selectedService);
-        $appointment->employee()->associate($this->selectedEmployee);
+        $appointment->doctor()->associate($this->selectedDoctor);
 
         $appointment->save();
 
@@ -69,18 +69,18 @@ class CreateBooking extends Component
 
     public function updatedStateService($serviceId)
     {
-        $this->state['employee'] = '';
+        $this->state['doctor'] = '';
 
         if (! $serviceId) {
-            $this->employees = collect();
+            $this->doctors = collect();
             return;
         }
 
         $this->clearTime();
-        $this->employees = $this->selectedService->employees;
+        $this->doctors = $this->selectedService->doctors;
     }
 
-    public function updatedStateEmployee()
+    public function updatedStateDoctor()
     {
         $this->clearTime();
     }
@@ -99,18 +99,18 @@ class CreateBooking extends Component
         return Service::find($this->state['service']);
     }
 
-    public function getSelectedEmployeeProperty()
+    public function getSelectedDoctorProperty()
     {
-        if (! $this->state['employee']) {
+        if (! $this->state['doctor']) {
             return null;
         }
 
-        return Employee::find($this->state['employee']);
+        return Doctor::find($this->state['doctor']);
     }
 
     public function getHasDetailsToBookProperty()
     {
-        return $this->state['service'] && $this->state['employee'] && $this->state['time'];
+        return $this->state['service'] && $this->state['doctor'] && $this->state['time'];
     }
 
     public function getTimeObjectProperty()

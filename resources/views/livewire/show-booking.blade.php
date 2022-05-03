@@ -7,7 +7,7 @@
         <div class="border-t border-b border-gray-300 py-2">
             <div class="font-semibold">
                 {{ $appointment->service->name }} ({{ $appointment->service->duration }} minutes)
-                with {{ $appointment->employee->name }}
+                with {{ $appointment->doctor->name }}
             </div>
             <div class="text-gray-700">
                 on {{ $appointment->date->format('D jS M Y') }} at {{ $appointment->start_time->format('g:i A') }}

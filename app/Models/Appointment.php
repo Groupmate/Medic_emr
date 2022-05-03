@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Builder;
+
 
 class Appointment extends Model
 {
@@ -50,8 +51,8 @@ class Appointment extends Model
         return $this->belongsTo(Service::class);
     }
 
-    public function employee()
+    public function doctor()
     {
-        return $this->belongsTo(Employee::class);
+        return $this->belongsTo(Doctor::class);
     }
 }

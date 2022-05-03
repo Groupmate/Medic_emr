@@ -12,7 +12,7 @@ class BookingCalendar extends Component
 
     public $calendarStartDate;
 
-    public $employee;
+    public $doctor;
 
     public $service;
 
@@ -34,20 +34,20 @@ class BookingCalendar extends Component
         $this->date = $timestamp;
     }
 
-    public function getEmployeeScheduleProperty()
+    public function getDoctorScheduleProperty()
     {
-        return $this->employee->schedules()
+        return $this->doctor->schedules()
             ->whereDate('date', $this->calendarSelectedDateObject)
             ->first();
     }
 
     public function getAvailableTimeSlotsProperty()
     {
-        if (! $this->employee || ! $this->employeeSchedule) {
+        if (! $this->doctor || ! $this->doctorSchedule) {
             return collect();
         }
 
-        return $this->employee->availableTimeSlots($this->employeeSchedule, $this->service);
+        return $this->doctor->availableTimeSlots($this->doctorSchedule, $this->service);
     }
 
     public function getCalendarSelectedDateObjectProperty()

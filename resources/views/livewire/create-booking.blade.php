@@ -14,22 +14,22 @@
             </select>
         </div>
 
-        <div class="mb-6 {{ !$employees->count() ? 'opacity-25' : '' }}">
-            <label for="employee" class="inline-block text-gray-700 font-bold mb-2">Select employee</label>
-            <select wire:model="state.employee" {{ !$employees->count() ? 'disabled="disabled"' : '' }}
-            name="employee" id="employee" class="bg-white h-10 w-full border-none rounded-lg"
+        <div class="mb-6 {{ !$doctors->count() ? 'opacity-25' : '' }}">
+            <label for="doctor" class="inline-block text-gray-700 font-bold mb-2">Select doctor</label>
+            <select wire:model="state.doctor" {{ !$doctors->count() ? 'disabled="disabled"' : '' }}
+            name="doctor" id="doctor" class="bg-white h-10 w-full border-none rounded-lg"
             >
                 <option value="">Select Available Doctor's</option>
-                @foreach ($employees as $employee)
-                    <option value="{{ $employee->id }}">{{ $employee->name }}</option>
+                @foreach ($doctors as $doctor)
+                    <option value="{{ $doctor->id }}">{{ $doctor->name }}</option>
                 @endforeach
             </select>
         </div>
 
-        <div class="mb-6 {{ ! $this->selectedService || !$this->selectedEmployee  ? 'opacity-25' : '' }}">
-            <label for="employee" class="inline-block text-gray-700 font-bold mb-2">Select appointment type</label>
-            <livewire:booking-calendar :service="$this->selectedService" :employee="$this->selectedEmployee"
-                                       :key="optional($this->selectedEmployee)->id"
+        <div class="mb-6 {{ ! $this->selectedService || !$this->selectedDoctor  ? 'opacity-25' : '' }}">
+            <label for="doctor" class="inline-block text-gray-700 font-bold mb-2">Select appointment type</label>
+            <livewire:booking-calendar :service="$this->selectedService" :doctor="$this->selectedDoctor"
+                                       :key="optional($this->selectedDoctor)->id"
             />
         </div>
 
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="border-t border-b border-gray-300 py-2">
-                    {{ $this->selectedService->name }} ({{ $this->selectedService->duration }} minutes) with {{ $this->selectedEmployee->name }}
+                    {{ $this->selectedService->name }} ({{ $this->selectedService->duration }} minutes) with {{ $this->selectedDoctor->name }}
                     <br> on {{ $this->timeObject->format('D jS M Y') }} at {{ $this->timeObject->format('g:i A') }}
                 </div>
             </div>
