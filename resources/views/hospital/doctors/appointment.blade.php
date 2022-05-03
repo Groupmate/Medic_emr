@@ -176,7 +176,7 @@
 
       <!-- link -->
      
-      <a href="{{ url('/dash') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+      <a href="{{ url('/dashboard') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
         <i class="fad fa-shopping-cart text-xl mr-2"></i>         
          Dashboard
       </a>  
