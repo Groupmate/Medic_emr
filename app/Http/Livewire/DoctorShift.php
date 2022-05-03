@@ -8,14 +8,17 @@ use App\Models\Service;
 
 
 class DoctorShift extends Component
-{
-    public $dname;
-    public $sname;
-
+{ 
     
     public function render()
     {
+        // $posts = Post::orderBy("created_at","desc")->paginate(2);
+        // $sections = Section::orderBy("created_at","desc")->paginate(2);
+        //  return view('index')->with('posts',$posts)->with('sections',$sections);
+    
         $dname = Doctor::all();
-        return view('livewire.doctor-shift',['dname'=>$dname]);
+        $shift = Service::all();
+        return view('livewire.doctor-shift')->with('dname',$dname)->with('shift',$shift)
+        ;
     }
 }
