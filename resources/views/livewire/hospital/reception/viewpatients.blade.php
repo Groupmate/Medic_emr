@@ -114,13 +114,13 @@
                                     </div>
                                     <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                                   
-                                        <x-jet-label for="last_name" value="{{ __           ('Last name') }}"/>
+                                        <x-jet-label for="lastname" value="{{ __           ('Last name') }}"/>
                                         <x-jet-input id="lastname" class="block mt-1 w-full" type="text" placeholder="Last_Name" wire:model.debounce.800ms="lastname"/>
                                         @error('last_name') <span class="error">{{$message}}</span>@enderror
                                     </div>
                                     <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                                   
-                                        <x-jet-label for="lmiddelname" value="{{ __           ('middel name') }}"/>
+                                        <x-jet-label for="middelname" value="{{ __           ('middel name') }}"/>
                                         <x-jet-input id="middelname" class="block mt-1 w-full" type="text" placeholder="Middel_Name" wire:model.debounce.800ms="middelname"/>
                                         @error('middelname') <span class="error">{{$message}}</span>@enderror
                                     </div>
@@ -184,8 +184,8 @@
                                                       </select>
                                               </div>
                                               <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                                                <x-jet-label for="date_of_birth" value="{{ __('date_of_birth') }}"/>
-                                                <x-jet-input id="date_of_birth" class="block mt-1 w-full" type="date"  wire:model.debounce.800ms="date_of_birth"/>
+                                                <x-jet-label for="data_of_birth" value="{{ __('date_of_birth') }}"/>
+                                                <x-jet-input id="data_of_birth" class="block mt-1 w-full" type="date"  wire:model.debounce.800ms="data_of_birth"/>
                                                 @error('date_of_birth') <span class="error">{{$message}}</span>@enderror
                                             </div>
                                             <div class="md:w-1/2 px-3 mb-6 md:mb-0">
