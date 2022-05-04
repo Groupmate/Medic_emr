@@ -48,6 +48,7 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
 
 
         Route::get('/doctorshift', function () { return view('hospital.reception.doctorshift'); })->name('dshift');
+        Route::get('/schedule', function () { return view('hospital.hr.schedule');})->name('service');
        
 
         //None
