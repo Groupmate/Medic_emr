@@ -17,9 +17,9 @@ Route::redirect(uri:'/', destination:'login');
 Route::get('/dashboard', 'App\Http\Controllers\HomeController@index')->name('dashboard');
 
 Route::get('/bookings/create', CreateBooking::class);
+Route::get('bookings/{appointment:u8 uid}', ShowBooking::class)->name('bookings.show');
 
 
-Route::get('/show', function () { return view('show-booking'); })->name('bookings.show');
 Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
     ])->group(function () {
         // Federal level
