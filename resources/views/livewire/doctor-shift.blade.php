@@ -24,12 +24,12 @@
                        <div class="mb-6">
                             <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="name" value="{{ __('Doctor shift') }}"/>
                               <select  class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border">
-                                @foreach($shift as $row)
+                                @foreach($dshift as $row)
                                     <option id="shift" class="block mt-1 w-full" type="text" wire:model.debounce.80ms="shift"  value="{{$row->id}}">{{$row->name}}</option>
                                 
                                 @endforeach
                                 </select>
-                            @error('name') <span class="error">{{$message}}</span>@enderror
+                            @error('shift') <span class="error">{{$message}}</span>@enderror
                         </div>
 
 

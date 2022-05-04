@@ -3,22 +3,39 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\Doctor;
-use App\Models\Service;
+use App\Models\{Doctor,Service};
+
+use Illuminate\Validation\Rule;
 
 
 class DoctorShift extends Component
 { 
-    
+    public $name; public $shift;
+    public function create()
+    {
+        //$this->validate();
+        Doctor_Service::create($this->modeldata());
+        session()->flash('message', 'service time created Successfully.');
+    }
+    public function modelData()
+    {
+        return [
+            'name'=>$this->name,
+            'shift'=>$this->shift,
+        ];
+    } 
+    // public function rules()
+    // {
+    //     return [
+    //         'name'=>'required',
+    //         'shift'=>'required',
+    //     ];
+    // }   
     public function render()
     {
-        // $posts = Post::orderBy("created_at","desc")->paginate(2);
-        // $sections = Section::orderBy("created_at","desc")->paginate(2);
-        //  return view('index')->with('posts',$posts)->with('sections',$sections);
-    
         $dname = Doctor::all();
-        $shift = Service::all();
-        return view('livewire.doctor-shift')->with('dname',$dname)->with('shift',$shift)
+        $dshift = Service::all();
+        return view('livewire.doctor-shift')->with('dname',$dname)->with('dshift',$dshift)
         ;
     }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Livewire\ShowBooking;
 use App\Http\Livewire\CreateBooking;
 use App\Http\Controllers\BookingController;
+use App\Http\Livewire\Eloquent;
 
 // Route::get('/', function () {
 //     return view('welcome');
