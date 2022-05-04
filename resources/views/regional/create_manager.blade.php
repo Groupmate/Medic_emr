@@ -21,7 +21,7 @@
     <p class="menu-label">General</p>
     <ul class="menu-list">
       <li class="--set-active-index-html">
-        <a href="{{ url('dashboard1') }}">
+        <a href="{{ url('dashboard') }}">
           <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
           <span class="menu-item-label">Dashboard</span>
         </a>
@@ -127,7 +127,7 @@
           <div class="user-avatar">
             <img src="https://avatars.dicebear.com/v2/initials/john-doe.svg" alt="Dr" class="rounded-full">
           </div>
-          <div class="is-user-name"><span> Dr. Natnael</span></div>
+          <div class="is-user-name"><span>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span></div>
           <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
         </a>
         <div class="navbar-dropdown">

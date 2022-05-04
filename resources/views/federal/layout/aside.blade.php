@@ -122,7 +122,7 @@
             <div class="user-avatar">
               <img src="https://avatars.dicebear.com/v2/initials/john-doe.svg" alt="Dr." class="rounded-full">
             </div>
-            <div class="is-user-name"><span> Dr. Natinael</span></div>
+            <div class="is-user-name"><span class="mr-2 d-none d-lg-inline text-gray-600 small"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span></div>
             <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
           </a>
           <div class="navbar-dropdown">
