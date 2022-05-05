@@ -10,11 +10,15 @@ use Illuminate\Validation\Rule;
 
 class DoctorShift extends Component
 { 
-    public $name; public $shift;
+    public $name; 
+    public $shift;
+    
     public function create()
     {
         //$this->validate();
-        Doctor_Service::create($this->modeldata());
+        
+        
+        $name = Doctor::create($this->modeldata());
         session()->flash('message', 'service time created Successfully.');
     }
     public function modelData()
