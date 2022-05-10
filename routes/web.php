@@ -37,6 +37,7 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         //Hospital or HealthCenter ->> HR Manager
         Route::get('/employee', function () { return view('hospital.hr.employee');})->name('employee');
         Route::get('/service', function () { return view('hospital.hr.service');})->name('service');
+        Route::get('/doctor', function () { return view('hospital.hr.doctor');})->name('doctor');
         Route::get('/viewemployee', function () {  return view('hospital.hr.viewemployee');})->name('viewemployee');
         //Hospital or HealthCenter ->> Dashboard
         Route::get('/patient', function () { return view('hospital.doctors.patient'); })->name('patient');
@@ -55,5 +56,6 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         //None
         Route::get('/viewpatient', function () { return view('hospital.reception.viewpatient'); })->name('viewreception');
      
-
+        Route::get('/appointments', function () { return view('hospital.doctors.appointments'); })->name('appontiments');
+        Route::get('/today', function () { return view('hospital.doctors.today-appointment'); })->name('today-appontiments');
 });

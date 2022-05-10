@@ -12,6 +12,7 @@
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.5",
+        "nesbot/carbon": "^2.58",
         "te7a-houdini/laravel-trix": "^2.0"
     },
     "require-dev": {

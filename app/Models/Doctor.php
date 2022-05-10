@@ -43,5 +43,13 @@ class Doctor extends Model
     public function appointments()
     {
         return $this->hasMany(Appointment::class);
+    }    
+    /**
+     * appointment doctor appointment by natywelka
+     *
+     * @return void
+     */
+    public function appointment(){
+        return $this->hasMany(Appointmen::class);
     }
 }

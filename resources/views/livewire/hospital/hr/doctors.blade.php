@@ -77,7 +77,7 @@
                                                     </select>
             
                                                 
-                                                    @error('type') <span class="error text-red-600">{{$message}}</span>@enderror
+                                                    @error('department') <span class="error text-red-600">{{$message}}</span>@enderror
                                         </div>
                                     <div class="mt-4">
                                         <x-jet-label for="sex" value="{{ __('Sex') }}" />
@@ -171,7 +171,7 @@
                                 </thead>
                             <tbody>
                                 
-                            @foreach($employes as $employe)
+                            @foreach($employess as $employe)
                               
                                 <tr>
                                             <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->first_name}}</td>

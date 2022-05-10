@@ -32,7 +32,7 @@
                             @error('shift') <span class="error">{{$message}}</span>@enderror
                         </div>
 
-
+                          
 
                         <div class="flex flex-row  py-7"  >
                             <x-jet-button  class="hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm"  wire:click="create" wire:loading.attr="disabled">

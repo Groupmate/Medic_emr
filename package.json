@@ -22,5 +22,10 @@
     },
     "dependencies": {
         "pikaday": "^1.8.2"
-    }
+    },
+    
+        "require": {
+            "nesbot/carbon": "^2.58.0"
+        }
+    
 }

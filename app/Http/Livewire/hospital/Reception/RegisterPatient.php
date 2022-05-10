@@ -28,7 +28,8 @@ class RegisterPatient extends Component
         Patientss::create($this->modeldata());
         session()->flash('message', 'patient registered  Successfully.');
         $this->reset();
-    }    
+    } 
+    
     /**
      * modelData
      *

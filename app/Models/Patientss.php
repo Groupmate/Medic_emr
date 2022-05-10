@@ -14,4 +14,7 @@ class Patientss extends Model
     //     'sex', 'birth_of_date', 'profile_photo','cityname', 'woreda', 'zone', 'region','kebele','bloode_group'
     // ];
   
+    public function appointment(){
+        return $this->hasMany(Appointmen::class);
+    }
 }
