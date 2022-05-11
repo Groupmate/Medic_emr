@@ -13,10 +13,24 @@ class RegisterPatient extends Component
 {
     use WithFileUploads;
 
-    public $firstname; public $lastname; public $phone_no; public $profile_pic; public $patient_id; public $date_of_birth; public $email;
-    public $religion;public $blood_group;public $kebele;public $zone;public $woreda;public $region;public $cityname;public $middelname;public $sex;
+    public $firstname;
+    public $lastname;
+    public $phone_no;
+    public $profile_pic;
+    public $patient_id;
+    public $date_of_birth;
+    public $email;
+    public $religion;
+    public $blood_group;
+    public $kebele;
+    public $zone;
+    public $woreda;
+    public $region;
+    public $cityname;
+    public $middelname;
+    public $sex;
 
-    
+
     /**
      * create
      *
@@ -28,8 +42,8 @@ class RegisterPatient extends Component
         Patientss::create($this->modeldata());
         session()->flash('message', 'patient registered  Successfully.');
         $this->reset();
-    } 
-    
+    }
+
     /**
      * modelData
      *
@@ -49,14 +63,14 @@ class RegisterPatient extends Component
             'profil_pic'=>$this->profile_pic,
             'data_of_birth'=>$this->date_of_birth,
             'blood_group'=>$this->blood_group,
-           
+
             'region'=>$this->region,
             'zone'=>$this->zone,
             'woreda'=>$this->woreda,
             'kebele'=>$this->kebele,
             'cityname'=>$this->cityname,
         ];
-    }    
+    }
     /**
      * validation rule
      *
@@ -73,7 +87,7 @@ class RegisterPatient extends Component
             'patient_id'=>'required',
             'date_of_birth'=>'required',
             'woreda'=>'required',
-            
+
         ];
     }
     public function render()
