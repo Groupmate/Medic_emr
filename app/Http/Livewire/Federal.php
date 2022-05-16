@@ -25,6 +25,7 @@ class Federal extends Component
     public $organizations;
     public $modelId;
 
+
     /**
      * createShowModel show modal
      *
@@ -208,7 +209,7 @@ class Federal extends Component
     {
         $organization = Organization::latest()->paginate(5);
 
-        return view('livewire.federal',[ 'organizations'=>$this->read(),
+        return view('livewire.federal.create-regional',[ 'organizations'=>$this->read(),
                 $this->organizations=Organization::whereIn('type' , [1,2,3])->get(),]);
     }
 }

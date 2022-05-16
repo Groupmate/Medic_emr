@@ -23,37 +23,38 @@ class CreateNewUser implements CreatesNewUsers
     public function create(array $input)
     {
         Validator::make($input, [
-            'name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'max:255'],
+            'orgn_id' => ['required', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'role' => ['required'],
+            'address' => ['string', 'max:255'],
+            'sex' => ['string', 'max:255'],
+            'date_of_birth' => ['string', 'max:255'],
+            'type' => ['string', 'max:255'],
+            'department' => ['string', 'max:255'],
+            'profile_pic' => [],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
 
-        return DB::transaction(function () use ($input) {
-            return tap(User::create([
-                'name' => $input['name'],
-                'email' => $input['email'],
-                'password' => Hash::make($input['password']),
-                'role' => $input['role'],
-            ]), function (User $user) {
-                $this->createTeam($user);
-            });
-        });
+        return User::create([
+            'first_name' => $input['first_name'],
+            'last_name' => $input['last_name'],
+            'phone' => $input['phone'],
+            'orgn_id' => $input['orgn_id'],
+            'email' => $input['email'],
+            'role' => $input['role'],
+            'address' => $input['address'],
+            'sex' => $input['sex'],
+            'date_of_birth' => $input['date_of_birth'],
+            'type' => $input['type'],
+            'department' => $input['department'],
+            'profile_pic' => $input['profile_pic'],
+            'password' => Hash::make($input['password']),
+            'role' => $input['role'],
+        ]);
     }
 
-    /**
-     * Create a personal team for the user.
-     *
-     * @param  \App\Models\User  $user
-     * @return void
-     */
-    protected function createTeam(User $user)
-    {
-        $user->ownedTeams()->save(Team::forceCreate([
-            'user_id' => $user->id,
-            'name' => explode(' ', $user->name, 2)[0]."'s Team",
-            'personal_team' => true,
-        ]));
-    }
 }
