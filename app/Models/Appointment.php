@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Appointmen extends Model
+class Appointment extends Model
 {
     use HasFactory;
     protected $guarded = [];
@@ -15,7 +15,7 @@ class Appointmen extends Model
     }
 
     public function patient(){
-        return $this->belongsTo(Patientss::class);
+        return $this->belongsTo(Patient::class);
     }
 
 }
