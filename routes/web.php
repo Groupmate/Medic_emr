@@ -34,6 +34,9 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/employee', function () { return view('hospital.hr.employee');})->name('employee');
         Route::get('/doctor', function () { return view('hospital.hr.doctor');})->name('doctor');
         Route::get('/viewemployee', function () {  return view('hospital.hr.viewemployee');})->name('viewemployee');
+        Route::get('/bar-chart', function () { return view('hospital.hr.bar-chart');})->name('barchart');
+        Route::get('/pie-chart', function () { return view('hospital.hr.pie-chart');})->name('piechart');
+        Route::get('/pstatics', function () { return view('hospital.hr.pstatics');})->name('pstatics');
 
         //Hospital or HealthCenter ->> Dashboard
         Route::get('/patient', function () { return view('hospital.doctors.patient'); })->name('patient');
