@@ -5,24 +5,28 @@ namespace App\Http\Livewire\Hospital\Reception;
 use Livewire\Component;
 use Illuminate\Validation\Rule;
 use Livewire\WithFileUploads;
-use App\Models\Patient;
 use Livewire\WithPagination;
-class Viewpatients extends Component
-{
+use App\Models\Patient;
+use App\Models\Doctor;
+use App\Models\User;
+use Carbon\Carbon;
+
+class AssignPatient extends Component
+{    
     use WithPagination;
     use WithFileUploads;
 
     public $perpage=5;
     public $search='';
     //  public $patients;
-    public $modalConfirmDeleteVisible=false;
+   
     public $modelId;
     public $modelFormVisible=false;
     
 
     public $firstname, $lastname, $phone_no,  $profile_pic,  $patient_id, $data_of_birth, $email,
   $kebele, $zone, $woreda, $region, $cityname, $middelname, $sex;
-
+  public $user_id, $doctors=[], $available_doctors;
     
     /**
      * deleteShowModel
@@ -30,11 +34,7 @@ class Viewpatients extends Component
      * @param  mixed $id
      * @return void
      */
-    public function deleteShowModel($id)
-    {
-        $this->modelId=$id;
-        $this->modalConfirmDeleteVisible=true;
-    }
+    
 
 
     public function updateShowModal($id)
@@ -44,12 +44,7 @@ class Viewpatients extends Component
          $this->loadModel();
     }
 
-    public function delete()
-    {
-      Patient::destroy($this->modelId);
-        $this->modalConfirmDeleteVisible=false;
-        $this->resetpage();
-    }    
+   
     /**
      * update
      *
@@ -137,17 +132,37 @@ class Viewpatients extends Component
            
 
     }
+    /**
+     * createShowModal
+     *
+     * @return void
+     */
+    public function createShowModal()
+    {
+        $this->resetValidation();
+        $this->reset();
+        $date = Carbon::now();
+        $date = date('l');
+
+        $doctor = Doctor::all();
+        foreach($doctor as $doctor)
+        {
+            $shift = $doctor->shift;
+            foreach($shift as $shift)
+            {
+                if($shift == $date)
+                {
+                    $this->doctors[] = Doctor::where('id', $doctor->id)->first();
+                }
+            }
+        }
+        $this->modalFormVisible=true;
+    }
     public function render()
     {
-        
-      
-       
-        return view('livewire.hospital.reception.viewpatients',['patients'=>patient::orderBy('id','DESC')->when($this->search,function($query,$search){
+        $users = User::all();
+        return view('livewire.hospital.reception.assign-patient')->with(['patients'=>patient::orderBy('id','DESC')->when($this->search,function($query,$search){
             return $query->where('firstname','LIKE',"%$search%");
-        })->paginate($this->perpage)
-    ]);
+        })->paginate($this->perpage)])->with($this->doctors)->with('users', $users);
     }
-   
-    
-    
 }

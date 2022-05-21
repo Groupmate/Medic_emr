@@ -9,7 +9,7 @@ use Livewire\WithPagination;
 class TodayAppointment extends Component
 {
     use WithPagination;
-    
+
     public $name;public $firstname;public$issue_data;public $visit_date;public $description;public $status; 
     public $modalId;
     
@@ -19,7 +19,7 @@ class TodayAppointment extends Component
         $this->modalId=$id;
         foreach (Appointmen::all() as $appointment){
             
-        if ( $appointment->status == 'pendding'){
+        if ( $appointment->status == 'pending'){
             $appointment->where('id', $id)->update([ 
                 'status'=> 'confirmed'
             ]);}}
@@ -29,14 +29,14 @@ class TodayAppointment extends Component
         $this->modalId=$id;
         foreach (Appointmen::all() as $appointment){
             
-        if ( $appointment->status == 'pendding'){
+        if ( $appointment->status == 'pending'){
             $appointment->where('id', $id)->update([
                 'status'=> 'cancelled'
             ]);}}
     }
     public function render()
     {  
-        $appointment =Appointmen::whereDate('issue_date',now())->where('status','pendding')->get();
+        $appointment =Appointmen::whereDate('issue_date',now())->where('status','pending')->get();
         
         return view('livewire.hospital.doctor.today-appointment')->with('appointment',$appointment);
     }

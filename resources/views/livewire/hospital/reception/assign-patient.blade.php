@@ -29,10 +29,11 @@
                             <td  class="px-5 py-5 border-b border-gray-200 bg-white text-sm" >
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0 w-10 h-10">
-                                        <img class="w-full h-full rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"/>
+                                        
+                                        <img class="w-full h-full rounded-full" src="{{asset('storage/'.$patient['profil_pic'])}}"/>
                                     </div>
                                     <div class="ml-3">
-                                        <p class="text-sm whitespace-no-wrap"> {{$patient->firstname}} {{$patient->lastname}}</p>
+                                        <p class="text-sm whitespace-no-wrap"> {{$patient->firstname}}{{$patient->lastname}}</p>
                                    
                                 </div>
                             </td>
@@ -41,21 +42,15 @@
                             <td   class="px-5 py-5 border-b border-gray-200 bg-white text-sm"><p class="text-gray-900 whitespace-no-wrap">{{$patient->email}}</td>
                             <td   class="px-5 py-5">
                                 <div class="flex items-center space-x-8 text-sm">
-                                      <x-jet-button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"  wire:click="updateShowModal({{ $patient->id }})">
+                                      <x-jet-button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5  rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"  wire:click="updateShowModal({{ $patient->id }})">
                                         <svg
                                           class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
                                           <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
                                         </svg> {{ __('Edit') }}
                                       </x-jet-button>
-                                         {{-- <x-jet-button wire:click="viewShowModel({{ $patient->id }})" class="bg-green-500">
-                                        {{ __('view') }}
-                                        </x-jet-button> --}}
-                                      <x-jet-danger-button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"  wire:click="deleteShowModel({{ $patient->id }})" >
-                                        <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"viewBox="0 0 20 20">
-                                          <path
-                                            fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
-                                        </svg>   {{ __('Delete') }}
-                                      </x-jet-danger-button>
+                                       <x-jet-button wire:click="createShowModal({{ $patient->id }})">
+                                        {{ __('Assign') }}
+                                        </x-jet-button> 
                                  </div> 
                            </td>
                     
@@ -67,28 +62,7 @@
                 {{$patients}}
                 @endif
         </div>    
-         <x-jet-dialog-modal wire:model="modalConfirmDeleteVisible">
-
-                    <x-slot name="title">
-                        {{ __('Delete Account') }} {{$modelId}}
-                    </x-slot>
-
-                    <x-slot name="content">
-                        {{ __('Are you sure you want to delete your patient account ? Once your account is deleted, all of its resources and data will be permanently deleted. ') }}
-
-
-                    </x-slot>
-
-                    <x-slot name="footer">
-                        <x-jet-secondary-button wire:click="$toggle('modalConfirmDeleteVisible')" wire:loading.attr="disabled">
-                            {{ __('Cancel') }}
-                        </x-jet-secondary-button>
-                          
-                        <x-jet-danger-button class="ml-3" wire:click="delete" wire:loading.attr="disabled">
-                            {{ __('Delete ') }}
-                        </x-jet-danger-button>
-                    </x-slot>
-        </x-jet-dialog-modal>  
+         
 
 
         <x-jet-dialog-modal wire:model="modelFormVisible">
@@ -213,7 +187,49 @@
                                 {{ __('Cancel') }}
                             </x-jet-secondary-button>
                     </x-slot>
-        </x-jet-dialog-modal>                                  
+        </x-jet-dialog-modal>  
+        <!-- new from sere                                 -->
+        <x-jet-dialog-modal wire:model="modalFormVisible">
+        <x-slot name="title">
+            {{ __('Assign Patient') }}
+        </x-slot>
+
+        <x-slot name="content">
+
+            <div class="mt-4">
+                <x-jet-label for="patient_id" value="{{ __('Patient name') }}" />
+                <select class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="patient_id">
+                    <option diabled>---Select Patient---</option>
+                    @foreach ($patients as $patients)
+                        <option> {{ $patients }} </option>
+                    @endforeach
+                </select>
+                @error('patient_id') <span class="error text-red-600">{{$message}}</span>@enderror
+            </div>
+            <div class="mt-4">
+                <x-jet-label for="doctor" value="{{ __('Doctor') }}" />
+                <select class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="user_id">
+                    <option diabled>---Select Doctor---</option>
+                    @foreach ($doctors as $doctors)
+                        @foreach ( $users as $users )
+                            @if ($users->id == $doctors->user_id)
+                                <option value="{{ $users->id }}"> {{ $users->first_name }} </option>
+                            @endif
+                        @endforeach
+                    @endforeach
+                </select>
+                @error('user_id') <span class="error text-red-600">{{$message}}</span>@enderror
+            </div>
+        </x-slot>
+            <x-slot name="footer">
+                <x-jet-secondary-button class="bg-green-500" wire:click="create" wire:loading.attr="disabled">
+                    {{ __('create') }}
+                </x-jet-secondary-button>
+                <x-jet-secondary-button class="ml-3" wire:click="$toggle('modalFormVisible')" wire:loading.attr="disabled">
+                    {{ __('Cancel') }}
+                </x-jet-secondary-button>
+            </x-slot>
+    </x-jet-dialog-modal>
         </div>
     </div>
 

@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                               
-                                    <x-jet-label for="email" value="{{ __           ('Email') }}"/>
+                                    <x-jet-label for="email" value="{{ __('Email') }}"/>
                                     <x-jet-input id="email" class="block mt-1 w-full" type="email" placeholder="email" wire:model.debounce.800ms="email"/>
                                     @error('email') <span class="error">{{$message}}</span>@enderror
                                 </div>
@@ -106,29 +106,7 @@
                                             <x-jet-input id="cityname" class="block mt-1 w-full" type="text" placeholder="cityname" wire:model.debounce.800ms="cityname"/>
                                             @error('cityname') <span class="error">{{$message}}</span>@enderror
                                       </div>
-                                      <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                                              <x-jet-label for="blood_group" value="{{ __('blood_group') }}" />
-                                              <select wire:model.debounce.800ms="blood_group" class="block mt-1 w-full border-gray-300 focus:border" >
-                                              <option>Select</option>
-                                              <option value="A">A</option>
-                                              <option value="B">B</option>
-                                              <option value="AB">AB</option>
-                                              <option value="O+">O+</option>
-                                              <option value="O-">O-</option>
-                                              <option value="B+">B+</option>
-                                              </select>
-                                      </div>
-                                      <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                                              <x-jet-label for="blood_group" value="{{ __('blood_group') }}" />
-                                              <select wire:model.debounce.800ms="blood_group" class="block mt-1 w-full border-gray-300 focus:border" >
-                                              <option >Select</option>
-                                              <option value="orthodox">Ortodox</option>
-                                              <option value="muslim">Muslim</option>
-                                              <option value="christian">Christian</option>
-                                              <option value="budist">Budist</option>
-                                            
-                                              </select>
-                                      </div>
+                                      
                         </div>
                             <div class="flex items-center justify-end mt-4">
                                   <x-jet-button class="ml-4" wire:click="create" >

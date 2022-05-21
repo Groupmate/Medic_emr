@@ -32,7 +32,7 @@
               @foreach($appointment as $appoint)
             <tr class="border-b">
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              {{$appoint->patientss_id}}
+              {{$appoint->patient_id}}
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
               {{$appoint->doctor_id}}

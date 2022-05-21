@@ -32,7 +32,10 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
 
         //Hospital or HealthCenter ->> HR Manager
         Route::get('/employee', function () { return view('hospital.hr.employee');})->name('employee');
-        Route::get('/doctor', function () { return view('hospital.hr.doctor');})->name('doctor');
+        Route::get('/block', function () { return view('hospital.hr.doctor');})->name('doctor');
+        Route::get('/room', function () { return view('hospital.hr.room');})->name('room');
+        Route::get('/bed', function () { return view('hospital.hr.bed');})->name('bed');
+        Route::get('/bedassignment', function () { return view('hospital.hr.bedassignment');})->name('bedassignment');
         Route::get('/viewemployee', function () {  return view('hospital.hr.viewemployee');})->name('viewemployee');
 
         //Hospital or HealthCenter ->> Dashboard
