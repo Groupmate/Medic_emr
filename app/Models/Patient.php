@@ -17,4 +17,8 @@ class Patient extends Model
     public function appointment(){
         return $this->hasMany(Appointment::class);
     }
+
+    public function medical_data(){
+        return $this->hasMany(Medical_data::class);
+    }
 }

@@ -50,6 +50,6 @@ class Doctor extends Model
      * @return void
      */
     public function appointment(){
-        return $this->hasMany(Appointmen::class);
+        return $this->hasMany(Appointment::class);
     }
 }

@@ -19,13 +19,13 @@ class PatientSeeder extends Seeder
          //
          $faker = \Faker\Factory::create();
 
-         for ($loop = 0; $loop < 5; $loop++) {
+         for ($loop = 0; $loop < 25; $loop++) {
  
              DB::table("patients")->insert([
                 "first_name"=>$faker->word(),
                 "middle_name"=>$faker->word(),
                 "last_name"=>$faker->word(),	
-                "national_id"=>$faker->word(),	
+                "national_id"=>$faker->unique()->word(),	
                 "email"=>$faker->email(),	
                 "phone_no"=>$faker->numberBetween(251900000000,251999999999),
                 "sex"=>$faker->randomElement(["Male","Female"]),
@@ -33,7 +33,20 @@ class PatientSeeder extends Seeder
                 "profile_picture"=>$faker->randomElement(["Pending","Active","On Going","Passive"] ),	
                 "religion"=>$faker->randomElement(["christian","Muslim","Etist","Passive"] ),	
                 "blood_group"=>$faker->randomElement(["A","AB","O","B"] ),
-                "region"=>$faker->randomElement(["Addis Ababa Chartered City","Harari Region","Afar Region","Tigrayi Region","Oromia Region","Somali Region","Dire Dawa Chartered City","Amhara Region","SNNPR Region","Benishangul-Gumuz Region","Gambella Region","Sidama"]),	
+                "region"=>$faker->randomElement([   "Addis Ababa Chartered City",
+                                                    "Dire Dawa Chartered City",
+                                                    "Amhara Region",
+                                                    "Afar Region",
+                                                    "Benishangul-Gumuz Region",
+                                                    "Gambella Region",
+                                                    "Harari Region",
+                                                    "Oromia Region",
+                                                    "Sidama Region",
+                                                    "Somali Region",
+                                                    "SNNPR Region",
+                                                    "SWENP Region"
+                                                ]),	
+                
                 "zone"=>$faker->word(),
                 "city"=>$faker->word(),	
                 "woreda"=>$faker->word(),	

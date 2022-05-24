@@ -18,11 +18,11 @@ class AppointmentSeeder extends Seeder
         //
         $faker = \Faker\Factory::create();
 
-        for ($loop = 0; $loop < 15; $loop++) {
+        for ($loop = 0; $loop < 5; $loop++) {
 
             DB::table("appointments")->insert([
-                "doctor_id"=>$faker->numberBetween(1,5),	
-                "patient_id"=>$faker->numberBetween(1,5),	
+                "doctor_id"=>$faker->numberBetween(1,25),
+                "patient_id"=>$faker->numberBetween(4,25),	
                 "issue_date"=>$faker->date(),
                 "visit_date"=>$faker->date(),	
                 "descrpition"=>$faker->randomElement(["Pssfend", "Activa","Onagd"]),	

@@ -19,15 +19,26 @@ class HospitalSeeder extends Seeder
         //
         $faker = \Faker\Factory::create();
 
-        for ($loop = 0; $loop < 15; $loop++) {
+        for ($loop = 0; $loop < 20; $loop++) {
 
             DB::table("hospitals")->insert([
                 "name"=>$faker->name(),
                 "user_id"=>$faker->numberBetween(1,1),	
                 "type"=>$faker->randomElement(["Private Hospitals","Gov-Hospital"," Mother and Child Health Hospital",
                                                 "Specialized Hospital"," Internal Medicine Clini","International Cardiovascular and Medical Center"]),          
-                "region"=>$faker->randomElement(["Addis Ababa Chartered City","Harari Region","Afar Region","Tigrayi Region","Oromia Region",
-                                                "Somali Region","Dire Dawa Chartered City","Amhara Region","SNNPR Region","Benishangul-Gumuz Region","Gambella Region","Sidama"]),	
+                "region"=>$faker->randomElement([ 
+                    "Addis Ababa Chartered City",
+                    "Dire Dawa Chartered City",
+                    "Amhara Region",
+                    "Afar Region",
+                    "Benishangul-Gumuz Region",
+                    "Gambella Region",
+                    "Harari Region",
+                    "Oromia Region",
+                    "Sidama Region",
+                    "Somali Region",
+                    "SNNPR Region",
+                    "SWENP Region" ]),	
                 "zone"=>$faker->word(),
                 "city"=>$faker->word(),	
                 "woreda"=>$faker->word(),	

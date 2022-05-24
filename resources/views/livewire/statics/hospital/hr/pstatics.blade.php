@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bar Chart in Laravel 8 - Online Web Tutor</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -11,9 +10,9 @@
 <body>
 
 <div class="container">
-  <h2 style="text-align:center;">Bar Chart in Laravel 8 - Online Web Tutor</h2>
+   <strong style="text-align:center;"> <h3>Statical Data Of Patients Affected By Major Diseases in All Regions</h3></strong>
   <div class="panel panel-primary">
-    <div class="panel-heading">Bar Chart in Laravel 8</div>
+    <div class="panel-heading">Full Statica In All Regions</div>
     <div class="panel-body">
         <div id="bar-chart"></div>
     </div>
@@ -32,21 +31,21 @@
                 type: 'column'
             },
             title: {
-                text: 'Patients Analysis'
+                text: ''
             },
             xAxis: {
-                categories: <?= $data ?>    ,
+                categories: <?= $terms ?>,
                 crosshair: true
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Patients'
+                    text: 'Number of Patients'
                 }
             },
             tooltip: {
                 headerFormat: '<span style="font-size:10px">{point.key} Patients</span><table>',
-                pointFormat: '<tr><td style="color:{catagories.color};padding:0">{catagories.terms}: </td>' +
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
                     '<td style="padding:0"><b>{point.y}</b></td></tr>',
                 footerFormat: '</table>',
                 shared: true,
@@ -58,10 +57,15 @@
                     borderWidth: 0
                 }
             },
-            series: <?= $data ?>
+            series:<?= $data ?>, 
+
+           
+        
+
         });
     });
 </script>
-
 </body>
 </html>
+
+ 
