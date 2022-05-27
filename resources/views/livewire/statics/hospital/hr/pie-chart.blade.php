@@ -9,12 +9,6 @@
 </head>
 
 <body>
-    <div class="container">
-        <h3 style="text-align: center;">
-            Google Pie Chart Integration in Laravel 9
-        </h3>
-        <div id="pie-chart" style="width: 900px; height: 500px"></div>
-    </div>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', {

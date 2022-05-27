@@ -1,0 +1,1 @@
+@livewire('statics.hospital.hr.chart-line')

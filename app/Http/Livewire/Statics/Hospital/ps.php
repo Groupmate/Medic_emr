@@ -6,7 +6,7 @@ use App\Models\Patient;
 use App\Models\Medical_data;
 use Illuminate\Support\Facades\DB;
 
-class Pstatics extends Component
+class Ps extends Component
 {
    public $region;
    
