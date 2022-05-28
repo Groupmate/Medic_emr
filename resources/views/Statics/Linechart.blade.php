@@ -1,0 +1,1 @@
+@livewire('statics.line-chart')

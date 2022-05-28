@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -28,10 +30,10 @@ class DatabaseSeeder extends Seeder
                 'password'=>encrypt('password'),
                 'address'=>$faker->name(),
                 'sex'=>$faker->randomElement(["Male","Female"]),
-                'date_of_birth'=>$faker->name(),
+                'date_of_birth'=>$faker->date(),
                 'profile_pic'=>$faker->name(),
                 'created_at'=>$faker->dateTimeBetween("-6 month "," +1 month" ),
-                'updated_at'=>$faker->name(),
+                'updated_at'=>$faker->date(),
 
 
             ]);
