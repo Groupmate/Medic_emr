@@ -9,8 +9,8 @@ class Patient extends Model
 {
     use HasFactory;
      protected $fillable = [
-        'firstname', 'lastname', 'email','status', 'phone_no', 'age',
-        'sex', 'dbirth', 'profile_photo','cityname', 'woreda', 'zone', 'region'
+        'first_name', 'middle_name', 'last_name', 'email', 'national_id', 'phone_no', 'age',
+        'sex', 'date_of_birth', 'profile_picture', 'kebele', 'woreda', 'city', 'zone', 'region'
     ];
 
      public function user(){
@@ -20,4 +20,4 @@ class Patient extends Model
 
          return $query->where('status' ,1);
         }
-}
+} 

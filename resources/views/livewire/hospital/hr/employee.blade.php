@@ -1,32 +1,24 @@
 
 
 <div class="p-6">
-            @if (session()->has('message'))
-
-                    <div class=" flex bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
-
-                                    <div class="flex">
-
-                                                <div>
-
-                                                    <p class="text-sm border-teal-500 rounded-b text-teal-900">{{ session('message') }}</p>
-
-                                                </div>
-
-                                    </div>
-
-                    </div>
-
-            @endif
+    @if (session()->has('message'))
+        <div class=" flex bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
+            <div class="flex">
+                <div>
+                    <p class="text-sm border-teal-500 rounded-b text-teal-900">{{ session('message') }}</p>
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="flex items-center justify-end px-4 py-3 text-right sm:px-6 bg-blue-600 ">
         <x-jet-button  wire:click="createShowModal" >
                 {{ __('Add Employee') }}
     </x-jet-button>
     </div>
-   
+
     <x-jet-dialog-modal wire:model="modelFormVisible">
         <x-slot name="title">
-            {{ __('Add New Employee') }} {{$modelId}} 
+            {{ __('Add New Employee') }} {{$modelId}}
         </x-slot>
 
         <x-slot name="content">
@@ -48,7 +40,7 @@
                               <x-jet-input id="last_name" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="last_name" wire:model.debounce.800ms="last_name" />
                               @error('last_name') <span class="error text-red-600">{{$message}}</span>@enderror
                           </div>
-            
+
                 </div>
                 <div  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
                             <div class="mt-4">
@@ -68,7 +60,7 @@
                               <x-jet-input id="email" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="email" name="email" :value="old('email')" required autofocus wire:model.debounce.800ms="email" />
                               @error('email') <span class="error text-red-600">{{$message}}</span>@enderror
                         </div>
-                
+
 
                         <div class="mt-4">
                             <x-jet-label for="password" value="{{ __('Password') }}" />
@@ -76,7 +68,7 @@
                             @error('password') <span class="error text-red-600">{{$message}}</span>@enderror
                         </div>
                  </div>
-                
+
                   <div  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
                             <div class="mt-4">
                                 <x-jet-label for="age" value="{{ __('Age') }}" />
@@ -90,7 +82,7 @@
                                       <option>---Select sex---</option>
                                       <option value="male">Male</option>
                                       <option value="female">Female</option>
-                                      
+
                                   </select>
                                   @error('sex') <span class="error text-red-600">{{$message}}</span>@enderror
                              </div>
@@ -111,7 +103,7 @@
                               <x-jet-input id="birth_date" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="date" name="birth_date" wire:model.debounce.800ms="birth_date" />
                               @error('birth_date') <span class="error text-red-600">{{$message}}</span>@enderror
                           </div>
-            
+
                 </div>
                 <div  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
                             <div class="mt-4">
@@ -128,20 +120,20 @@
                                             <option value="recept">Receptionist</option>
                                             <option value="pharmacy">Pharmacy</option>
                                             <option value="labratory">Lababratory</option>
-                                          
+
                                         </select>
                                         @error('type') <span class="error text-red-600">{{$message}}</span>@enderror
                               </div>
                   </div>
-                  
-           
+
+
           </form>
-       
-            
+
+
         </x-slot>
-        
+
         </div>
-        
+
 
         <x-slot name="footer">
         @if($modelId)
@@ -169,7 +161,7 @@
                                             <th   class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">address</th>
                                             <th   class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">profile-picture</th>
                                             <th   class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">action</th>
-                                        
+
                                         </tr>
                                 </thead>
                             <tbody>
@@ -181,7 +173,7 @@
                                             <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->address}}</td>
                                             <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->image}}</td>
                                             <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-                                                        
+
                                                 <x-jet-button wire:click="updateShowModal({{ $employe->id }})">
                                                     {{ __('update') }}
                                                     </x-jet-button>
@@ -194,8 +186,8 @@
                                             </td>
                                  @endforeach
                                         </tr>
-                               
-                                   
+
+
                             </tbody>
                     </table>
                 <x-jet-dialog-modal wire:model="modalConfirmDeleteVisible">
@@ -219,7 +211,7 @@
                                             {{ __('Delete ') }}
                                         </x-jet-danger-button>
                                     </x-slot>
-            </x-jet-dialog-modal>    
+            </x-jet-dialog-modal>
             <!-- modalViewDetailVisible -->
                     <x-jet-dialog-modal wire:model="modalViewDetailVisible">
 
@@ -231,7 +223,7 @@
 
                                     <table class="leading-normal" >
                                         <tbody>
-                                    
+
                                                 <tr>
                                                     <th class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">First-Name:</th>
                                                     <td class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">{{$first_name}}</td>
@@ -268,7 +260,7 @@
                                                     <th class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">Address:</th>
                                                     <td class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100">{{$address}}</td>
                                                 </tr>
-                                        
+
                                         </tbody>
                                     </table>
 
@@ -282,9 +274,9 @@
                                 </x-slot>
             </x-jet-dialog-modal>
 </div>
- 
+
             </div>
-   
+
 
 
 

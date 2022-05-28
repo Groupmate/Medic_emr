@@ -26,9 +26,8 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-          'email', 'orgn_id', 'first_name', 'last_name', 'phone',
-          'address', 'sex', 'date_of_birth', 'type', 'department',
-          'department', 'password', 'role'
+          'email', 'organization_id', 'first_name', 'last_name', 'phone', 'role',
+          'address', 'sex', 'date_of_birth', 'password','profile_pic',
     ];
 
     /**
@@ -60,4 +59,28 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    // public function roles()
+    // {
+    //     return $this->belongsToMany(\App\Models\Role::class, 'role_user');
+    // }
+
+    public function organization()
+    {
+        return $this->hasOne(Organization::class);
+    }
+
+    public function hospital()
+    {
+        return $this->hasOne(Hospital::class);
+    }
+
+    public function doctor()
+    {
+        return $this->hasOne(Doctor::class);
+    }
+    public function employee()
+    {
+        return $this->hasOne(Employee::class);
+    }
 }

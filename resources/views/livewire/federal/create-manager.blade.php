@@ -4,7 +4,6 @@
             <x-jet-authentication-card-logo />
         </x-slot>
 
-
         <div>
             <x-jet-label for="first_name" value="{{ __('First name') }}"/>
             <x-jet-input id="name" class="block mt-1 w-full" type="text" wire:model.debounce.800ms="first_name"/>
@@ -15,13 +14,7 @@
             <x-jet-label for="last_name" value="{{ __('Last name') }}"/>
             <x-jet-input id="last_name" class="block mt-1 w-full" type="text" wire:model.defer="last_name"/>
             @error('last_name') <span class="error">{{$message}}</span>@enderror
-        </div>
-
-        <div class="mt-4">
-            <x-jet-label for="organization" value="{{ __('Organization') }}"/>
-            <x-jet-input id="organization" class="block mt-1 w-full" type="text" wire:model.defer="orgn_id"/>
-            @error('orgn_id') <span class="error">{{$message}}</span>@enderror
-        </div>
+        </div> 
 
         <div class="mt-4">
             <x-jet-label for="phone" value="{{ __('Phone') }}"/>
@@ -55,18 +48,6 @@
             <x-jet-label for="date_of_birth" value="{{ __('date_of_birth') }}" />
             <x-jet-input id="date_of_birth" class="block mt-1 w-full" type="date" wire:model.defer="date_of_birth"/>
             @error('date_of_birth') <span class="error">{{$message}}</span>@enderror
-        </div>
-
-        <div class="mt-4">
-            <x-jet-label for="type" value="{{ __('type') }}" />
-            <x-jet-input id="type" class="block mt-1 w-full" type="text" wire:model.defer="type"/>
-            @error('type') <span class="error">{{$message}}</span>@enderror
-        </div>
-
-        <div class="mt-4">
-            <x-jet-label for="department" value="{{ __('department') }}" />
-            <x-jet-input id="department" class="block mt-1 w-full" type="text" wire:model.defer="department" :value="old('department')" />
-            @error('department') <span class="error">{{$message}}</span>@enderror
         </div>
 
         <div class="mt-4">

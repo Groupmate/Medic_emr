@@ -13,47 +13,55 @@
 
             <div class="mt-4">
                 <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" wire:model.debounce.800ms="name" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="text" wire:model.debounce.800ms="name" />
                 @error('name') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="manager" value="{{ __('Manager') }}" />
-                <x-jet-input id="manager" class="block mt-1 w-full" type="text" name="manager_id" wire:model.debounce.800ms="manager_id" />
-                @error('manager_id') <span class="error text-red-600">{{$message}}</span>@enderror
+                <select class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="user_id" />
+                :value="old('user_id')" required autofocus autocomplete="user_id">
+                    <option>---Select Manager---</option>
+                    @forelse ($users as $user)
+                        <option value={{ $user->id }}>{{ $user->first_name }} {{ $user->last_name }}</option>
+                    @empty
+                        <option disabled>oooo</option>
+                    @endforelse
+                </select>
+                @error('user_id') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="type" value="{{ __('Type') }}" />
                 <select name="type" class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="type" />
                 :value="old('type')" required autofocus autocomplete="type">
                     <option>---Select Type---</option>
-                    <option value="4">Zone Health bureau</option>
+                    <option value="4">Zone Health Bureau</option>
                 </select>
                 @error('type') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="region" value="{{ __('Region') }}" />
-                <x-jet-input id="region" class="block mt-1 w-full" type="text" name="region" wire:model.debounce.800ms="region" />
+                <x-jet-input id="region" class="block mt-1 w-full" type="text" wire:model.debounce.800ms="region" />
                 @error('region') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="zone" value="{{ __('Zone') }}" />
-                <x-jet-input id="zone" class="block mt-1 w-full" type="text" name="zone" wire:model.debounce.800ms="zone" />
+                <x-jet-input id="zone" class="block mt-1 w-full" type="text" wire:model.debounce.800ms="zone" />
                 @error('zone') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="woreda" value="{{ __('Woreda') }}" />
-                <x-jet-input id="woreda" class="block mt-1 w-full" type="text" name="woreda" wire:model.debounce.800ms="woreda" />
+                <x-jet-input id="woreda" class="block mt-1 w-full" type="text" wire:model.debounce.800ms="woreda" />
                 @error('woreda') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="kebele" value="{{ __('Kebele') }}" />
-                <x-jet-input id="kebele" class="block mt-1 w-full" type="text" name="kebele" wire:model.debounce.800ms="kebele" />
+                <x-jet-input id="kebele" class="block mt-1 w-full" type="text" wire:model.debounce.800ms="kebele" />
                 @error('kebele') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
             <div class="mt-4">
-                <x-jet-label for="city_name" value="{{ __('City_Name') }}" />
-                <x-jet-input id="city_name" class="block mt-1 w-full" type="text" name="city_name" wire:model.debounce.800ms="city_name" />
-                @error('city_name') <span class="error text-red-600">{{$message}}</span>@enderror
+                <x-jet-label for="city" value="{{ __('City_Name') }}" />
+                <x-jet-input id="city" class="block mt-1 w-full" type="text" wire:model.debounce.800ms="city" />
+                @error('city') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
         </x-slot>
 
@@ -79,7 +87,7 @@
         <thead class="text-purple-500">
             <tr >
                 <th  class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">Name center</th>
-                <th  class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">manager</th>
+                {{-- <th  class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">manager</th> --}}
                 <th  class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">type</th>
                 <th   class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">region</th>
                 <th   class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">city_name</th>
@@ -88,40 +96,38 @@
             </tr>
         </thead>
         <tbody>
-            @if($organizations->count())
-                @foreach($organizations as $organ)
-                    <tr>
-                        <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->name}}</td>
-                        <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->manager_id}}</td>
-                        @if( $organ->type ==4 )
-                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">Zonal</td>
-                        @endif
-                        <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->region}}</td>
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->city_name}}</td>
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+            @forelse($organizations as $organ)
+                <tr>
+                    <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->name}}</td>
+                    {{-- <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->user_id}}</td> --}}
+                    @if( $organ->type ==4 )
+                        <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">Zonal</td>
+                    @endif
+                    <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->region}}</td>
+                    <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->city}}</td>
+                    <td>
 
-                            <x-jet-button wire:click="updateShowModal({{ $organ->id }})">
-                                {{ __('update') }}
-                            </x-jet-button>
-                            <x-jet-danger-button wire:click="deleteShowModel({{ $organ->id }})" >
-                                {{ __('Delete') }}
-                            </x-jet-button>
-                            <x-jet-button class="bg-green-500" wire:click="viewShowModel({{ $organ->id }})">
-                                {{ __('view') }}
-                            </x-jet-button>
-                        </td>
-                    </tr>
-                @endforeach
-            @else
-                    <tr>
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-                        <td class="px-6 py-3 border-b border-black-200 bg-white text-lg">Nope</td>
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-                        <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-                    </tr>
-            @endif
+                        <x-jet-button  class="px-6 py-3 border-b border-gray-200 bg-white text-sm" wire:click="updateShowModal({{ $organ->id }})">
+                            {{ __('update') }}
+                        </x-jet-button>
+                        <x-jet-danger-button wire:click="deleteShowModel({{ $organ->id }})" >
+                            {{ __('Delete') }}
+                        </x-jet-button>
+                        <x-jet-button class="bg-green-500" wire:click="viewShowModel({{ $organ->id }})">
+                            {{ __('view') }}
+                        </x-jet-button>
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                    <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                    <td class="px-6 py-3 border-b border-black-200 bg-white text-lg">Nope</td>
+                    <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                    <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                    <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                </tr>
+            @endforelse
         </tbody>
     </table>
                     <!-- Delete the organization modal -->
@@ -164,7 +170,7 @@
                         </tr>
                         <tr>
                             <th>Manager of the health center:</th>
-                            <td> {{ $manager_id }}</td>
+                            <td> {{ $user_id }}</td>
                         </tr>
                         <tr>
                             <th>Type of health center:</th>
@@ -180,7 +186,7 @@
                         </tr>
                         <tr>
                             <th>City of health center:</th>
-                            <td> {{ $city_name }} </td>
+                            <td> {{ $city }} </td>
                         </tr>
                 </tbody>
             </table>

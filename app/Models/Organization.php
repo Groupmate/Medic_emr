@@ -8,5 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Organization extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $fillable = [
+        'name', 'type', 'region', 'zone', 'user_id',
+        'woreda', 'kebele', 'city',
+    ];
+
+    public function user()
+    {
+        return $this->hasOne('\App\Models\User::class');
+    }
 }
