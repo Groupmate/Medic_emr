@@ -13,6 +13,7 @@
                         @livewire('federal.create-manager')
                     </div>
                 </div>
+                <p></p>
             </div>
         </x-app-layout>
     </section>
