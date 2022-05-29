@@ -1,17 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="en" class="">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Hospital HR </title>
+  <title> Hospital HR Manager </title>
 
   <!-- Tailwind is included -->
 
   <link href="{{ asset('csss/main1.css?v=1628755089081') }}" rel="stylesheet">
 
-  <link href="{{ asset('frontend/csss/style.css') }}" rel="stylesheet">
+  <link href="{{ asset('frontend/csss/style1.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
 
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
@@ -67,17 +66,29 @@
             <span>Messages</span>
           </a>
           <hr class="navbar-divider">
-          <a class="navbar-item">
-            <span class="icon"><i class="mdi mdi-logout"></i></span>
-            <span>Log Out</span>
-          </a>
+          <form method="POST" action="{{ route('logout') }}" x-data>
+              @csrf
+                <x-jet-dropdown-link 
+                    class="navbar-item"
+                    title="Logout" 
+                    href="{{ route('logout') }}"
+                    @click.prevent="$root.submit();"><span class="icon"><i class="mdi mdi-logout"></i></span>
+                    {{ __('Log Out') }}
+                </x-jet-dropdown-link>
+          </form>
         </div>
       </div>
     
-      <a title="Log out" class="navbar-item desktop-icon-only">
-        <span class="icon"><i class="mdi mdi-logout"></i></span>
-        <span>Log out</span>
-      </a>
+      <!-- <form method="POST" action="{{ route('logout') }}" x-data>
+              @csrf
+                <x-jet-dropdown-link 
+                    class="navbar-item"
+                    title="Logout" 
+                    href="{{ route('logout') }}"
+                    @click.prevent="$root.submit();"><span class="icon"><i class="mdi mdi-logout"></i></span>
+                    {{ __('Log Out') }}
+                </x-jet-dropdown-link>
+          </form> -->
     </div>
   </div>
 </nav>
@@ -156,7 +167,7 @@
         </a>
       </li> -->
       <li>
-        <a href="https://justboil.me/tailwind-admin-templates" class="has-icon">
+        <a href="" class="has-icon">
           <span class="icon"><i class="mdi mdi-help-circle"></i></span>
           <span class="menu-item-label"><strong>About</strong></span>
         </a>
@@ -166,6 +177,16 @@
           <span class="icon"><i class="mdi mdi-lock"></i></span>
           <span class="menu-item-label"><strong>Logout</strong></span>
         </a>
+      <form method="POST" action="{{ route('logout') }}" x-data>
+              @csrf
+                <x-jet-dropdown-link 
+                    class="navbar-item"
+                    title="Logout" 
+                    href="{{ route('logout') }}"
+                    @click.prevent="$root.submit();"><span class="icon"><i class="mdi mdi-logout"></i></span>
+                    {{ __('Log Out') }}
+                </x-jet-dropdown-link>
+          </form>
       </li>
     </ul>
   </div>

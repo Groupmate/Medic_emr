@@ -14,7 +14,7 @@
       <p class="menu-label">General</p>
       <ul class="menu-list">
         <li class="--set-active-index-html">
-          <a href="{{ url('dashboard1') }}">
+          <a href="{{ url('dashboard') }}">
             <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
             <span class="menu-item-label">Dashboard</span>
           </a>
@@ -30,7 +30,7 @@
           </a>
         </li>
         <li class="--set-active-profile-html">
-          <a  href="{{ url('/create_manager') }}">
+          <a  href="{{ url('/create_zonalmanager') }}">
             <span class="icon"><i class="mdi mdi-account-circle"></i></span>
             <span class="menu-item-label">Create Managers</span>
           </a>
@@ -38,7 +38,7 @@
         <li>
 
         <li class="--set-active-forms-html">
-          <a  href="{{ url('profile') }}">
+          <a  href="{{ url('regionalprofile') }}">
             <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
             <span class="menu-item-label">Profile</span>
           </a>
@@ -74,11 +74,16 @@
           </a>
         </li>
         <li class="--set-active-forms-html">
-          <form method="POST" action="{{ route('logout') }}" x-data>
-              <a href="">
-                  <span class="icon"><i class="mdi mdi-lock"></i></span>
-                  <span class="menu-item-label">Logout</span>
-              </a>
+            <form method="POST" action="{{ route('logout') }}" x-data>
+              @csrf
+                <x-jet-dropdown-link 
+                    class="navbar-item"
+                    title="Logout" 
+                    href="{{ route('logout') }}"
+                    @click.prevent="$root.submit();">
+                    <span class="icon"><i class="mdi mdi-logout"></i></span>
+                    {{ __('Log Out') }}
+                </x-jet-dropdown-link>
           </form>
         </li>
       </ul>
@@ -115,7 +120,7 @@
             <div class="user-avatar">
               <img src="https://avatars.dicebear.com/v2/initials/john-doe.svg" alt="Dr" class="rounded-full">
             </div>
-            <div class="is-user-name"><span> Dr. Natnael</span></div>
+            <div class="is-user-name"><span>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span></div>
             <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
           </a>
           <div class="navbar-dropdown">
@@ -132,24 +137,38 @@
               <span>Messages</span>
             </a>
             <hr class="navbar-divider">
-            <a class="navbar-item">
-              <span class="icon"><i class="mdi mdi-logout"></i></span>
-              <span>Log Out</span>
-            </a>
+            <form method="POST" action="{{ route('logout') }}" x-data>
+              @csrf
+                <x-jet-dropdown-link 
+                    class="navbar-item"
+                    title="Logout" 
+                    href="{{ route('logout') }}"
+                    @click.prevent="$root.submit();">
+                    <span class="icon"><i class="mdi mdi-logout"></i></span>
+                    {{ __('Log Out') }}
+                </x-jet-dropdown-link>
+            </form>
           </div>
         </div>
-     <a href="https://justboil.me/tailwind-admin-templates" class="navbar-item has-divider desktop-icon-only">
+     <!-- <a href="https://github.com/Naty-Tefera/Medic_emr_backup.git" class="navbar-item has-divider desktop-icon-only">
           <span class="icon"><i class="mdi mdi-help-circle-outline"></i></span>
           <span>About</span>
         </a>
         <a href="https://github.com/Naty-Tefera/Medic_emr_backup.git" class="navbar-item has-divider desktop-icon-only">
           <span class="icon"><i class="mdi mdi-github-circle"></i></span>
           <span>GitHub</span>
-        </a>
-        <a href="{{ route('logout') }}" title="Log out" class="navbar-item desktop-icon-only">
-          <span class="icon"><i class="mdi mdi-logout"></i></span>
-          <span>Log out</span>
-        </a>
+        </a> -->
+        <!-- <form method="POST" action="{{ route('logout') }}" x-data>
+              @csrf
+                <x-jet-dropdown-link 
+                    class="navbar-item"
+                    title="Logout" 
+                    href="{{ route('logout') }}"
+                    @click.prevent="$root.submit();">
+                    <span class="icon"><i class="mdi mdi-logout"></i></span>
+                    {{ __('Log Out') }}
+                </x-jet-dropdown-link>
+          </form> -->
       </div>
     </div>
   </nav>

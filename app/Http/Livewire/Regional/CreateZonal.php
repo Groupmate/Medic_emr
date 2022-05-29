@@ -121,6 +121,7 @@ class CreateZonal extends Component
     {
         $this->validate();
         Organization::create($this->modeldata());
+        session()->flash('message', 'Zonal Bureau Created Successfully.');
         $this->modelFormVisible= false;
         $this->resetvars();
     }
@@ -134,6 +135,7 @@ class CreateZonal extends Component
     {
         $this->validate();
         Organization::find($this->modelId)->update($this->modelData());
+        session()->flash('message', 'Zonal Bureau Updated Successfully.');
         $this->modelFormVisible= false;
         $this->resetvars();
     }

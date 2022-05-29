@@ -1,4 +1,4 @@
-<div class="p-6">
+{{-- <div class="p-6">
     <div class="flex items-center justify-end px-4 py-3 text-right sm:px-6">
         <x-jet-button wire:click="createShowModal">
                 {{ __('Add Health Bureau') }}
@@ -26,7 +26,7 @@
                 <select name="type" class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="type" />
                 :value="old('type')" required autofocus autocomplete="type">
                     <option>---Select Type---</option>
-                    <option value="1">Regional Health bureau</option>
+                    <option value="1">Regional </option>
                     <option value="2">City Adminstration</option>
                     <option value="3">Speciality Clinics</option>
                 </select>
@@ -201,4 +201,4 @@
 
         </x-slot>
     </x-jet-dialog-modal>
-</div>
+</div> --}}

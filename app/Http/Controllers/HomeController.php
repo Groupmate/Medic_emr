@@ -11,9 +11,11 @@ class HomeController extends Controller
     /**
      * 1, federal man
      * 2, regional man
-     * 3, city man
-     * 4, zone man
-     * 5, hospital man
+     * 3, zone man
+     * 4, HR  man
+     * 5, Reception man
+     * 6. Doctor man
+     * 7.Other pages(Pharmacy and Lababratory)
      *
      * @return void
      */
@@ -33,6 +35,7 @@ class HomeController extends Controller
         }
         if(Auth()->user()->role == 5){
             return view('hospital.reception.dashboard');
+            
         }
         if(Auth()->user()->role == 6){
             return view('hospital.doctors.dashboard');
@@ -40,4 +43,5 @@ class HomeController extends Controller
 
 
     }
+
 }

@@ -121,6 +121,7 @@ class CreateHospital extends Component
     {
         $this->validate();
         Organization::create($this->modeldata());
+        session()->flash('message', 'Hospital Registered Successfully.');
         $this->modelFormVisible= false;
         $this->resetvars();
     }
@@ -134,6 +135,7 @@ class CreateHospital extends Component
     {
         $this->validate();
         Organization::find($this->modelId)->update($this->modelData());
+        session()->flash('message', 'Updated Successfully.');
         $this->modelFormVisible= false;
         $this->resetvars();
     }

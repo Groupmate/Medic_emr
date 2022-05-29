@@ -111,6 +111,7 @@ class CreateRegional extends Component
     {
         $this->validate();
         Organization::create($this->modeldata());
+        session()->flash('message', 'Organization Created Successfully.');
         $this->modelFormVisible= false;
         $this->resetvars();
     }
@@ -124,6 +125,7 @@ class CreateRegional extends Component
     {
         $this->validate();
         Organization::find($this->modelId)->update($this->modelData());
+        session()->flash('message', 'Organization Updated Successfully.');
         $this->modelFormVisible= false;
         $this->resetvars();
     }

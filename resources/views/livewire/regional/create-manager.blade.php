@@ -12,7 +12,7 @@
         </div>
 
         <div class="mt-4">
-            <x-jet-label for="last_name" value="{{ __('Last name') }}"/>
+            <x-jet-label for="last_name" value="{{ __           ('Last name') }}"/>
             <x-jet-input id="last_name" class="block mt-1 w-full" type="text" wire:model.debounce.800ms="last_name"/>
             @error('last_name') <span class="error">{{$message}}</span>@enderror
         </div>
@@ -88,6 +88,15 @@
             </x-jet-button>
         </div>
     </x-guest-layout>
+    @if (session()->has('message'))
+    <div class=" flex bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
+        <div class="flex">
+             <div>
+                <p class="text-sm border-teal-500 rounded-b text-teal-900">{{ session('message') }}</p>
+            </div>
+        </div>
+    </div>
+  @endif
 </div>
 
 

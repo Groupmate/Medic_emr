@@ -23,6 +23,7 @@ class CreateManager extends Component
     {
         $this->validate();
         User::create($this->modeldata());
+        session()->flash('message', 'Zonal Manager Created Successfully.');
         $this->reset();
     }
 
@@ -36,7 +37,7 @@ class CreateManager extends Component
     public function modeldata()
     {
         return[
-            'first_name'=>$this->first_name,
+            'first_name'=>$this->first_name,    
             'last_name'=>$this->last_name,
             'email'=>$this->email,
             'orgn_id'=>$this->orgn_id,

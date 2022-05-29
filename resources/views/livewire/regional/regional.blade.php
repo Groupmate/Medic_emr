@@ -96,14 +96,9 @@
                     <tr>
                         <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->name}}</td>
                         <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->manager_id}}</td>
-                        @if( $organ->type ==2 )
+                        @if( $organ->type ==4 )
                             <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">Regional</td>
                         @endif
-                        @if( $organ->type ==3 )
-                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">City Adminstration</td>
-                        @endif
-                        @if( $organ->type ==4 )
-                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">Speciality Clinic</td>
                         @endif
                         <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->region}}</td>
                         <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->city_name}}</td>

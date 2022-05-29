@@ -1,4 +1,13 @@
 <div class="p-6">
+  @if (session()->has('message'))
+    <div class=" flex bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
+        <div class="flex">
+             <div>
+                <p class="text-sm border-teal-500 rounded-b text-teal-900">{{ session('message') }}</p>
+            </div>
+        </div>
+    </div>
+ @endif
     <div class="flex items-center justify-end px-4 py-3 text-right sm:px-6">
         <x-jet-button wire:click="createShowModal">
                 {{ __('Add Zonal Health Bureaus') }}
@@ -26,7 +35,7 @@
                 <select name="type" class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="type" />
                 :value="old('type')" required autofocus autocomplete="type">
                     <option>---Select Type---</option>
-                    <option value="4">Zone Health bureau</option>
+                    <option value="4">Zone Health Bureau</option>
                 </select>
                 @error('type') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>

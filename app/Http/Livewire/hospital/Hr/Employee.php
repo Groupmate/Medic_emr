@@ -3,8 +3,9 @@
 namespace App\Http\Livewire\Hospital\Hr;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use App\Models\Employe;
+use App\Models\User;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
 use Livewire\WithPagination;
 class Employee extends Component
 {
@@ -15,8 +16,8 @@ class Employee extends Component
     public $modelFormVisible=false; public $modalConfirmDeleteVisible=false; public $modalViewDetailVisible=false;
     public $employes;    public $modelId;
     public $images=[];
-    public $first_name;  public $middel_name;  public $last_name;  public $user_id; public $organization_id; public $age;
-    public $sex;  public $password; public $email; public $birth_date; public $image; public $type; public $phone; public $address;
+    public $first_name;  public $middel_name;  public $last_name;  public $user_id; public $organization_id; public $department;
+    public $sex; public $role; public $password; public $email; public $date_of_birth; public $profile_pic; public $type; public $phone; public $address;
     /**
      * createShowModal show modal
      *
@@ -71,17 +72,17 @@ class Employee extends Component
      */
     public function create()
     {
-        $filename="";
-        if($this->image){
-            $filename=$this->image->store('posts','public');
-        }
-        else{
-            $filename=Null;
-        }
+        // $filename="";
+        // if($this->image){
+        //     $filename=$this->image->store('posts','public');
+        // }
+        // else{
+        //     $filename=Null;
+        // }
 
         $this->validate();
-       Employe::create($this->modeldata());
-       session()->flash('message', 'Employee registered Successfully.');
+       User::create($this->modeldata());
+       session()->flash('message', 'Employee Registered Successfully.');
         $this->modelFormVisible= false;
         $this->resetvars();
     }
@@ -93,7 +94,7 @@ class Employee extends Component
     public function update()
     {
         $this->validate();
-        Employe::find($this->modelId)->update($this->modelData());
+      User::find($this->modelId)->update($this->modelData());
         $this->modelFormVisible= false;
         $this->resetvars();
     }
@@ -104,7 +105,7 @@ class Employee extends Component
      */
     public function delete()
     {
-        Employe::destroy($this->modelId);
+      User::destroy($this->modelId);
         $this->modalConfirmDeleteVisible=false;
         $this->resetpage();
     }
@@ -117,19 +118,20 @@ class Employee extends Component
     {
         return [
             'first_name'=>$this->first_name,
-            'middel_name'=>$this->middel_name,
+           
             'last_name'=>$this->last_name,
-            'password'=>$this->password,
+            'password' => Hash::make($this->password),
             'email'=>$this->email,
-            'user_id'=>$this->user_id,
-            'organization_id'=>$this->organization_id,
+          
+            // 'organ_id'=>$this->organization_id,
             'type'=>$this->type,
-            'age'=>$this->age,
+            'role'=>$this->role,
+            'department'=>$this->department,
             'sex'=>$this->sex,
             'phone'=>$this->phone,
             'address'=>$this->address,
-            'birth_date'=>$this->birth_date,
-            'image'=>$this->image,
+            'date_of_birth'=>$this->date_of_birth,
+            'profile_pic'=>$this->profile_pic,
 
         ];
     }
@@ -142,17 +144,18 @@ class Employee extends Component
     {
         $this->modelId =null;
         $this->first_name=null;
-        $this->middel_name=null;
+        
         $this->last_name=null;
         $this->email=null;
         $this->password=null;
-        $this->user_id=null;
+        
         $this->organization_id=null;
         $this->type=null;
-        $this->age=null;
+        $this->role=null;
+        $this->department=null;
         $this->sex=null;
-        $this->image=null;
-        $this->birth_date=null;
+        $this->profile_pic=null;
+        $this->date_of_birth=null;
         $this->phone=null;
         $this->address=null;
 
@@ -166,19 +169,20 @@ class Employee extends Component
     {
         return [
             'first_name'=>'required',
-            'middel_name'=>'required',
+            
             'last_name'=>'required',
             'email'=>'required',
             'password'=>'required',
-            'user_id'=>'required',
-            'organization_id'=>'required',
-            'image'=>'required',
+           
+            // 'organization_id'=>'required',
+            // 'profile_pic'=>'required',
             'type'=>'required',
-            'age'=>'required',
+            'role'=>'required',
+            'department'=>'required',
             'sex'=>'required',
             'phone'=>'required',
             'address'=>'required',
-            'birth_date'=>'required',
+            // 'date_of_birth'=>'required',
         ];
     }
     /**
@@ -188,20 +192,22 @@ class Employee extends Component
      */
     public function loadModel()
     {
-        $employes=Employe::find($this->modelId);
+        $employes=User::find($this->modelId);
             $this->first_name= $employes->first_name;
-            $this->middel_name= $employes->middel_name;
+           
             $this->last_name= $employes->last_name;
-            $this->age= $employes->age;
-            $this->user_id= $employes->user_id;
+            $this->department= $employes->department;
+            
             $this->phone= $employes->phone;
             $this->address= $employes->address;
             $this->email= $employes->email;
             $this->sex= $employes->sex;
-            $this->image= $employes->image;
-            $this->organization_id= $employes->organization_id;
-            $this->birth_date= $employes->birth_date;
+            $this->profile_pic= $employes->profile_pic;
+          
+            $this->date_of_birth= $employes->date_of_birth;
             $this->type= $employes->type;
+            $this->role= $employes->role;
+
 
     }
     /**
@@ -211,7 +217,7 @@ class Employee extends Component
      */
     public function read()
     {
-      return Employe::paginate(5);
+      return User::paginate(5);
     }
     /**
      * render
@@ -220,8 +226,8 @@ class Employee extends Component
      */
     public function render()
     {
-        $employes = Employe::latest()->paginate(5);
+        $employes = User::latest()->paginate(5);
         return view('livewire.hospital.hr.employee',[ 'employes'=>$this->read(),
-        $this->employes=Employe::all(),]);
+        $this->employes=User::all(),]);
     }
 }

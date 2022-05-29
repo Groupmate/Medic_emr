@@ -62,6 +62,23 @@
         <span class="icon"><i class="mdi mdi-logout"></i></span>
         <span>Log out</span>
       </a>
+          <form method="POST" action="{{ route('logout') }}" x-data>
+              @csrf
+                <x-jet-dropdown-link 
+                    class="navbar-item"
+                    title="Logout" 
+                    href="{{ route('logout') }}"
+                    @click.prevent="$root.submit();"><span class="icon"><i class="mdi mdi-logout"></i></span>
+                    {{ __('Log Out') }}
+                </x-jet-dropdown-link>
+          </form>
+        </div>
+      </div>
+    
+      <!-- <a title="Log out" class="navbar-item desktop-icon-only">
+        <span class="icon"><i class="mdi mdi-logout"></i></span>
+        <span>Log out</span>
+      </a> -->
     </div>
   </div>
 </nav>
@@ -144,6 +161,16 @@
           <span class="icon"><i class="mdi mdi-lock"></i></span>
           <span class="menu-item-label"><strong>Logout</strong></span>
         </a>
+      <form method="POST" action="{{ route('logout') }}" x-data>
+              @csrf
+                <x-jet-dropdown-link 
+                    class="navbar-item"
+                    title="Logout" 
+                    href="{{ route('logout') }}"
+                    @click.prevent="$root.submit();"><span class="icon"><i class="mdi mdi-logout"></i></span>
+                    {{ __('Log Out') }}
+                </x-jet-dropdown-link>
+          </form>
       </li>
     </ul>
   </div>
