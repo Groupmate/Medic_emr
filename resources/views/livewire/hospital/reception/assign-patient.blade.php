@@ -1,5 +1,4 @@
 <div class="p-6">
-    <div class="bg-white dark:bg-gray-800  shadow px-8 md:px-12 pt-4 md:pt-7 pb-5 overflow-y-auto">
         <div>
           <h2 class="text-gray-600 font-semibold">Patient Full Information</h2>
           <span class="text-xs">All Patients Clients</span>
@@ -194,29 +193,3 @@
 
         <x-slot name="content">
             <div class="mt-4">
-                <x-jet-label for="doctor" value="{{ __('Doctor') }}" />
-                <select class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="user_id">
-                    <option diabled>---Select Doctor---</option>
-                    @foreach ($doctors as $doctors)
-                        @foreach ( $users as $users)
-                            @if ($users->id == $doctors->user_id)
-                                <option value="{{ $users->id }}">{{ $users->first_name }}</option>
-                            @endif
-                        @endforeach
-                    @endforeach
-                </select>
-                @error('user_id') <span class="error text-red-600">{{$message}}</span>@enderror
-            </div>
-        </x-slot>
-            <x-slot name="footer">
-                <x-jet-secondary-button class="bg-green-500" wire:click="create" wire:loading.attr="disabled">
-                    {{ __('create') }}
-                </x-jet-secondary-button>
-                <x-jet-secondary-button class="ml-3" wire:click="$toggle('modalFormVisible')" wire:loading.attr="disabled">
-                    {{ __('Cancel') }}
-                </x-jet-secondary-button>
-            </x-slot>
-    </x-jet-dialog-modal>
-        </div>
-    </div>
-

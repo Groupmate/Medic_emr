@@ -11,7 +11,6 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Livewire\WithPagination;
-use Illuminate\Support\Facades\Hash;
 
 class AddDoctor extends Component
 {
@@ -36,10 +35,11 @@ class AddDoctor extends Component
         $this->user_id = Auth()->user()->id;
         $hospital_name = Hospital::where('user_id', $this->user_id)->first()->id;
 
+        $user = User::create($this->userModelData());
+        $doctor->user_id = $user->id;
+
         $doctor = Doctor::create($this->doctorModelData());
         $doctor->hospitals()->sync($hospital_name);
-        //dd($doctor->id);
-        User::create($this->userModelData());
         session()->flash('message', 'Doctor registered Successfully.');
         $this->modelFormVisible= false;
         $this->reset();

@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
+<<<<<<<< HEAD:vendor/laravel/framework/src/Illuminate/Database/Migrations/stubs/migration.create.stub
         Schema::create('{{ table }}', function (Blueprint $table) {
+========
+        Schema::create('roles', function (Blueprint $table) {
+>>>>>>>> medic_aemr:database/migrations/2022_05_08_190325_create_roles_table.php
             $table->id();
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -26,6 +31,10 @@ return new class extends Migration
      */
     public function down()
     {
+<<<<<<<< HEAD:vendor/laravel/framework/src/Illuminate/Database/Migrations/stubs/migration.create.stub
         Schema::dropIfExists('{{ table }}');
+========
+        Schema::dropIfExists('roles');
+>>>>>>>> medic_aemr:database/migrations/2022_05_08_190325_create_roles_table.php
     }
 };

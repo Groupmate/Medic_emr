@@ -23,6 +23,7 @@ class CreateManager extends Component
     {
         $this->validate();
         User::create($this->modeldata());
+        
         $this->reset();
     }
 

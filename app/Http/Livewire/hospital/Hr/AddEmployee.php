@@ -10,7 +10,6 @@ use App\Models\Hospital;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Hash;
 use Livewire\WithPagination;
 
 class AddEmployee extends Component
@@ -22,8 +21,7 @@ class AddEmployee extends Component
     public $modelId;
     public $first_name, $last_name, $user_id, $organization_id=NULL, $sex, $password,
            $email, $date_of_birth, $profile_pic, $phone, $address, $hospital_id, $hospital_a,
-           $department, $hospitals, $shift =[''], $role;
-
+           $department, $hospitals, $shift =[], $role;
 
     /**
      * create store data to database
@@ -32,11 +30,11 @@ class AddEmployee extends Component
      */
     public function CreateEmployee()
     {
-
         $this->validate();
 
-        $Employee = Employee::create($this->employeeModelData());
-        User::create($this->userModelData());
+        $user = User::create($this->userModelData());
+        $id = $user->id;
+        $Employee = Employee::create($this->employeeModelData($id));
         session()->flash('message', 'Employee registered Successfully.');
         $this->modelFormVisible= false;
         $this->reset();
@@ -54,6 +52,7 @@ class AddEmployee extends Component
         $this->modelFormVisible= false;
         $this->reset();
     }
+    
     /**
      * delete
      *
@@ -84,11 +83,11 @@ class AddEmployee extends Component
             'address'=>$this->address,
             'date_of_birth'=>$this->date_of_birth,
             'profile_pic'=>$this->profile_pic,
-            'password' => Hash::make($this->password),
+            'password' => $this->password,
         ];
     }
 
-    public function employeeModelData()
+    public function employeeModelData($id)
     {
         $this->user_id = Auth()->user()->id;
         $hospital_a = Hospital::where('user_id', $this->user_id)->first();

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Block extends Model
 {
     use HasFactory;
@@ -20,4 +21,5 @@ class Block extends Model
     public function bedassignment(){
         return $this->hasMany(Bedassignment::class);
     }
+
 }

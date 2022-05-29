@@ -82,7 +82,6 @@
                 </x-jet-secondary-button>
             @endif
 
-
             <x-jet-secondary-button class="ml-3" wire:click="$toggle('modelFormVisible')" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
             </x-jet-secondary-button>

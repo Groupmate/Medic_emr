@@ -16,23 +16,22 @@ class CreatePatientsTable extends Migration
         Schema::defaultStringLength(191);
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->string('middelname'); 
-            $table->string('patient_id');
+            $table->string('first_name');
+            $table->string('middle_name');
+            $table->string('last_name');
+            $table->string('national_id')->unique()->nullable();
+            $table->string('email')->unique()->nullable();
+            $table->string('phone_no');
             $table->string('sex');
-            $table->string('email')->nullable();
-            $table ->integer('phone_no')->nullable();
-            $table->string('profil_pic'); 
-            $table->date('data_of_birth');
-            $table->string('cityname')->nullable(); 
-            $table->string('kebele')->nullable();
-            $table->string('woreda');
-            $table->string('zone')->nullable();
+            $table->dateTime('date_of_birth');
+            $table->string('profile_picture', 2048)->nullable();
             $table->string('region');
+            $table->string('zone')->nullable();
+            $table->string('city')->nullable();
+            $table->string('woreda')->nullable();
+            $table->string('kebele')->nullable();
 
             $table->timestamps();
-           
         });
     }
 

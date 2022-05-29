@@ -14,4 +14,8 @@ class Employee extends Model
     protected $casts = [
         'shift' => 'array'
     ];
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
 }

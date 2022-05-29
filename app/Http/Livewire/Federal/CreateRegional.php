@@ -170,7 +170,7 @@ class CreateRegional extends Component
      */
     public function read()
     {
-        //return Organization::paginate(5);
+        return Organization::paginate(5);
     }
 
     /**

@@ -121,6 +121,10 @@
             <a class="dropdown">
             <span class="icon"><i class="mdi mdi-view-list"></i></span>
             <span class="menu-item-label"><strong>Block</strong></span>
+        <li>
+            <a class="dropdown">
+            <span class="icon"><i class="mdi mdi-view-list"></i></span>
+            <span class="menu-item-label"><strong>Submenus</strong></span>
             <span class="icon"><i class="mdi mdi-plus"></i></span>
             </a>
             <ul>
@@ -170,6 +174,13 @@
             <li>
                 <a href="/listbed">
                 <span>Listbed</span>
+                <a href="#void">
+                <span>==> Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="#void">
+                <span>==> Settings</span>
                 </a>
             </li>
             </ul>

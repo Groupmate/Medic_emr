@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('beds', function (Blueprint $table) {
             $table->id(); 
-            $table->string('name');
             $table->foreignId('room_id');
+            $table->string('name');
             $table->string('status');
+            $table->foreignId('patient_id'); 
             $table->timestamps();
              
             // $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
