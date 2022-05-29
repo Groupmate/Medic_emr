@@ -11,7 +11,7 @@
 
             <div>
                 <x-jet-label for="first_name" value="{{ __('First name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="first_name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="first_name" :value="old('first_name')" required autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
@@ -21,7 +21,7 @@
 
             <div class="mt-4">
                 <x-jet-label for="organization" value="{{ __('Organization') }}" />
-                <x-jet-input id="organization" class="block mt-1 w-full" type="text" name="orgn_id" :value="old('organization')" required />
+                <x-jet-input id="organization" class="block mt-1 w-full" type="text" name="organization_id" :value="old('organization_id')" required />
             </div>
 
             <div class="mt-4">
@@ -39,7 +39,7 @@
 
             <div class="mt-4">
                 <x-jet-label for="address" value="{{ __('address') }}" />
-                <x-jet-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required />
+                <x-jet-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')"   />
             </div>
 
             <div class="mt-4">
@@ -49,17 +49,7 @@
 
             <div class="mt-4">
                 <x-jet-label for="date_of_birth" value="{{ __('date_of_birth') }}" />
-                <x-jet-input id="date_of_birth" class="block mt-1 w-full" type="text" name="date_of_birth" :value="old('date_of_birth')" required />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="type" value="{{ __('type') }}" />
-                <x-jet-input id="type" class="block mt-1 w-full" type="text" name="type" :value="old('type')" required />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="department" value="{{ __('department') }}" />
-                <x-jet-input id="department" class="block mt-1 w-full" type="text" name="department" :value="old('department')" required />
+                <x-jet-input id="date_of_birth" class="block mt-1 w-full" type="text" name="date_of_birth" :value="old('date_of_birth')"   />
             </div>
 
             <div class="mt-4">
@@ -69,7 +59,7 @@
 
             <div class="mt-4">
                 <x-jet-label for="profile_pic" value="{{ __('profile_pic') }}" />
-                <x-jet-input id="profile_pic" class="block mt-1 w-full" type="file" name="profile_pic" :value="old('profile_pic')" required autofocus autocomplete="password" />
+                <x-jet-input id="profile_pic" class="block mt-1 w-full" type="file" name="profile_pic" :value="old('profile_pic')" autofocus autocomplete="password" />
             </div>
 
             <div class="mt-4">

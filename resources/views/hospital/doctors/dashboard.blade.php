@@ -9,11 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Doctor Page</title>
+    <title>Dashboard</title>
 
     <!-- Custom fonts for this template-->
-     <link href="{{ asset('csss/style.css') }}" rel="stylesheet">
-     <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
+    <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
+    <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
+    
     @livewireStyles
 </head>
 <body class="bg-gray-100">
@@ -72,7 +74,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span
-                                    class="mr-2 d-none d-lg-inline text-gray-600 small">{{ __('Dr. ') }} {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </span>
+                                    class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->username }}</span>
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -175,23 +177,23 @@
 
       <!-- link -->
      
-      <a href="{{ url('/home') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+      <a href="./index.html" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
         <i class="fad fa-shopping-cart text-xl mr-2"></i>         
          Dashboard
       </a>  
       
         <div id="dropdown" x-show="show" class="ml-4">
-            <a  href="{{ url('/appointment') }}" class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
+            <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/appointments">
             <i class="fad fa-calendar-check text-xl mr-3"></i>
                 Appointement
             </a>
-            <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
+            <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="todayappointments">
             <i class="fas fa-hospital-user text-xl mr-3"></i>
-                Today Patient
+                TodayAppointments
             </a>
-            <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
+            <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/bedassignment">
             <i class="fas fa-bell text-xl mr-3"></i>
-                Notifications</a>
+               Assign-Bed</a>
             </a>
             <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
             <i class="fas fa-file-chart-line text-xl mr-3"></i>

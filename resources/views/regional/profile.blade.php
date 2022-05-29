@@ -6,7 +6,6 @@
 
 @include('regional.layout.aside')
 
-
 <x-app-layout>
 
     <div>
@@ -29,4 +28,9 @@
 </x-app-layout>
 
 @include('regional.layout.footer')
+
+
+
+
+
 

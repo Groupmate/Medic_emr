@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('orgn_id')->nullable();
+            $table->foreignId('organization_id')->index()->nullable();
             $table->string('first_name');
             $table->string('last_name');
             $table->string('phone');
@@ -25,8 +25,6 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('sex');
             $table->string('date_of_birth')->nullable();
-            $table->string('type')->nullable();
-            $table->string('department')->nullable();
             $table->string('profile_pic', 2048)->nullable();
             $table->timestamps();
         });

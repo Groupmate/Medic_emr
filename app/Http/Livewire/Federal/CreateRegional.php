@@ -6,14 +6,14 @@ use Livewire\Component;
 use Illuminate\Validation\Rule;
 use Livewire\WithPagination;
 use App\Models\Organization;
+use App\Models\User;
 
 class CreateRegional extends Component
 {
-
     use WithPagination;
 
     public $modelFormVisible, $modalConfirmDeleteVisible, $modalViewDetailVisible=false;
-    public $name, $manager_id ,$type, $zone, $woreda, $kebele, $region, $city_name, $organizations, $modelId;
+    public $name, $user_id ,$type, $zone, $woreda, $kebele, $region, $city, $organizations, $modelId, $users, $user;
 
     /**
      * createShowModel show modal
@@ -23,7 +23,7 @@ class CreateRegional extends Component
     public function createShowModal()
     {
         $this->resetValidation();
-        $this->resetVars();
+        $this->reset();
         $this->modelFormVisible=true;
     }
 
@@ -74,13 +74,13 @@ class CreateRegional extends Component
     {
         $organizations=Organization::find($this->modelId);
         $this->name= $organizations->name;
-        $this->manager_id= $organizations->manager_id;
+        $this->user_id= $organizations->user_id;
         $this->type= $organizations->type;
         $this->region= $organizations->region;
         $this->zone= $organizations->zone;
         $this->woreda= $organizations->woreda;
         $this->kebele= $organizations->kebele;
-        $this->city_name= $organizations->city_name;
+        $this->city= $organizations->city;
     }
 
     /**
@@ -92,13 +92,13 @@ class CreateRegional extends Component
     {
         return [
             'name'=>$this->name,
-            'manager_id'=>$this->manager_id,
+            'user_id'=>$this->user_id,
             'type'=>$this->type,
             'region'=>$this->region,
             'zone'=>$this->zone,
             'woreda'=>$this->woreda,
             'kebele'=>$this->kebele,
-            'city_name'=>$this->city_name,
+            'city'=>$this->city,
         ];
     }
 
@@ -110,10 +110,11 @@ class CreateRegional extends Component
     public function create()
     {
         $this->validate();
-        Organization::create($this->modeldata());
-        session()->flash('message', 'Organization Created Successfully.');
+        $organization = Organization::create($this->modeldata());
+        $user = User::where('id', $this->user_id)->first();
+        $user->update(['organization_id' => $organization->id]);
         $this->modelFormVisible= false;
-        $this->resetvars();
+        $this->reset();
     }
 
     /**
@@ -124,10 +125,11 @@ class CreateRegional extends Component
     public function update()
     {
         $this->validate();
-        Organization::find($this->modelId)->update($this->modelData());
-        session()->flash('message', 'Organization Updated Successfully.');
+        $organization = Organization::find($this->modelId)->update($this->modelData());
+        // $user = User::where('id', $this->user_id)->first();
+        // $user->update(['organization_id' => $organization->id]);
         $this->modelFormVisible= false;
-        $this->resetvars();
+        $this->reset();
     }
 
     /**
@@ -151,32 +153,14 @@ class CreateRegional extends Component
     {
         return [
             'name'=>'required',
-            'manager_id'=>'required',
+            'user_id'=>'required',
             'type'=>'required',
             'region'=>'required',
             'zone'=>'required',
             'woreda'=>'required',
             'kebele'=>'required',
-            'city_name'=>'required',
+            'city'=>'required',
         ];
-    }
-
-    /**
-     * resetvars clean the form after
-     *
-     * @return void
-     */
-    public function resetvars()
-    {
-        $this->modelId =null;
-        $this->name=null;
-        $this->manager_id=null;
-        $this->type=null;
-        $this->region=null;
-        $this->zone=null;
-        $this->woreda=null;
-        $this->kebele=null;
-        $this->city_name=null;
     }
 
     /**
@@ -201,6 +185,8 @@ class CreateRegional extends Component
         $organization = Organization::latest()->paginate(5);
 
         return view('livewire.federal.create-regional',[ 'organizations'=>$this->read(),
-                $this->organizations=Organization::whereIn('type' , [1,2,3])->get(),]);
+                $this->organizations=Organization::whereIn('type' , [1,2,3])->get(),
+                $this->users = User::whereNull('organization_id')->where('role', '=', 2)->get(),
+            ]);
     }
 }

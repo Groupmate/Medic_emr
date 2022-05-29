@@ -2,54 +2,24 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
-use App\Bookings\TimeSlotGenerator;
-use Illuminate\Database\Eloquent\Model;
-use App\Bookings\Filters\AppointmentFilter;
-use App\Bookings\Filters\UnavailabilityFilter;
-use App\Bookings\Filters\SlotsPassedTodayFilter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Doctor extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'user_id', 'speciality', 'department', 'shift'
+    ];
+    protected $casts = [
+        'shift' => 'array'
+    ];
 
-    public function availableTimeSlots(Schedule $schedule, Service $service)
+    public function hospitals()
     {
-        return (new TimeSlotGenerator($schedule, $service))
-            ->applyFilters([
-                new SlotsPassedTodayFilter(),
-                new UnavailabilityFilter($schedule->unavailabilities),
-                new AppointmentFilter($this->appointmentsForDate($schedule->date))
-            ])
-            ->get();
+        return $this->belongsToMany(Hospital::class);
     }
-
-    public function appointmentsForDate(Carbon $date)
-    {
-        return $this->appointments()->notCancelled()->whereDate('date', $date)->get();
-    }
-
-    public function services()
-    {
-        return $this->belongsToMany(Service::class);
-    }
-
-    public function schedules()
-    {
-        return $this->hasMany(Schedule::class);
-    }
-
-    public function appointments()
-    {
-        return $this->hasMany(Appointment::class);
-    }    
-    /**
-     * appointment doctor appointment by natywelka
-     *
-     * @return void
-     */
     public function appointment(){
-        return $this->hasMany(Appointmen::class);
+        return $this->hasMany(Appointment::class);
     }
 }

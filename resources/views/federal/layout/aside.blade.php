@@ -77,16 +77,12 @@
             <span class="menu-item-label">Profile</span>
           </a>
         </li>
-        <form method="POST" action="{{ route('logout') }}" x-data>
-          @csrf
-            <x-jet-dropdown-link 
-                class="navbar-item"
-                title="Logout" 
-                href="{{ route('logout') }}"
-                @click.prevent="$root.submit();"><span class="icon"><i class="mdi mdi-logout"></i></span>
-                {{ __('Log Out') }}
-            </x-jet-dropdown-link>
-        </form>
+        <li class="--set-active-forms-html">
+          <a href="">
+            <span class="icon"><i class="mdi mdi-lock"></i></span>
+            <span class="menu-item-label">Logout</span>
+          </a>
+        </li>
       </ul>
     </div>
   </aside>
@@ -120,47 +116,35 @@
         <div class="navbar-item dropdown has-divider has-user-avatar">
           <a class="navbar-link">
             <div class="user-avatar">
-              <img src="https://avatars.dicebear.com/v2/initials/john-doe.svg" alt="Dr." class="rounded-full">
+              <img src="https://avatars.dicebear.com/v2/initials/john-doe.svg" alt="Dr" class="rounded-full">
             </div>
-            <div class="is-user-name"><span class="mr-2 d-none d-lg-inline text-gray-600 small"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span></div>
+            <div class="is-user-name"><span> </span></div>
             <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
           </a>
           <div class="navbar-dropdown">
-            <a  title = "See Profile" href="profile.html" class="navbar-item active">
+            <a href="profile.html" class="navbar-item active">
               <span class="icon"><i class="mdi mdi-account"></i></span>
               <span>My Profile</span>
             </a>
-            <a class="navbar-item" title = "See your setting">
+            <a class="navbar-item">
               <span class="icon"><i class="mdi mdi-settings"></i></span>
               <span>Settings</span>
             </a>
-            <a class="navbar-item" title = "Messages">
+            <a class="navbar-item">
               <span class="icon"><i class="mdi mdi-email"></i></span>
               <span>Messages</span>
             </a>
             <hr class="navbar-divider">
-            <form method="POST" action="{{ route('logout') }}" x-data>
-              @csrf
-                <x-jet-dropdown-link 
-                    class="navbar-item"
-                    title="Logout" 
-                    href="{{ route('logout') }}"
-                    @click.prevent="$root.submit();"><span class="icon"><i class="mdi mdi-logout"></i></span>
-                    {{ __('Log Out') }}
-                </x-jet-dropdown-link>
-          </form>
+            <a class="navbar-item">
+              <span class="icon"><i class="mdi mdi-logout"></i></span>
+              <span>Log Out</span>
+            </a>
           </div>
         </div>
-        <!-- <form method="POST" action="{{ route('logout') }}" x-data>
-              @csrf
-                <x-jet-dropdown-link 
-                    class="navbar-item"
-                    title="Logout" 
-                    href="{{ route('logout') }}"
-                    @click.prevent="$root.submit();"><span class="icon"><i class="mdi mdi-logout"></i></span>
-                    {{ __('Log Out') }}
-                </x-jet-dropdown-link>
-          </form> -->
+        <a title="Log out" class="navbar-item desktop-icon-only">
+          <span class="icon"><i class="mdi mdi-logout"></i></span>
+          <span>Log out</span>
+        </a>
       </div>
     </div>
   </nav>

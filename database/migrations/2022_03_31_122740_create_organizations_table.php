@@ -16,16 +16,16 @@ return new class extends Migration
         Schema::create('organizations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('manager_id');
+            $table->foreignId('user_id')->index()->nullable()->unique();
             $table->string('type');
             $table->string('region');
             $table->string('zone');
             $table->string('woreda');
             $table->string('kebele');
-            $table->string('city_name');
+            $table->string('city');
             $table->timestamps();
 
-            //$table->foreign('manager_id')->references('id')->on('users')->onDelete('cascade');
+            //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

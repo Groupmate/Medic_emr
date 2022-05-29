@@ -5,25 +5,15 @@ namespace App\Http\Livewire\Zonal;
 use Livewire\Component;
 use Illuminate\Validation\Rule;
 use Livewire\WithPagination;
-use App\Models\Organization;
+use App\Models\Hospital;
+use App\Models\User;
 
 class CreateHospital extends Component
 {
     use WithPagination;
 
-    public $modelFormVisible=false;
-    public $modalConfirmDeleteVisible=false;
-    public $modalViewDetailVisible=false;
-    public $name;
-    public $manager_id;
-    public $type;
-    public $zone;
-    public $woreda;
-    public $kebele;
-    public $region;
-    public $city_name;
-    public $organizations;
-    public $modelId;
+    public $modelFormVisible, $modalConfirmDeleteVisible, $modalViewDetailVisible=false;
+    public $name, $user_id ,$type, $zone, $woreda, $kebele, $region, $city, $hospitals, $modelId, $users, $user;
 
     /**
      * createShowModel show modal
@@ -33,7 +23,7 @@ class CreateHospital extends Component
     public function createShowModal()
     {
         $this->resetValidation();
-        $this->resetVars();
+        $this->reset();
         $this->modelFormVisible=true;
     }
 
@@ -82,15 +72,15 @@ class CreateHospital extends Component
      */
     public function loadModel()
     {
-        $organizations=Organization::find($this->modelId);
-        $this->name= $organizations->name;
-        $this->manager_id= $organizations->manager_id;
-        $this->type= $organizations->type;
-        $this->region= $organizations->region;
-        $this->zone= $organizations->zone;
-        $this->woreda= $organizations->woreda;
-        $this->kebele= $organizations->kebele;
-        $this->city_name= $organizations->city_name;
+        $hospitals=Hospital::find($this->modelId);
+        $this->name= $hospitals->name;
+        $this->user_id= $hospitals->user_id;
+        $this->type= $hospitals->type;
+        $this->region= $hospitals->region;
+        $this->zone= $hospitals->zone;
+        $this->woreda= $hospitals->woreda;
+        $this->kebele= $hospitals->kebele;
+        $this->city= $hospitals->city;
     }
 
     /**
@@ -102,13 +92,13 @@ class CreateHospital extends Component
     {
         return [
             'name'=>$this->name,
-            'manager_id'=>$this->manager_id,
+            'user_id'=>$this->user_id,
             'type'=>$this->type,
             'region'=>$this->region,
             'zone'=>$this->zone,
             'woreda'=>$this->woreda,
             'kebele'=>$this->kebele,
-            'city_name'=>$this->city_name,
+            'city'=>$this->city,
         ];
     }
 
@@ -120,10 +110,11 @@ class CreateHospital extends Component
     public function create()
     {
         $this->validate();
-        Organization::create($this->modeldata());
-        session()->flash('message', 'Hospital Registered Successfully.');
+        $hospital = Hospital::create($this->modeldata());
+        $user = User::where('id', $this->user_id)->first();
+        $user->update(['organization_id' => 10]);
         $this->modelFormVisible= false;
-        $this->resetvars();
+        $this->reset();
     }
 
     /**
@@ -134,10 +125,14 @@ class CreateHospital extends Component
     public function update()
     {
         $this->validate();
-        Organization::find($this->modelId)->update($this->modelData());
-        session()->flash('message', 'Updated Successfully.');
+        $hospital = Hospital::find($this->modelId);
+        $user = User::where('id', $hospital->user_id)->first();
+        $user->update(['organization_id' => 10]);
+        Hospital::find($this->modelId)->update($this->modelData());
+        $user = User::where('id', $this->user_id)->first();
+        $user->update(['organization_id' => 10]);
         $this->modelFormVisible= false;
-        $this->resetvars();
+        $this->reset();
     }
 
     /**
@@ -147,7 +142,9 @@ class CreateHospital extends Component
      */
     public function delete()
     {
-        Organization::destroy($this->modelId);
+        $user = User::where('id', $this->user_id)->first();
+        $user->update(['organization_id' => 5]);
+        Hospital::destroy($this->modelId);
         $this->modalConfirmDeleteVisible=false;
         $this->resetpage();
     }
@@ -161,32 +158,14 @@ class CreateHospital extends Component
     {
         return [
             'name'=>'required',
-            'manager_id'=>'required',
+            'user_id'=>'required',
             'type'=>'required',
             'region'=>'required',
             'zone'=>'required',
             'woreda'=>'required',
             'kebele'=>'required',
-            'city_name'=>'required',
+            'city'=>'required',
         ];
-    }
-
-    /**
-     * resetvars clean the form after
-     *
-     * @return void
-     */
-    public function resetvars()
-    {
-        $this->modelId =null;
-        $this->name=null;
-        $this->manager_id=null;
-        $this->type=null;
-        $this->region=null;
-        $this->zone=null;
-        $this->woreda=null;
-        $this->kebele=null;
-        $this->city_name=null;
     }
 
     /**
@@ -196,11 +175,11 @@ class CreateHospital extends Component
      */
     public function read()
     {
-        //return Organization::paginate(5);
+        //return Hospital::paginate(5);
     }
 
     /**
-     * display organizations based on
+     * display hospitals based on
      * their type when executing the
      * regional and zonal level
      *
@@ -208,9 +187,11 @@ class CreateHospital extends Component
      */
     public function render()
     {
-        $organization = Organization::latest()->paginate(5);
+        $hospital = Hospital::latest()->paginate(5);
 
-        return view('livewire.zonal.create-hospital',[ 'organizations'=>$this->read(),
-                $this->organizations=Organization::where('type' , [5])->get(),]);
+        return view('livewire.zonal.create-hospital', [ 'hospitals'=>$this->read(),
+            $this->hospitals = Hospital::where('type' , [1])->get(),
+            $this->users = User::where('organization_id', '=', 5)->where('role', '=', 4)->get(),
+        ]);
     }
 }

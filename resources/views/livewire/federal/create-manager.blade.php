@@ -1,10 +1,8 @@
 <div class="p-6">
- 
     <x-guest-layout>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
         </x-slot>
-
 
         <div>
             <x-jet-label for="first_name" value="{{ __('First name') }}"/>
@@ -16,13 +14,7 @@
             <x-jet-label for="last_name" value="{{ __('Last name') }}"/>
             <x-jet-input id="last_name" class="block mt-1 w-full" type="text" wire:model.defer="last_name"/>
             @error('last_name') <span class="error">{{$message}}</span>@enderror
-        </div>
-
-        <div class="mt-4">
-            <x-jet-label for="organization" value="{{ __('Organization') }}"/>
-            <x-jet-input id="organization" class="block mt-1 w-full" type="text" wire:model.defer="orgn_id"/>
-            @error('orgn_id') <span class="error">{{$message}}</span>@enderror
-        </div>
+        </div> 
 
         <div class="mt-4">
             <x-jet-label for="phone" value="{{ __('Phone') }}"/>
@@ -59,18 +51,6 @@
         </div>
 
         <div class="mt-4">
-            <x-jet-label for="type" value="{{ __('type') }}" />
-            <x-jet-input id="type" class="block mt-1 w-full" type="text" wire:model.defer="type"/>
-            @error('type') <span class="error">{{$message}}</span>@enderror
-        </div>
-
-        <div class="mt-4">
-            <x-jet-label for="department" value="{{ __('department') }}" />
-            <x-jet-input id="department" class="block mt-1 w-full" type="text" wire:model.defer="department" :value="old('department')" />
-            @error('department') <span class="error">{{$message}}</span>@enderror
-        </div>
-
-        <div class="mt-4">
             <x-jet-label for="email" value="{{ __('Email') }}" />
             <x-jet-input id="email" class="block mt-1 w-full" type="email" wire:model.defer="email" :value="old('email')" required />
             @error('email') <span class="error">{{$message}}</span>@enderror
@@ -99,15 +79,6 @@
             </x-jet-button>
         </div>
     </x-guest-layout>
-     @if (session()->has('message'))
-        <div class=" flex bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
-            <div class="flex">
-                <div>
-                    <p class="text-sm border-teal-500 rounded-b text-teal-900">{{ session('message') }}</p>
-                </div>
-            </div>
-        </div>
-     @endif
 </div>
 
 

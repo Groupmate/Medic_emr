@@ -29,9 +29,9 @@
         </a>
       </li>
       <li class="--set-active-forms-html">
-        <a href="{{ url('/viewpatients') }}">
+        <a href="{{ url('/assign_patient') }}">
           <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
-          <span class="menu-item-label"><strong>Search Patient</strong></span>
+          <span class="menu-item-label"><strong>Assign Patient</strong></span>
         </a>
       </li>
        <li class="--set-active-forms-html">

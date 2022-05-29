@@ -7,28 +7,14 @@ use Illuminate\Validation\Rule;
 use Livewire\WithPagination;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Patientss;
+use App\Models\Patient;
 
-class RegisterPatient extends Component
+class Registerpatient extends Component
 {
     use WithFileUploads;
 
-    public $firstname;
-    public $lastname;
-    public $phone_no;
-    public $profile_pic;
-    public $patient_id;
-    public $date_of_birth;
-    public $email;
-    public $religion;
-    public $blood_group;
-    public $kebele;
-    public $zone;
-    public $woreda;
-    public $region;
-    public $cityname;
-    public $middelname;
-    public $sex;
+    public $firstname, $lastname, $phone_no, $profile_pic, $patient_id, $date_of_birth,
+     $email,$kebele, $zone, $woreda,$region, $cityname, $middelname, $sex;
 
 
     /**
@@ -39,7 +25,8 @@ class RegisterPatient extends Component
     public function create()
     {
         $this->validate();
-        Patientss::create($this->modeldata());
+        $this->profile_pic = $this->profile_pic->store('image','public');
+        Patient::create($this->modeldata());
         session()->flash('message', 'patient registered  Successfully.');
         $this->reset();
     }
@@ -59,10 +46,10 @@ class RegisterPatient extends Component
             'patient_id'=>$this->patient_id,
             'phone_no'=>$this->phone_no,
             'email'=>$this->email,
-            'religion'=>$this->religion,
+           
             'profil_pic'=>$this->profile_pic,
             'data_of_birth'=>$this->date_of_birth,
-            'blood_group'=>$this->blood_group,
+          
 
             'region'=>$this->region,
             'zone'=>$this->zone,
@@ -92,6 +79,6 @@ class RegisterPatient extends Component
     }
     public function render()
     {
-        return view('livewire.hospital.reception.register-patient');
+        return view('livewire.hospital.reception.registerpatient' , );
     }
 }
