@@ -25,12 +25,13 @@ class LineChart extends Component
                 ->groupBy(DB::raw("Month(created_at)"))
                 ->pluck('month');
        
-       
        $datas = array(0,0,0,0,0,0,0,0,0,0,0,0);
-
        foreach($months as $index =>$month){
+        
         $datas[$month] = $users[$index];
+
         }
+       // dd($datas );
         return view('livewire.statics.line-chart', [
             "data" => json_encode( $datas ),
            ]);
