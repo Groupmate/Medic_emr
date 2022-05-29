@@ -44,7 +44,6 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/bedassignment', function () { return view('hospital.hr.bedassignment');})->name('bedassignment');
         Route::get('/appointments', function () { return view('hospital.doct.appointments'); })->name('appontiments');
         Route::get('/todayappointments', function () { return view('hospital.doct.today-appointment'); })->name('today-appontiments');
-      
         //Statics
         Route::get('/fstatics', function () { return view('Statics.Fstatics'); })->name('Federal_Statics');
         Route::get('/hstatics', function () { return view('Statics.Hrstatics'); })->name('Hospital_Statics');
