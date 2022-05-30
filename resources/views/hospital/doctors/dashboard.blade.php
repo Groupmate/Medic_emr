@@ -173,7 +173,7 @@
       </div>
       <!-- end sidebar toggle -->
 
-      <p class="uppercase text-xs text-gray-600 mb-4 tracking-wider">homes</p>
+      <p class="uppercase text-xs text-gray-600 m0ok,b-4 tracking-wider">homes</p>
 
       <!-- link -->
      
@@ -189,7 +189,7 @@
             </a>
             <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="todayappointments">
             <i class="fas fa-hospital-user text-xl mr-3"></i>
-                TodayAppointments
+                Today Appointments
             </a>
             <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/bedassignment">
             <i class="fas fa-bell text-xl mr-3"></i>

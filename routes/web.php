@@ -17,7 +17,6 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/create_regionalbureau', function () { return view('federal.create_regionalbureau'); })->name('create_regionalbureau');
         Route::get('/create_manager', function ()  {  return view('federal.create_manager');})->name('create_manager');
         Route::get('/profile', function ()  { return view('federal.profile'); })->name('profile');
-
         //Regional level
         Route::get('/create_zonalbureau', function () { return view('regional.create_zonalbureau'); })->name('create_zonalbureau');
         Route::get('/create_zonalmanager', function ()  {  return view('regional.create_manager');})->name('create_zonalmanager');
@@ -48,8 +47,9 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/todayappointments', function () { return view('hospital.doct.today-appointment'); })->name('today-appontiments');
         //Statics
         Route::get('/fstatics', function () { return view('Statics.Fstatics'); })->name('Federal_Statics');
-        Route::get('/hstatics', function () { return view('Statics.Hrstatics'); })->name('Hospital_Statics');
+        Route::get('/hstatics', function () { return view('Statics.Hrstatics'); })->name('HR_Statics');
         Route::get('/linechart', function () { return view('Statics.Linechart'); })->name('Hospital_linechrt');
         Route::get('/piechart', function () { return view('Statics.Piechart'); })->name('Hospital_piechart');
+        Route::get('/Hpstatics', function () { return view('Statics.Hospitalstatics'); })->name('Hospital_Statics');
 
 });
