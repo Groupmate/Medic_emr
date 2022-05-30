@@ -60,6 +60,64 @@
         });
     });
 </script>
+
+
+
+<div class="container">
+  <h2 style="text-align: center;"></h2>
+  <div class="panel panel-primary">
+    <div class="panel-heading"></div>
+    <div class="panel-body">
+        <div id="line-chart"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function(){
+    Highcharts.chart('line-chart', {
+
+        title: {
+            text: ''
+        },
+
+        yAxis: {
+            title: {
+                text:  'Number of Patients'
+            }
+        },
+
+        xAxis: {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    },
+
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+
+        series: <?= $data ?>,
+
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+
+        });
+  });
+</script>
 </body>
      </x-guest-layout>
 </div>
