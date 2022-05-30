@@ -1,8 +1,9 @@
- @include('hospital.reception.layout.header')
- @include('hospital.reception.layout.aside')
+@include('hospital.reception.layout.header')
+
+@include('hospital.reception.layout.aside')
 
  <span><h1><strong>Receptionist Dashboard: </strong></h1></span>
-     Nothing in the world is as soft and yielding as water. 
+     Nothing in the world is as soft and yielding as water.
       <div class="grid gap-6 grid-cols-1 md:grid-cols-3 mb-6">
       <div class="card">
         <div class="card-content">
@@ -52,14 +53,14 @@
       </div>
     </div>
     <section class="is-hero-bar">
-      
+
       <div class="navbar-brand is-right">
         <a class="navbar-item --jb-navbar-menu-toggle" data-target="navbar-menu">
           <span class="icon"><i class="mdi mdi-dots-vertical mdi-24px"></i></span>
         </a>
         <button class="button light">Button</button>
       </div>
- 
+
  @include('hospital.reception.layout.footer')
 
 
@@ -68,5 +69,5 @@
 
 
 
-   
+
 

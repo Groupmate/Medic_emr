@@ -13,37 +13,23 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Doctor extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'user_id', 'speciality', 'department', 'shift'
+    ];
+    protected $casts = [
+        'shift' => 'array'
+    ];
 
-    public function availableTimeSlots(Schedule $schedule, Service $service)
+    public function hospitals()
     {
-        return (new TimeSlotGenerator($schedule, $service))
-            ->applyFilters([
-                new SlotsPassedTodayFilter(),
-                new UnavailabilityFilter($schedule->unavailabilities),
-                new AppointmentFilter($this->appointmentsForDate($schedule->date))
-            ])
-            ->get();
+        return $this->belongsToMany(Hospital::class);
     }
 
-    public function appointmentsForDate(Carbon $date)
+    public function user()
     {
-        return $this->appointments()->notCancelled()->whereDate('date', $date)->get();
+        return $this->hasOne(User::class);
     }
-
-    public function services()
-    {
-        return $this->belongsToMany(Service::class);
-    }
-
-    public function schedules()
-    {
-        return $this->hasMany(Schedule::class);
-    }
-
-    public function appointments()
-    {
-        return $this->hasMany(Appointment::class);
-    }    
+    
     /**
      * appointment doctor appointment by natywelka
      *
