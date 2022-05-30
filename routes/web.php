@@ -13,9 +13,11 @@ Route::get('/dashboard', 'App\Http\Controllers\HomeController@index')->name('das
 Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
     ])->group(function () {
         // Federal level    
+        Route::get('/fdash', function ()  { return view('federal.dashboard'); })->name('fed_dashboard');
         Route::get('/create_regionalbureau', function () { return view('federal.create_regionalbureau'); })->name('create_regionalbureau');
         Route::get('/create_manager', function ()  {  return view('federal.create_manager');})->name('create_manager');
         Route::get('/profile', function ()  { return view('federal.profile'); })->name('profile');
+
         //Regional level
         Route::get('/create_zonalbureau', function () { return view('regional.create_zonalbureau'); })->name('create_zonalbureau');
         Route::get('/create_zonalmanager', function ()  {  return view('regional.create_manager');})->name('create_zonalmanager');

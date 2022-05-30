@@ -1,24 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
+
 <body>
+<div class="mt-10 sm:mt-0">
+    <x-guest-layout>
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
 
-<div class="container">
-   <strong style="text-align:center;"> <h3>Statical Data Of Patients Affected By Major Diseases in All Regions</h3></strong>
-  <div class="panel panel-primary">
-    <div class="panel-heading">Full Statica In All Regions</div>
-    <div class="panel-body">
-        <div id="bar-chart"></div>
-    </div>
-  </div>
-</div>
+    <strong style="text-align:center"> <h2>Statical Data Of Patients Affected By Major Diseases in All Regions</h2></strong>
+        <div class="panel panel-primary">
+            <div class="panel-heading">Full Statica In All Regions</div>
+            <div class="panel-body">
+                <div id="bar-chart"></div>
+            </div>
+            </div>
+         </div>
 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
@@ -66,6 +61,5 @@
     });
 </script>
 </body>
-</html>
-
- 
+     </x-guest-layout>
+</div>

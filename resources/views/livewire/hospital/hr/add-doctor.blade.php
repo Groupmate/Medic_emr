@@ -1,7 +1,9 @@
+
+
 <div class="p-6">
 
     @if (session()->has('message'))
-        <div class=" flex bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" speciality="alert">
+        <div class=" flex bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
             <div class="flex">
                 <div>
                     <p class="text-sm border-teal-500 rounded-b text-teal-900">{{ session('message') }}</p>
@@ -11,7 +13,7 @@
     @endif
 
 
-    <form wire:submit.prevent="CreateDoctor" class="w-full">
+    <form wire:submit.prevent="CreateEmployee" class="w-full">
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
             <div class="mt-4">
@@ -61,15 +63,16 @@
         </div>
         <div  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
             <div class="mt-4">
-                <x-jet-label for="speciality" value="{{ __('Role') }}" />
+                <x-jet-label for="role" value="{{ __('Role') }}" />
                 <select class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    wire:model.debounce.800ms="speciality"/>
-                    <option>---Select Speciality---</option>
-                    <option value="1">Resident</option>
-                    <option value="2">Orthangonal</option>
-                    <option value="3">Pharmacy</option>
+                    wire:model.debounce.800ms="role" />
+                    <option>---Select role---</option>
+                    <option value="6">Doctor</option>
+                    <option value="5">Receptionist</option>
+                    <option value="7">Pharmacy</option>
+                    <option value="8">Laboratory</option>
                 </select>
-                @error('speciality') <span class="error text-red-600">{{$message}}</span>@enderror
+                @error('role') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="department" value="{{ __('Department') }}" />
@@ -112,4 +115,9 @@
 
     </form>
 </div>
+
+
+
+
+
 

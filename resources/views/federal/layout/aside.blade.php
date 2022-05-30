@@ -15,7 +15,7 @@
       <p class="menu-label">General</p>
       <ul class="menu-list">
         <li class="--set-active-index-html">
-          <a href="{{ url('dashboard') }}">
+          <a href="{{ url('/fdash') }}">
             <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
             <span class="menu-item-label">Dashboard</span>
           </a>
@@ -31,16 +31,20 @@
           </a>
         </li>
         <li>
-
-
-
           <li class="--set-active-profile-html">
               <a  href="{{ url('/create_manager') }}">
                 <span class="icon"><i class="mdi mdi-account-circle"></i></span>
                 <span class="menu-item-label">Create Managers</span>
               </a>
-            </li>
-
+          </li>
+        <li>
+          <li>
+          <li class="--set-active-profile-html">
+              <a  href="{{ url('/hstatics') }}">
+                 <span class="icon"><i class="mdi mdi-view-list"></i></span>
+                <span class="menu-item-label">Statics</span>
+              </a>
+          </li>
         <li>
         <li>
           <a class="dropdown">
@@ -97,7 +101,7 @@
         <section class="is-hero-bar">
       <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
         <h2 class="title">
-          <strong>At Federal Level Information Reagrding Regional, City Adminstration And Speciality Health Bereaus</strong>
+          <strong> Information Regrding Regional, City Adminstration And Speciality Clinics</strong>
         </h2>
 
       </div>
@@ -115,9 +119,6 @@
 
         <div class="navbar-item dropdown has-divider has-user-avatar">
           <a class="navbar-link">
-            <div class="user-avatar">
-              <img src="https://avatars.dicebear.com/v2/initials/john-doe.svg" alt="Dr" class="rounded-full">
-            </div>
             <div class="is-user-name"><span> </span></div>
             <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
           </a>
@@ -135,16 +136,13 @@
               <span>Messages</span>
             </a>
             <hr class="navbar-divider">
-            <a class="navbar-item">
-              <span class="icon"><i class="mdi mdi-logout"></i></span>
-              <span>Log Out</span>
-            </a>
+           
           </div>
         </div>
-        <a title="Log out" class="navbar-item desktop-icon-only">
-          <span class="icon"><i class="mdi mdi-logout"></i></span>
-          <span>Log out</span>
-        </a>
+       <a class="navbar-item">
+              <span class="icon"><i class="mdi mdi-logout"></i></span>
+              <span><strong>LogOut</strong></span>
+            </a>
       </div>
     </div>
   </nav>
