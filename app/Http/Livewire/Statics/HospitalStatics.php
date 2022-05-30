@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Statics;
 
 use Livewire\Component;
+use App\Models\User;
 use App\Models\Hospital;
 use App\Models\Patient;
 use App\Models\Medical_data;
@@ -30,7 +31,15 @@ class HospitalStatics extends Component
                             ->where('appointments.status', 'active')
                            // ->whereDate('visit_date', Carbon::today())
                             ->get();
-        dd( $TodayAppointment );
+       
+        $TotalUsers = User::get();
+        $TotalPatient = Patient::get();
+        $INP =Doctor::where('department','IPD')->get();
+        $OP = Doctor::where('department','OPD')->get();
+        $EMP = Doctor::where('department','Emergency')->get();
+        $TotalDoctor = Doctor::get();
+        
+        dd( $TotalUsers );
     
         return view('livewire.statics.hospital-statics',compact('patient_waiting_count','TotalPatients'));
     }

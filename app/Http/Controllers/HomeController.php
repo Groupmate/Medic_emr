@@ -20,7 +20,7 @@ class HomeController extends Controller
     public function index()
     {
         if(Auth()->user()->role == 1){
-            return view('federal.create_regionalbureau');
+            return view('federal.dashboard');
         }
         if(Auth()->user()->role == 2){
             return view('regional.create_zonalbureau');
