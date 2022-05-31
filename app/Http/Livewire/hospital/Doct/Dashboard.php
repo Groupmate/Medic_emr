@@ -8,6 +8,7 @@ use App\Models\Patient_Waiting_List;
 use App\Models\Hospital;
 use App\Models\medical_data;
 use App\Models\Appointment;
+use Carbon\Carbon;
 class Dashboard extends Component
 {
     public function render()
@@ -24,10 +25,14 @@ class Dashboard extends Component
         $TodayAppointment =  Appointment::leftJoin('patients', 'appointments.id', '=', 'patients.id')
                             ->select('patients.id','patients.first_name', 'appointments.visit_date')
                             ->where('appointments.status', 'active')
-                            //->whereDate('visit_date', Carbon::today())
+                            ->whereDate('visit_date', Carbon::today())
                             ->get();
         $NoTodayAppointment = count($TodayAppointment); 
+
+        $appt = $TodayAppointment->toArray();
       
-        return view('livewire.hospital.doct.dashboard',compact('patient_waiting_count','NoTodayAppointment', 'TotalPatients' ));
+        return view('livewire.hospital.doct.dashboard',compact('patient_waiting_count','NoTodayAppointment', 'TotalPatients' ),[
+            "data"=> json_encode($appt)
+        ]);
     }
 }

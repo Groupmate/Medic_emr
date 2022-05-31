@@ -73,13 +73,19 @@
             <span class="menu-item-label">About</span>
           </a>
         </li>
-        <li class="--set-active-forms-html">
-          <form method="POST" action="{{ route('logout') }}" x-data>
-              <a href="">
-                  <span class="icon"><i class="mdi mdi-lock"></i></span>
-                  <span class="menu-item-label">Logout</span>
-              </a>
-          </form>
+         <li class="--set-active-forms-html">
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                  aria-labelledby="userDropdown">
+                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                          <span class="icon"><i class="mdi mdi-lock"></i></span>
+                      {{ __('Logout') }}
+                  </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                  </form>
+                </div>
         </li>
       </ul>
     </div>
@@ -107,15 +113,12 @@
         <span class="icon"><i class="mdi mdi-dots-vertical mdi-24px"></i></span>
       </a>
     </div>
-    <div class="navbar-menu" id="navbar-menu">
+   <div class="navbar-menu" id="navbar-menu">
        <div class="navbar-end">
 
         <div class="navbar-item dropdown has-divider has-user-avatar">
           <a class="navbar-link">
-            <div class="user-avatar">
-              <img src="https://avatars.dicebear.com/v2/initials/john-doe.svg" alt="Dr" class="rounded-full">
-            </div>
-            <div class="is-user-name"><span> Dr. Natnael</span></div>
+            <div class="is-user-name"><span> </span></div>
             <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
           </a>
           <div class="navbar-dropdown">
@@ -132,24 +135,24 @@
               <span>Messages</span>
             </a>
             <hr class="navbar-divider">
-            <a class="navbar-item">
-              <span class="icon"><i class="mdi mdi-logout"></i></span>
-              <span>Log Out</span>
-            </a>
+           
           </div>
         </div>
-     <a href="https://github.com/Naty-Tefera/Medic_emr_backup.git" class="navbar-item has-divider desktop-icon-only">
-          <span class="icon"><i class="mdi mdi-help-circle-outline"></i></span>
-          <span>About</span>
-        </a>
-        <a href="https://github.com/Naty-Tefera/Medic_emr_backup.git" class="navbar-item has-divider desktop-icon-only">
-          <span class="icon"><i class="mdi mdi-github-circle"></i></span>
-          <span>GitHub</span>
-        </a>
-        <a href="{{ route('logout') }}" title="Log out" class="navbar-item desktop-icon-only">
-          <span class="icon"><i class="mdi mdi-logout"></i></span>
-          <span>Log out</span>
-        </a>
+     
+         <a class="navbar-item">
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                  aria-labelledby="userDropdown">
+                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                      <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                      {{ __('Logout') }}
+                  </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                  </form>
+                </div>
+            </a>
       </div>
     </div>
   </nav>

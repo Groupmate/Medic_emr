@@ -35,7 +35,8 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
          //Hospital or HealthCenter ->> Reception
         Route::get('/register_patient', function () { return view('hospital.reception.registerpatient'); })->name('patient.registerpatient');
         Route::get('/assign_patient', function () { return view('hospital.reception.assignpatient'); })->name('patient.assignpatient');
-       
+        Route::get('/receptionprofile', function ()  { return view('hospital.reception.profile'); })->name('proreceptionbureau');
+        
         Route::get('/block', function () { return view('hospital.hr.block');})->name('block');
         Route::get('/listblock', function () { return view('hospital.hr.listblock');})->name('listblock');
         Route::get('/listroom', function () { return view('hospital.hr.listroom');})->name('listroom');

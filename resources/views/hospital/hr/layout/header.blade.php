@@ -7,7 +7,7 @@
   <title> Hospital HR </title>
   <!-- Tailwind is included -->
 
-  <link href="{{ asset('csss/main1.css?v=1628755089081') }}" rel="stylesheet">
+  <link href="{{ asset('csss/main.css?v=1628755089081') }}" rel="stylesheet">
   <link href="{{ asset('frontend/csss/style.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
@@ -31,11 +31,7 @@
         </div>
             <div class="navbar-item dropdown has-divider has-user-avatar">
                 <a class="navbar-link">
-                <div class="user-avatar">
-                    <img src="https://avatars.dicebear.com/v2/initials/john-doe.svg" alt="John Doe" class="rounded-full">
-                </div>
-                <div class="is-user-name"><span>John Doe</span></div>
-                <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
+               
                 </a>
                 <div class="navbar-dropdown">
                 <a href="profile.html" class="navbar-item">
@@ -104,38 +100,21 @@
             <span class="menu-item-label"><strong>Doctor</strong></span>
             </a>
         </li>
-        <li class="--set-active-tables-html">
-            <a href="">
-            <span class="icon"><i class="mdi mdi-table"></i></span>
-            <span class="menu-item-label"><strong>User</strong></span>
-            </a>
-        </li>
-        <li class="--set-active-forms-html">
-            <a href="">
-            <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
-            <span class="menu-item-label"><strong>Statics</strong></span>
-            </a>
-        </li>
-        
         <li>
             <a class="dropdown">
             <span class="icon"><i class="mdi mdi-view-list"></i></span>
-            <span class="menu-item-label"><strong>Block</strong></span>
-        <li>
-            <a class="dropdown">
-            <span class="icon"><i class="mdi mdi-view-list"></i></span>
-            <span class="menu-item-label"><strong>Submenus</strong></span>
+           <span class="menu-item-label"><strong>Block</strong></span>
             <span class="icon"><i class="mdi mdi-plus"></i></span>
             </a>
             <ul>
             <li>
                 <a href="/block">
-                <span>Add Block</span>
+                <span>==> Add Block</span>
                 </a>
             </li>
             <li>
                 <a href="/listblock">
-                <span>Listblock</span>
+                <span>==> Listblock</span>
                 </a>
             </li>
             </ul>
@@ -149,12 +128,12 @@
             <ul>
             <li>
                 <a href="/room">
-                <span>Add room</span>
+                <span>==> Add room</span>
                 </a>
             </li>
             <li>
                 <a href="/listroom">
-                <span>Listroom</span>
+                <span>==> Listroom</span>
                 </a>
             </li>
             </ul>
@@ -168,20 +147,13 @@
             <ul>
             <li>
                 <a href="/bed">
-                <span>Add bed</span>
+                <span>==> Add bed</span>
                 </a>
             </li>
             <li>
                 <a href="/listbed">
-                <span>Listbed</span>
-                <a href="#void">
-                <span>==> Profile</span>
-                </a>
-            </li>
-            <li>
-                <a href="#void">
-                <span>==> Settings</span>
-                </a>
+                <span>==> Listbed</span>
+               
             </li>
             </ul>
         </li>
@@ -195,10 +167,23 @@
             </a>
         </li>
         <li class="--set-active-forms-html">
-            <a href="">
-            <span class="icon"><i class="mdi mdi-lock"></i></span>
-            <span class="menu-item-label"><strong>Logout</strong></span>
             </a>
+             <li class="--set-active-forms-html">
+
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                  aria-labelledby="userDropdown">
+                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                      <span class="icon"><i class="mdi mdi-lock"></i></span>
+                      {{ __('Logout') }}
+                  </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                  </form>
+              
+            </a>
+        </li>
         </li>
         </ul>
         </div>

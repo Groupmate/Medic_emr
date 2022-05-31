@@ -42,7 +42,7 @@
       </li>
       <li>
       <li class="--set-active-tables-html">
-        <a href="">
+        <a href="{{ url('/receptionprofile') }}">
           <span class="icon"><i class="mdi mdi-table"></i></span>
           <span class="menu-item-label"><strong>Profile</strong></span>
         </a>
@@ -59,11 +59,21 @@
         </a>
       </li>
       <li class="--set-active-forms-html">
-        <a href="">
-          <span class="icon"><i class="mdi mdi-lock"></i></span>
-          <span class="menu-item-label"><strong>Logout</strong></span>
-        </a>
-      </li>
+
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                  aria-labelledby="userDropdown">
+                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                      <span class="icon"><i class="mdi mdi-lock"></i></span>
+                      {{ __('Logout') }}
+                  </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                  </form>
+              
+            </a>
+        </li>
     </ul>
   </div>
 </aside>

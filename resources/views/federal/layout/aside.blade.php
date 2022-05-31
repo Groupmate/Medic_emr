@@ -37,7 +37,7 @@
                 <span class="menu-item-label">Create Managers</span>
               </a>
           </li>
-        <li>
+        {{-- <li>
           <li>
           <li class="--set-active-profile-html">
               <a  href="{{ url('/hstatics') }}">
@@ -45,7 +45,7 @@
                 <span class="menu-item-label">Statics</span>
               </a>
           </li>
-        <li>
+        <li> --}}
         <li>
           <a class="dropdown">
             <span class="icon"><i class="mdi mdi-view-list"></i></span>
@@ -82,10 +82,20 @@
           </a>
         </li>
         <li class="--set-active-forms-html">
-          <a href="">
-            <span class="icon"><i class="mdi mdi-lock"></i></span>
-            <span class="menu-item-label">Logout</span>
-          </a>
+
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                  aria-labelledby="userDropdown">
+                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                      <span class="icon"><i class="mdi mdi-lock"></i></span>
+                      {{ __('Logout') }}
+                  </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                  </form>
+              
+            </a>
         </li>
       </ul>
     </div>
