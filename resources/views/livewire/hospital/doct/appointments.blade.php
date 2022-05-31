@@ -4,62 +4,62 @@
      
      <!-- component -->
  <div class="p-6">
-    
-                 <x-slot name="logo">
-                     <x-jet-authentication-card-logo />
-                 </x-slot>
-                 <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
-                       <h1 class="text-gray-800 font-lg font-bold tracking-normal leading-tight mb-4 text-center">+Create Appointment For Patients </h1>
-                                              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
-                                                  <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                                                                  <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="patient_id" value="{{ __('Patient Name') }}"/>
-                                                      <select  class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" id="patient_id"  wire:model.debounce.80ms="patient_id" >
-                                                      <option>select patient</option>
-                                                        @foreach($pname as $row)
-                                                            <option  class="block mt-1 w-full" type="text" value="{{$row->id}}">{{$row->firstname}}</option>
-                                                        
-                                                        @endforeach
-                                                        </select>
-                                                    @error('patient_id') <span class="error">{{$message}}</span>@enderror
-                                                 </div>
-                                              
-                                                     <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                                                              <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="status" value="{{ __('Status') }}"/>
-                                                              <select  class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" id="status" wire:model.debounce.800ms="status">
-                                                                            <option value="confirmed">confirmed</option>
-                                                                            <option value="pending">pending</option>
-                                                                            <option value="cancelled">cancelled</option>
-                                                            </select>
-                                                          @error('status') <span class="error">{{$message}}</span>@enderror
-                                                      </div>
+
+    <x-slot name="logo">
+        <x-jet-authentication-card-logo />
+    </x-slot>
+    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
+          <h1 class="text-gray-800 font-lg font-bold tracking-normal leading-tight mb-4 text-center">+Create Appointment For Patients </h1>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
+                                    <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                                                    <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="patient_id" value="{{ __('Patient Name') }}"/>
+                                        <select  class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" id="patient_id"  wire:model.debounce.80ms="patient_id" >
+                                        <option>select patient</option>
+                                          @foreach($pname as $row)
+                                              <option  class="block mt-1 w-full" type="text" value="{{$row->id}}">{{$row->firstname}}</option>
                                           
-                                             </div>
-                                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
-                                                  <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                                                
-                                                        <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="issue_date" value="{{ __('Issue-Date') }}"/>
-                                                        <x-jet-input id="issue_date" name="issue_date" class="block mt-1 w-full" type="date" placeholder="issue_date" wire:model.debounce.800ms="issue_date"/> 
-                                                        @error('issue_date') <span class="error">{{$message}}</span>@enderror
-                                                  </div>
-                                                  <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                                                      <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="visit_date" value="{{ __('Visit_date') }}"/>
-                                                      <x-jet-input id="visit_date" class="block mt-1 w-full" type="date" placeholder="visit_date" wire:model.debounce.800ms="visit_date"/> 
-                                                      @error('visit_date') <span class="error">{{$message}}</span>@enderror
-                                                  </div>
-                                            
-                                              </div>
-                                              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
-                                                      <div class="md:w-1/2 px-3 mb-6 md:mb-0"> 
-                                                          <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="description" value="{{ __('Description') }}"/>
-                                                          <textarea id="description" class="block mt-1 w-full" type="text" placeholder="description" wire:model.debounce.800ms="description"/></textarea> 
-                                                          @error('description') <span class="error">{{$message}}</span>@enderror
-                                                      </div>
-                                              </div>
-                                          <div class="flex items-center justify-end mt-4"  >
-                                              <x-jet-button  class="hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm"  wire:click="create" wire:loading.attr="disabled">
-                                                  save
-                                              </x-jet-button>   
-                                          </div>
+                                          @endforeach
+                                          </select>
+                                      @error('patient_id') <span class="error">{{$message}}</span>@enderror
+                                    </div>
+                                
+                                        <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                                                <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="status" value="{{ __('Status') }}"/>
+                                                <select  class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" id="status" wire:model.debounce.800ms="status">
+                                                              <option value="confirmed">confirmed</option>
+                                                              <option value="pending">pending</option>
+                                                              <option value="cancelled">cancelled</option>
+                                              </select>
+                                            @error('status') <span class="error">{{$message}}</span>@enderror
+                                        </div>
+                            
+                                </div>
+                              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
+                                    <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                                  
+                                          <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="issue_date" value="{{ __('Issue-Date') }}"/>
+                                          <x-jet-input id="issue_date" name="issue_date" class="block mt-1 w-full" type="date" placeholder="issue_date" wire:model.debounce.800ms="issue_date"/> 
+                                          @error('issue_date') <span class="error">{{$message}}</span>@enderror
+                                    </div>
+                                    <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                                        <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="visit_date" value="{{ __('Visit_date') }}"/>
+                                        <x-jet-input id="visit_date" class="block mt-1 w-full" type="date" placeholder="visit_date" wire:model.debounce.800ms="visit_date"/> 
+                                        @error('visit_date') <span class="error">{{$message}}</span>@enderror
+                                    </div>
+                              
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
+                                        <div class="md:w-1/2 px-3 mb-6 md:mb-0"> 
+                                            <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="description" value="{{ __('Description') }}"/>
+                                            <textarea id="description" class="block mt-1 w-full" type="text" placeholder="description" wire:model.debounce.800ms="description"/></textarea> 
+                                            @error('description') <span class="error">{{$message}}</span>@enderror
+                                        </div>
+                                </div>
+                            <div class="flex items-center justify-end mt-4"  >
+                                <x-jet-button  class="hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm"  wire:click="create" wire:loading.attr="disabled">
+                                    save
+                                </x-jet-button>   
+                            </div>
                      </div>
       
 @if (session()->has('message'))

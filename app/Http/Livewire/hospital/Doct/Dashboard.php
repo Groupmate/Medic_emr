@@ -1,19 +1,14 @@
 <?php
 
-namespace App\Http\Livewire\Statics;
+namespace App\Http\Livewire\Hospital\Doct;
 
 use Livewire\Component;
-use App\Models\User;
-use App\Models\Hospital;
 use App\Models\Patient;
-use App\Models\Medical_data;
-use App\Models\Appointment;
 use App\Models\Patient_Waiting_List;
-use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
-
-
-class HospitalStatics extends Component
+use App\Models\Hospital;
+use App\Models\medical_data;
+use App\Models\Appointment;
+class Dashboard extends Component
 {
     public function render()
     {
@@ -29,22 +24,10 @@ class HospitalStatics extends Component
         $TodayAppointment =  Appointment::leftJoin('patients', 'appointments.id', '=', 'patients.id')
                             ->select('patients.id','patients.first_name', 'appointments.visit_date')
                             ->where('appointments.status', 'active')
-                           // ->whereDate('visit_date', Carbon::today())
+                            //->whereDate('visit_date', Carbon::today())
                             ->get();
-       
-        $TotalUsers = User::get();
-        
-        $TotalPatient = Patient::get();
-        
-        $TotalDoctor = Doctor::get();
-        $INP =Doctor::where('department','IPD')->get();
-        $OP = Doctor::where('department','OPD')->get();
-        $EMP = Doctor::where('department','Emergency')->get();
-
-        // $user_id = Auth()->user()->id;
-        // $hospital = Hospital::where('user_id', $user_id)->first();
-        // dd($hospital);
-    
-        return view('livewire.statics.hospital-statics',compact('patient_waiting_count','TotalPatients'));
+        $NoTodayAppointment = count($TodayAppointment); 
+      
+        return view('livewire.hospital.doct.dashboard',compact('patient_waiting_count','NoTodayAppointment', 'TotalPatients' ));
     }
 }
