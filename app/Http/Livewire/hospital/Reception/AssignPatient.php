@@ -4,12 +4,12 @@ namespace App\Http\Livewire\Hospital\Reception;
 
 use Livewire\Component;
 use Illuminate\Validation\Rule;
-use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 use App\Models\Patient;
 use App\Models\Doctor;
+use App\Models\Employee;
 use App\Models\User;
-use Carbon\Carbon;
+use App\Models\Patient_waiting_list;
 
 class AssignPatient extends Component
 {

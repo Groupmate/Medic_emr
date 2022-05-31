@@ -13,7 +13,7 @@
     @endif
 
 
-    <form wire:submit.prevent="CreateEmployee" class="w-full">
+    <form wire:submit.prevent="CreateDoctor" class="w-full">
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
             <div class="mt-4">
@@ -63,16 +63,14 @@
         </div>
         <div  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
             <div class="mt-4">
-                <x-jet-label for="role" value="{{ __('Role') }}" />
+                <x-jet-label for="speciality" value="{{ __('Speciality') }}" />
                 <select class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    wire:model.debounce.800ms="role" />
-                    <option>---Select role---</option>
-                    <option value="6">Doctor</option>
-                    <option value="5">Receptionist</option>
-                    <option value="7">Pharmacy</option>
-                    <option value="8">Laboratory</option>
+                    wire:model.debounce.800ms="speciality" />
+                    <option>---Select speciality---</option>
+                    <option value="Mathernal">Mathernal</option> 
+                    <option value="Pediatric">Pediatric</option> 
                 </select>
-                @error('role') <span class="error text-red-600">{{$message}}</span>@enderror
+                @error('speciality') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="department" value="{{ __('Department') }}" />

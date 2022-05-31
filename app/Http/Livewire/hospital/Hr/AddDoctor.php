@@ -10,6 +10,7 @@ use App\Models\Hospital;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
 use Livewire\WithPagination;
 
 class AddDoctor extends Component
@@ -32,16 +33,15 @@ class AddDoctor extends Component
     public function CreateDoctor()
     {
         $this->validate();
+        //dd(3);
         $this->user_id = Auth()->user()->id;
         $hospital_name = Hospital::where('user_id', $this->user_id)->first()->id;
 
         $user = User::create($this->userModelData());
-        $doctor->user_id = $user->id;
-
         $doctor = Doctor::create($this->doctorModelData());
+        $doctor->user_id = $user->id;
         $doctor->hospitals()->sync($hospital_name);
-        session()->flash('message', 'Doctor registered Successfully.');
-        $this->modelFormVisible= false;
+        session()->flash('message', 'Doctor registered Successfully.'); 
         $this->reset();
     }
 
@@ -115,18 +115,7 @@ class AddDoctor extends Component
     public function rules()
     {
         return [
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => ' required',
-            'password' =>'required',
-            'profile_pic'=>'required',
-            'speciality'=>'required',
-            'sex'=>'required',
-            'phone'=>'required',
-            'shift'=>'required',
-            'department'=>'required',
-            'address'=>'required',
-            'date_of_birth'=>'required',
+            'first_name' => 'required', 
         ];
     }
     /**

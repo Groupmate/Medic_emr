@@ -9,6 +9,7 @@ use App\Models\Employee;
 use App\Models\Hospital;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Livewire\WithPagination;
 
@@ -83,7 +84,7 @@ class AddEmployee extends Component
             'address'=>$this->address,
             'date_of_birth'=>$this->date_of_birth,
             'profile_pic'=>$this->profile_pic,
-            'password' => $this->password,
+            'password' => Hash::make($this->password),
         ];
     }
 
