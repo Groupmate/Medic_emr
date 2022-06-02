@@ -22,7 +22,7 @@ class AddDoctor extends Component
     public $modelId;
     public $first_name, $last_name, $user_id, $organization_id=NULL, $sex, $password,
            $email, $date_of_birth, $profile_pic, $phone, $address, $hospital_id, $hospital_name,
-           $department, $hospitals, $shift =[''], $role=5, $speciality;
+           $department, $hospitals, $shift =[], $role=5, $speciality;
 
 
     /**
