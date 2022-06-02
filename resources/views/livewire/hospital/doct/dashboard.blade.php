@@ -177,19 +177,19 @@
 
       <!-- link -->
      
-      <a href="./index.html" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
-        <i class="fad fa-shopping-cart text-xl mr-2"></i>         
+      <a href="dashboard" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+        <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>        
          Dashboard
       </a>  
       
         <div id="dropdown" x-show="show" class="ml-4">
             <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/appointments">
             <i class="fad fa-calendar-check text-xl mr-3"></i>
-                Appointement
+                Create Appointement
             </a>
             <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="todayappointments">
             <i class="fas fa-hospital-user text-xl mr-3"></i>
-                Today Assigned Patients
+                New Assigned Patients
             </a>
             <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/bedassignment">
             <i class="fas fa-bell text-xl mr-3"></i>
@@ -238,7 +238,7 @@
                     <!-- bottom -->
                     <div class="mt-8">
                         <h1 class="h5 num-4"></h1>
-                        <a href="{{ url('/home') }}">New assigned patients</a>
+                        <a href="{{ url('/todayappointments') }}">New assigned patients</a>
                     </div>                
                     <!-- end bottom -->
         
@@ -365,17 +365,17 @@
             
             <!-- top -->
             <div class="p-2 border-b border-gray-400">
-                <h2 class="font-bold text-lg mb-6">List Of Appointement Visitor</h2>
+                <h2 class="font-bold text-lg mb-6">List of Appointment Visitor</h2>
                   
                 @foreach($appt as $appts)
                  <div class="flex flex-row justify-between mb-3">
               
                     <div class="">
                         <h4 class="text-gray-900 font-thin">{{  $appts['first_name'] }}  {{  $appts['last_name'] }}</h4><br>
-                       <p class="text-red-400 text-xs font-hairline"> after 30 min </p>
+                       <p class="text-red-400 text-xs font-hairline"> {{\Carbon\Carbon::parse($appts['visit_date'])->diffForHumans() }} </p>
                     </div>
                     <div class="text-sm font-medium">
-                        <span class="text-red-400">+</span> {{  $appts['visit_date'] }}
+                        <span class="text-red-400">+</span> {{ date('H:i:s', strtotime($appts['visit_date'])) }}
                     </div>
                     
                 </div>

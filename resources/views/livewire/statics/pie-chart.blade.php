@@ -1,7 +1,7 @@
 
 <body>
 <div class="mt-10 sm:mt-0">
-    <x-guest-layout>
+   
         <div class="panel panel-primary">
             <div class="panel-body">
                 <div id="container"></div>
@@ -83,5 +83,5 @@
             });
          </script>
      </body>
-  </x-guest-layout>
+ 
 </div>

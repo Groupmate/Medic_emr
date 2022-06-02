@@ -1,5 +1,3 @@
-
-
  <body>
       <div id = "container" style = "width: 550px; height: 400px; margin: 0 auto"></div>
       <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script>
