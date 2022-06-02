@@ -18,13 +18,13 @@ class AppointmentSeeder extends Seeder
         //
         $faker = \Faker\Factory::create();
 
-        for ($loop = 0; $loop < 150;  $loop++) {
+        for ($loop = 0; $loop < 50;  $loop++) {
 
             DB::table("appointments")->insert([
                 "doctor_id"=>$faker->numberBetween(1,150),
                 "patient_id"=>$faker->numberBetween(1,150),	
-                "issue_date"=>$faker->date(),
-                "visit_date"=>$faker->date(),	
+                "issue_date"=>$faker->dateTime(),
+                "visit_date"=>$faker->dateTime(),	
                 "descrpition"=>$faker->randomElement(["Pssfend", "Activa","Onagd"]),	
                 "status"=>$faker->randomElement(["Pending","Active","On Going","Passive"]),
                 "created_at"=>$faker->date(),

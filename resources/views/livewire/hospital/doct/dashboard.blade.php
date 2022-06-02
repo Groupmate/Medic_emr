@@ -189,7 +189,7 @@
             </a>
             <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="todayappointments">
             <i class="fas fa-hospital-user text-xl mr-3"></i>
-                Today Appointments
+                Today Assigned Patients
             </a>
             <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/bedassignment">
             <i class="fas fa-bell text-xl mr-3"></i>
@@ -344,9 +344,11 @@
             <!-- top -->
             <div class="p-5 flex flex-row flex-wrap justify-between items-center">
                 <div class="font-bold text-lg">Monthly and Weekly Trends</div>
+                <br>
+                  @livewire('statics.hospital-statics')
                 <div class="flex flex-row justify-center items-center">
-                    <a href="#" class="btn mr-4 text-sm py-2 block">Month</a>
-                    <a href="#" class="btn-shadow text-sm py-2 block">Week</a>
+                   
+                      
                 </div>
             </div>
             <!-- end top -->
@@ -363,40 +365,24 @@
             
             <!-- top -->
             <div class="p-2 border-b border-gray-400">
-                <h2 class="font-bold text-lg mb-6">List of  Appointments</h2>
-    
-                <div class="flex flex-row justify-between mb-3">
+                <h2 class="font-bold text-lg mb-6">List Of Appointement Visitor</h2>
+                  
+                @foreach($appt as $appts)
+                 <div class="flex flex-row justify-between mb-3">
+              
                     <div class="">
-                        <h4 class="text-gray-600 font-thin">John Wicks</h4>
-                        <p class="text-red-400 text-xs font-hairline"> after 30 min </p>
+                        <h4 class="text-gray-900 font-thin">{{  $appts['first_name'] }}  {{  $appts['last_name'] }}</h4><br>
+                       <p class="text-red-400 text-xs font-hairline"> after 30 min </p>
                     </div>
                     <div class="text-sm font-medium">
-                        <span class="text-red-400">+</span> 10:00 am
+                        <span class="text-red-400">+</span> {{  $appts['visit_date'] }}
                     </div>
+                    
                 </div>
+                @endforeach 
     
-                <div class="flex flex-row justify-between mb-3">
-                    <div class="">
-                        <h4 class="text-gray-600 font-thin">Albert Enistine</h4>
-                        <p class="text-red-400 text-xs font-hairline">after 4:30 hours </p>
-                    </div>
-                    <div class="text-sm font-medium">
-                        <span class="text-red-400">+</span> 2:00 pm
-                    </div>
-                </div>
-                
-                <div class="flex flex-row justify-between">
-                    <div class="">
-                        <h4 class="text-gray-600 font-thin">Alemu Kaleb</h4>
-                        <p class="text-red-400 text-xs font-hairline">after 6:00 hours </p>
-                    </div>
-                    <div class="text-sm font-medium">
-                        <span class="text-red-400">+</span> 4:00 pm 
-                    </div>
-                </div>
+            
     
-                
-                <div class="p-5">
                   <h2 class="font-bold text-lg mb-2">Today's Progress</h2>
                   <div class="bg-gray-300 h-2 rounded-full mt-2 relative">
                       <div class="rounded-full bg-teal-400 h-full w-3/4 shadow-md"></div>
