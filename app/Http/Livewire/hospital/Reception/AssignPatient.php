@@ -38,7 +38,7 @@ class AssignPatient extends Component
         foreach($doctor as $doctor)
         {
             $shift = $doctor->shift;
-            dd($doctor->shift);
+            //dd($shift);
             foreach($shift as $shift)
             {
                 if($shift == date('l'))
@@ -67,8 +67,9 @@ class AssignPatient extends Component
         $this->patient_id=$this->modelId;
 
         $a = Auth()->user()->id;
+        
         $hospital_a = Employee::where('user_id', $a)->first()->hospital_id;
-       // dd($hospital_a);
+       
         return[
             'user_id'=> $this->user_id,
             'status'=> "appointed",

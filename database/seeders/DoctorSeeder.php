@@ -24,7 +24,7 @@ class DoctorSeeder extends Seeder
                 "user_id"=>$faker->numberBetween(1,10),
                 "speciality"=>$faker->randomElement(["Radiology","General Doctor","Eye","Mind","Skeleton","Nerve"]),
                 "department"=>$faker->randomElement(["OPD","IPD","Emergency"]),
-                "shift"=>[["Tuesday"],["Wednesday"],["Wednesday"]],
+                "shift"=>[["Tuesday"]],
                 "created_at"=>$faker->date(),
                 "updated_at"=>$faker->date(),
             ]);

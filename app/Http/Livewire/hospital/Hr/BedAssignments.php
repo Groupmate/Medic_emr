@@ -64,7 +64,7 @@ class BedAssignments extends Component
          $this->beds = collect();
      }
      public function render()
-     {   $patients = Patient::where('firstname','like','%'.$this->search.'%')->get();
+     {   $patients = Patient::where('first_name','like','%'.$this->search.'%')->get();
          $blocks = Block::all();
          return view('livewire.hospital.hr.bed-assgniments')->with('patients',$patients)->with('blocks',$blocks);
      }
