@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Hospital\Doct;
+namespace App\Http\Livewire\Hospital\Doctor;
 
 use Livewire\Component;
 use App\Models\Appointment;
@@ -38,7 +38,7 @@ class TodayAppointments extends Component
     {
         $appointment =Appointment::whereDate('issue_date',now())->where('status','pending')->get();
         
-        return view('livewire.hospital.doct.today-appointments')->with('appointment',$appointment);
+        return view('livewire.hospital.doctor.today-appointments')->with('appointment',$appointment);
        
     }
 }

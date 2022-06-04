@@ -100,8 +100,13 @@
         <div  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
             <div class="mt-4">
                 <label>Shifts</label><br/>
-                <input type="checkbox" wire:model.debounce.800ms="shift" value="monday">Monday<br/>
-                <input type="checkbox" wire:model.debounce.800ms="shift" value="tuesday">Tuesday<br/>
+                <input type="checkbox" wire:model.debounce.800ms="shift" value="Monday">Monday<br/>
+                <input type="checkbox" wire:model.debounce.800ms="shift" value="Tuesday">Tuesday<br/>
+                <input type="checkbox" wire:model.debounce.800ms="shift" value="Wedneday">Wednesday<br/>
+                <input type="checkbox" wire:model.debounce.800ms="shift" value="Thurday">Thurday<br/>
+                <input type="checkbox" wire:model.debounce.800ms="shift" value="Friday">Friday<br/>
+                <input type="checkbox" wire:model.debounce.800ms="shift" value="Saturday">Saturday<br/>
+                <input type="checkbox" wire:model.debounce.800ms="shift" value="Sunday">Sunday<br/> 
             </div>
         </div>
 

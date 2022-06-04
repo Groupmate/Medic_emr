@@ -107,9 +107,9 @@
                 </div>
                 <div  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
                             <div class="mt-4">
-                                <x-jet-label for="image" value="{{ __('Profile-Picture') }}" />
-                                <x-jet-input id="image" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="file" name="image" wire:model.debounce.800ms="image" />
-                                @error('image') <span class="error text-red-600">{{$message}}</span>@enderror
+                                <x-jet-label for="profile_pic" value="{{ __('Profile-Picture') }}" />
+                                <x-jet-input id="profile_pic" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="file" name="profile_pic" wire:model.debounce.800ms="profile_pic" />
+                                @error('profile_pic') <span class="error text-red-600">{{$message}}</span>@enderror
                             </div>
                                 <div class="mt-4">
                                         <x-jet-label for="type" value="{{ __('Type') }}" />
@@ -171,7 +171,7 @@
                                             <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->last_name}}</td>
                                             <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->type}}</td>
                                             <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->address}}</td>
-                                            <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->image}}</td>
+                                            <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->profile_pic}}</td>
                                             <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
 
                                                 <x-jet-button wire:click="updateShowModal({{ $employe->id }})">

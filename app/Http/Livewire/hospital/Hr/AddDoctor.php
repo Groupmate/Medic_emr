@@ -38,8 +38,8 @@ class AddDoctor extends Component
         $hospital_name = Hospital::where('user_id', $this->user_id)->first()->id;
 
         $user = User::create($this->userModelData());
-        $doctor = Doctor::create($this->doctorModelData());
-        $doctor->user_id = $user->id;
+        $this->user_id = $user->id;
+        $doctor = Doctor::create($this->doctorModelData()); 
         $doctor->hospitals()->sync($hospital_name);
         session()->flash('message', 'Doctor registered Successfully.'); 
         $this->reset();
@@ -95,8 +95,8 @@ class AddDoctor extends Component
 
     public function doctorModelData()
     {
-        $this->user_id = Auth()->user()->id;
-        $hospitals = Hospital::where('user_id', $this->user_id)->first();
+        $ser_id = Auth()->user()->id;
+        $hospitals = Hospital::where('user_id', $ser_id)->first();
         $this->hospitals = $hospitals->id;
 
         return [

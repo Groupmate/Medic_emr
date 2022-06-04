@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class appointment extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $fillable = [
+        'doctor_id', 'patient_id', 'issue_date', 'visit_date', 'description', 'status'
+    ];
 
     public function doctor(){
         return $this->belongsTo(Doctor::class);

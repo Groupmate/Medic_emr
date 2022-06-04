@@ -1,1 +1,0 @@
-@livewire('hospital.doct.dashboard')

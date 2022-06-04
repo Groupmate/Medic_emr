@@ -19,7 +19,7 @@ class Doctor extends Model
     {
         return $this->belongsToMany(Hospital::class);
     }
-    public function appointment(){
+    public function appointments(){
         return $this->hasMany(Appointment::class);
     }
     public function user()

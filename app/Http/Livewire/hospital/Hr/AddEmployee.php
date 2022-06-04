@@ -34,8 +34,8 @@ class AddEmployee extends Component
         $this->validate();
 
         $user = User::create($this->userModelData());
-        $id = $user->id;
-        $Employee = Employee::create($this->employeeModelData($id));
+        $this->user_id = $user->id;
+        $Employee = Employee::create($this->employeeModelData());
         session()->flash('message', 'Employee registered Successfully.');
         $this->modelFormVisible= false;
         $this->reset();
@@ -88,10 +88,10 @@ class AddEmployee extends Component
         ];
     }
 
-    public function employeeModelData($id)
+    public function employeeModelData()
     {
-        $this->user_id = Auth()->user()->id;
-        $hospital_a = Hospital::where('user_id', $this->user_id)->first();
+        $id = Auth()->user()->id;
+        $hospital_a = Hospital::where('user_id', $id)->first();
 
         return [
             'hospital_id'=>$hospital_a->id,

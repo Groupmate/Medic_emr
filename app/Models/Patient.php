@@ -21,7 +21,7 @@ class Patient extends Model
 
          return $query->where('status' ,1);
         }
-        public function appointment(){
+        public function appointments(){
             return $this->hasMany(Appointmen::class);
         }
         public function bedassignment(){

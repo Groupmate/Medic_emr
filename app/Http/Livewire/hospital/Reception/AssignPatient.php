@@ -9,6 +9,7 @@ use App\Models\Patient;
 use App\Models\Doctor;
 use App\Models\Employee;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Patient_waiting_list;
 
 class AssignPatient extends Component
@@ -68,12 +69,12 @@ class AssignPatient extends Component
 
         $a = Auth()->user()->id;
         
-        $hospital_a = Employee::where('user_id', $a)->first()->hospital_id;
-       
+        $hospital_a = Employee::where('user_id', $a)->first();
+     
         return[
             'user_id'=> $this->user_id,
-            'status'=> "appointed",
-            'hospital_id'=> $hospital_a,
+            'status'=> "waiting",
+            'hospital_id'=> $hospital_a->hospital_id,
             'patient_id'=> $this->patient_id,
         ];
     }

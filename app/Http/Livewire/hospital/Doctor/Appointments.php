@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Hospital\Doct;
+namespace App\Http\Livewire\Hospital\Doctor;
 
 use Livewire\Component;
 use App\Models\Doctor;
@@ -118,7 +118,7 @@ class Appointments extends Component
         $dname = Doctor::all();
        $pname = Patient::all();
        $appointment =Appointment::all();
-        return view('livewire.hospital.doct.appointments',['appointment'=>Appointment::paginate(3)])->with('dname',$dname)->with('pname',$pname);
+        return view('livewire.hospital.doctor.appointments',['appointment'=>Appointment::paginate(3)])->with('dname',$dname)->with('pname',$pname);
      
     }
 }

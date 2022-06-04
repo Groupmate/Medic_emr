@@ -30,13 +30,12 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/add_doctor', function () { return view('hospital.hr.adddoctor');})->name('adddoctor');
         Route::get('/viewemployee', function () {  return view('hospital.hr.viewemployee');})->name('viewemployee');
         //Hospital or HealthCenter ->> Dashboard
-        Route::get('/patient', function () { return view('hospital.doctors.patient'); })->name('patient');
-        Route::get('/home', function () { return view('hospital.doctors.home'); })->name('doctors.home');
+        Route::get('/patient', function () { return view('hospital.doctor.patient'); })->name('patient');
+        Route::get('/home', function () { return view('hospital.doctor.home'); })->name('doctor.home');
          //Hospital or HealthCenter ->> Reception
         Route::get('/register_patient', function () { return view('hospital.reception.registerpatient'); })->name('patient.registerpatient');
         Route::get('/assign_patient', function () { return view('hospital.reception.assignpatient'); })->name('patient.assignpatient');
         Route::get('/receptionprofile', function ()  { return view('hospital.reception.profile'); })->name('proreceptionbureau');
-        
         Route::get('/block', function () { return view('hospital.hr.block');})->name('block');
         Route::get('/listblock', function () { return view('hospital.hr.listblock');})->name('listblock');
         Route::get('/listroom', function () { return view('hospital.hr.listroom');})->name('listroom');
@@ -44,8 +43,10 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/room', function () { return view('hospital.hr.room');})->name('room');
         Route::get('/bed', function () { return view('hospital.hr.bed');})->name('bed');
         Route::get('/bedassignment', function () { return view('hospital.hr.bedassignment');})->name('bedassignment');
-        Route::get('/appointments', function () { return view('hospital.doct.appointments'); })->name('appontiments');
-        Route::get('/todayappointments', function () { return view('hospital.doct.today-appointment'); })->name('today-appontiments');
+        //Doctor
+        Route::get('/appointments', function () { return view('hospital.doctor.appointments'); })->name('appontiments');
+        Route::get('/assignedpatients', function () { return view('hospital.doctor.assignedpatients'); })->name('assignedpatients');
+        Route::get('/todayappointments', function () { return view('hospital.doctor.today-appointment'); })->name('today-appontiments');
         //Statics
         Route::get('/fstatics', function () { return view('Statics.Fstatics'); })->name('Federal_Statics');
         Route::get('/hstatics', function () { return view('Statics.Hrstatics'); })->name('HR_Statics');
