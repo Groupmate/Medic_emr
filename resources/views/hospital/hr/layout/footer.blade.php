@@ -38,6 +38,6 @@ fbq('track', 'PageView');
 
 <!-- Icons below are for demo only. Feel free to use any icon pack. Docs: https://bulma.io/documentation/elements/icon/ -->
 <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
-
+@livewireScripts
 </body>
 </html>

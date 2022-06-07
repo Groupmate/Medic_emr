@@ -1,6 +1,8 @@
+</div>
+</div>
 <!-- script -->
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<script src="js/scripts.js"></script>
+<script src="{{ asset('js/scripts.js') }}"></script>
 <script>
     window.addEventListener('DOMContentLoaded', ()=> {
         const menuBtn = document.querySelector('#menu-btn')
@@ -22,6 +24,6 @@
     })
 </script>
 <!-- end script -->
-
+@livewireScripts
 </body>
 </html>

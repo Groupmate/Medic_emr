@@ -17,12 +17,10 @@
     <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
     
     @livewireStyles
-</head>
-<body class="bg-gray-100">
-
-
+</head> 
 <!-- start navbar -->
-<body class="bg-gray-900">
+<body class="">
+<div>
 <!-- start navbar -->
   <div class="md:fixed md:w-full md:top-0 md:z-20 flex flex-row flex-wrap items-center bg-white p-6 border-b border-gray-300">
       
@@ -92,9 +90,7 @@
                           </li>
 
                       </ul>
-
-                  </nav>
-                  <!-- End of Topbar -->
+ 
                   
                 
               </div>                        
@@ -208,4 +204,3 @@
         <!-- end sidebar content -->
         
       </div>
-    <!-- end sidbar--> 
