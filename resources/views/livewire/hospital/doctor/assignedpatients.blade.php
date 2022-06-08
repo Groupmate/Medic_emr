@@ -30,7 +30,7 @@
                                             {{ $patient['phone_no'] }}
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            <x-jet-button wire:click="examine({{ $patient['phone_no'] }})">
+                                            <x-jet-button wire:click="examine({{ $patient['id'] }})">
                                                 {{ __('Examine') }}
                                             </x-jet-button>
                                         </td>

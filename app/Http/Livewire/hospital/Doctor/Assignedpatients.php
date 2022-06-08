@@ -19,6 +19,7 @@ class Assignedpatients extends Component
        
         $patient_waiting = Patient_Waiting_List::select('patient_id')->where('status','Waiting')
                            ->where('user_id', $id)->get();
+        dd($patient_waiting);
         foreach($patient_waiting as $pw){        
             $this->patient[] = Patient::find($pw->patient_id); 
         }  
@@ -26,9 +27,10 @@ class Assignedpatients extends Component
 
     public function examine($id)
     { 
-        $patient_waiting = Patient_Waiting_List::find($id);
+        $patient_waiting = Patient_Waiting_List::where('patient_id', $id)->first();
         $patient_waiting->status = "examined";
-        $this->emit('generatemedicaldata', ['patient_id' => $id]);
+        //dd($patient_waiting->status);
+        $this->emit('generatemedicaldata');
     }
 
     public function render()
