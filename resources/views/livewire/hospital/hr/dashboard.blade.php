@@ -1,5 +1,5 @@
- <span><h1><strong>Human Resource Hospital  Dashboard: </strong></h1></span>
-     Nothing in the world is as soft and yielding as water. 
+ <span><h6><strong>Human Resource Hospital  Dashboard: </strong></h6></span>
+     
         <!-- card -->
       <div class="grid gap-6 grid-cols-1 md:grid-cols-3 mb-6">
       <div class="card">
@@ -7,10 +7,10 @@
           <div class="flex items-center justify-between">
             <div class="widget-label">
               <h3>
-                Clients
+                Outpatient Doctor
               </h3>
               <h1>
-                1512
+                {{$opd_count}}
               </h1>
             </div>
             <span class="icon widget-icon text-green-500"><i class="mdi mdi-account-multiple mdi-48px"></i></span>
@@ -24,10 +24,28 @@
           <div class="flex items-center justify-between">
             <div class="widget-label">
               <h3>
-                Doctors
+               Inpatient Doctor
               </h3>
               <h1>
-                7,770
+                {{$ipd_count}}
+              </h1>
+            </div>
+            <span class="icon widget-icon text-green-500"><i class="mdi mdi-account-multiple mdi-48px"></i></span>
+          </div>
+        </div>
+      </div>
+    <!-- end card -->
+        <!-- end card -->
+      <!-- card -->
+      <div class="card">
+        <div class="card-content">
+          <div class="flex items-center justify-between">
+            <div class="widget-label">
+              <h3>
+              Emergency Doctor
+              </h3>
+              <h1>
+                {{$emergency_count}}
               </h1>
             </div>
             <span class="icon widget-icon text-green-500"><i class="mdi mdi-account-multiple mdi-48px"></i></span>
@@ -41,10 +59,10 @@
           <div class="flex items-center justify-between">
             <div class="widget-label">
               <h3>
-                Doctors
+                Total 
               </h3>
               <h1>
-                7,770
+                {{$total}}
               </h1>
             </div>
             <span class="icon widget-icon text-green-500"><i class="mdi mdi-account-multiple mdi-48px"></i></span>
@@ -61,7 +79,7 @@
         <button class="button light">Button</button>
     </div>
         
-         @livewire('statics.hr-statics')  
+         @livewire('statics.line-chart')
 
     <section class="is-hero-bar">
       

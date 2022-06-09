@@ -5,10 +5,10 @@
       <script language = "JavaScript">
          $(document).ready(function() {
             var title = {
-               text: 'Average No Of Users And Patients In Each Months '   
+               text: ' No Of Users And Doctors Registered In Each Months In Specfic Organizaton '   
             };
             var subtitle = {
-               text: 'Source: worldClimate.com'
+               text: ''
             };
             var xAxis = {
                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
@@ -37,16 +37,8 @@
                   name: 'Users',
                   data:<?= $data ?>
                }, 
-               {
-                  name: 'New York',
-                  data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8,
-                     24.1, 20.1, 14.1, 8.6, 2.5]
-               }, 
-               {
-                  name: 'London',
-                  data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 
-                     16.6, 14.2, 10.3, 6.6, 4.8]
-               }
+                
+              
             ];
             
 
