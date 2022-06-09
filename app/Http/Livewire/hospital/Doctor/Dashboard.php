@@ -20,7 +20,6 @@ class Dashboard extends Component
 
         $id = Auth()->user()->id; 
         $doctor = Doctor::where('user_id', $id)->first();
-        $TotalPatient = Hospital::leftJoin('medical_datas', 'hospitals.id', '=', 'medical_datas.id')
         $TotalPatients = Hospital::leftJoin('medical_datas', 'hospitals.id', '=', 'medical_datas.hospital_id')
                         ->select('medical_datas.patient_id')
                         ->where('medical_datas.hospital_id' , 151)
