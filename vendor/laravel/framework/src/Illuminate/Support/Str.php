@@ -2,7 +2,9 @@
 
 namespace Illuminate\Support;
 
+use Closure;
 use Illuminate\Support\Traits\Macroable;
+use JsonException;
 use League\CommonMark\GithubFlavoredMarkdownConverter;
 use Ramsey\Uuid\Codec\TimestampFirstCombCodec;
 use Ramsey\Uuid\Generator\CombGenerator;
@@ -38,7 +40,7 @@ class Str
     /**
      * The callback that should be used to generate UUIDs.
      *
-     * @var callable
+     * @var callable|null
      */
     protected static $uuidFactory;
 
@@ -368,6 +370,27 @@ class Str
     public static function isAscii($value)
     {
         return ASCII::is_ascii((string) $value);
+    }
+
+    /**
+     * Determine if a given string is valid JSON.
+     *
+     * @param  string  $value
+     * @return bool
+     */
+    public static function isJson($value)
+    {
+        if (! is_string($value)) {
+            return false;
+        }
+
+        try {
+            json_decode($value, true, 512, JSON_THROW_ON_ERROR);
+        } catch (JsonException) {
+            return false;
+        }
+
+        return true;
     }
 
     /**
@@ -1088,6 +1111,61 @@ class Str
     public static function createUuidsUsing(callable $factory = null)
     {
         static::$uuidFactory = $factory;
+    }
+
+    /**
+     * Set the sequence that will be used to generate UUIDs.
+     *
+     * @param  array  $sequence
+     * @param  callable|null  $whenMissing
+     * @return void
+     */
+    public static function createUuidsUsingSequence(array $sequence, $whenMissing = null)
+    {
+        $next = 0;
+
+        $whenMissing ??= function () use (&$next) {
+            $factoryCache = static::$uuidFactory;
+
+            static::$uuidFactory = null;
+
+            $uuid = static::uuid();
+
+            static::$uuidFactory = $factoryCache;
+
+            $next++;
+
+            return $uuid;
+        };
+
+        static::createUuidsUsing(function () use (&$next, $sequence, $whenMissing) {
+            if (array_key_exists($next, $sequence)) {
+                return $sequence[$next++];
+            }
+
+            return $whenMissing();
+        });
+    }
+
+    /**
+     * Always return the same UUID when generating new UUIDs.
+     *
+     * @param  \Closure|null  $callback
+     * @return \Ramsey\Uuid\UuidInterface
+     */
+    public static function freezeUuids(Closure $callback = null)
+    {
+        $uuid = Str::uuid();
+
+        Str::createUuidsUsing(fn () => $uuid);
+
+        if ($callback !== null) {
+            $callback($uuid);
+
+            Str::createUuidsNormally();
+        }
+
+        return $uuid;
     }
 
     /**

@@ -47,11 +47,15 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/appointments', function () { return view('hospital.doctor.appointments'); })->name('appontiments');
         Route::get('/assignedpatients', function () { return view('hospital.doctor.assignedpatients'); })->name('assignedpatients');
         Route::get('/todayappointments', function () { return view('hospital.doctor.today-appointment'); })->name('today-appontiments');
-        //Statics
+        Route::get('/appointments', function () { return view('hospital.doctor.appointments'); })->name('appontiments');
+        Route::get('/create-discharge', function () { return view('hospital.doctor.create-discharge'); })->name('create-discharge');
+        //Statics 
         Route::get('/fstatics', function () { return view('Statics.Fstatics'); })->name('Federal_Statics');
         Route::get('/hstatics', function () { return view('Statics.Hrstatics'); })->name('HR_Statics');
         Route::get('/linechart', function () { return view('Statics.Linechart'); })->name('Hospital_linechrt');
         Route::get('/piechart', function () { return view('Statics.Piechart'); })->name('Hospital_piechart');
         Route::get('/Hpstatics', function () { return view('Statics.Hospitalstatics'); })->name('Hospital_Statics');
+        //pharmacy
+        Route::get('/medical-drug', function () { return view('hospital.pharmacy.add-medical-drug'); })->name('add-medical-drug');
 
 });

@@ -22,7 +22,7 @@ class CreateBedAssignment extends Component
      public $allotment_time;
      public $beds;
      public $modalId;
-     public $search='',$user_id,$hospital_id,$doctor_a;
+     public $search='',$user_id,$hospital_id,$doctor_a,$doctor_id;
      public function create()
      {
         $this->validate();
@@ -68,7 +68,7 @@ class CreateBedAssignment extends Component
          $this->beds = collect();
      }
      public function render()
-     {   $patients = Patient::where('first_name','like','%'.$this->search.'%')->get();
+     {   $patients = Patient::where('firstname','like','%'.$this->search.'%')->get();
         
         $this->user_id = Auth()->user()->id;
         $doctor=Doctor::where('user_id',$this->user_id)->first();

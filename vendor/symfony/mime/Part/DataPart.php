@@ -122,16 +122,6 @@ class DataPart extends TextPart
         return $str;
     }
 
-    public function getFilename(): ?string
-    {
-        return $this->filename;
-    }
-
-    public function getContentType(): string
-    {
-        return implode('/', [$this->getMediaType(), $this->getMediaSubtype()]);
-    }
-
     private function generateContentId(): string
     {
         return bin2hex(random_bytes(16)).'@symfony';
@@ -152,6 +142,7 @@ class DataPart extends TextPart
         $this->_parent = [];
         foreach (['body', 'charset', 'subtype', 'disposition', 'name', 'encoding'] as $name) {
             $r = new \ReflectionProperty(TextPart::class, $name);
+            $r->setAccessible(true);
             $this->_parent[$name] = $r->getValue($this);
         }
         $this->_headers = $this->getHeaders();
@@ -162,6 +153,7 @@ class DataPart extends TextPart
     public function __wakeup()
     {
         $r = new \ReflectionProperty(AbstractPart::class, 'headers');
+        $r->setAccessible(true);
         $r->setValue($this, $this->_headers);
         unset($this->_headers);
 
@@ -173,6 +165,7 @@ class DataPart extends TextPart
                 throw new \BadMethodCallException('Cannot unserialize '.__CLASS__);
             }
             $r = new \ReflectionProperty(TextPart::class, $name);
+            $r->setAccessible(true);
             $r->setValue($this, $this->_parent[$name]);
         }
         unset($this->_parent);
