@@ -21,16 +21,25 @@ class Dashboard extends Component
         $id = Auth()->user()->id; 
         $doctor = Doctor::where('user_id', $id)->first();
         $TotalPatient = Hospital::leftJoin('medical_datas', 'hospitals.id', '=', 'medical_datas.id')
+        $TotalPatients = Hospital::leftJoin('medical_datas', 'hospitals.id', '=', 'medical_datas.hospital_id')
                         ->select('medical_datas.patient_id')
                         ->where('medical_datas.hospital_id' , 151)
-                        ->get();
-        $TotalPatients = count( $TotalPatient);
-        
+                        ->get()->count();
+                        
+        $startDate = Carbon::today();
+        $endDate = Carbon::today()->addDays(7);
+       
         $NoTodayAppointment = Appointment::where('visit_date', Carbon::now()->toDateString())
-                                        ->where('status', 'active')->where('doctor_id', $doctor->id)->count();
-                                          
+                            ->where('status', 'active')->where('doctor_id', $doctor->id)->count();
+        $WeeklyAppointment = Appointment::leftJoin('patients', 'appointments.patient_id', '=', 'patients.id')
+                            ->select('patients.first_name','patients.last_name','appointments.issue_date','appointments.visit_date')
+                            ->whereBetween('appointments.visit_date', [$startDate, $endDate])
+                            ->orderBy('appointments.visit_date')
+                            ->get();                 
+        $TodayAppointment =Appointment::whereDate('issue_date',now())->where('status','pending')->get();                      
+        
         return view('livewire.hospital.doctor.dashboard',compact(
             'patient_waiting_count','NoTodayAppointment', 'TotalPatients'   
-        ));
+        ))->with('WeeklyAppointment',$WeeklyAppointment)->with('appt',$TodayAppointment);
     }
 }

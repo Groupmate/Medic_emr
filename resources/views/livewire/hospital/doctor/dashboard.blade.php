@@ -1,9 +1,3 @@
- 
-<!-- start navbar -->
-
-  </div>
-  <!-- end sidbar -->
-
   <!-- strat content -->
   <div class="bg-gray-100 flex-1 p-6 md:mt-16"> 
 
@@ -134,9 +128,52 @@
             
             <!-- top -->
             <div class="p-5 flex flex-row flex-wrap justify-between items-center">
-                <div class="font-bold text-lg">Monthly and Weekly Trends</div>
-                <br>
-                  @livewire('statics.hospital-statics')
+                 <!-- info -->
+                  <h1 class="h6">Helllo, Dr.Mohammed {{--{{$WeeklyAppointment['first_name'] }}! --}}</h1>
+                <br><br>
+                
+                 <a href="#" class="btn mr-4 text-sm py-2 block">Weekly</a>
+            <div class="py-2 ml-14">
+                    <table class="min-w-full text-center">
+                    <thead class="border-b">
+                      <tr class="border-b bg-gray-800 boder-gray-900">
+                        <th class="text-sm text-white font-medium px-6 py-4 whitespace-nowrap">
+                            Patient Name
+                        </th>
+                        <th class="text-sm text-white font-light px-6 py-4 whitespace-nowrap">
+                            Issue_date
+                        </th>
+                        <th class="text-sm text-white font-light px-6 py-4 whitespace-nowrap">
+                            Visit_date
+                        </th>
+                        </tr>
+                    </thead>
+                    
+                    <thead>
+                      @foreach($WeeklyAppointment as $WeeklyAppointment) 
+                        <tr>
+                            <td scope="col" class="text-sm font-medium text-gray-900 px-6 py-4"><i class=" text-green-400 fad fa-users"></i>
+                                {{$WeeklyAppointment['first_name']}} {{$WeeklyAppointment['last_name']}}
+                            </td>
+                            <td scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">
+                                {{$WeeklyAppointment['issue_date']}}
+                            </td>
+                             <td scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">
+                                {{$WeeklyAppointment['visit_date']}}
+                            </td>
+                            
+                        </tr>
+                    @endforeach
+                    </thead>
+                    </table>
+                
+ 
+              
+            </div>
+               
+                 
+                
+                
                 <div class="flex flex-row justify-center items-center">
                    
                       
@@ -156,10 +193,13 @@
             
             <!-- top -->
             <div class="p-2 border-b border-gray-400">
-                <h2 class="font-bold text-lg mb-6">List of Appointment Visitor</h2>
-                  
-                {{-- @foreach($appt as $appts)
+             <div class="p-5 flex  flex-wrap justify-between ">
+               <h1 class="h6">Today Appointments </h1>
+                <a href="#" class="btn mr-4 text-sm py-2 block">Today</a>
+              </div>    
+                 @foreach($appt as $appts)
                  <div class="flex flex-row justify-between mb-3">
+                
               
                     <div class="">
                         <h4 class="text-gray-900 font-thin">{{  $appts['first_name'] }}  {{  $appts['last_name'] }}</h4><br>
@@ -170,8 +210,8 @@
                     </div>
                     
                 </div>
-                @endforeach  --}}
-    
+                @endforeach  
+     
             
     
                   <h2 class="font-bold text-lg mb-2">Today's Progress</h2>

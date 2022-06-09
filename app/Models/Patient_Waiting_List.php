@@ -11,7 +11,4 @@ class Patient_Waiting_List extends Model
     protected $fillable = [
         'patient_id', 'hospital_id', 'user_id', 'status'
     ];
-    public patient()
-    
-
 }

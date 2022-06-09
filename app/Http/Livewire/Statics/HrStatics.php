@@ -28,6 +28,12 @@ class HrStatics extends Component
         $mind_count=count($mind);
         $skel_count=count($skel);
         $nerve_count=count($nerve);
+        
+        $TotalDoctor = Doctor::get();
+        $INP =Doctor::where('department','IPD')->get();
+        $OP = Doctor::where('department','OPD')->get();
+        $EMP = Doctor::where('department','Emergency')
+                    ->where('medical_datas.user_id' , 1)->get();
 
 
        return view("livewire.statics.hr-statics",compact('opd_count','ipd_count',
