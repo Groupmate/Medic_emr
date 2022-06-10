@@ -22,4 +22,8 @@ class Hospital extends Model
     {
         return $this->belongsToMany(Doctor::class);
     }
+
+    public function referal(){
+        return $this->hasMany(Referal::class);
+    }
 }

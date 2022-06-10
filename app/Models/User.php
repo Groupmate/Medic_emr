@@ -83,4 +83,8 @@ class User extends Authenticatable
     {
         return $this->hasOne(Employee::class);
     }
+
+    public function referal(){
+        return $this->hasMany(Referal::class);
+    }
 }

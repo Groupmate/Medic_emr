@@ -27,4 +27,8 @@ class Patient extends Model
         public function bedassignment(){
             return $this->hasMany(Bedassignment::class);
         }
+
+        public function referal(){
+            return $this->hasOne(Referal::class);
+        }
 } 
