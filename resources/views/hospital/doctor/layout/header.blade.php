@@ -72,7 +72,7 @@
                               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                   <span
-                                      class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->username }}</span>
+                                      class="mr-2 d-none d-lg-inline text-gray-600 small"> {{ "Dr." }} {{""}}<?php echo  Auth::user()->first_name; echo " "; echo Auth::user()->last_name; ?> </span>
                               </a>
                               <!-- Dropdown - User Information -->
                               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -189,12 +189,15 @@
               <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/bedassignment">
               <i class="fas fa-bell text-xl mr-3"></i>
                   Assign-Bed</a>
+              <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/referpatient">
+               <i class="fas fa-bell text-xl mr-3"></i>
+                  Refer patient</a>
               </a>
               <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
               <i class="fas fa-file-chart-line text-xl mr-3"></i>
                   Reports
               </a> 
-            <hr class="border-t border-gray-200 my-0">
+            <hr class="border-t border-gray-600 my-0">
           </div>
           <!-- end link -->
           
