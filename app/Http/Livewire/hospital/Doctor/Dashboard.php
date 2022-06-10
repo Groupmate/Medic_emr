@@ -35,7 +35,12 @@ class Dashboard extends Component
                             ->whereBetween('appointments.visit_date', [$startDate, $endDate])
                             ->orderBy('appointments.visit_date')
                             ->get();                 
-        $TodayAppointment =Appointment::whereDate('issue_date',now())->where('status','pending')->get();                      
+        $TodayAppointment =  Appointment::leftJoin('patients', 'appointments.patient_id', '=', 'patients.id')
+                            ->select('appointments.patient_id','patients.first_name', 'patients.last_name','appointments.visit_date')
+                            ->where('appointments.status', 'Pending')
+                            ->whereDate('visit_date', Carbon::today())
+                            ->orderBy('appointments.visit_date', 'desc')
+                            ->take(10)->get();                      
         
         return view('livewire.hospital.doctor.dashboard',compact(
             'patient_waiting_count','NoTodayAppointment', 'TotalPatients'   

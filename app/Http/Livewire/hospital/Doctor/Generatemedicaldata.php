@@ -10,7 +10,7 @@ class Generatemedicaldata extends Component
     
     public function render()
     {
-        dd('one');
+        // dd('one');
         return view('livewire.hospital.doctor.generatemedicaldata');
     }
 }
