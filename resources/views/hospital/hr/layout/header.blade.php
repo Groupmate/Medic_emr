@@ -169,7 +169,7 @@
         <li class="--set-active-forms-html">
             </a>
              <li class="--set-active-forms-html">
-
+                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ __('Dr. ') }} {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </span>
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                   aria-labelledby="userDropdown">
                   <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

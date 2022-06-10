@@ -31,7 +31,7 @@
           <strong class="capitalize ml-1 flex-1">Medic-EMR</strong>
 
           <button id="sliderBtn" class="flex-none text-right text-gray-900 hidden md:block">
-          <i class="fad fa-list-ul"></i>
+         
           </button>
       </div>
       
@@ -168,15 +168,14 @@
           </div>
           <!-- end sidebar toggle -->
 
-          <p class="uppercase text-xs text-gray-600 m0ok,b-4 tracking-wider">homes</p>
-
+          <p class="uppercase text-xm text-gray-600 m0ok,b-4 tracking-wider">homes</p>
+            <hr class="border-t border-gray-600 my-0">
           <!-- link -->
           
           
           <div id="dropdown" x-show="show" class="ml-1">
               <a href="/dashboard" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
-                <i class="fad fa-shopping-cart text-xl mr-2"></i>         
-                  Dashboard
+              
               </a>  
               <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/appointments">
               <i class="fad fa-calendar-check text-xl mr-3"></i>
