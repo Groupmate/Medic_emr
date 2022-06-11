@@ -11,28 +11,21 @@ use App\Models\Doctor;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\DB;
 
 class ReferPatient extends Component
 {
-    public $organizations;
-    // public function readAssignmentTable(){
-    //     return Patient_Waiting_List::paginate(5);
-    // }
-
     public function render()
     {
         // $organization =Patient_Waiting_List::latest()->paginate(5);
-        $userID  = Auth::user()->toArray();
+        $userID  =DB::select('select * from users where id = ?', [Auth::user()->id]); 
+        // dd($userID);
     
-        $assignmentDoctor = Patient_Waiting_List::all()->toArray();
-        $assignmentPatient = Patient_Waiting_List::all()->toArray();
-        $patientID = Patient::all()->toArray();
-        // $organization= Patient_Waiting_List::select('patients.first_name','patients.last_name','appointments.issue_date','appointments.visit_date')->get();
-        $organizations = Patient_Waiting_List::leftJoin('users', 'patient__waiting__lists.user_id', '=', 'users.id')
-                            ->select('patient__waiting__lists.patient_id')->get()->toArray();
-        $opt [] = $organizations;
-    // dd($organizations);
+        $assignmentDoctor = DB::select('select * from patient__waiting__lists');
+        // dd($assignmentDoctor);
+        $patientID = DB::select('select * from patients');
+        // dd($patientID);
         return view('livewire.hospital.doctor.refer-patient', 
-        compact('userID', 'assignmentDoctor','assignmentPatient', 'patientID'))->with( 'organizations', $opt);
+        ['userID'=>$userID, 'assignmentDoctor'=>$assignmentDoctor, 'patientID'=>$patientID]);
     }
 }

@@ -33,7 +33,7 @@
                 @foreach ($patients as $patients)
                     <tr class="whitespace-nowrap">
                         <td class="px-6 py-4 text-sm text-gray-500">
-                            1
+                        {{ $patients->id }}
                         </td>
                         <td class="px-6 py-4">
                             <div class="text-sm text-gray-900">
