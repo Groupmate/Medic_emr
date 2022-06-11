@@ -2,10 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Livewire\hospital\Doctor\Generatemedicaldata;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Route::redirect(uri:'/', destination:'login');
 Route::get('/dashboard', 'App\Http\Controllers\HomeController@index')->name('dashboard');
@@ -44,11 +42,13 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/bed', function () { return view('hospital.hr.bed');})->name('bed');
         Route::get('/bedassignment', function () { return view('hospital.hr.bedassignment');})->name('bedassignment');
         //Doctor
-        Route::get('/appointments', function () { return view('hospital.doctor.appointments'); })->name('appontiments');
+        Route::get('/appointments', function () { return view('hospital.doctor.appointments'); })->name('appointments');
         Route::get('/assignedpatients', function () { return view('hospital.doctor.assignedpatients'); })->name('assignedpatients');
-        Route::get('/todayappointments', function () { return view('hospital.doctor.today-appointment'); })->name('today-appontiments');
-        Route::get('/appointments', function () { return view('hospital.doctor.appointments'); })->name('appontiments');
+        Route::get('/todayappointments', function () { return view('hospital.doctor.today-appointment'); })->name('today-appointments');
+        Route::get('/appointments', function () { return view('hospital.doctor.appointments'); })->name('appointments');
+        //Route::get('/generatemedicaldata/{id}', Generatemedicaldata::class)->name('generatemedicaldata'); 
         Route::get('/create-discharge', function () { return view('hospital.doctor.create-discharge'); })->name('create-discharge');
+        Route::get('/generatemedicaldata/{id}', function ($id) { return view('hospital.doctor.generatemedicaldata', ['id' => $id]); })->name('generatemedicaldata');
         Route::get('/referpatient', function() { return view('hospital.doctor.refer-patient'); })->name('refer-patient');
         Route::get('/medcertificate', function() { return view('hospital.doctor.generatemedicaldata'); })->name('medical certificate');
         //Statics 

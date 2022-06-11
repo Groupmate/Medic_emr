@@ -19,7 +19,7 @@ class Assignedpatients extends Component
        
         $patient_waiting = Patient_Waiting_List::select('patient_id')->where('status','Waiting')
                            ->where('user_id', $id)->get();
-        dd($patient_waiting);
+        
         foreach($patient_waiting as $pw){        
             $this->patient[] = Patient::find($pw->patient_id); 
         }  
@@ -30,15 +30,16 @@ class Assignedpatients extends Component
         $patient_waiting = Patient_Waiting_List::where('patient_id', $id)->first();
         $patient_waiting->status = "examined";
         //dd($patient_waiting->status);
-        $this->emit('generatemedicaldata');
+        $pid = $patient_waiting->patient_id;
+         
+        return redirect()->route('generatemedicaldata', $pid);
     }
 
     public function render()
     { 
-        $this->read();
-        foreach($this->patient as $patient){
-            $patients[] = $patient; 
-        }
-        return view('livewire.hospital.doctor.assignedpatients', compact('patients'));
+        $this->read(); 
+        return view('livewire.hospital.doctor.assignedpatients',[
+            'patients' => $this->patient,
+        ]);
     }
 }

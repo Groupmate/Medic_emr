@@ -15,7 +15,7 @@
     <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
     <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
-    
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @livewireStyles
 </head> 
 <!-- start navbar -->

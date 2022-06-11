@@ -23,7 +23,7 @@
                     <!-- bottom -->
                     <div class="mt-8">
                         <h1 class="h5 num-4"></h1>
-                        <a href="{{ url('/todayappointments') }}">New assigned patients</a>
+                        <a href="{{ url('/assignedpatients') }}">New assigned patients</a>
                     </div>                
                     <!-- end bottom -->
                     

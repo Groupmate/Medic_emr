@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->string('speciality');
             $table->string('department');
-            $table->string('shift');
+            $table->json('shift');
             $table->timestamps();
 
             // $table->foreign('hospital_id')->references('id')->on('hospitals')->onDelete('cascade');

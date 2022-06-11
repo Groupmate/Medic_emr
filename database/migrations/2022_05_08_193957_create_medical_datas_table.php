@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('medical_datas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('hospital_id');
-            $table->string('symptom');
-            $table->string('diagnosis_info');
-            $table->string('numerical_info');
+            $table->json('symptom');
+            $table->json('diagnosis_info');
+            $table->json('numerical_info');
             $table->string('description');
-            $table->string('picture');
-            $table->string('disease');
+            $table->json('picture');
+            $table->json('disease');
             $table->foreignId('patient_id');  
             $table->foreignId('user_id');  
             $table->foreignId('medical_drug_id');   

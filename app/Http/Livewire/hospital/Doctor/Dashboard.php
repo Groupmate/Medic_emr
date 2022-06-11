@@ -38,10 +38,17 @@ class Dashboard extends Component
         $TodayAppointment =  Appointment::leftJoin('patients', 'appointments.patient_id', '=', 'patients.id')
                             ->select('appointments.patient_id','patients.first_name', 'patients.last_name','appointments.visit_date')
                             ->where('appointments.status', 'Pending')
+<<<<<<< Updated upstream
                             ->whereDate('visit_date', Carbon::today())
                             ->orderBy('appointments.visit_date', 'desc')
                             ->take(10)->get();                      
         
+=======
+                            ->whereDate('visit_date', Carbon::today()) 
+                            ->orderBy('appointments.visit_date', 'desc')
+                            ->take(10)->get();
+        //dd($TodayAppointment);
+>>>>>>> Stashed changes
         return view('livewire.hospital.doctor.dashboard',compact(
             'patient_waiting_count','NoTodayAppointment', 'TotalPatients'   
         ))->with('WeeklyAppointment',$WeeklyAppointment)->with('appt',$TodayAppointment);
