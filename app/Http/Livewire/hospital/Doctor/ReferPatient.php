@@ -10,7 +10,7 @@ use App\Models\User;
 use App\Models\Doctor;
 use App\Models\Referal;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rule;
+
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
 

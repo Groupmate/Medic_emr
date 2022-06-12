@@ -13,31 +13,25 @@ use Illuminate\Support\Facades\Auth;
 use PDF;
 class GenerateMedicalCerificate extends Component
 {
-    public function generatePDF()
-    {
+   
+   
+    public function generateMedicalPDF() {
         $patientID   =Auth::user()->id;
         $PatientInfo = Medical_data::leftJoin('patients', 'medical_datas.patient_id', '=', 'patients.id')
-                        ->select('patients.id','medical_datas.diagnosis_info','patients.first_name','patients.last_name','patients.email','patients.national_id','date_of_birth','patients.region',
+                        ->select('patients.id','medical_datas.diagnosis_info','patients.firstname','patients.lastname','patients.email','patients.national_id','date_of_birth','patients.region',
                                 'patients.zone','patients.city','patients.updated_at')
                         ->where('patients.id',$patientID)
                         ->get()->toArray();
                         //dd($PatientInfo);
         $userID      = Auth::user()->id;
         $DoctorInfo  = User::select('first_name','last_name')
-                        ->where('users.id', $userID )->get(); 
-        $users = User::get();
-  
-        $data = [
-            'title' => 'Welcome to ItSolutionStuff.com',
-            'date' => date('m/d/Y'),
-            'users' => $users
-        ]; 
-            
-        $pdf = PDF::loadView('myPDF', $data);
-     
-        return $pdf->download('itsolutionstuff.pdf');
-    }
+                        ->where('users.id', $userID )->get();
     
+        $pdf = PDF::loadView('livewire.hospital.doctor.generate-medical-cerificate',compact('DoctorInfo','PatientInfo'));
+    
+        return $pdf->download('MedicalCertificate.pdf');
+    }
+                                     
 
     public function render()
     {
@@ -46,16 +40,17 @@ class GenerateMedicalCerificate extends Component
         //                 ->get()->toArray();
         $patientID   =Auth::user()->id;
         $PatientInfo = Medical_data::leftJoin('patients', 'medical_datas.patient_id', '=', 'patients.id')
-                        ->select('patients.id','medical_datas.diagnosis_info','patients.first_name','patients.last_name','patients.email','patients.national_id','date_of_birth','patients.region',
+                        ->select('patients.id','medical_datas.diagnosis_info','patients.firstname','patients.lastname','patients.email','patients.national_id','date_of_birth','patients.region',
                                 'patients.zone','patients.city','patients.updated_at')
                         ->where('patients.id',$patientID)
                         ->get()->toArray();
                         //dd($PatientInfo);
         $userID      = Auth::user()->id;
         $DoctorInfo  = User::select('first_name','last_name')
-                        ->where('users.id', $userID )->get(); 
-                                          
-        return view('livewire.hospital.doctor.generate-medical-cerificate',compact('DoctorInfo','PatientInfo'))->with('PatientInfo', $PatientInfo);
+                        ->where('users.id', $userID )->get();
+        
+        
+        return view('livewire.hospital.doctor.generate-medical-cerificate',compact('DoctorInfo','PatientInfo'));
     }
 }
 

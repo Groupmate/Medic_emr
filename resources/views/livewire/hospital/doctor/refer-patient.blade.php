@@ -10,6 +10,7 @@
                     <th   class="px-5 py-3 border-b-2 border-gray-500 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">Last Name</th>
                     <th   class="px-56 py-3 border-b-2 border-gray-500 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">Action</th>
 
+<<<<<<< Updated upstream
                 </tr>
             </thead>
             <tbody>                                 
@@ -92,4 +93,70 @@
         </x-slot>
     </x-jet-dialog-modal>
  
+=======
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($organizations as $organ)
+            <tr>
+                <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ['patient_id']}}</td>
+                <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ['first_name']}}</td>  
+            @endforeach
+         @foreach($assignmentDoctor as $assign)
+           @foreach($userID  as $assigns)
+            @if($assign->user_id == $assigns->id)
+                abc
+            @endif
+            @endforeach
+        @endforeach
+
+                
+                
+                    {{-- <!-- @if( $userID->id  == $organizations->user_id)
+                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->patient_id}}</td>
+                    @endif -->
+                        <!-- @if( $userID  == $organ->user_id)
+                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$user->first_name}}</td>
+                        @endif
+                        @if( $organ->user_id  == NULL)
+                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $organ->user_id }}</td>
+                        @endif
+                    @if( $organ->type ==1 )
+                        <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">Regional Health bureau</td>
+                    @endif
+                    @if( $organ->type ==2 )
+                        <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">City Adminstration</td>
+                    @endif
+                    @if( $organ->type ==3 )
+                        <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">Speciality Clinic</td>
+                    @endif
+
+                    <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->region}}</td>
+                    <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->city}}</td>
+                    <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm"> -->
+                        <x-jet-button wire:click="updateShowModal({{ $organ->id }})">
+                            {{ __('update') }}
+                        </x-jet-button>
+                        <x-jet-danger-button wire:click="deleteShowModal({{ $organ->id }})" >
+                            {{ __('Delete') }}
+                        </x-jet-button>
+                        <x-jet-button class="bg-green-500" wire:click="viewShowModal({{ $organ->id }})">
+                            {{ __('view') }}
+                        </x-jet-button>
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                    <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                    <td class="px-6 py-3 border-b border-black-200 bg-white text-lg">Nope</td>
+                    <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                    <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                    <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
+                </tr>
+            @endforelse --}}
+        </tbody>
+    </table>
+   
+>>>>>>> Stashed changes
 </div>

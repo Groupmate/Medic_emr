@@ -1,12 +1,4 @@
-<<<<<<< Updated upstream
-
-  @livewire('hospital.doctor.generatemedicaldata')
-
-=======
 @include('hospital.doctor.layout.header')    
-    
-    @livewire('hospital.doctor.generatemedicaldata', ['id' => $id])  
->>>>>>> Stashed changes
-
+    @livewire('hospital.doctor.generate-medical-data', ['id' => $id])  
 @include('hospital.doctor.layout.footer')
  

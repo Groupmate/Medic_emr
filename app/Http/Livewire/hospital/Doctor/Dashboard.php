@@ -36,7 +36,7 @@ class Dashboard extends Component
                             ->orderBy('appointments.visit_date')
                             ->get();                 
         $TodayAppointment =  Appointment::leftJoin('patients', 'appointments.patient_id', '=', 'patients.id')
-                            ->select('appointments.patient_id','patients.first_name', 'patients.last_name','appointments.visit_date')
+                            ->select('appointments.patient_id','patients.firstname', 'patients.lastname','appointments.visit_date')
                             ->where('appointments.status', 'Pending')
                             ->whereDate('visit_date', Carbon::today()) 
                             ->orderBy('appointments.visit_date', 'desc')
