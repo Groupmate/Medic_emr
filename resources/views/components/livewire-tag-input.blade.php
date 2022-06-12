@@ -1,12 +1,13 @@
+ 
 <div x-data="
      tagSelect(@entangle($key))" x-init="init('parentEl')" @click.away="clearSearch()" @keydown.escape="clearSearch()">
     <div class=" relative " @keydown.enter.prevent=" addTag(textInput)">
         <div>
-            <label for=" {{ $key }}" class="block text-sm font-medium text-gray-700">
+            <label for=" {{ $key }}" class="mb-2 font-bold text-lg text-gray-900">
                 {{ __($title) }}</label>
             <input x-model="textInput" x-ref="textInput" @input="search($event.target.value)" type="text"
                 name="{{ $key }}" id="{{ $key }}" autocomplete="{{ $key }}"
-                class="mt-1 block w-full"
+                class="alert alert-light mt-1 block w-full"
                                 @error($key) border-red-300 @enderror>
             @error($key) <span class="text-red-500">{{ $message }}</span> @enderror
         </div>
@@ -34,7 +35,7 @@
         </template>
     </div>
 </div>
-
+ 
 @once
     <script>
         function tagSelect(tags) {

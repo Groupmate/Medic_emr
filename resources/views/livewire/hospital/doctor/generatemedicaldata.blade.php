@@ -22,40 +22,42 @@
       </div>
     </article>
   @endforeach
-  <div class="card">
-    <div class="card-header"> 
-      <div class="text-3xl font-bold hover:text-gray-700 pb-4">Fill the Form</div>
-    </div>
-    <div class="card-body"> 
-      <div class="mt-4"> 
-          <x-livewire-tag-input label="one" key="symptom" title="symptom"
-            wire:key="tags" :select-all-enabled="true" /> 
-        </div>
-      
-        <div class="mt-4">  
-            <x-livewire-tag-input label="one" key="diagnosis_info" title="diagnosis_info"
-            wire:key="tags" :select-all-enabled="true" /> 
+  
+  <div class="flex justify-center items-center mt-4 w-full bg-grey-400">
+    <div class="w-full bg-white rounded shadow-2xl p-8 m-4"> 
+        <div class="mt-5"> 
+          <label class="mb-1 subpixel-antialiased text-lg text-gray-900">Symptom</label><br>
+            <x-livewire-tag-input label="one" key="symptom" title=""
+              wire:key="tags" :select-all-enabled="true" /> 
         </div>
       
         <div class="mt-4"> 
-          <x-livewire-tag-input label="one" key="numerical_info" title="numerical_info"
+            <label class="mb-1 subpixel-antialiased text-lg text-gray-900">Diagnosis_info</strong></label><br> 
+            <x-livewire-tag-input label="one" key="diagnosis_info" title=""
+            wire:key="tags" :select-all-enabled="true" /> 
+        </div>
+      
+        <div class="mt-4">
+          <label class="mb-1 subpixel-antialiased text-lg text-gray-900">Numerical_info</strong></label><br> 
+          <x-livewire-tag-input label="one" key="numerical_info" title=""
           wire:key="tags" :select-all-enabled="true" /> 
         </div>
       
         <div class="mt-4">
-            <x-jet-label for="description" value="{{ __('Description') }}" />
-            <textarea id="description" class="block mt-1 w-full" type="description" wire:model.debounce.800ms="description" :value="old('email')" required> </textarea>
+        <label class="mb-1 subpixel-antialiased text-lg text-gray-900">Description</label><br> 
+            <textarea id="description" class="alert mb-4 border-1 ml-2 w-3/4 block" type="description" wire:model.debounce.800ms="description" :value="old('email')" required> </textarea>
             @error('description') <span class="error">{{$description}}</span>@enderror
-        </div> 
-      
-        <div class="mt-4"> 
-            <x-picture-tag-input label="one" key="picture" title="picture"
-            wire:key="tags" :select-all-enabled="true" /> 
         </div>
-      
+  
         <div class="mt-4"> 
-          <x-livewire-tag-input label="one" key="disease" title="disease"
+        <label class="mb-1 subpixel-antialiased text-lg text-gray-900">Disease</label><br> 
+          <x-livewire-tag-input label="one" key="disease" title=""
           wire:key="tags" :select-all-enabled="true" /> 
+        </div>
+        <div class="mt-4"> 
+        <label class="mb-3 text-xl  ">Picture</label><br> 
+            <x-picture-tag-input label="one" key="picture" title=""
+            wire:key="tags" :select-all-enabled="true" /> 
         </div>
       
       
@@ -64,8 +66,7 @@
                 Submit
             </x-jet-button>
         </div> 
-    </div>  
+    </div>
   </div>
-  
   
   
