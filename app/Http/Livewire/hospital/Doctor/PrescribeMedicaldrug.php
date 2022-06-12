@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Hospital\Doctor;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Prescribe_drug;
 use App\Models\Doctor;
 class PrescribeMedicaldrug extends Component
@@ -10,7 +11,7 @@ class PrescribeMedicaldrug extends Component
     public $alldrugs = [
         []
     ];
-    public $patient_id=1,$doctor_id=1,$status,$descrpition;
+    public $patient_id=1,$user_id,$status,$descrpition,$quantity=[],$drug_name=[];
 
     public function mount()
     {
@@ -20,18 +21,23 @@ class PrescribeMedicaldrug extends Component
         ];
     }
 
-    public function addProduct()
+    public function addDrug()
     {
         $this->alldrugs[] = ['drug_name' => '', 'quantity' => 1];
+    }
+    public function removeDrug($index)
+    {
+        unset($this->alldrugs[$index]);
+        $this->alldrugs = array_values($this->alldrugs);
     }
     public function create()
     {
         
         // $this->validate();
         
-        dd($this->alldrugs);
+        // dd($this->alldrugs);
        Prescribe_drug::create($this->modeldata());
-        session()->flash('message', 'Appointment created Successfully.');
+        session()->flash('message', 'patient  Successfully.');
       
         $this->reset();
     }
@@ -39,15 +45,19 @@ class PrescribeMedicaldrug extends Component
     public function modelData()
     {
         $this->user_id = Auth()->user()->id;
-        $this->doctor_id=  $this->user_id;
-        //   dd($this->doctor_id);
+      
+        foreach ($this->alldrugs as $index => $alldrug) {
+         $this->drug_name[] = $alldrug['drug_name'];
+          $this->quantity[] = $alldrug['quantity'];
+        }
+
         return [
-            'doctor_id'=>$this->doctor_id,
+            'user_id'=>$this->user_id,
             'patient_id'=>$this->patient_id,
             'status'=>$this->status,
             'descrpition'=>$this->descrpition,
-            //  'drug_name'=>$this->alldrugs['drug_name'],
-            // 'quantity'=>$this->alldrugs['quantity'],
+            'drug_name' =>$this->drug_name,
+            'quantity'=>$this->quantity,
              ];
     }    
     public function render()

@@ -18,23 +18,24 @@
                  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                            <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                               <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="alldrugs[{{$index}}][product_id]" value="{{ __('Drug_Name') }}"/>
-                              <x-jet-input id="alldrugs[{{$index}}][drug_name]" class="block mt-1 w-full" type="text"  wire:model.debounce.800ms="drug_name"/> 
+                              <x-jet-input id="alldrugs[{{$index}}][drug_name]" class="block mt-1 w-full" type="text"  wire:model.debounce.800ms="alldrugs.{{$index}}.drug_name"/> 
                               @error('alldrugs[{{$index}}][drug_name]') <span class="error">{{$message}}</span>@enderror
                           </div>
                            <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                               <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="alldrugs[{{$index}}][product_id]" value="{{ __('quantity') }}"/>
-                              <x-jet-input id="alldrugs[{{$index}}][quantity]" class="block mt-1 w-full" type="number"  wire:model.debounce.800ms="quantity"/> 
+                              <x-jet-input id="alldrugs[{{$index}}][quantity]" class="block mt-1 w-full" type="number"  wire:model.debounce.800ms="alldrugs.{{$index}}.quantity"/> 
                               @error('alldrugs[{{$index}}][quantity]') <span class="error">{{$message}}</span>@enderror
                           </div>
-                          <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                          <a href="#" class="block mt-1 w-full text-sm font-bold leading-tight tracking-normal" wire:click.prevent="removeProduct({{$index}})">Delete</a>
+                         <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                         
+                         <x-jet-danger-button class="hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm" wire:click.prevent="removeDrug({{$index}})">Delete</x-jet-danger-button>
                           </div>
                       </div>
         @endforeach  
         <div class="row">
             <div class="col-md-12">
-                <button class="bg-blue-500 hover:bg-blue-700  font-bold py-2 px-4 rounded"
-                    wire:click.prevent="addProduct">+</button>
+            <x-jet-button class="bg-blue-500 hover:bg-blue-700  font-bold py-1 px-4 rounded"
+                    wire:click.prevent="addDrug">+</x-jet-button>
             </div>
         </div>
          <div class="mb-4">
@@ -47,12 +48,14 @@
                             </select>
                         @error('status') <span class="error">{{$message}}</span>@enderror
                     </div>
-                    <div class="md:w-1/2 px-3 mb-6 md:mb-0"> 
+                  </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
+                  <div class="md:w-1/2 px-3 mb-6 md:mb-0"> 
                             <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="descrpition" value="{{ __('Ddescrpition') }}"/>
                         <textarea id="ddescrpition" class="block mt-1 w-full" type="text" placeholder="descrpition" wire:model.debounce.800ms="descrpition"/></textarea> 
                         @error('descrpition') <span class="error">{{$message}}</span>@enderror
                     </div>
-                  </div>
+            </div>
                 <div class="flex items-center justify-end mt-4"  >
                     <x-jet-button  class="hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm"  wire:click="create" wire:loading.attr="disabled">
                         save

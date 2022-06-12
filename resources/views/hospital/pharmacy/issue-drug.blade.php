@@ -3,6 +3,6 @@
 
 @include('hospital.pharmacy.layout.aside')
    
-@livewire('hospital.pharmacy.issue-drug')
+    @livewire('hospital.pharmacy.issue-drug')
    
-@include('hospital.pharmacy.layout.footer')
+

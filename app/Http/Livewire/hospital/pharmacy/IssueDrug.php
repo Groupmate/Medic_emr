@@ -3,27 +3,15 @@
 namespace App\Http\Livewire\Hospital\Pharmacy;
 
 use Livewire\Component;
+use App\Models\Prescribe_drug;
 
 class IssueDrug extends Component
 {
-    public $orderProducts = [];
-    public $allProducts = [];
-
-    public function mount()
-    {
-     
-        $this->orderProducts = [
-            ['product_id' => '', 'quantity' => 1]
-        ];
-    }
-
-    public function addProduct()
-    {
-        $this->orderProducts[] = ['product_id' => '', 'quantity' => 1];
-    }
+    
     public function render()
     {
-        info($this->orderProducts);
-        return view('livewire.hospital.pharmacy.issue-drug');
+        $prescirbed =Prescribe_drug::where('status','recover')->get();
+      
+        return view('livewire.hospital.pharmacy.issue-drug')->with('prescirbed', $prescirbed);
     }
 }
