@@ -163,24 +163,24 @@
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
 <script>
-    window.addEventListener('DOMContentLoaded', ()=> {
-        const menuBtn = document.querySelector('#menu-btn')
-        const dropdown = document.querySelector('#dropdown')
+    // window.addEventListener('DOMContentLoaded', ()=> {
+    //     const menuBtn = document.querySelector('#menu-btn')
+    //     const dropdown = document.querySelector('#dropdown')
         
-        menuBtn.addEventListener('click', () => {
-            /* if(dropdown.classList.contains('hidden')){
-                dropdown.classList.remove('hidden');
-                dropdown.classList.add('flex');
-            }else{
-                dropdown.classList.remove('flex')
-                dropdown.classList.add('hidden')
-            } */
+    //     menuBtn.addEventListener('click', () => {
+    //         /* if(dropdown.classList.contains('hidden')){
+    //             dropdown.classList.remove('hidden');
+    //             dropdown.classList.add('flex');
+    //         }else{
+    //             dropdown.classList.remove('flex')
+    //             dropdown.classList.add('hidden')
+    //         } */
 
-            dropdown.classList.toggle('hidden')
-            dropdown.classList.toggle('flex')
-        })
+    //         dropdown.classList.toggle('hidden')
+    //         dropdown.classList.toggle('flex')
+    //     })
 
-    })
+    // })
 </script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" ></script>

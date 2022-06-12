@@ -7,10 +7,15 @@ use App\Models\Patient;
 
 class Generatemedicaldata extends Component
 { 
-    public $patient;
+    public $patient, $symptom = [], $diagnosis_info = [], $description,
+           $numerical_info = [], $picture = [], $disease = [];
     public function mount($id)
     {
         $this->patient = Patient::where('id', $id)->first(); 
+    } 
+    public function one()
+    {
+        dd($this->disease); 
     } 
      
     public function render()
@@ -19,4 +24,4 @@ class Generatemedicaldata extends Component
             'patient' => $this->patient,
         ]);  
     }
-}
+} 
