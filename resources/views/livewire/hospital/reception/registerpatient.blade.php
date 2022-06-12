@@ -12,9 +12,9 @@
     <form wire:submit.prevent="createPatient" class="w-full" >
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             <div>
-                <x-jet-label for="first_name" value="{{ __('First-Name') }}" />
-                <x-jet-input id="first_name" class="appearance-none block w-full bg-gray-200 text-gray-500 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" wire:model.debounce.800ms="first_name" />
-                @error('first_name') <span class="error text-red-600">{{$message}}</span>@enderror
+                <x-jet-label for="firstname" value="{{ __('First-Name') }}" />
+                <x-jet-input id="firstname" class="appearance-none block w-full bg-gray-200 text-gray-500 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" wire:model.debounce.800ms="firstname" />
+                @error('firstname') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
 
             <div>
@@ -24,9 +24,9 @@
             </div>
 
             <div>
-                <x-jet-label for="last_name" value="{{ __('Last-Name') }}" />
-                <x-jet-input id="last_name" class="appearance-none block w-full bg-gray-200 text-gray-500 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" wire:model.debounce.800ms="last_name" />
-                @error('last_name') <span class="error text-red-600">{{ $message }}</span>@enderror
+                <x-jet-label for="lastname" value="{{ __('Last-Name') }}" />
+                <x-jet-input id="lastname" class="appearance-none block w-full bg-gray-200 text-gray-500 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" wire:model.debounce.800ms="lastname" />
+                @error('lastname') <span class="error text-red-600">{{ $message }}</span>@enderror
             </div>
 
         </div>

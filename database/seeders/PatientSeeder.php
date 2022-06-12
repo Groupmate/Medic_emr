@@ -22,9 +22,9 @@ class PatientSeeder extends Seeder
          for ($loop = 0; $loop < 150; $loop++) {
  
              DB::table("patients")->insert([
-                "first_name"=>$faker->word(),
+                "firstname"=>$faker->word(),
                 "middle_name"=>$faker->word(),
-                "last_name"=>$faker->word(),	
+                "lastname"=>$faker->word(),	
                 "national_id"=>$faker->unique()->word(),	
                 "email"=>$faker->email(),	
                 "phone_no"=>$faker->numberBetween(251900000000,251999999999),

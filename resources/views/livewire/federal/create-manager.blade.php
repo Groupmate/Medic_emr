@@ -5,15 +5,15 @@
         </x-slot>
 
         <div>
-            <x-jet-label for="first_name" value="{{ __('First name') }}"/>
-            <x-jet-input id="name" class="block mt-1 w-full" type="text" wire:model.debounce.800ms="first_name"/>
-            @error('first_name') <span class="error">{{$message}}</span>@enderror
+            <x-jet-label for="firstname" value="{{ __('First name') }}"/>
+            <x-jet-input id="name" class="block mt-1 w-full" type="text" wire:model.debounce.800ms="firstname"/>
+            @error('firstname') <span class="error">{{$message}}</span>@enderror
         </div>
 
         <div class="mt-4">
-            <x-jet-label for="last_name" value="{{ __('Last name') }}"/>
-            <x-jet-input id="last_name" class="block mt-1 w-full" type="text" wire:model.defer="last_name"/>
-            @error('last_name') <span class="error">{{$message}}</span>@enderror
+            <x-jet-label for="lastname" value="{{ __('Last name') }}"/>
+            <x-jet-input id="lastname" class="block mt-1 w-full" type="text" wire:model.defer="lastname"/>
+            @error('lastname') <span class="error">{{$message}}</span>@enderror
         </div> 
 
         <div class="mt-4">

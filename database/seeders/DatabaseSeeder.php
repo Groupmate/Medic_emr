@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
             DB::table("users")->insert([
                
                 'organization_id'=>$faker->numberBetween(1,10),
-                'first_name'=>$faker->name(),
-                'last_name'=>$faker->name(),
+                'firstname'=>$faker->name(),
+                'lastname'=>$faker->name(),
                 'phone'=>$faker->numberBetween(251900000000,251999999999),
                 'email'=>$faker->email(),
                 'role'=>$faker->numberBetween(1,5),

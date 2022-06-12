@@ -20,7 +20,7 @@ class AddEmployee extends Component
     public $modelFormVisible, $modalConfirmDeleteVisible, $modalViewDetailVisible=false;
     public $employees;
     public $modelId;
-    public $first_name, $last_name, $user_id, $organization_id=NULL, $sex, $password,
+    public $firstname, $lastname, $user_id, $organization_id=NULL, $sex, $password,
            $email, $date_of_birth, $profile_pic, $phone, $address, $hospital_id, $hospital_a,
            $department, $hospitals, $shift =[], $role;
 
@@ -73,8 +73,8 @@ class AddEmployee extends Component
     public function userModelData()
     {
         return [
-            'first_name'=>$this->first_name,
-            'last_name'=>$this->last_name,
+            'firstname'=>$this->firstname,
+            'lastname'=>$this->lastname,
             'password'=>$this->password,
             'email'=>$this->email,
             'organization_id'=>$this->organization_id,
@@ -108,8 +108,8 @@ class AddEmployee extends Component
     public function rules()
     {
         return [
-            'first_name' => 'required',
-            'last_name' => 'required',
+            'firstname' => 'required',
+            'lastname' => 'required',
             'email' => ' required',
             'password' =>'required',
             'profile_pic'=>'required',
@@ -131,9 +131,9 @@ class AddEmployee extends Component
     {
         $employees=Employee::find($this->modelId);
 
-        $this->first_name= $employees->first_name;
+        $this->firstname= $employees->firstname;
         $this->hospital_id= $employees->hospital_id;
-        $this->last_name= $employees->last_name;
+        $this->lastname= $employees->lastname;
         $this->role= $employees->role;
         $this->user_id= $employees->user_id;
         $this->phone= $employees->phone;

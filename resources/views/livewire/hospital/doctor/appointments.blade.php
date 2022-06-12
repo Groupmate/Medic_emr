@@ -16,7 +16,7 @@
                                         <select  class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" id="patient_id"  wire:model.debounce.80ms="patient_id" >
                                         <option>select patient</option>
                                           @foreach($pname as $row)
-                                              <option  class="block mt-1 w-full" type="text" value="{{$row->id}}">{{$row->first_name}}</option>
+                                              <option  class="block mt-1 w-full" type="text" value="{{$row->id}}">{{$row->firstname}}</option>
                                           
                                           @endforeach
                                           </select>
@@ -197,7 +197,7 @@
                                                       <select  class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" id="patient_id"  wire:model.debounce.80ms="patient_id" >
                                                       <option>select patient</option>
                                                         @foreach($pname as $row)
-                                                            <option  class="block mt-1 w-full" type="text" value="{{$row->id}}">{{$row->first_name}}</option>
+                                                            <option  class="block mt-1 w-full" type="text" value="{{$row->id}}">{{$row->firstname}}</option>
                                                         
                                                         @endforeach
                                                         </select>

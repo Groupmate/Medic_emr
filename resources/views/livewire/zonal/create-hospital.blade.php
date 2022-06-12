@@ -25,7 +25,7 @@
                 :value="old('user_id')" required autofocus autocomplete="user_id">
                     <option>---Select Manager---</option>
                     @forelse ($users as $user)
-                        <option value={{ $user->id }}>{{ $user->first_name }} {{ $user->last_name }}</option>
+                        <option value={{ $user->id }}>{{ $user->firstname }} {{ $user->lastname }}</option>
                     @empty
                         <option disabled>No Manager</option>
                     @endforelse

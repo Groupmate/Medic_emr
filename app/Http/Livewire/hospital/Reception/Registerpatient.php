@@ -13,7 +13,7 @@ class Registerpatient extends Component
 {
     use WithFileUploads;
 
-    public $name, $first_name, $middle_name, $last_name, $email, $national_id, $phone_no, $age,
+    public $name, $firstname, $middle_name, $lastname, $email, $national_id, $phone_no, $age,
            $sex, $date_of_birth, $profile_picture, $kebele, $woreda, $city, $zone, $region;
 
     public function createPatient()
@@ -27,9 +27,9 @@ class Registerpatient extends Component
     public function rules()
     {
         return[
-            'first_name' => 'required',
+            'firstname' => 'required',
             'middle_name'=> 'required',
-            'last_name'=> 'required',
+            'lastname'=> 'required',
             'email'=> 'required', 
             'national_id'=> 'required',
             'phone_no'=> 'required',            
@@ -47,9 +47,9 @@ class Registerpatient extends Component
     public function modeldata()
     {
         return[
-            'first_name'=>$this->first_name,
+            'firstname'=>$this->firstname,
             'middle_name'=>$this->middle_name,
-            'last_name'=>$this->last_name,
+            'lastname'=>$this->lastname,
             'email'=>$this->email, 
             'national_id'=>$this->national_id,
             'phone_no'=>$this->phone_no,            

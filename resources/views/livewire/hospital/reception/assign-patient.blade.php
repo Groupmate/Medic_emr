@@ -37,12 +37,12 @@
                         </td>
                         <td class="px-6 py-4">
                             <div class="text-sm text-gray-900">
-                                {{ $patients->last_name }}
+                                {{ $patients->lastname }}
                             </div>
                         </td>
                         <td class="px-6 py-4">
                             <div class="text-sm text-gray-900">
-                                {{ $patients->first_name }}
+                                {{ $patients->firstname }}
                             </div>
                         </td>
                         <td class="px-6 py-4">
@@ -87,7 +87,7 @@
                 <select class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="user_id">
                     <option diabled>---Select Doctor---</option>
                     @foreach ($users as $users)
-                        <option value="{{ $users['id'] }}">{{ $users['first_name'] }}</option>
+                        <option value="{{ $users['id'] }}">{{ $users['firstname'] }}</option>
                     @endforeach
                 </select>
                 @error('user_id') <span class="error text-red-600">{{$message}}</span>@enderror

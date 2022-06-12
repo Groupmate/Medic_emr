@@ -13,8 +13,8 @@
                             <tbody>
                             @foreach($employes as $employe)
                                 <tr>
-                                            <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->first_name}}</td>
-                                            <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->last_name}}</td>
+                                            <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->firstname}}</td>
+                                            <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->lastname}}</td>
                                             <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->type}}</td>
                                             <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->address}}</td>
                                             <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $employe->image}}</td>

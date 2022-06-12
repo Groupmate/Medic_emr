@@ -10,7 +10,7 @@ use App\Models\User;
 
 class CreateManager extends Component
 {
-    public $first_name, $last_name, $email, $organization_id, $phone, $address, $sex, $date_of_birth, $password, $role;
+    public $firstname, $lastname, $email, $organization_id, $phone, $address, $sex, $date_of_birth, $password, $role;
     public $modelId;
 
     /**
@@ -28,8 +28,8 @@ class CreateManager extends Component
     public function rules()
     {
         return [
-            'first_name'=>'required',
-            'last_name'=>'required',
+            'firstname'=>'required',
+            'lastname'=>'required',
             'email'=>'required',
             'organization_id'=>'',
             'phone'=>'required',
@@ -42,8 +42,8 @@ class CreateManager extends Component
     public function modeldata()
     {
         return[
-            'first_name'=>$this->first_name,
-            'last_name'=>$this->last_name,
+            'firstname'=>$this->firstname,
+            'lastname'=>$this->lastname,
             'email'=>$this->email,
             'organization_id'=>5,
             'phone'=>$this->phone,

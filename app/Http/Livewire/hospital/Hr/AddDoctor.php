@@ -20,7 +20,7 @@ class AddDoctor extends Component
     public $modelFormVisible, $modalConfirmDeleteVisible, $modalViewDetailVisible=false;
     public $doctors;
     public $modelId;
-    public $first_name, $last_name, $user_id, $organization_id=NULL, $sex, $password,
+    public $firstname, $lastname, $user_id, $organization_id=NULL, $sex, $password,
            $email, $date_of_birth, $profile_pic, $phone, $address, $hospital_id, $hospital_name,
            $department, $hospitals, $shift =[], $role=5, $speciality;
 
@@ -78,8 +78,8 @@ class AddDoctor extends Component
     public function userModelData()
     {
         return [
-            'first_name'=>$this->first_name,
-            'last_name'=>$this->last_name,
+            'firstname'=>$this->firstname,
+            'lastname'=>$this->lastname,
             'password'=>$this->password,
             'email'=>$this->email,
             'organization_id'=>$this->organization_id,
@@ -115,7 +115,7 @@ class AddDoctor extends Component
     public function rules()
     {
         return [
-            'first_name' => 'required', 
+            'firstname' => 'required', 
         ];
     }
     /**

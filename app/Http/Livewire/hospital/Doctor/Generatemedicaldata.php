@@ -13,14 +13,13 @@ class Generatemedicaldata extends Component
     {
         $this->patient = Patient::where('id', $id)->first(); 
     } 
-    public function one()
+    public function saveRecord()
     {
         dd($this->disease); 
     } 
-     
     public function render()
     {     
-        return view('livewire.hospital.doctor.generate-medical-data', [
+        return view('livewire.hospital.doctor.generatemedicaldata', [
             'patient' => $this->patient,
         ]);  
     }

@@ -25,7 +25,7 @@
                 :value="old('user_id')" required autofocus autocomplete="user_id">
                     <option>---Select Manager---</option>
                     @forelse ($users as $user)
-                        <option value={{ $user->id }}>{{ $user->first_name }} {{ $user->last_name }}</option>
+                        <option value={{ $user->id }}>{{ $user->firstname }} {{ $user->lastname }}</option>
                     @empty
                         <option disabled>No Manager</option>
                     @endforelse
@@ -107,7 +107,7 @@
                     <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->name}}</td>
                     {{-- @foreach ($user as $user)
                         @if( $user->id  == $organ->user_id)
-                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$user->first_name}}</td>
+                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$user->firstname}}</td>
                         @endif
                         @if( $organ->user_id  == NULL)
                             <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $organ->user_id }}</td>

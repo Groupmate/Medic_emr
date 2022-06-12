@@ -16,9 +16,9 @@ class CreatePatientsTable extends Migration
         Schema::defaultStringLength(191);
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
+            $table->string('firstname');
             $table->string('middle_name');
-            $table->string('last_name');
+            $table->string('lastname');
             $table->string('national_id')->unique()->nullable();
             $table->string('email')->unique()->nullable();
             $table->string('phone_no');

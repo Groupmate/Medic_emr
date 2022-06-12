@@ -10,7 +10,7 @@ class Viewemployee extends Component
     use WithPagination; 
     public $modelFormVisible=false; public $modalConfirmDeleteVisible=false; public $modalViewDetailVisible=false;
     public $employes;
-    public $first_name;  public $middel_name;  public $last_name;  public $user_id; public $organization_id; public $age;
+    public $firstname;  public $middel_name;  public $lastname;  public $user_id; public $organization_id; public $age;
     public $sex;  public $password; public $email; public $birth_date; public $image; public $type; public $phone; public $address;
 
 
@@ -18,9 +18,9 @@ class Viewemployee extends Component
     public function loadModel()
     {
         $employes=Employe::find($this->modelId);
-            $this->first_name= $employes->first_name;
+            $this->firstname= $employes->firstname;
             $this->middel_name= $employes->middel_name;
-            $this->last_name= $employes->last_name;
+            $this->lastname= $employes->lastname;
             $this->age= $employes->age;
             $this->user_id= $employes->user_id;
             $this->phone= $employes->phone;

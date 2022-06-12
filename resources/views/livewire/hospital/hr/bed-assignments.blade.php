@@ -12,7 +12,7 @@
                     <select name="patient" id="patient"class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" wire:model="patient_id">
                         <option value="">select patient</option>
                         @foreach($patients as $patient)
-                        <option value ="{{$patient->id}}">{{$patient->first_name}}{{$patient->lastname}}</option>
+                        <option value ="{{$patient->id}}">{{$patient->firstname}}{{$patient->lastname}}</option>
                         @endforeach
                     </select>
                     </div>

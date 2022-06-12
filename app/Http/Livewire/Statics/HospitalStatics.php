@@ -27,7 +27,7 @@ class HospitalStatics extends Component
 
       
         $TotalMPatient = Patient::leftJoin('medical_datas', 'patients.id', '=', 'medical_datas.patient_id')
-                    ->select('patients.first_name','medical_datas.disease','medical_datas.created_at')
+                    ->select('patients.firstname','medical_datas.disease','medical_datas.created_at')
                     ->whereYear('medical_datas.created_at', '<=', date('2022-01-01'))
                     ->whereYear('medical_datas.created_at', '>=', Carbon::now())
                     ->where('patients.sex', 'male')
@@ -36,7 +36,7 @@ class HospitalStatics extends Component
                     ->get()->toArray();
        
         $TotalWPatient = Patient::leftJoin('medical_datas', 'patients.id', '=', 'medical_datas.patient_id')
-                    ->select('patients.first_name','medical_datas.disease','medical_datas.created_at')
+                    ->select('patients.firstname','medical_datas.disease','medical_datas.created_at')
                     ->whereYear('medical_datas.created_at', '<=', date('2022-01-01' ))
                     ->whereYear('medical_datas.created_at', '>=', Carbon::now())
                     ->where('patients.sex', 'female')
@@ -44,7 +44,7 @@ class HospitalStatics extends Component
                     ->orderBy('medical_datas.created_at')
                     ->get()->toArray();
         $TotalPatient = Patient::leftJoin('medical_datas', 'patients.id', '=', 'medical_datas.patient_id')
-                    ->select('patients.first_name','medical_datas.disease','medical_datas.created_at')
+                    ->select('patients.firstname','medical_datas.disease','medical_datas.created_at')
                     ->whereYear('medical_datas.created_at', '<=', date('2022-01-01'))
                     ->whereYear('medical_datas.created_at', '>=', Carbon::now())
                     ->where('medical_datas.user_id' , 1)

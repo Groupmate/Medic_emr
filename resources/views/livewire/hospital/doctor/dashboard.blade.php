@@ -129,7 +129,7 @@
             <!-- top -->
             <div class="p-5 flex flex-row flex-wrap justify-between items-center">
                  <!-- info -->
-                  <h1 class="h6">Hello <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ __('Dr. ') }} <?php echo Auth::user()->first_name; echo Auth::user()->last_name; ?> </span> </h1>
+                  <h1 class="h6">Hello <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ __('Dr. ') }} <?php echo Auth::user()->firstname; echo Auth::user()->lastname; ?> </span> </h1>
                 <br><br>
                 
                  <a href="#" class="btn mr-4 text-sm py-2 block">Weekly</a>

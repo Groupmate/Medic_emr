@@ -20,9 +20,9 @@
                                 <tr>
                                     @if($userId -> id == $organ->user_id && $organ->patient_id == $patientId->id)
                                             <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $patientId->id }}</td>
-                                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $patientId->first_name }}</td>
+                                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $patientId->firstname }}</td>
                                             <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $patientId->middle_name }}</td>
-                                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $patientId->last_name }}</td>
+                                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $patientId->lastname }}</td>
                                             <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
                                                 <x-jet-button class="bg-blue-500 ml-6 " wire:click="referShowModal({{ $patientId->id }}, {{$userId->id}})">
                                                     {{ __('Refer Patient') }}
@@ -100,7 +100,7 @@
             @foreach($organizations as $organ)
             <tr>
                 <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ['patient_id']}}</td>
-                <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ['first_name']}}</td>  
+                <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ['firstname']}}</td>  
             @endforeach
          @foreach($assignmentDoctor as $assign)
            @foreach($userID  as $assigns)
@@ -116,7 +116,7 @@
                             <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$organ->patient_id}}</td>
                     @endif -->
                         <!-- @if( $userID  == $organ->user_id)
-                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$user->first_name}}</td>
+                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$user->firstname}}</td>
                         @endif
                         @if( $organ->user_id  == NULL)
                             <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $organ->user_id }}</td>

@@ -10,7 +10,7 @@ class Patient extends Model
     use HasFactory;
     protected $guarded = [];
     //  protected $fillable = [
-    //     'first_name', 'middle_name', 'last_name', 'email', 'national_id', 'phone_no', 'age',
+    //     'firstname', 'middle_name', 'lastname', 'email', 'national_id', 'phone_no', 'age',
     //     'sex', 'date_of_birth', 'profile_picture', 'kebele', 'woreda', 'city', 'zone', 'region'
     // ];
 

@@ -72,7 +72,7 @@
                               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                   <span
-                                      class="mr-2 d-none d-lg-inline text-gray-600 small"> {{ "Dr." }} {{""}}<?php echo  Auth::user()->first_name; echo " "; echo Auth::user()->last_name; ?> </span>
+                                      class="mr-2 d-none d-lg-inline text-gray-600 small"> {{ "Dr." }} {{""}}<?php echo  Auth::user()->firstname; echo " "; echo Auth::user()->lastname; ?> </span>
                               </a>
                               <!-- Dropdown - User Information -->
                               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

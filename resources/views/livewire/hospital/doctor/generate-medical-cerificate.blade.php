@@ -77,7 +77,7 @@
                                     @foreach($DoctorInfo as $DoctorInfo) 
                                         <div class="row ">
                                             <div class="col-sm-12">
-                                                <p >The undersigned Doctor in medicine (full name): {{$DoctorInfo['first_name']}}{{$DoctorInfo['last_name']}} </p>
+                                                <p >The undersigned Doctor in medicine (full name): {{$DoctorInfo['firstname']}}{{$DoctorInfo['lastname']}} </p>
                                                 <p> The certificate is valid until 2018-08-26</p>
                                             </div>
                                         </div>

@@ -24,7 +24,7 @@ class GenerateMedicalCerificate extends Component
                         ->get()->toArray();
                         //dd($PatientInfo);
         $userID      = Auth::user()->id;
-        $DoctorInfo  = User::select('first_name','last_name')
+        $DoctorInfo  = User::select('firstname','lastname')
                         ->where('users.id', $userID )->get();
     
         $pdf = PDF::loadView('livewire.hospital.doctor.generate-medical-cerificate',compact('DoctorInfo','PatientInfo'));
@@ -36,7 +36,7 @@ class GenerateMedicalCerificate extends Component
     public function render()
     {
         // $DoctorInfo = Medical_data::leftJoin('users','medical_datas.user_id', '=','users.id')
-        //                 ->select('medical_datas.diagnosis_info','users.first_name','users.last_name')
+        //                 ->select('medical_datas.diagnosis_info','users.firstname','users.lastname')
         //                 ->get()->toArray();
         $patientID   =Auth::user()->id;
         $PatientInfo = Medical_data::leftJoin('patients', 'medical_datas.patient_id', '=', 'patients.id')
@@ -46,7 +46,7 @@ class GenerateMedicalCerificate extends Component
                         ->get()->toArray();
                         //dd($PatientInfo);
         $userID      = Auth::user()->id;
-        $DoctorInfo  = User::select('first_name','last_name')
+        $DoctorInfo  = User::select('firstname','lastname')
                         ->where('users.id', $userID )->get();
         
         
