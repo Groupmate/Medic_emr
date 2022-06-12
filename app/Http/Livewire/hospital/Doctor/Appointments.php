@@ -34,8 +34,7 @@ class Appointments extends Component
     public function modelData()
     {
         $this->user_id = Auth()->user()->id;
-        $doctor=Doctor::where('user_id',$this->user_id)->first();
-        $this->doctor_id= $doctor->id;
+        $this->doctor_id=  $this->user_id;
         //  dd($this->doctor_id);
        
         return [

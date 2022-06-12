@@ -59,5 +59,6 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/Hpstatics', function () { return view('Statics.Hospitalstatics'); })->name('Hospital_Statics');
         //pharmacy
         Route::get('/medical-drug', function () { return view('hospital.pharmacy.add-medical-drug'); })->name('add-medical-drug');
+        Route::get('/issue-drug', function () { return view('hospital.pharmacy.issue-drug'); })->name('issue-drug');
 
 });

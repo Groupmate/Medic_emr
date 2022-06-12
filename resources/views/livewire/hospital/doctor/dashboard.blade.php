@@ -153,7 +153,7 @@
                       @foreach($WeeklyAppointment as $WeeklyAppointment) 
                         <tr>
                             <td scope="col" class="text-sm font-medium text-gray-900 px-6 py-4"><i class=" text-green-400 fad fa-users"></i>
-                                {{$WeeklyAppointment['first_name']}} {{$WeeklyAppointment['last_name']}}
+                                {{$WeeklyAppointment['firstname']}} {{$WeeklyAppointment['lastname']}}
                             </td>
                             <td scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">
                                 {{$WeeklyAppointment['issue_date']}}
@@ -202,7 +202,7 @@
                 
               
                     <div class="">
-                        <h4 class="text-gray-900 font-thin">{{  $appts['first_name'] }}  {{  $appts['last_name'] }}</h4><br>
+                        <h4 class="text-gray-900 font-thin">{{  $appts['firstname'] }}  {{  $appts['lastname'] }}</h4><br>
                        <p class="text-red-400 text-xs font-hairline"> {{\Carbon\Carbon::parse($appts['visit_date'])->diffForHumans() }} </p>
                     </div>
                     <div class="text-sm font-medium">

@@ -18,8 +18,8 @@ class Block extends Model
     public function room(){
         return $this->hasMany(Room::class);
     }
-    public function bedassignment(){
-        return $this->hasMany(Bedassignment::class);
-    }
+    // public function bedassignment(){
+    //     return $this->hasMany(Bedassignment::class);
+    // }
 
 }

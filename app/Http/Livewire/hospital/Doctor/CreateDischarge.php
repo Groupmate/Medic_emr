@@ -20,7 +20,7 @@ class CreateDischarge extends Component
        
        $bed = Bed::where('id', $bed_id)->first();
     //    dd($bed);
-        $bed->status = "busy"; 
+        $bed->status = "free"; 
         $bed->save();  
               
        session()->flash('message', 'patient discharged  .');

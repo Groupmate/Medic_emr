@@ -1,8 +1,7 @@
-
 @include('hospital.pharmacy.layout.header')
 
 @include('hospital.pharmacy.layout.aside')
    
-@livewire('hospital.pharmacy.add-medical-drug')
+<h1>hello</h1>
    
 @include('hospital.pharmacy.layout.footer')

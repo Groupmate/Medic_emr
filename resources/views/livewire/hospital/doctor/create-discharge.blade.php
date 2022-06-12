@@ -1,3 +1,4 @@
+
 <div class="mt-10 sm:mt-0">
      
      <!-- component -->
@@ -31,14 +32,9 @@
                   </div>
                   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
                           <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                          <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="date_in" value="{{ __('Date-In') }}"/>
-                                        <select  class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" id="date_in"  wire:model.debounce.80ms="date_in" >
-                                        <option>selectdate_In</option>
-                                          @foreach($date as $row)
-                                              <option  class="block mt-1 w-full" type="text" value="{{$row->allotment_time}}">{{$row->allotment_time}}</option>
-                                          @endforeach
-                                          </select>
-                                      @error('date_in') <span class="error">{{$message}}</span>@enderror
+                              <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="date_in" value="{{ __('Date-out') }}"/>
+                              <x-jet-input id="date_in" class="block mt-1 w-full" type="date" placeholder="date_in" wire:model.debounce.800ms="date_in"/> 
+                              @error('date_in') <span class="error">{{$message}}</span>@enderror
                           </div>
                           <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                               <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="date_out" value="{{ __('Date-out') }}"/>

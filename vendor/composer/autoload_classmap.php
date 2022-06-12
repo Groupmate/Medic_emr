@@ -56,6 +56,7 @@ return array(
     'App\\Models\\Organization' => $baseDir . '/app/Models/Organization.php',
     'App\\Models\\Patient' => $baseDir . '/app/Models/Patient.php',
     'App\\Models\\Patient_Waiting_List' => $baseDir . '/app/Models/Patient_Waiting_List.php',
+    'App\\Models\\Prescribe_drug' => $baseDir . '/app/Models/Prescribe_drug.php',
     'App\\Models\\Referal' => $baseDir . '/app/Models/Referal.php',
     'App\\Models\\Role' => $baseDir . '/app/Models/Role.php',
     'App\\Models\\Room' => $baseDir . '/app/Models/Room.php',

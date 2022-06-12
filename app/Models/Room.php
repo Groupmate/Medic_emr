@@ -17,7 +17,5 @@ class Room extends Model
     public function bed(){
         return $this->hasMany(Bed::class);
     }
-    public function bedassignment(){
-        return $this->hasMany(Bedassignment::class);
-    }
+  
 }

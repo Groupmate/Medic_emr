@@ -11,7 +11,8 @@ use App\Models\Hospital;
 class ListRooms extends Component
 {
     public $search='',$modelId;
-    public $modalConfirmDeleteVisible=false; 
+    public $modalConfirmDeleteVisible=false;
+    public $modalEditFormVisible=false;   
     public $hospital_id, $block, $rooms=[];    
     /**
      * deleteShowModal
@@ -19,7 +20,13 @@ class ListRooms extends Component
      * @param  mixed $id
      * @return void
      */
-   
+    public function editShowModal($id)
+    {
+        $this->modelId=$id;
+      $this->modalEditFormVisible=false;  
+        
+    } 
+  
     public function deleteShowModal($id)
     {
         $this->modelId=$id;

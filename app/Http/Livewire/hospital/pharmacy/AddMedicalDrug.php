@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Livewire\WithFileUploads;
 use App\Models\Hospital;
+use App\Models\Employee;
 use App\Models\Medical_drug;
 class AddMedicalDrug extends Component
 {
@@ -30,9 +31,9 @@ class AddMedicalDrug extends Component
     public function modelData()
     {
         $this->user_id = Auth()->user()->id;
-        $hospital_a = Hospital::where('user_id', $this->user_id)->first();
-        $this->hospital_id = $hospital_a->id;
-    //    dd($this->hospital_id);
+        $hospital_a = Employee::where('user_id', $this->user_id)->first()->hospital_id;
+        $this->hospital_id = $hospital_a;
+        // dd($this->hospital_id);
         return [
             'name'=>$this->name,
             'hospital_id'=>$this->hospital_id,
