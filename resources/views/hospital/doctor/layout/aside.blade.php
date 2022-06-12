@@ -90,6 +90,9 @@
                           </li>
 
                       </ul>
+ 
+                  
+                
               </div>                        
             
 
@@ -135,6 +138,10 @@
             </div>
           </div>
           <!-- end user -->
+
+          
+
+
         </div>
         <!-- end right -->
       </div>
@@ -142,7 +149,8 @@
 
   </div>
   <!-- end navbar -->
-<!-- start wrapper -->
+
+     
   <div class="screen flex flex-row">
     
       <!-- start sidebar -->
@@ -158,71 +166,36 @@
             </button>
           </div>  
           <!-- end sidebar toggle -->
+         <a href="/dashboard" class="mb-5 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+               <p class="uppercase text-xm text-blue-900  tracking-wider">homes</p>
+            {{-- <hr class="border-t border-gray-500 my-0"> --}}
               </a>  
-              <div id="dropdown" x-show="show" class="ml-1">
-               <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/appointments">
-                  <i class="far fa-calendar-check text-xl mr-2"></i>
-                  Add Appointement</a>
+          <div id="dropdown" x-show="show" class="ml-1">
+           <a href="/dashboard" class=" mblock px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500">
+            <i class="fas fa-desktop text-xl mr-2"></i>
+                  Dashboard
               </a>
-              <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/bedassignment">
-                  <i class="far fa-procedures text-xl mr-2"></i>
-                  Assign-Bed</a>
-              <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/referpatient">
-                 <i class="far fa-ambulance text-xl mr-2"></i>
-                  Refer Patient
+                 <hr class="border-t border-gray-200 my-0"><br>
+              <a href="/assignedpatients" class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/assignedpatients">
+              {{-- <i class="fas fa-hospital-user text-xl mr-2"></i> --}}
+               <i class="far fa-hospital-user text-xl mr-2"></i>
+                  Assigned Patients
               </a>
-<<<<<<< Updated upstream
-              
-                    <a href="/referpatient/{$id}" class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500">
-                    <i class="far fa-files-medical text-xl mr-2"></i>
-                        patient record
-                    </a>
-                    <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
-                       <i class="far fa-briefcase-medical text-xl mr-2"></i>
-                        Request Examination Test
-                    </a>
-                   
-                    <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
-                        <i class="far fa-pills text-xl mr-2"></i>
-                    Perscribe Drug
-                    </a>
-                    <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
-                    <i class="far fa-hospital-user text-xl mr-2"></i>
-                    Request Patient Discharge
-                    </a>
-                    <a href="/medcertificate" class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
-                        <i class="far fa-file-certificate text-xl mr-2"></i>
-                    Generate Medical Certificate
-                    </a>
+               <hr class="border-t border-gray-200 my-0"><br>
+             
                     {{-- <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
                     <i class="fas fa-file-chart-line text-xl mr-2"></i>
                         Reports
                     </a>  --}}
-                    <br><br><br><br><br><br>
-                    <hr class="border-t border-gray-400 my-0">        
-=======
-              <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
-                  <i class="far fa-briefcase-medical text-xl mr-2"></i>
-                  Request Examination Test
-              </a>
-              <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
-                  <i class="far fa-pills text-xl mr-2"></i>
-                   Perscribe Drug
-              </a>
-              <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
-                <i class="far fa-hospital-user text-xl mr-2"></i>
-                Request Patient Discharge
-              </a>
-              <a href="/medcertificate" class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
-                  <i class="far fa-file-certificate text-xl mr-2"></i>
-                  Generate Medical Certificate
-              </a>
-              <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-              <hr class="border-t border-gray-400 my-0">        
->>>>>>> Stashed changes
+                  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+              
             <hr class="border-t border-gray-600 my-0">
           </div>
           <!-- end link -->
+          
+          
+
         </div>
-      <!-- end sidebar content -->
-  </div>
+        <!-- end sidebar content -->
+        
+      </div>

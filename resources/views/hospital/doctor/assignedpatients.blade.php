@@ -1,4 +1,4 @@
-@include('hospital.doctor.layout.header')
+@include('hospital.doctor.layout.aside')
 
     @livewire('hospital.doctor.assignedpatients') 
      
