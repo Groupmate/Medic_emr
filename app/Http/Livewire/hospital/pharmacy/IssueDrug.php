@@ -10,8 +10,8 @@ class IssueDrug extends Component
     
     public function render()
     {
-        $prescirbed =Prescribe_drug::where('status','recover')->get();
-      
+        $prescirbed =Prescribe_drug::where('status','recover')->first();
+        //dd($prescirbed);
         return view('livewire.hospital.pharmacy.issue-drug')->with('prescirbed', $prescirbed);
     }
 }

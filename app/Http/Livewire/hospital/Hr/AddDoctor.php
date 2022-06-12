@@ -33,7 +33,7 @@ class AddDoctor extends Component
     public function CreateDoctor()
     {
         $this->validate();
-        //dd(3);
+      
         $this->user_id = Auth()->user()->id;
         $hospital_name = Hospital::where('user_id', $this->user_id)->first()->id;
 

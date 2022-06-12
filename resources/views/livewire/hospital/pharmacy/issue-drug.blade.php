@@ -9,16 +9,17 @@
         
         </tr>
     </thead>
-    <tbody>
-    @foreach($prescirbed as $prescirbed)
+     <tbody>
+    @foreach($prescirbed->drug_name as $prescirbed)
       <tr class="border-b">
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              {{$prescirbed->patient_id}}
+              {{$prescirbed}}
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                
            
               </td>
         </tr>
-      @endforeach
-</div>
+      @endforeach  
+     </tbody>
+</div> 

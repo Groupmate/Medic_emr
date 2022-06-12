@@ -14,7 +14,9 @@ class Medical_data extends Model
         'picture', 'disease'
     ];
     protected $casts = [
-        'symptom' => 'array',  'diagnosis_info' => 'array',  'numerical_info' => 'array',
-        'description' => 'array',  'picture' => 'array',  'disease' => 'array',
+        'symptom' => 'array',  'diagnosis_info' => 'array',
+        'numerical_info' => 'array',
+        'description' => 'array',  'picture' => 'array', 
+         'disease' => 'array',
     ];
 }

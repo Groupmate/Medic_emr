@@ -35,7 +35,7 @@ class PrescribeMedicaldrug extends Component
         
         // $this->validate();
         
-        // dd($this->alldrugs);
+         //dd($this->alldrugs);
        Prescribe_drug::create($this->modeldata());
         session()->flash('message', 'patient  Successfully.');
       
