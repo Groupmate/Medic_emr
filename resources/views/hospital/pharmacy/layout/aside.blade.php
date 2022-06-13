@@ -13,7 +13,7 @@
     <p class="menu-label">General</p>
     <ul class="menu-list">
       <li class="">
-        <a  href="{{ url('/dashboard') }}">
+        <a  href="{{ url('/Pdashboard') }}">
           <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
           <span class="menu-item-label"><strong>Dashboard</strong></span>
         </a>
@@ -36,14 +36,14 @@
       </li>
       <li>
       <li class="--set-active-tables-html">
-        <a href="{{ url('/receptionprofile') }}">
+        <a href="{{ url('/Pprofile') }}">
           <span class="icon"><i class="mdi mdi-table"></i></span>
           <span class="menu-item-label"><strong>Profile</strong></span>
         </a>
       </li>
     
     </ul>
-    <p class="menu-label"><strong>About</strong></p>
+    <p href="https://github.com/Groupmate/Medic_emr.git" class="menu-label"><strong>About</strong></p>
     <ul class="menu-list">
       
       <li>

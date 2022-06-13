@@ -12,14 +12,14 @@
     @livewireStyles
 </head>
 <button class="show" data-toggle="modal" data-target="#CertificationModal" aria-haspopup="true">Show Modal</button>
-<!-- Modal -->
-<div class="">
-    <div class="">
+<div class="modal fade" id="CertificationModal" tabindex="-1" role="dialog" aria-labelledby="CertificationModalTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
-                         <button wire:click="generateMedicalPDF()" class="mr-12 text-xl  background-color:red py-8 px-22">Print-Pdf </button>
+                        
                         <div class="col-sm-1">
                             <img id="bannerProp" src={{ asset('assets/left_banner.png') }}>
                         </div>
@@ -43,7 +43,7 @@
                                         </div>
                                 
                                     </div><br>
-                                    @foreach($PatientInfo as $PatientInfo) 
+                                   
                                         <div class="row text-left">
                                             <div class="col-sm-8 "><b> National Identification : {{ $PatientInfo['national_id']}} </b> </div>
                                             <div class="col-sm-8 "><b> Full Name : {{$PatientInfo['firstname']}} {{$PatientInfo['lastname']}}</b> </div>
@@ -53,29 +53,30 @@
                                         <br>
 
                                         <div class="col-sm-8">
-                                            <b class="medium-font">Issued at : on : {{$PatientInfo['updated_at']}}
+                                            <b>Issued at : on : {{$PatientInfo['updated_at']}}</b>
                                         </div>
-                                    @endforeach  
+                                
                                     <div class="col-sm-12">
-                                      
+                                
                                         <p>Certifies that he/she has examined this day with diagnosis info</p>
-                                        <p> <i><b>{{$PatientInfo['diagnosis_info']}}</b> </i> </p>
+                                         @foreach($PatientInfo['diagnosis_info'] as $PatientInfo) 
+                                        <p> <i><b>{{$PatientInfo}}</b> </i> </p>
                                     </div>                               
-                         
+                                   @endforeach 
                                     <div class="row text-right">
                                         <div id="specMargin" class="col-sm-10">
                                             <h4>Medical ID:-OHSAS 18001:2007</h4>
                                         </div>
                                    
                                     </div>
-                                    @foreach($DoctorInfo as $DoctorInfo) 
+                              
                                         <div class="row ">
                                             <div class="col-sm-12">
                                                 <p >The undersigned Doctor in medicine (full name): {{$DoctorInfo['firstname']}}{{$DoctorInfo['lastname']}} </p>
                                                 <p> The certificate is valid until 2018-08-26</p>
                                             </div>
                                         </div>
-                                    @endforeach 
+                                   
                                         <div class="row">
                                         <div class="col-sm-12">
                                             <img class="pull-right" id="signLogo" src={{ asset('assets/sign.png')}}>
@@ -89,6 +90,7 @@
                                     <img class="pull-right" id="footerLogo" src={{ asset('assets/logo1.png')}}>
                             </div>
                         </div>
+                         <button wire:click="generateMedicalPDF()" class="mr-12 text-xl  background-color:red py-8 px-22">Print-Pdf </button>
                     </div>
                     </div>
                 </div>

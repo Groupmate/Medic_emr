@@ -1,1 +1,1 @@
-  @livewire('hospital.doctor.generate-medical-cerificate')
+  @livewire('hospital.doctor.generate-medical-cerificate', ['id' => $id])
