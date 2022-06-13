@@ -160,7 +160,7 @@
           <!-- end sidebar toggle -->
               </a>  
               <div id="dropdown" x-show="show" class="ml-1">
-               <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/appointments/{{$id}}">
+               <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/appointments/{{$id}} ">
                   <i class="far fa-calendar-check text-xl mr-2"></i>
                   Add Appointement</a>
               </a>
@@ -176,13 +176,13 @@
                   Request Examination Test
               </a>
               
-              <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
+              <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/prescribe-medicaldrug/{{$id}}">
                   <i class="far fa-pills text-xl mr-2"></i>
               Perscribe Drug
               </a>
-              <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
+              <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/create-discharge/{{$id}}">
               <i class="far fa-hospital-user text-xl mr-2"></i>
-              Request Patient Discharge
+              Patient Discharge
               </a>
               <a href="/medcertificate" class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
                   <i class="far fa-file-certificate text-xl mr-2"></i>

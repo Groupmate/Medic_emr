@@ -1,12 +1,13 @@
-
-   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+@include('hospital.doctor.layout.middle')
 <x-app-layout >
+    <body>
       <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                  <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                     @livewire('hospital.doctor.prescribe-medicaldrug')
-                  </div>
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 bg-gray-400 overflow-hidden sm:rounded-lg">
+            @livewire('hospital.doctor.prescribe-medicaldrug')
             </div>
-      </div>      
+      </div> 
+    </body>
 </x-app-layout>
+ 
+
+
