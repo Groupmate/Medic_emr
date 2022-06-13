@@ -7,17 +7,19 @@ use App\Models\Prescribe_drug;
 use App\Models\Patient;
 class IssueDrug extends Component
 {
-    public $search='',$patients;
+    public $type,$patients,$prescirbed;
     
     public function search()
-    {
-        $patients = Patient::where('firstname',$search)->first()->id;
-        dd($this->patients);
+    {  
+        $this->patients = Patient::where('firstname',$this->type)->first()->id;
+        // dd($patients);
+        $this->prescirbed =Prescribe_drug::where('patient_id',$this->patients)->first()->id;
+        dd( $this->prescirbed);
     }
     public function render()
     {
-        $prescirbed =Prescribe_drug::where('patient_id',$this->patients)->first();
-        // dd($this->patients);
-        return view('livewire.hospital.pharmacy.issue-drug')->with('prescirbed', $prescirbed);
+       
+       
+        return view('livewire.hospital.pharmacy.issue-drug',[ $this->prescirbed]);
     }
 }

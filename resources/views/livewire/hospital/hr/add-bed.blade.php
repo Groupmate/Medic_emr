@@ -40,7 +40,7 @@
                                     <select  class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" id="status" wire:model.debounce.800ms="status">
                                                <option >select status</option>
                                                 <option value="free">free</option>
-                                                <option value="busy">ተይዛል</option>
+                                                <option value="busy">busy</option>
                                 </select>
                                 @error('status') <span class="error">{{$message}}</span>@enderror
                             </div>

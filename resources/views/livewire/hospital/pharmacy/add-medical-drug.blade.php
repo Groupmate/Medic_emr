@@ -2,7 +2,7 @@
      
      <!-- component -->
        
-    <x-guest-layout>
+   <x-guest-layout>
         <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
                     @if (session()->has('message'))
                         <div class=" flex bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
@@ -76,7 +76,7 @@
                       </div> 
               </div>
         </div>
-           
+            
     </x-guest-layout>
 
    

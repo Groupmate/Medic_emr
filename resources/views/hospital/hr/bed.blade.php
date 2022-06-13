@@ -1,7 +1,6 @@
 
-  
-{{--  
-  @include('hospital.hr.layout.header')
+
+@include('hospital.hr.layout.header')
     <section class="section main-section">
         <x-app-layout >
                 <div class="py-12">
@@ -13,14 +12,5 @@
             </div>
     </x-app-layout>
 </section>
-@include('hospital.hr.layout.footer') --}}
+@include('hospital.hr.layout.footer')
 
-@include('hospital.doctor.layout.header')    
-    
-    <div class="py-12">
-                    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                        @livewire('hospital.hr.add-bed')
-                    </div>
-
-@include('hospital.doctor.layout.footer')

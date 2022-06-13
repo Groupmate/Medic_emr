@@ -37,7 +37,8 @@
                 <select class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="type" />
                 :value="old('type')" required autofocus autocomplete="type">
                     <option>---Select Type---</option>
-                    <option value="1">Hospital</option>
+                    <option value="hospital">Hospital</option>
+                    <option value="clinic">Clinic</option>
                 </select>
             </div>
             <div class="mt-4">
@@ -102,9 +103,9 @@
                 <tr>
                     <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$hospitals->name}}</td>
                     <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$hospitals->user_id}}</td>
-                    @if( $hospitals->type ==5 )
-                        <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">Hospital</td>
-                    @endif
+                 
+                        <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$hospitals->type}}</td>
+                 
                     <td   class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$hospitals->region}}</td>
                     <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$hospitals->city}}</td>
                     <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">

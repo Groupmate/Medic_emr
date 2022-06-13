@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Bed extends Model
 {
     use HasFactory;
@@ -17,4 +18,5 @@ class Bed extends Model
     public function bedassignment(){
         return $this->hasMany(Bedassignment::class);
     }
+
 }

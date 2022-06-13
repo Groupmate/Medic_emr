@@ -23,8 +23,7 @@
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
-</head>
-</head>
+</head> 
 <body>
 
 <div id="app">
