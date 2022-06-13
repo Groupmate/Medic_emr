@@ -19,8 +19,7 @@ class Appointments extends Component
     public function create()
     {
         $this->validate();
-        
-        
+         
         Appointment::create($this->modeldata());
         session()->flash('message', 'Appointment created Successfully.');
         $this->reset();
@@ -106,17 +105,13 @@ class Appointments extends Component
             $this->visit_date= $appointment->visit_date;
             $this->status= $appointment->status;
             $this->description= $appointment->descrpition;
-           
-           
-           
-           
-
+            
     }   
     public function render()
     {
         $dname = Doctor::all();
-       $pname = Patient::all();
-       $appointment =Appointment::all();
+        $pname = Patient::all();
+        $appointment =Appointment::all();
         return view('livewire.hospital.doctor.appointments',['appointment'=>Appointment::paginate(3)])->with('dname',$dname)->with('pname',$pname);
      
     }

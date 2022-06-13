@@ -22,12 +22,12 @@ class CreateManager extends Component
      */
     public function create()
     {
-        //$this->validate();
-        //User::create($this->modeldata()); 
+        $this->validate();
         $comb = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         $shfl = str_shuffle($comb);
-        $password = substr($shfl,0,8); 
+        $this->password = substr($shfl,0,8); 
         
+        User::create($this->modeldata()); 
         $http = new \GuzzleHttp\Client;
 
         $response = Http::get('https://sms.hahucloud.com/api/send', [

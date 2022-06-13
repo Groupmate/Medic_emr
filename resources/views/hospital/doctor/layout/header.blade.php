@@ -160,6 +160,15 @@
           <!-- end sidebar toggle -->
               </a>  
               <div id="dropdown" x-show="show" class="ml-1">
+                
+               <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/generatemedicaldata/{{$id}}">
+                  <i class="far fa-briefcase-medical text-xl mr-2"></i>
+                  Generate Medical data
+               </a>
+               <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/generatemedicaldata/{{$id}}">
+                <i class="far fa-briefcase-medical text-xl mr-2"></i>
+                View Patient history
+               </a>
                <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/appointments/{{$id}} ">
                   <i class="far fa-calendar-check text-xl mr-2"></i>
                   Add Appointement</a>
