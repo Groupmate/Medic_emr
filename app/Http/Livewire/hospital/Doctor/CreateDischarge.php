@@ -40,7 +40,7 @@ class CreateDischarge extends Component
    }    
     public function render()
     {
-        $date = Bedassignment::all();
-        return view('livewire.hospital.doctor.create-discharge',compact('date',$date));
+        
+        return view('livewire.hospital.doctor.create-discharge');
     }
 }
