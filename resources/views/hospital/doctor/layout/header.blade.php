@@ -192,8 +192,7 @@
               <i class="fas fa-file-chart-line text-xl mr-2"></i>
                   Reports
               </a>  --}}
-              <br><br><br><br><br><br> 
-              <hr class="border-t border-gray-400 my-0">         
+              <br><br><br>
             </a>
               <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
  
