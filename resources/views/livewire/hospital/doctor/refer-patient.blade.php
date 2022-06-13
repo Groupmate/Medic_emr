@@ -1,5 +1,14 @@
 
 <div class="w-full  mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg"> 
+    @if (session()->has('message'))
+        <div class=" flex bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
+            <div class="flex">
+                <div>
+                    <p class="text-sm border-teal-500 rounded-b text-teal-900">{{ session('message') }}</p>
+                </div>
+            </div>
+        </div>
+    @endif
       <div class=" ml-10 py-12">
             <div class=" mx-auto sm:px-6 lg:px-8">
    <h1 class="text-black-900 font-lg font-bold tracking-normal leading-tight mb-2 text-center mr-10">+Referal For Patients </h1>
