@@ -14,19 +14,7 @@
  
         <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
          <h1 class="text-gray-800 font-lg font-bold tracking-normal leading-tight mb-4 text-center">+Bed assignment for patient Patients </h1>
-                        <form >
-                           <input  type="search"  placeholder="Search patient name" class="shadow apperance none bounded  rounded bg-transparent focus:outline-none text-xs" wire:model="search" />  
-                        </form>
-              
-                        <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                            <label for="patient">patient</label>
-                            <select name="patient" id="patient"class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" wire:model="patient_id">
-                                <option value="">select patient</option>
-                                @foreach($patients as $patient)
-                                <option value ="{{$patient->id}}">{{$patient->firstname}}{{$patient->lastname}}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                 
                     <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                         <label for="block">block</label>
                         <select name="block" id="block"class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" wire:model="selectedBlock">

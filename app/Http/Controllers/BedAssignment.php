@@ -20,6 +20,7 @@ class BedAssignments extends Component
      public $beds;
      public $modalId;
      public $search='';
+    
      public function create()
      {
         $this->validate();

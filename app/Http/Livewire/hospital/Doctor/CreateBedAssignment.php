@@ -61,9 +61,9 @@ class CreateBedAssignment extends Component
             
         ];
     } 
-     public function mount()
+     public function mount($id)
      {
-        
+        $this->patient_id = $id; 
          $this->rooms = collect();
          $this->beds = collect();
      }

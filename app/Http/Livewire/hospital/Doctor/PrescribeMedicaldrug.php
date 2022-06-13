@@ -11,11 +11,11 @@ class PrescribeMedicaldrug extends Component
     public $alldrugs = [
         []
     ];
-    public $patient_id=1,$user_id,$status,$descrpition,$quantity=[],$drug_name=[];
+    public $patient_id,$user_id,$status,$descrpition,$quantity=[],$drug_name=[];
 
-    public function mount()
+    public function mount($id)
     {
-     
+        $this->patient_id = $id; 
         $this->alldrugs = [
             ['drug_name' => '', 'quantity' => 1]
         ];
@@ -37,7 +37,7 @@ class PrescribeMedicaldrug extends Component
         
          //dd($this->alldrugs);
        Prescribe_drug::create($this->modeldata());
-        session()->flash('message', 'patient  Successfully.');
+        session()->flash('message', 'prescribed Successfully.');
       
         $this->reset();
     }

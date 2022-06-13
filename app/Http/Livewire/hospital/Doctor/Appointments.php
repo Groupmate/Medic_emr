@@ -6,20 +6,25 @@ use Livewire\Component;
 use App\Models\Doctor;
 use App\Models\Patient;
 use App\Models\Appointment;
+use App\Models\User;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 class Appointments extends Component
 { use WithPagination;
 
-    public $doctor_id, $patient_id, $issue_date, $visit_date, $description, $status,$user_id; 
+    public  $patient_id, $issue_date, $visit_date,$descrpition, $status,$user_id; 
     public $modelFormVisible=false;
     public $modalConfirmDeleteVisible=false;
     public $modelId;
+    public function mount($id)
+    { 
+       $this->patient_id = $id; 
+    }
     public function create()
     {
         $this->validate();
-         
+        //  dd($this->descrpition);
         Appointment::create($this->modeldata());
         session()->flash('message', 'Appointment created Successfully.');
         $this->reset();
@@ -33,18 +38,17 @@ class Appointments extends Component
     public function modelData()
     {
         $this->user_id = Auth()->user()->id;
-        $this->doctor_id=  $this->user_id;
-        //  dd($this->doctor_id);
+        
+        //  dd($this->user_id);
        
         return [
-            'doctor_id'=>$this->doctor_id,
+            'user_id'=>$this->user_id,
             'patient_id'=>$this->patient_id,
             'issue_date'=>$this->issue_date,
             'visit_date'=>$this->visit_date,
             'status'=>$this->status,
-            'descrpition'=>$this->description,
-          
-             ];
+            'descrpition'=>$this->descrpition,
+            ];
     }    
     /**
      * rules validate
@@ -59,7 +63,7 @@ class Appointments extends Component
             'issue_date'=>'required',
             'visit_date'=>'required',
             'status'=>'required',
-            'description'=>'required',
+           
            
             
         ];
@@ -99,12 +103,12 @@ class Appointments extends Component
     public function loadModel()
     {
         $appointment=Appointment::find($this->modelId);
-            $this->doctor_id= $appointment->doctor_id;
+            $this->user_id= $appointment->user_id;
             $this->patient_id= $appointment->patient_id;
             $this->issue_date= $appointment->issue_date;
             $this->visit_date= $appointment->visit_date;
             $this->status= $appointment->status;
-            $this->description= $appointment->descrpition;
+            $this->descrpition= $appointment->descrpition;
             
     }   
     public function render()
