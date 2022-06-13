@@ -7,7 +7,8 @@ use Illuminate\Validation\Rule;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Http;
+use GuzzleHttp\Client;
 class CreateManager extends Component
 {
     public $firstname, $lastname, $email, $organization_id, $phone, $address, $sex, $date_of_birth,
@@ -21,9 +22,19 @@ class CreateManager extends Component
      */
     public function create()
     {
-        $this->validate();
-        User::create($this->modeldata());
+        //$this->validate();
+        //User::create($this->modeldata()); 
+        $comb = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $shfl = str_shuffle($comb);
+        $password = substr($shfl,0,8); 
         
+        $http = new \GuzzleHttp\Client;
+
+        $response = Http::get('https://sms.hahucloud.com/api/send', [
+            'key' => '946b92a598b36e4ad6aff1e4550d96d922656da4',
+            'phone'  => $this->phone,
+            'message' => 'Your password is '. $password,
+        ]);
         $this->reset();
     }
 
