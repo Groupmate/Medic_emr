@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('hospital_id');
             $table->foreignId('user_id');
             $table->string('status');
+            $table->string('description')->nullable();
             $table->timestamps(); 
         });
     }

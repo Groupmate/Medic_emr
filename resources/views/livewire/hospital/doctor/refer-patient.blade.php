@@ -1,5 +1,4 @@
 <div class = "ml-2 pt-6 w-full"> 
- 
                 <div class="mt-4">
                     <x-jet-label for="date" value="{{ __('Refered Date') }}" />
                     <x-jet-input id="date" class="" type="date" wire:model.debounce.800ms="date" />
@@ -13,7 +12,7 @@
                         @forelse ($hospitals as $hospital)
                             <option value= {{ $hospital->id }} > {{ $hospital->name }} </option>
                         @empty
-                            <option disabled>No Hospital to Refer to</option>
+                            <option disabled>---No Hospital to Refer to---</option>
                         @endforelse
                     </select>
                     @error('refered_to') <span class="error text-red-600">{{$message}}</span>@enderror
@@ -25,6 +24,6 @@
                 </div>  
                 <x-jet-secondary-button class="bg-black-500" wire:click="refer()" wire:loading.attr="disabled">
                     {{ __('Refer Patient') }}
-                </x-jet-secondary-button>     
+                </x-jet-secondary-button>   
     </div> 
 </div>
