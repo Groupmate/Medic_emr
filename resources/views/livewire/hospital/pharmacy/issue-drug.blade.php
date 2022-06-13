@@ -1,4 +1,16 @@
 <div class="mt-10 sm:mt-0">
+    
+ <div>
+ <input  type="text"  placeholder="Search patient " class="shadow apperance none bounded  rounded bg-transparent focus:outline-none text-xs" wire:model="search" /> 
+ 
+<button class="btn btn-sm btn-secondary" wire:click.prevent="search">+search</button>
+                   
+ <ul>
+  
+ </ul>
+ </div>
+  
+
 <table class="table-auto w-3/4 whitespace-nowrap ">
     <thead class="text-purple-500 p-4">
         <tr >
@@ -9,17 +21,26 @@
         
         </tr>
     </thead>
-     <tbody>
-    @foreach($prescirbed->drug_name as $prescirbed)
+    <tbody>
+   
       <tr class="border-b">
+         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+           {{$prescirbed->patient_id}}
+          </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              {{$prescirbed}}
+              @foreach($prescirbed->drug_name as $prescirb)
+                {{$prescirb}},
+                @endforeach
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-               
-           
+              @foreach($prescirbed->quantity as $prescirb)
+                {{$prescirb}},
+                @endforeach
               </td>
         </tr>
-      @endforeach  
      </tbody>
 </div> 
+
+       
+</div>
+

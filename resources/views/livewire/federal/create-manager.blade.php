@@ -37,13 +37,17 @@
             <x-jet-input id="address" class="block mt-1 w-full" type="text" wire:model.defer="address" />
             @error('address') <span class="error">{{$message}}</span>@enderror
         </div>
+            <div class="mt-4">
+                <x-jet-label  value="{{ __('Sex') }}" />
+                <select class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" wire:model.defer="sex" >
+                    <option>---Select sex---</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
 
-        <div class="mt-4">
-            <x-jet-label for="sex" value="{{ __('sex') }}" />
-            <x-jet-input id="sex" class="block mt-1 w-full" type="text" wire:model.defer="sex"/>
-            @error('sex') <span class="error">{{$message}}</span>@enderror
-        </div>
-
+                </select>
+                @error('sex') <span class="error text-red-600">{{ $message }}</span>@enderror
+            </div>
+       
         <div class="mt-4">
             <x-jet-label for="date_of_birth" value="{{ __('date_of_birth') }}" />
             <x-jet-input id="date_of_birth" class="block mt-1 w-full" type="date" wire:model.defer="date_of_birth"/>
