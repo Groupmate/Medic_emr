@@ -20,13 +20,10 @@ class ReferPatient extends Component
     public $modelFormVisible, $modelConfirmDeleteVisible, $modelUpdateVisible;
     public $patient_id, $date, $diagnosis, $refered_by, $refered_to;
     public $modelId;
-
-    public function referShowModal($patient_id, $refered_by){
-        // $this-resetValidation();
-        // $this-reset();
-        $this->modelFormVisible = true;
-        $this->patient_id = $patient_id;
-        $this->refered_by = $refered_by;
+  
+    public function mount($id)
+    { 
+       $this->patient_id = $id; 
     }
 
     public function modelData()
@@ -35,24 +32,22 @@ class ReferPatient extends Component
             'patient_id'=>$this->patient_id,
             'date'=>$this->date,
             'diagnosis'=>$this->diagnosis,
-            'refered_by'=>$this->refered_by,
+            'refered_by'=>Auth::user()->id,
             'refered_to'=>$this->refered_to,
         ];
     }
 
     public function rules()
     {
-        return [
-            'patient_id'=>'required',
+        return [ 
             'date'=>'required',
-            'diagnosis'=>'required',
-            'refered_by'=>'required',
+            'diagnosis'=>'required', 
             'refered_to'=>'required',
         ];
     }
 
     public function refer(){
-        $this->validate();
+        $this->validate(); 
         $refer = Referal::create($this->modelData());
         $this->modelFormVisible = false;
         $this->reset();
@@ -60,16 +55,12 @@ class ReferPatient extends Component
 
     public function render()
     {
-        $hospitals = DB::select('select * from hospitals');
-        // dd($hospitals);
+        $hospitals = Hospital::all();
+        
         $userID  =DB::select('select * from users where id = ?', [Auth::user()->id]); 
         // dd($userID);
-    
-        $assignmentDoctor = DB::select('select * from patient__waiting__lists');
-        // dd($assignmentDoctor);
-        $patientID = DB::select('select * from patients');
-        // dd($patientID);
+     
         return view('livewire.hospital.doctor.refer-patient', 
-        ['userID'=>$userID, 'hospitals'=>$hospitals, 'assignmentDoctor'=>$assignmentDoctor, 'patientID'=>$patientID]);
+        ['userID'=>$userID, 'hospitals'=>$hospitals]);
     }
 }

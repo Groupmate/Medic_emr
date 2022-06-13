@@ -167,28 +167,49 @@
               <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/bedassignment">
                   <i class="far fa-procedures text-xl mr-2"></i>
                   Assign-Bed</a>
-              <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/referpatient">
+              <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/referpatient/{{$id}}">
                  <i class="far fa-ambulance text-xl mr-2"></i>
                   Refer Patient
+<<<<<<< Updated upstream
+=======
+              </a> 
+              
+              <a href="" class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500">
+              <i class="far fa-files-medical text-xl mr-2"></i>
+                  patient record
+>>>>>>> Stashed changes
               </a>
               <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
                   <i class="far fa-briefcase-medical text-xl mr-2"></i>
                   Request Examination Test
               </a>
+              
               <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
                   <i class="far fa-pills text-xl mr-2"></i>
-                   Perscribe Drug
+              Perscribe Drug
               </a>
               <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
-                <i class="far fa-hospital-user text-xl mr-2"></i>
-                Request Patient Discharge
+              <i class="far fa-hospital-user text-xl mr-2"></i>
+              Request Patient Discharge
               </a>
               <a href="/medcertificate" class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
                   <i class="far fa-file-certificate text-xl mr-2"></i>
-                  Generate Medical Certificate
+              Generate Medical Certificate
               </a>
+              {{-- <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
+              <i class="fas fa-file-chart-line text-xl mr-2"></i>
+                  Reports
+              </a>  --}}
+              <br><br><br><br><br><br> 
+              <hr class="border-t border-gray-400 my-0">         
+            </a>
               <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<<<<<<< Updated upstream
 
+=======
+              <hr class="border-t border-gray-400 my-0">         
+            <hr class="border-t border-gray-600 my-0">
+>>>>>>> Stashed changes
           </div>
           <!-- end link -->
         </div>
