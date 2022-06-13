@@ -17,11 +17,10 @@ class FederalStatics extends Component
         $count2 = 0;
         $count3 = 0;
     
-        $d1 = Medical_data::where('disease', 'Anthrax')->get() ; 
-        $d2 = Medical_data::where('disease', 'Cholera')->get(); 
-        $d3 = Medical_data::where('disease', 'Influenza')->get(); 
-        $d4 = Medical_data::where('disease', 'Malari')->get(); 
-      
+        $d1 = Medical_data::where('disease', '["Anthrax"]')->get() ; 
+        $d2 = Medical_data::where('disease', '["Cholera"]')->get(); 
+        $d3 = Medical_data::where('disease', '["Influenza"]')->get(); 
+        $d4 = Medical_data::where('disease', '["Malari"]')->get()   ; 
      
         $region = array(
             array("Addis Ababa Chartered City", $count,   $count1,$count2,$count3),

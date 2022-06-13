@@ -18,13 +18,13 @@ class DoctorSeeder extends Seeder
         //
         $faker = \Faker\Factory::create();
 
-        for ($loop = 0; $loop < 150; $loop++) {
+        for ($loop = 0; $loop < 10; $loop++) {
 
             DB::table("doctors")->insert([
                 "user_id"=>$faker->numberBetween(1,10),
                 "speciality"=>$faker->randomElement(["Radiology","General Doctor","Eye","Mind","Skeleton","Nerve"]),
                 "department"=>$faker->randomElement(["OPD","IPD","Emergency"]),
-                "shift"=>[["Tuesday"]],
+                "shift"=>$faker->randomElement(['["Tuesday"]' ,'["Monday"]' ]),
                 "created_at"=>$faker->date(),
                 "updated_at"=>$faker->date(),
             ]);

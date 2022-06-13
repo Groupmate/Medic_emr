@@ -14,7 +14,7 @@
       <p class="menu-label">General</p>
       <ul class="menu-list">
         <li class="--set-active-index-html">
-          <a href="{{ url('dashboard1') }}">
+          <a href="#">
             <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
             <span class="menu-item-label">Dashboard</span>
           </a>
@@ -44,25 +44,7 @@
           </a>
         </li>
         <li>
-        <li>
-          <a class="dropdown">
-            <span class="icon"><i class="mdi mdi-view-list"></i></span>
-            <span class="menu-item-label">Submenus</span>
-            <span class="icon"><i class="mdi mdi-plus"></i></span>
-          </a>
-          <ul>
-            <li>
-              <a href="#void">
-                <span>Sub-item One</span>
-              </a>
-            </li>
-            <li>
-              <a href="#void">
-                <span>Sub-item Two</span>
-              </a>
-            </li>
-          </ul>
-        </li>
+      
       </ul>
       <p class="menu-label">About</p>
       <ul class="menu-list">
@@ -99,9 +81,9 @@
       <div class="navbar-item">
         <section class="is-hero-bar">
       <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-        <h2 class="title">
+        <h4  class="title">
           <strong>Regional Organization Information</strong>
-        </h2>
+        </h4>
 
       </div>
 
@@ -109,34 +91,13 @@
       </div>
     </div>
     <div class="navbar-brand is-right">
-      <a class="navbar-item --jb-navbar-menu-toggle" data-target="navbar-menu">
-        <span class="icon"><i class="mdi mdi-dots-vertical mdi-24px"></i></span>
-      </a>
     </div>
    <div class="navbar-menu" id="navbar-menu">
        <div class="navbar-end">
 
         <div class="navbar-item dropdown has-divider has-user-avatar">
-          <a class="navbar-link">
-            <div class="is-user-name"><span> </span></div>
-            <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
-          </a>
-          <div class="navbar-dropdown">
-            <a href="profile.html" class="navbar-item active">
-              <span class="icon"><i class="mdi mdi-account"></i></span>
-              <span>My Profile</span>
-            </a>
-            <a class="navbar-item">
-              <span class="icon"><i class="mdi mdi-settings"></i></span>
-              <span>Settings</span>
-            </a>
-            <a class="navbar-item">
-              <span class="icon"><i class="mdi mdi-email"></i></span>
-              <span>Messages</span>
-            </a>
-            <hr class="navbar-divider">
-           
-          </div>
+         
+         
         </div>
      
          <a class="navbar-item">

@@ -6,123 +6,65 @@
             <!-- Content -->
             <div class="mt-2">
               <!-- State cards -->
-              <div class=" flex flex-row ml-10 gap-8 p-4 lg:grid-cols-2 xl:grid-cols-4">
-                
-                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                  <div>
-                    <h6
-                      class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
-                      Users
-                    </h6>
-                    <span class="text-xl font-semibold">{{$TotalUsers}}</span>
-                   
+              <div class=" flex flex-row ml-10 gap-10 p-8 lg:grid-cols-2 xl:grid-cols-4">
+                <div class="flex items-center p-6 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+                  <div class="p-3 mr-4 text-orange-800 bg-gray-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" ></path>
+                    </svg>
                   </div>
-                  <div>
-                    <span>
-                      <svg
-                        class="w-12 h-12 text-gray-300 dark:text-primary-dark"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                        />
-                      </svg>
-                    </span>
+                <div>
+                  <p  class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                      <strong>Total Users</strong></p>
+                    <p  class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                    {{$TotalUsers}}
+                    </p>
                   </div>
                 </div>
-              <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                  <div>
-                    <h6
-                      class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
-                     Patients
-                    </h6>
-                    <span class="text-xl font-semibold">{{$TotalPatient}}</span>
-                   
+
+                <div class="flex items-center p-6 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+                  <div class="p-3 mr-4 text-green-800 bg-red-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" ></path>
+                    </svg>
                   </div>
-                  <div>
-                    <span>
-                      <svg
-                        class="w-12 h-12 text-gray-300 dark:text-primary-dark"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                        />
-                      </svg>
-                    </span>
+                <div>
+                  <p  class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                      <strong>Total Patients</strong></p>
+                    <p  class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                   {{$TotalPatient}}
+                    </p>
+                  </div>
+                  
+                </div>
+                <div class="flex items-center p-6 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+                  <div class="p-3 mr-4 text-orange-800 bg-green-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" ></path>
+                    </svg>
+                  </div>
+                <div>
+                  <p  class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                       <strong>Total Doctors</strong></p>
+                    <p  class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                      {{$TotalDoctor}}
+                    </p>
                   </div>
                 </div>
-                    <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                  <div>
-                    <h6
-                      class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
-                     Doctors
-                    </h6>
-                    <span class="text-xl font-semibold">{{$TotalDoctor}}</span>
-                   
+
+                 <div class="flex items-center p-6 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+                  <div class="p-3 mr-4 text-gray-800 bg-red-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" ></path>
+                    </svg>
                   </div>
-                  <div>
-                    <span>
-                      <svg
-                        class="w-12 h-12 text-gray-300 dark:text-primary-dark"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                </div>
-                 <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                  <div>
-                    <h6
-                      class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
-                     Hospitals
-                    </h6>
-                    <span class="text-xl font-semibold">{{$TotalHospital}}</span>
-                   
-                  </div>
-                  <div>
-                    <span>
-                      <svg
-                        class="w-12 h-12 text-gray-300 dark:text-primary-dark"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                        />
-                      </svg>
-                    </span>
+                <div>
+                  <p  class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                      <strong>Total  Hospitals</strong></p>
+                    <p  class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                      {{$TotalHospital}}
+                    </p>
                   </div>
                 </div>
             </div>
-            </div>
+          </div>
