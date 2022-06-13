@@ -19,7 +19,8 @@ return new class extends Migration
             $table->date('date');   
             $table->string('diagnosis');	
             $table->bigInteger('refered_by')->unsigned();
-            $table->bigInteger('refered_to')->unsigned();  	 
+            $table->bigInteger('refered_to')->unsigned(); 
+            $table->string('status');	 	 
             $table->timestamps();
 
             $table->foreign('refered_by')->references('id')->on('users')->onDelete('cascade');

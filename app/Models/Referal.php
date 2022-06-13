@@ -9,7 +9,7 @@ class Referal extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'patient_id', 'date', 'diagnosis', 'refered_by', 'refered_to'
+        'patient_id', 'date', 'diagnosis', 'refered_by', 'refered_to', 'status'
     ];
 
     public function patientWaitingList(){

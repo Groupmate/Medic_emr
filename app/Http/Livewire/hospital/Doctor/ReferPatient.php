@@ -34,6 +34,7 @@ class ReferPatient extends Component
             'diagnosis'=>$this->diagnosis,
             'refered_by'=>Auth::user()->id,
             'refered_to'=>$this->refered_to,
+            'status'=>"waiting",
         ];
     }
 
