@@ -50,6 +50,7 @@ class ReferPatient extends Component
     public function refer(){
         $this->validate(); 
         $refer = Referal::create($this->modelData());
+        session()->flash('message', 'Successfully Refered the Patient!'); 
         $this->modelFormVisible = false;
         $this->reset();
     }
