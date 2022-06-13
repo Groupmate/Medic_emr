@@ -32,7 +32,7 @@ class HomeController extends Controller
             return view('hospital.hr.dashboard');
         }
         if(Auth()->user()->role == 5){
-            return view('hospital.reception.dashboard');
+            return view('hospital.reception.assignpatient');
         }
         if(Auth()->user()->role == 6){
             return view('hospital.doctor.dashboard');

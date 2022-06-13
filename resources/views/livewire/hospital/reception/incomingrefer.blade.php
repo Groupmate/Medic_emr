@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 <div class = "ml-6 pt-6 w-full">
+=======
+<div class = "ml-6 mt-4 pt-6 w-3/4">
+>>>>>>> Stashed changes
     {{-- If your happiness depends on money, you will never be happy with yourself. --}}
     @if (session()->has('message'))
         <div class=" flex bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">

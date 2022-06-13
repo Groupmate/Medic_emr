@@ -14,6 +14,23 @@
       </a>
     </div>
   </footer>
+   <section>
+  <nav id="navbar-main" class="navbar is-fixed-top">
+    <div class="navbar-brand">
+      <a class="navbar-item mobile-aside-button">
+        <span class="icon"><i class="mdi mdi-forwardburger mdi-24px"></i></span>
+      </a>
+      <div class="navbar-item">
+        <section class="is-hero-bar">
+      <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+        <h2 class="title">
+          <strong> Welcome To Reception Dashboard</strong>
+        </h2>
+
+      </div>
+
+  </section>
+
   
 @livewireScripts
 </body>

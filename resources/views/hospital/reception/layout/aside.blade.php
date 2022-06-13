@@ -12,7 +12,7 @@
     <p class="menu-label">General</p>
     <ul class="menu-list">
       <li class="">
-        <a  href="{{ url('/dash') }}">
+        <a  href="#">
           <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
           <span class="menu-item-label"><strong>Dashboard</strong></span>
         </a>
@@ -31,12 +31,6 @@
         <a href="{{ url('/assign_patient') }}">
           <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
           <span class="menu-item-label"><strong>Assign Patient</strong></span>
-        </a>
-      </li>
-       <li class="--set-active-forms-html">
-        <a href="{{ url('/bookings/create') }}">
-          <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
-          <span class="menu-item-label"><strong>Book an appointment</strong></span>
         </a>
       </li>
       <li class="--set-active-forms-html">
@@ -64,7 +58,7 @@
     <ul class="menu-list">
       
       <li>
-        <a href="https://justboil.me/tailwind-admin-templates" class="has-icon">
+        <a href="https://github.com/Naty-Tefera/Medic_emr_backup.git" class="has-icon">
           <span class="icon"><i class="mdi mdi-help-circle"></i></span>
           <span class="menu-item-label"><strong>About</strong></span>
         </a>
