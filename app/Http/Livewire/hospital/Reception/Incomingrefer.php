@@ -78,7 +78,7 @@ class Incomingrefer extends Component
         $psw = Patient_Waiting_List::create($this->modeldata());
         $affected = DB::update("update referals set status = 'examined' where patient_id = ?", [$this->patient_id]);
         $this->modalFormVisible=false;
-        session()->flash('message', 'Successfully assigned the refered  Patient!');
+        session()->flash('message', 'Successfully assigned the referred  Patient!');
     }
     public function render()
     {
@@ -86,7 +86,7 @@ class Incomingrefer extends Component
         // dd($userID);
         $referals = DB::select('select * from referals where status = ?', ['waiting']);
         // dd($referals);
-        $receptionists = DB::select('select * from employees');
+        $receptionists = DB::select('select * from employees where user_id = ?', [Auth::user()->id]);
         // dd($receptionists);
         $patients = DB::select('select * from patients');
         // dd($patients);

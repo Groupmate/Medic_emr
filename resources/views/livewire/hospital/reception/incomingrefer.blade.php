@@ -17,7 +17,7 @@
                     <th  class="px-6 py-3 border-b-2 border-gray-500 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">First Name</th>
                     <th   class="px-6 py-3 border-b-2 border-gray-500 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">Second Name</th>
                     <th   class="px-5 py-3 border-b-2 border-gray-500 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">Last Name</th>
-                    <th   class="px-20 py-3 border-b-2 border-gray-500 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">Action</th>
+                    <th   class="px-20 py-3 border-b-2 border-gray-500 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider ">Action</th>
 
                 </tr>
             </thead>
@@ -26,13 +26,13 @@
                         @foreach($receptionists as $receptionist)
                             @foreach($patients as $patient)
                                 <tr>
-                                    @if($refer -> refered_to == $receptionist->hospital_id && $referal->patient_id == $patient->id)
+                                    @if($refer -> refered_to == $receptionist->hospital_id && $refer->patient_id == $patient->id)
                                             <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $patient->id }}</td>
                                             <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $patient->firstname }}</td>
                                             <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $patient->middle_name }}</td>
                                             <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $patient->lastname }}</td>
                                             <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-                                                <x-jet-button class="bg-sky-500 ml-6 rounded-full" wire:click="assignShowModal({{ $patient->id }})">
+                                                <x-jet-button class="bg-green-500 ml-6 rounded-full" wire:click="assignShowModal({{ $patient->id }})">
                                                     {{ __('Assign Patient') }}
                                                 </x-jet-button>
                                             </td>
@@ -75,11 +75,11 @@
 
         <x-slot name="footer">
             <x-jet-secondary-button class="bg-green-500 rounded-full" wire:click="assign" wire:loading.attr="disabled">
-                {{ __('create') }}
+                {{ __('Assign') }}
             </x-jet-secondary-button>
-            <x-jet-secondary-button class="ml-3 rounded-full" wire:click="$toggle('modalFormVisible')" wire:loading.attr="disabled">
+            <x-jet-danger-button class="ml-3 rounded-full" wire:click="$toggle('modalFormVisible')" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
-            </x-jet-secondary-button>
+            </x-jet-danger-button>
         </x-slot>
     </x-jet-dialog-modal>
 </div>
