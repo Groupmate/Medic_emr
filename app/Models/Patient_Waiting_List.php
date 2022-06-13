@@ -9,7 +9,7 @@ class Patient_Waiting_List extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'patient_id', 'hospital_id', 'user_id', 'status', 'description'
+        'patient_id', 'hospital_id', 'user_id', 'status'
     ];
 
     public function referal(){
