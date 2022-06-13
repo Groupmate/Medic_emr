@@ -46,7 +46,7 @@ class CreateRegional extends Component
      * @param  mixed $id
      * @return void
      */
-    public function deleteShowModel($id)
+    public function deleteShowModal($id)
     {
         $this->modelId=$id;
         $this->modalConfirmDeleteVisible=true;
@@ -58,7 +58,7 @@ class CreateRegional extends Component
      * @param  mixed $id
      * @return void
      */
-    public function viewShowModel($id)
+    public function viewShowModal($id)
     {
         $this->modelId=$id;
         $this->modalViewDetailVisible=true;

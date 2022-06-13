@@ -1,19 +1,16 @@
+
 <div class="p-6">
     <div class="flex items-center justify-end px-4 py-3 text-right sm:px-6">
         <x-jet-button wire:click="createShowModal">
                 {{ __('Add Health Bureau') }}
          </x-jet-button>
     </div>
-
-                 {{-- Modal form goes here --}}
-
     <x-jet-dialog-modal wire:model="modelFormVisible">
         <x-slot name="title">
             {{ __('Add Health Bureau') }} {{$modelId}}
         </x-slot>
 
         <x-slot name="content">
-
             <div class="mt-4">
                 <x-jet-label for="name" value="{{ __('Name') }}" />
                 <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" wire:model.debounce.800ms="name" />
@@ -225,3 +222,5 @@
         </x-slot>
     </x-jet-dialog-modal>
 </div>
+
+

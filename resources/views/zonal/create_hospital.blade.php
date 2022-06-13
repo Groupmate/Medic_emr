@@ -17,4 +17,4 @@
     </div>
     </x-app-layout>
 </section>
-@include('zonal.layout.footer')
+

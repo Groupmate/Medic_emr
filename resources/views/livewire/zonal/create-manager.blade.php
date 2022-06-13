@@ -37,11 +37,16 @@
             @error('address') <span class="error">{{$message}}</span>@enderror
         </div>
 
-        <div class="mt-4">
-            <x-jet-label for="sex" value="{{ __('sex') }}" />
-            <x-jet-input id="sex" class="block mt-1 w-full" type="text" wire:model.debounce.800ms="sex"/>
-            @error('sex') <span class="error">{{$message}}</span>@enderror
-        </div>
+         <div class="mt-4">
+                <x-jet-label  value="{{ __('Sex') }}" />
+                <select class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" wire:model.defer="sex" >
+                    <option>---Select sex---</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+
+                </select>
+                @error('sex') <span class="error text-red-600">{{ $message }}</span>@enderror
+            </div>
 
         <div class="mt-4">
             <x-jet-label for="date_of_birth" value="{{ __('date_of_birth') }}" />
@@ -54,15 +59,6 @@
             <x-jet-input id="email" class="block mt-1 w-full" type="email" wire:model.debounce.800ms="email" :value="old('email')" required />
             @error('email') <span class="error">{{$message}}</span>@enderror
         </div>
-
-
-        <div class="mt-4">
-            <x-jet-label for="password" value="{{ __('Password') }}" />
-            <x-jet-input id="password" class="block mt-1 w-full" type="password" wire:model.debounce.800ms="password" required autocomplete="new-password" />
-            @error('password') <span class="error">{{$message}}</span>@enderror
-        </div>
-
-
         <div class="flex items-center justify-end mt-4">
             <x-jet-button class="ml-4"  wire:click="create" wire:loading.attr="disabled">
                 Submit

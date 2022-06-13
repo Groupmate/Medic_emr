@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Http;
 use GuzzleHttp\Client;
+
 class CreateManager extends Component
 {
     public $firstname, $lastname, $email, $organization_id, $phone, $address, $sex, $date_of_birth,
@@ -33,8 +34,8 @@ class CreateManager extends Component
         $response = Http::get('https://sms.hahucloud.com/api/send', [
             'key' => '946b92a598b36e4ad6aff1e4550d96d922656da4',
             'phone'  => $this->phone,
-            'message' => 'Your password is '. $password,
-        ]);
+            'message' => 'Your password is '. $this->password,
+        ]); 
         $this->reset();
     }
 

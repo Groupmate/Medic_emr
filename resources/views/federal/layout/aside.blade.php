@@ -37,7 +37,7 @@
                 <span class="menu-item-label">Create Managers</span>
               </a>
           </li>
-        {{-- <li>
+         <li>
           <li>
           <li class="--set-active-profile-html">
               <a  href="{{ url('/hstatics') }}">
@@ -45,7 +45,7 @@
                 <span class="menu-item-label">Statics</span>
               </a>
           </li>
-        <li> --}}
+        <li> 
         <li>
           <a class="dropdown">
             <span class="icon"><i class="mdi mdi-view-list"></i></span>
