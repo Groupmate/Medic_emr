@@ -1,12 +1,16 @@
-<div class = "ml-2 pt-6 w-full"> 
+
+<div class="w-full  mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg"> 
+      <div class=" ml-10 py-12">
+            <div class=" mx-auto sm:px-6 lg:px-8">
+   <h1 class="text-black-900 font-lg font-bold tracking-normal leading-tight mb-2 text-center mr-10">+Referal For Patients </h1>
                 <div class="mt-4">
-                    <x-jet-label for="date" value="{{ __('Refered Date') }}" />
-                    <x-jet-input id="date" class="" type="date" wire:model.debounce.800ms="date" />
+                    <x-jet-label class="mb-1 subpixel-antialiased text-lg text-gray-900" for="date" value="{{ __('Refered Date') }}" />
+                    <x-jet-input id="date" class="block mt-1 w-3/4 p-4  border-1 alert alert-light" type="date" wire:model.debounce.800ms="date" />
                     @error('date') <span class="error text-red-600">{{$message}}</span>@enderror
                 </div>
                 <div class="mt-4">
-                    <x-jet-label for="Refere_to" value="{{ __('Refered To') }}" />
-                    <select class="block mt-1 w-1/2 p-6  border-2 bg-gray-500  border-gray-500 " wire:model.debounce.800ms="refered_to" />
+                    <x-jet-label class="mb-1 subpixel-antialiased text-lg text-gray-900" for="Refere_to" value="{{ __('Refered To') }}" />
+                    <select class="block mt-1 w-3/4 p-4  border-2  border-1 alert alert-light " wire:model.debounce.800ms="refered_to" />
                     :value="old('refered_to')" required autofocus autocomplete="refered_to">
                         <option selected >---Select Hospital---</option>
                         @forelse ($hospitals as $hospital)
@@ -18,12 +22,17 @@
                     @error('refered_to') <span class="error text-red-600">{{$message}}</span>@enderror
                 </div>
                 <div class="mt-4">
-                    <x-jet-label for="diagnosis Result" value="{{ __('Diagnosis Result') }}" />
-                    <x-jet-input id="diagnosis" class="block p-6 mt-1 w-1/2 bg-gray-500  border-2 border-gray-500 text-left text-xl font-semibold" type="text" name="diagnosis" wire:model.debounce.800ms="diagnosis" />
+                    <x-jet-label class="mb-1 subpixel-antialiased text-lg text-gray-900" for="diagnosis Result" value="{{ __('Diagnosis Result') }}" />
+                    <x-jet-input id="diagnosis" class="block p-6 mt-1 w-3/4   border-1 alert alert-light semibold" type="text" name="diagnosis" wire:model.debounce.800ms="diagnosis" />
                     @error('diagnosis') <span class="error text-red-600">{{$message}}</span>@enderror
-                </div>  
-                <x-jet-secondary-button class="bg-black-500" wire:click="refer()" wire:loading.attr="disabled">
+                </div>
+                <div class="flex justify-between items-center pt-4">  
+                <button class="btn-bs-dark " wire:click="refer()" wire:loading.attr="disabled">
                     {{ __('Refer Patient') }}
-                </x-jet-secondary-button>   
-    </div> 
-</div>
+                </button>     
+              
+               </div>
+        </div> 
+    </div>
+</div> 
+

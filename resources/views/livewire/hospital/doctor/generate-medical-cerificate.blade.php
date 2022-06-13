@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +12,6 @@
     @livewireStyles
 </head>
 <button class="show" data-toggle="modal" data-target="#CertificationModal" aria-haspopup="true">Show Modal</button>
-
 <!-- Modal -->
 <div class="">
     <div class="">
@@ -21,11 +19,7 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
-              
-                       
-                             <button wire:click="generateMedicalPDF()" class="mr-12 text-xl  background-color:red py-8 px-22">Print-Pdf </button>
-                 
-        
+                         <button wire:click="generateMedicalPDF()" class="mr-12 text-xl  background-color:red py-8 px-22">Print-Pdf </button>
                         <div class="col-sm-1">
                             <img id="bannerProp" src={{ asset('assets/left_banner.png') }}>
                         </div>
