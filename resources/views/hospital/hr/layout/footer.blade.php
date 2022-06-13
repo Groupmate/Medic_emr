@@ -1,5 +1,6 @@
 
 </div>
+
 <footer class="footer">
     <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0">
       <div class="flex items-center justify-start space-x-3">
@@ -14,7 +15,23 @@
       </a>
     </div>
   </footer>
+<section>
+  <nav id="navbar-main" class="navbar is-fixed-top">
+    <div class="navbar-brand">
+      <a class="navbar-item mobile-aside-button">
+        <span class="icon"><i class="mdi mdi-forwardburger mdi-24px"></i></span>
+      </a>
+      <div class="navbar-item">
+        <section class="is-hero-bar">
+      <div class="flex flex-col md:flex-row items-center justify-between ">
+        <h4 >
+          <span class="widget-label "><h4><strong>Human Resource Hospital  Dashboard </strong></h4></span>
+     
+        </h4>
 
+      </div>
+
+  </section>
 <!-- Scripts below are for demo only -->
 <script src="{{asset('js/main.min.js?v=1628755089081')}}"></script>
 <script  src="{{asset('js/chart.sample.min.js')}}"></script>
