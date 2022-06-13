@@ -37,7 +37,7 @@ class Assignedpatients extends Component
         $patient_waiting->status = "examined";
         //dd($patient_waiting->status); 
          
-        return redirect()->route('generatemedicaldata', $pid);
+        return redirect()->route('generatemedicaldata', $id);
     }
 
     public function appoint($id)
