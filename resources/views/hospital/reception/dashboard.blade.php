@@ -1,7 +1,7 @@
  @include('hospital.reception.layout.header')
  @include('hospital.reception.layout.aside')
 
- <span><h1><strong>Receptionist Dashboard: </strong></h1></span>
+ <span><h1><strong><center>Receptionist Dashboard:</center> </strong></h1></span>
      Nothing in the world is as soft and yielding as water. 
       <div class="grid gap-6 grid-cols-1 md:grid-cols-3 mb-6">
       <div class="card">

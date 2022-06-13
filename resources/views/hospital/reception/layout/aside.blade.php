@@ -1,4 +1,3 @@
-  
 <aside class="aside is-placed-left is-expanded">
   <div class="aside-tools">
     
@@ -40,6 +39,18 @@
           <span class="menu-item-label"><strong>Book an appointment</strong></span>
         </a>
       </li>
+      <li class="--set-active-forms-html">
+        <a href="{{ url('/incomingrefer') }}">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-3" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
+          </svg>
+          <span class="menu-item-label ml-1"><strong>Incoming Refer</strong></span>
+        </a>
+      </li>
       <li>
       <li class="--set-active-tables-html">
         <a href="{{ url('/receptionprofile') }}">
@@ -77,4 +88,4 @@
     </ul>
   </div>
 </aside>
-<section class="section main-section">
+<!-- <section class="section main-section"> -->
