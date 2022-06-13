@@ -41,6 +41,7 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/room', function () { return view('hospital.hr.room');})->name('room');
         Route::get('/bed', function () { return view('hospital.hr.bed');})->name('bed');
         Route::get('/bedassignment/{id}', function ($id) { return view('hospital.doctor.bedassignment', ['id' => $id]);})->name('bedassignment');
+        Route::get('/incomingrefer', 'App\Http\Controllers\IncomingReferController@incomingRefer')->name('incoming-refer');
         //Doctor
         Route::get('/appointments/{id}', function ($id) { return view('hospital.doctor.appointments', ['id' => $id]);})->name('appointments');
         Route::get('/assignedpatients', function () { return view('hospital.doctor.assignedpatients'); })->name('assignedpatients');
