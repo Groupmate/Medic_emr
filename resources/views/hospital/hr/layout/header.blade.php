@@ -34,23 +34,7 @@
                
                 </a>
                 <div class="navbar-dropdown">
-                <a href="profile.html" class="navbar-item">
-                    <span class="icon"><i class="mdi mdi-account"></i></span>
-                    <span>My Profile</span>
-                </a>
-                <a class="navbar-item">
-                    <span class="icon"><i class="mdi mdi-settings"></i></span>
-                    <span>Settings</span>
-                </a>
-                <a class="navbar-item">
-                    <span class="icon"><i class="mdi mdi-email"></i></span>
-                    <span>Messages</span>
-                </a>
-                <hr class="navbar-divider">
-                <a class="navbar-item">
-                    <span class="icon"><i class="mdi mdi-logout"></i></span>
-                    <span>Log Out</span>
-                </a>
+                
                 </div>
             </div>
 
@@ -70,7 +54,7 @@
 
                 <strong class="capitalize  flex-1">Medic-EMR</strong>
 
-                <button id="sliderBtn" class="flex-none text-right text-gray-200 hidden md:block">
+                <button id="sliderBtn" class="flex-none ml-12 text-right text-gray-200 hidden md:block">
                 <i class="fad fa-list-ul"></i>
                 </button>
             </div>
@@ -109,12 +93,16 @@
             <ul>
             <li>
                 <a href="/block">
-                <span>==> Add Block</span>
+                    <div class="ml-6">
+                       <i class="fas fa-list mr-3"></i> <span>Add Block</span>
+                    </div>
                 </a>
             </li>
             <li>
                 <a href="/listblock">
-                <span>==> Listblock</span>
+                    <div class="ml-6">
+                        <i class="fas fa-list mr-3"></i> <span>Listblock</span>
+                    </div>
                 </a>
             </li>
             </ul>
@@ -128,12 +116,16 @@
             <ul>
             <li>
                 <a href="/room">
-                <span>==> Add room</span>
+                    <div class="ml-6">
+                        <i class="fas fa-list mr-3"></i> <span>Add room</span>
+                    </div>
                 </a>
             </li>
             <li>
                 <a href="/listroom">
-                <span>==> Listroom</span>
+                    <div class="ml-6">
+                            <i class="fas fa-list mr-3"></i> <span>  Listroom</span>
+                    </div>
                 </a>
             </li>
             </ul>
@@ -147,13 +139,17 @@
             <ul>
             <li>
                 <a href="/bed">
-                <span>==> Add bed</span>
+                    <div class="ml-6">
+                        <i class="fas fa-list mr-3"></i> <span> Add bed</span>
+                    </div>
                 </a>
             </li>
             <li>
-                <a href="/listbed">
-                <span>==> Listbed</span>
-               
+             <a href="/listbed">
+                    <div class="ml-6">
+                        <i class="fas fa-list mr-3"></i> <span> Listbed</span>
+                    </div>
+            </a>
             </li>
             </ul>
         </li>
@@ -161,7 +157,7 @@
         <p class="menu-label"><strong>About</strong></p>
         <ul class="menu-list">
         <li>
-            <a href="https://justboil.me/tailwind-admin-templates" class="has-icon">
+             <a href="https://github.com/Naty-Tefera/Medic_emr_backup.git" class="has-icon">
             <span class="icon"><i class="mdi mdi-help-circle"></i></span>
             <span class="menu-item-label"><strong>About</strong></span>
             </a>

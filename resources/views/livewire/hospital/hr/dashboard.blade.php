@@ -1,13 +1,12 @@
- <span><h6><strong>Human Resource Hospital  Dashboard: </strong></h6></span>
-     
+
         <!-- card -->
-      <div class="grid gap-6 grid-cols-1 md:grid-cols-3 mb-6">
+      <div class="grid gap-6 grid-cols-1 md:grid-cols-3 mb-4">
       <div class="card">
         <div class="card-content">
-          <div class="flex items-center justify-between">
+          <div class="flex items-center p-6 bg-white rounded-lg shadow-xs dark:bg-gray-800">
             <div class="widget-label">
               <h3>
-                Outpatient Doctor
+                <strong>Outpatient Doctor</strong>
               </h3>
               <h1>
                 {{$opd_count}}
@@ -24,13 +23,13 @@
           <div class="flex items-center justify-between">
             <div class="widget-label">
               <h3>
-               Inpatient Doctor
+               <strong>Inpatient Doctor</strong>
               </h3>
               <h1>
                 {{$ipd_count}}
               </h1>
             </div>
-            <span class="icon widget-icon text-green-500"><i class="mdi mdi-account-multiple mdi-48px"></i></span>
+            <span class="icon widget-icon text-red-500"><i class="mdi mdi-account-multiple mdi-48px"></i></span>
           </div>
         </div>
       </div>
@@ -42,13 +41,13 @@
           <div class="flex items-center justify-between">
             <div class="widget-label">
               <h3>
-              Emergency Doctor
+              <strong>Emergency Doctor</strong>
               </h3>
               <h1>
                 {{$emergency_count}}
               </h1>
             </div>
-            <span class="icon widget-icon text-green-500"><i class="mdi mdi-account-multiple mdi-48px"></i></span>
+            <span class="icon widget-icon text-gray-500"><i class="mdi mdi-account-multiple mdi-48px"></i></span>
           </div>
         </div>
       </div>
@@ -59,13 +58,13 @@
           <div class="flex items-center justify-between">
             <div class="widget-label">
               <h3>
-                Total 
+              <strong>Total Doctors</strong>  
               </h3>
               <h1>
                 {{$total}}
               </h1>
             </div>
-            <span class="icon widget-icon text-green-500"><i class="mdi mdi-account-multiple mdi-48px"></i></span>
+            <span class="icon widget-icon text-blue-500"><i class="mdi mdi-account-multiple mdi-48px"></i></span>
           </div>
         </div>
       </div>
