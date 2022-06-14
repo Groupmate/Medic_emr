@@ -39,7 +39,7 @@
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="password" required autocomplete="current-password" wire:model.debounce.800ms="password" />
+                <x-jet-input id="password" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="passwordnt-password" wire:model.debounce.800ms="password" />
                 @error('password') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
         </div>
@@ -53,7 +53,7 @@
             <div class="mt-4">
                 <x-jet-label for="sex" value="{{ __('Sex') }}" />
                 <select class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" wire:model.debounce.800ms="sex" />
-                :value="old('sex')" required autofocus autocomplete="type">
+                :value="old('sex')" required>
                     <option disabled>---Select sex---</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -102,8 +102,13 @@
         <div  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
             <div class="mt-4">
                 <label>Shifts</label><br/>
-                <input type="checkbox" wire:model.debounce.800ms="shift" value="monday">Monday<br/>
-                <input type="checkbox" wire:model.debounce.800ms="shift" value="tuesday">Tuesday<br/>
+                <input type="checkbox" wire:model.debounce.800ms="shift" value="Monday">Monday<br/>
+                <input type="checkbox" wire:model.debounce.800ms="shift" value="Tuesday">Tuesday<br/>
+                <input type="checkbox" wire:model.debounce.800ms="shift" value="Wedneday">Wednesday<br/>
+                <input type="checkbox" wire:model.debounce.800ms="shift" value="Thurday">Thurday<br/>
+                <input type="checkbox" wire:model.debounce.800ms="shift" value="Friday">Friday<br/>
+                <input type="checkbox" wire:model.debounce.800ms="shift" value="Saturday">Saturday<br/>
+                <input type="checkbox" wire:model.debounce.800ms="shift" value="Sunday">Sunday<br/> 
             </div>
         </div>
 
