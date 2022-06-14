@@ -1,4 +1,8 @@
 <div class="p-6">
+          <div class="ml-2 p-4">
+                <input  type="search"  placeholder="Search..." class="shadow apperance none bounded  rounded bg-transparent focus:outline-none text-xs" wire:model="search" />  
+                
+            </div>
     <div class="border-b border-gray-400 shadow">
         <table class="table-auto">
             <thead class="bg-gray-50">
@@ -103,5 +107,5 @@
             </x-jet-secondary-button>
         </x-slot>
     </x-jet-dialog-modal>
-
+          
 </div>

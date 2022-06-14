@@ -36,6 +36,7 @@ class CreateManager extends Component
             'phone'  => $this->phone,
             'message' => 'Your password is '. $this->password,
         ]); 
+        session()->flash('message', 'regional manager created Successfully.');
         $this->reset();
     }
 

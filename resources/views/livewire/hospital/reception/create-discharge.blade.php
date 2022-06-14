@@ -17,13 +17,21 @@
     
 
                     <div class="mb-4">
+                        <form >
+                           <input  type="search"  placeholder="Search patient name" class="shadow apperance none bounded  rounded bg-transparent focus:outline-none text-xs" wire:model="search" />  
+                        </form>
+               
                    
                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
-                          <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                              <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="ward" value="{{ __('Department') }}"/>
-                              <x-jet-input id="ward" class="block mt-1 w-full" type="text" placeholder="ward" wire:model.debounce.800ms="ward"/> 
-                              @error('ward') <span class="error">{{$message}}</span>@enderror
-                          </div>
+                        <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                            <label for="patient">patient</label>
+                            <select name="patient" id="patient"class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" wire:model="patient_id">
+                                <option value="">select patient</option>
+                                @foreach($patients as $patient)
+                                <option value ="{{$patient->id}}">{{$patient->firstname}}{{$patient->lastname}}</option>
+                                @endforeach
+                            </select>
+                            </div>
                           <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                               <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="admission_charge" value="{{ __('Admission_Charge') }}"/>
                               <x-jet-input id="admission_charge" class="block mt-1 w-full" type="text" placeholder="admission_charge" wire:model.debounce.800ms="admission_charge"/> 
@@ -44,6 +52,12 @@
                   </div>
               
                   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
+                             
+                          <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                              <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="ward" value="{{ __('Department') }}"/>
+                              <x-jet-input id="ward" class="block mt-1 w-full" type="text" placeholder="ward" wire:model.debounce.800ms="ward"/> 
+                              @error('ward') <span class="error">{{$message}}</span>@enderror
+                          </div>
                           <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                           <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="status" value="{{ __('Status') }}"/>
                                                 <select  class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" id="status" wire:model.debounce.800ms="status">

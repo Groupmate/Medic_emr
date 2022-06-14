@@ -113,6 +113,7 @@ class CreateRegional extends Component
         $organization = Organization::create($this->modeldata());
         $user = User::where('id', $this->user_id)->first();
         $user->update(['organization_id' => $organization->id]);
+        session()->flash('message', 'Health Bureau registered Successfully.');
         $this->modelFormVisible= false;
         $this->reset();
     }

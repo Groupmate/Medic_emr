@@ -43,8 +43,9 @@
                     <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                         <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="status" value="{{ __('Status') }}"/>
                             <select  class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" id="status" wire:model.debounce.800ms="status">
-                                <option value="issued">issued</option>
-                                <option value="cancelled">cancelled</option>
+                                <option >---select status---</option>  
+                                <option value="waiting">waiting</option>
+                                <option value="taken">taken</option>
                             </select>
                         @error('status') <span class="error">{{$message}}</span>@enderror
                     </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Hospital\Doctor;
+namespace App\Http\Livewire\Hospital\Reception;
 
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -8,10 +8,12 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Bedassignment;
 use App\Models\Discharge;
 use App\Models\Bed;
+use App\Models\Patient;
 
 class CreateDischarge extends Component
-{
-    public $ward,$admission_charge,$date_in,$date_out,$status,$patient_id=1,$bed_id;
+{       
+    public $search='';
+    public $ward,$admission_charge,$date_in,$date_out,$status,$patient_id,$bed_id;
     public function create()
     {
     //    $this->validate();
@@ -40,7 +42,7 @@ class CreateDischarge extends Component
    }    
     public function render()
     {
-        
-        return view('livewire.hospital.doctor.create-discharge');
+        $patients = Patient::where('firstname','like','%'.$this->search.'%')->get();
+        return view('livewire.hospital.reception.create-discharge')->with('patients',$patients);
     }
 }

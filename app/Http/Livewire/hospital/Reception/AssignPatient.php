@@ -15,7 +15,7 @@ use App\Models\Patient_waiting_list;
 class AssignPatient extends Component
 {
     use WithPagination;
-
+    public $search='';
     public $patient_id, $user_id, $doctors = [], $users = [], $available_doctors, $patients,
     $hospital_a,$status;
     public $modelId;
@@ -88,10 +88,11 @@ class AssignPatient extends Component
     }
     public function render()
     {
-        $patients = Patient::all();
-
+        // $patients = Patient::all();
+        $patients=Patient::where('national_id','like','%'.$this->search.'%')->get();
+     
         return view('livewire.hospital.reception.assign-patient',[
-            $this->patients = Patient::all(),$this->users
+            $this->patients = Patient::where('national_id','like','%'.$this->search.'%')->get(),$this->users
         ]);
     }
 }

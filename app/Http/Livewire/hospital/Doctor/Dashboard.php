@@ -29,7 +29,7 @@ class Dashboard extends Component
         $endDate = Carbon::today()->addDays(7);
        
         $NoTodayAppointment = Appointment::where('visit_date', Carbon::now()->toDateString())
-                            ->where('status', 'active')->where('doctor_id', $doctor->id)->count();
+                            ->where('status', 'active')->where('user_id', $doctor->id)->count();
         $WeeklyAppointment = Appointment::leftJoin('patients', 'appointments.patient_id', '=', 'patients.id')
                             ->select('patients.firstname','patients.lastname','appointments.issue_date','appointments.visit_date')
                             ->whereBetween('appointments.visit_date', [$startDate, $endDate])

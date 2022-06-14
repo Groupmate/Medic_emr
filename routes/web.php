@@ -42,6 +42,7 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/bed', function () { return view('hospital.hr.bed');})->name('bed');
         Route::get('/bedassignment/{id}', function ($id) { return view('hospital.doctor.bedassignment', ['id' => $id]);})->name('bedassignment');
         Route::get('/incomingrefer', 'App\Http\Controllers\IncomingReferController@incomingRefer')->name('incoming-refer');
+        Route::get('/create-discharge', 'App\Http\Controllers\CreaeteDischargeController@discharge')->name('create-discharge');
         //Doctor
         Route::get('/appointments/{id}', function ($id) { return view('hospital.doctor.appointments', ['id' => $id]);})->name('appointments');
         Route::get('/assignedpatients', function () { return view('hospital.doctor.assignedpatients'); })->name('assignedpatients');
@@ -49,7 +50,6 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
        // Route::get('/calender', function () { return view('hospital.doctor.calender'); })->name('calender');
        
         Route::get('/prescribe-medicaldrug/{id}', function ($id) { return view('hospital.doctor.prescribe-medicaldrug', ['id' => $id]); })->name('prescribe-medicaldrug');
-        Route::get('/create-discharge/{id}', function ($id){ return view('hospital.doctor.create-discharge', ['id' => $id]); })->name('create-discharge');
         Route::get('/generatemedicaldata/{id} ', function ($id) { return view('hospital.doctor.generatemedicaldata', ['id' => $id]); })->name('generatemedicaldata');
         Route::get('/referpatient/{id}', function($id) { return view('hospital.doctor.refer-patient', ['id' => $id]); })->name('refer-patient');
         Route::get('/medcertificate/{id}', function($id) { return view('hospital.doctor.generatemedicalcertificate', ['id' => $id]); })->name('medical certificate');
@@ -60,7 +60,7 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/piechart', function () { return view('Statics.Piechart'); })->name('Hospital_piechart');
         Route::get('/Hpstatics', function () { return view('Statics.Hospitalstatics'); })->name('Hospital_Statics');
         //pharmacy
-        Route::get('/Pdashboard', function () { return view('hospital.pharmacy.dashboard'); })->name('dashboard');
+        Route::get('/Pdashboard', function () { return view('hospital.pharmacy.dashboard'); })->name('pharmacy_dashboard');
         Route::get('/medical-drug', function () { return view('hospital.pharmacy.add-medical-drug'); })->name('add-medical-drug');
         Route::get('/issue-drug', function () { return view('hospital.pharmacy.issue-drug'); })->name('issue-drug');
         Route::get('/Pprofile', function () { return view('hospital.pharmacy.profile'); })->name('pharmacyprofile');
