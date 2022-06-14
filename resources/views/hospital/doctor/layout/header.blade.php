@@ -165,7 +165,7 @@
                   <i class="far fa-briefcase-medical text-xl mr-2"></i>
                   Generate Medical data
                </a>
-               <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/generatemedicaldata/{{$id}}">
+               <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/viewpatienthistory/{{$id}}">
                 <i class="far fa-briefcase-medical text-xl mr-2"></i>
                 View Patient history
                </a>
@@ -180,7 +180,7 @@
                  <i class="far fa-ambulance text-xl mr-2"></i>
                   Refer Patient 
               </a>
-              <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
+              <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/requestexaminationtest/{{$id}}">
                   <i class="far fa-briefcase-medical text-xl mr-2"></i>
                   Request Examination Test
               </a>
@@ -190,6 +190,9 @@
               Perscribe Drug
               </a>            
               <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/medcertificate/{{$id}}">
+                Prescribe Drug
+              </a> 
+              <a href="/medcertificate" class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
                   <i class="far fa-file-certificate text-xl mr-2"></i>
               Generate Medical Certificate
               </a>

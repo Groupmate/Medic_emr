@@ -10,7 +10,20 @@
     </x-slot>
     <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
           <h1 class="text-gray-800 font-lg font-bold tracking-normal leading-tight mb-4 text-center">+Create Appointment For Patients </h1>
-                               
+                                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
+                                     
+                                
+                                        <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                                                <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="status" value="{{ __('Status') }}"/>
+                                                <select  class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" id="status" wire:model.debounce.800ms="status">
+                                                              <option value="confirmed">confirmed</option>
+                                                              <option value="pending">pending</option>
+                                                              <option value="cancelled">cancelled</option>
+                                              </select>
+                                            @error('status') <span class="error">{{$message}}</span>@enderror
+                                        </div>
+                            
+                                </div>
                               <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
                                     <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                                   

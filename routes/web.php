@@ -46,11 +46,11 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         //Doctor
         Route::get('/appointments/{id}', function ($id) { return view('hospital.doctor.appointments', ['id' => $id]);})->name('appointments');
         Route::get('/assignedpatients', function () { return view('hospital.doctor.assignedpatients'); })->name('assignedpatients');
-        Route::get('/todayappointments', function () { return view('hospital.doctor.today-appointment'); })->name('today-appointments');
-       // Route::get('/calender', function () { return view('hospital.doctor.calender'); })->name('calender');
-       
+        Route::get('/todayappointments', function () { return view('hospital.doctor.today-appointment'); })->name('today-appointments'); 
         Route::get('/prescribe-medicaldrug/{id}', function ($id) { return view('hospital.doctor.prescribe-medicaldrug', ['id' => $id]); })->name('prescribe-medicaldrug');
         Route::get('/generatemedicaldata/{id} ', function ($id) { return view('hospital.doctor.generatemedicaldata', ['id' => $id]); })->name('generatemedicaldata');
+        Route::get('/viewpatienthistory/{id} ', function ($id) { return view('hospital.doctor.viewpatienthistory', ['id' => $id]); })->name('viewpatienthistory');
+        Route::get('/requestexaminationtest/{id} ', function ($id) { return view('hospital.doctor.requestexaminationtest', ['id' => $id]); })->name('requestexaminationtest');
         Route::get('/referpatient/{id}', function($id) { return view('hospital.doctor.refer-patient', ['id' => $id]); })->name('refer-patient');
         Route::get('/medcertificate/{id}', function($id) { return view('hospital.doctor.generatemedicalcertificate', ['id' => $id]); })->name('medical certificate');
         //Statics 

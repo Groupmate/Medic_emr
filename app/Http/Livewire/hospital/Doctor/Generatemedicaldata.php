@@ -17,7 +17,6 @@ class Generatemedicaldata extends Component
     public function mount($id)
     {
         $this->patient_id = $id;  
-        $this->patient = Patient::where('id', $id)->first(); 
     } 
 
     public function saveRecord()
@@ -30,6 +29,7 @@ class Generatemedicaldata extends Component
 
     public function medicalDataModelData()
     {
+        $this->patient = Patient::where('id', $id)->first(); 
         return [
             'hospital_id'=>1,
             'symptom'=>$this->symptom,

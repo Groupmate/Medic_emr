@@ -21,6 +21,7 @@ class Appointments extends Component
     { 
        $this->patient_id = $id; 
     }
+    
     public function create()
     {
         $this->validate();

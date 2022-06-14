@@ -4,7 +4,7 @@
     <body>
         <div class="">
                 <div class="bg-gray-400 overflow-hidden sm:rounded-lg">
-                @livewire('hospital.doctor.appointments',['id' => $id])
+                @livewire('hospital.doctor.appointments', ['id' => $id])
                 </div>
         </div> 
     </body>
