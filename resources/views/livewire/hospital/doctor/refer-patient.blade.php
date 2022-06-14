@@ -25,7 +25,7 @@
                         @forelse ($hospitals as $hospital)
                             <option value= {{ $hospital->id }} > {{ $hospital->name }} </option>
                         @empty
-                            <option disabled>No Hospital to Refer to</option>
+                            <option disabled>---No Hospital to Refer to---</option>
                         @endforelse
                     </select>
                     @error('refered_to') <span class="error text-red-600">{{$message}}</span>@enderror
