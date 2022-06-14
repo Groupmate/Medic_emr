@@ -10,8 +10,12 @@ use App\Models\User;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Http;
+use GuzzleHttp\Client;
+
 class Appointments extends Component
-{ use WithPagination;
+{ 
+    use WithPagination;
 
     public  $patient_id, $issue_date, $visit_date,$descrpition, $status,$user_id; 
     public $modelFormVisible=false;
@@ -25,8 +29,15 @@ class Appointments extends Component
     public function create()
     {
         $this->validate();
-        //  dd($this->descrpition);
-        Appointment::create($this->modeldata());
+         
+        $appointment = Appointment::create($this->modeldata());
+        $http = new \GuzzleHttp\Client;
+
+        $response = Http::get('https://sms.hahucloud.com/api/send', [
+            'key' => '946b92a598b36e4ad6aff1e4550d96d922656da4',
+            'phone'  => $this->phone,
+            'message' => 'Your appointment is on'. $this->visit_date,
+        ]); 
         session()->flash('message', 'Appointment created Successfully.');
         $this->reset();
     }
@@ -63,10 +74,7 @@ class Appointments extends Component
             'patient_id'=>'required',
             'issue_date'=>'required',
             'visit_date'=>'required',
-            'status'=>'required',
-           
-           
-            
+            'status'=>'required', 
         ];
     }     
     public function deleteShowModel($id)

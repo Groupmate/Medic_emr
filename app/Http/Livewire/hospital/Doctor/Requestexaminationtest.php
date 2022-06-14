@@ -10,7 +10,9 @@ use App\Models\Doctor;
 use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Patient_waiting_list;
+use App\Models\Patient_waiting_list; 
+use Illuminate\Support\Facades\Http;
+use GuzzleHttp\Client;
 
 class Requestexaminationtest extends Component
 {
@@ -86,6 +88,15 @@ class Requestexaminationtest extends Component
         $this->validate();
         $psw = Patient_Waiting_List::create($this->modeldata()); 
         $this->modalFormVisible=false; 
+
+        $http = new \GuzzleHttp\Client;
+
+        $response = Http::get('https://sms.hahucloud.com/api/send', [
+            'key' => '946b92a598b36e4ad6aff1e4550d96d922656da4',
+            'phone'  => $this->phone,
+            'message' => 'Your queue no '. $psw->id,
+        ]); 
+
         session()->flash('message', 'The patient is assigned succesfully'); 
     } 
 

@@ -11,6 +11,8 @@ use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Patient_waiting_list;
+use Illuminate\Support\Facades\Http;
+use GuzzleHttp\Client;
 
 class AssignPatient extends Component
 {
@@ -68,9 +70,9 @@ class AssignPatient extends Component
         $this->patient_id=$this->modelId;
 
         $a = Auth()->user()->id;
-        
+ 
         $hospital_a = Employee::where('user_id', $a)->first();
-     
+         
         return[
             'user_id'=> $this->user_id,
             'status'=> "waiting",
@@ -83,7 +85,16 @@ class AssignPatient extends Component
     {
         $this->validate();
         $psw = Patient_Waiting_List::create($this->modeldata());
-        
+
+        $patient_phone = Patient::where('id', $this->patient_id)->first()->phone_no;
+ 
+        $http = new \GuzzleHttp\Client;
+
+        $response = Http::get('https://sms.hahucloud.com/api/send', [
+            'key' => '946b92a598b36e4ad6aff1e4550d96d922656da4',
+            'phone'  => $patient_phone,
+            'message' => 'Your queue no '. $psw->id,
+        ]); 
         $this->modalFormVisible=false;
     }
     public function render()
