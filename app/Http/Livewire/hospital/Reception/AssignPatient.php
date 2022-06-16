@@ -35,27 +35,33 @@ class AssignPatient extends Component
      */
     public function createShowModal($id)
     {
-        $this->modelId = $id;
+        if($this->users) {
+            $this->modalFormVisible=true;
+        }  
+        else{
+            $this->modelId = $id;
 
-        $doctor = Doctor::all();
-        foreach($doctor as $doctor)
-        {
-            $shift = $doctor->shift;
-            //dd($shift);
-            foreach($shift as $shift)
+            $doctor = Doctor::all();
+            foreach($doctor as $doctor)
             {
-                if($shift == date('l'))
+                $shift = $doctor->shift;
+                //dd($shift);
+                foreach($shift as $shift)
                 {
-                    $this->doctors[] = Doctor::where('id', $doctor->id)->pluck('user_id')->toArray();
+                    if($shift == date('l'))
+                    {
+                        $this->doctors[] = Doctor::where('id', $doctor->id)->first()->user_id;
+                    }
                 }
             }
-        }
-        foreach($this->doctors as $doctor)
-        {
-            $this->users[] = User::where('id', $doctor)->first();
-        }
+            foreach($this->doctors as $doctor)
+            {
+                $this->users[] = User::where('id', $doctor)->first();
+            }
 
-        $this->modalFormVisible=true;
+            $this->modalFormVisible=true;
+        }
+        
     }
 
     public function rules()
@@ -83,19 +89,32 @@ class AssignPatient extends Component
 
     public function create()
     {
-        $this->validate();
-        $psw = Patient_Waiting_List::create($this->modeldata());
+        
+        $pw = Patient_Waiting_List::where('patient_id', $this->modelId)->where('status', 'waiting')->first();
+        if($pw)
+        {
+            session()->flash('message', 'The patient is already assigned'); 
+            $this->modalFormVisible=false;
+            $this->reset();
+        }
+        else{
+            $this->validate();
+            $psw = Patient_Waiting_List::create($this->modeldata());
 
-        $patient_phone = Patient::where('id', $this->patient_id)->first()->phone_no;
- 
-        $http = new \GuzzleHttp\Client;
+            $patient_phone = Patient::where('id', $this->patient_id)->first()->phone_no;
+    
+            $http = new \GuzzleHttp\Client;
 
-        $response = Http::get('https://sms.hahucloud.com/api/send', [
-            'key' => '946b92a598b36e4ad6aff1e4550d96d922656da4',
-            'phone'  => $patient_phone,
-            'message' => 'Your queue no '. $psw->id,
-        ]); 
-        $this->modalFormVisible=false;
+            $response = Http::get('https://sms.hahucloud.com/api/send', [
+                'key' => '946b92a598b36e4ad6aff1e4550d96d922656da4',
+                'phone'  => $patient_phone,
+                'message' => 'Your queue no '. $psw->id,
+            ]); 
+            $this->modalFormVisible=false;
+            $this->reset();
+            session()->flash('message', 'The patient is assigned');
+        }
+        
     }
     public function render()
     {
@@ -103,7 +122,8 @@ class AssignPatient extends Component
         $patients=Patient::where('national_id','like','%'.$this->search.'%')->get();
      
         return view('livewire.hospital.reception.assign-patient',[
-            $this->patients = Patient::where('national_id','like','%'.$this->search.'%')->get(),$this->users
+            $this->patients = Patient::where('national_id','like','%'.$this->search.'%')->get(),
+            $this->users
         ]);
     }
 }

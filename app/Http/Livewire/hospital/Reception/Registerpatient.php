@@ -31,7 +31,7 @@ class Registerpatient extends Component
             'middle_name'=> 'required',
             'lastname'=> 'required',
             'email'=> 'required', 
-            'national_id'=> 'required',
+            'national_id'=> 'required|unique:patients',
             'phone_no'=> 'required',            
             'sex'=> 'required',
             'date_of_birth'=> 'required',

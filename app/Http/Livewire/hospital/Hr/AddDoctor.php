@@ -35,14 +35,14 @@ class AddDoctor extends Component
         $this->validate();
       
         $this->user_id = Auth()->user()->id;
-        $hospital_name = Hospital::where('user_id', $this->user_id)->first()->id;
+        $hospital_name = 15;
 
         $user = User::create($this->userModelData());
         $this->user_id = $user->id;
         $doctor = Doctor::create($this->doctorModelData()); 
         $doctor->hospitals()->sync($hospital_name);
-        session()->flash('message', 'Doctor registered Successfully.'); 
         $this->reset();
+        session()->flash('message', 'Doctor registered Successfully.'); 
     }
 
     /**
@@ -97,7 +97,7 @@ class AddDoctor extends Component
     {
         $ser_id = Auth()->user()->id;
         $hospitals = Hospital::where('user_id', $ser_id)->first();
-        $this->hospitals = $hospitals->id;
+        $this->hospitals = 15;
 
         return [
             'user_id'=>$this->user_id,

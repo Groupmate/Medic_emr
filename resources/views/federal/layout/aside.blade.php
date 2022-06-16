@@ -24,12 +24,6 @@
       <p class="menu-label">HOMES</p>
       <ul class="menu-list">
 
-        <li class="--set-active-profile-html">
-          <a  href="{{ url('/create_regionalbureau') }}">
-            <span class="icon"><i class="mdi mdi-account-circle"></i></span>
-            <span class="menu-item-label">Create Health Bureau</span>
-          </a>
-        </li>
         <li>
           <li class="--set-active-profile-html">
               <a  href="{{ url('/create_manager') }}">
@@ -37,7 +31,14 @@
                 <span class="menu-item-label">Create Managers</span>
               </a>
           </li>
-         <li>
+        <li>
+        <li class="--set-active-profile-html">
+          <a  href="{{ url('/create_regionalbureau') }}">
+            <span class="icon"><i class="mdi mdi-account-circle"></i></span>
+            <span class="menu-item-label">Create Health Bureau</span>
+          </a>
+        </li>
+        
           <li>
       </ul>
       <p class="menu-label">About</p>
@@ -104,9 +105,11 @@
        <a class="navbar-item">
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                   aria-labelledby="userDropdown">
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small"> {{ Auth::user()->firstname }} {{ Auth::user()->lastname }} </span>
                   <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                       <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                      
                       {{ __('Logout') }}
                   </a>
 

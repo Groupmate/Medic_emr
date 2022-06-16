@@ -1,8 +1,16 @@
 <div class="p-6">
-          <div class="ml-2 p-4">
-                <input  type="search"  placeholder="Search..." class="shadow apperance none bounded  rounded bg-transparent focus:outline-none text-xs" wire:model="search" />  
-                
+    @if (session()->has('message'))
+        <div class=" flex bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
+            <div class="flex">
+                <div>
+                    <p class="text-sm border-teal-500 rounded-b text-teal-900">{{ session('message') }}</p>
+                </div>
             </div>
+        </div>
+    @endif
+        <div class="ml-2 p-4">
+            <input  type="search"  placeholder="Search..." class="shadow apperance none bounded  rounded bg-transparent focus:outline-none text-xs" wire:model="search" />   
+        </div>
     <div class="border-b border-gray-400 shadow">
         <table class="table-auto">
             <thead class="bg-gray-50">
@@ -91,7 +99,7 @@
                 <select class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="user_id">
                     <option diabled>---Select Doctor---</option>
                     @foreach ($users as $users)
-                        <option value="{{ $users['id'] }}">{{ $users['firstname'] }}</option>
+                        <option value="{{ $users['id'] }}">{{ $users['firstname'] }} {{ $users['lastname'] }}</option>
                     @endforeach
                 </select>
                 @error('user_id') <span class="error text-red-600">{{$message}}</span>@enderror

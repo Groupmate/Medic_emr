@@ -41,6 +41,9 @@
                                             </td>
                                         </tr>  
                                     @empty
+                                    <td class="text-lg border border-l-0 px-4 py-2 px-6 py-4 whitespace-nowrap">
+                                        no appointed patient
+                                    </td>
                                     @endforelse 
                                 </tbody>
                             </table>
@@ -82,8 +85,11 @@
                                                 </button>
                                             </td>
                                         </tr>  
-                                    @empty
-                                    @endforelse 
+                                        @empty
+                                        <td class="text-lg border border-l-0 px-4 py-2 px-6 py-4 whitespace-nowrap">
+                                            no assigned patient
+                                        </td>
+                                        @endforelse  
                                 </tbody>
                             </table>
                         </div>

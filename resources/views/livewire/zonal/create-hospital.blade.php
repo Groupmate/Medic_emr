@@ -27,7 +27,7 @@
                     @forelse ($users as $user)
                         <option value={{ $user->id }}>{{ $user->firstname }} {{ $user->lastname }}</option>
                     @empty
-                        <option disabled>No Manager</option>
+                        <option disabled>oooo</option>
                     @endforelse
                 </select>
                 @error('user_id') <span class="error text-red-600">{{$message}}</span>@enderror
@@ -43,9 +43,25 @@
             </div>
             <div class="mt-4">
                 <x-jet-label for="region" value="{{ __('Region') }}" />
-                <x-jet-input id="region" class="block mt-1 w-full" type="text" wire:model.debounce.800ms="region" />
+                <select name="region" class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="region" />
+                :value="old('region')" required autofocus autocomplete="region">
+                    <option selected>---Select Regional Bureau Name---</option>
+                    <option value="Oromia Regional">Oromia Regional</option>
+                    <option value="Amhara Regional ">Amhara Regional</option>
+                    <option value="Tigray Regional">Tigray Regional</option>
+                    <option value="Afar Regional">Afar Regional</option>
+                    <option value="Benishangul Gumuz Regional">Benishangul Gumuz Regional</option>
+                    <option value="Somali Regional">Somali Regional</option>
+                    <option value="Harari Regional">Harari Regional</option>
+                    <option value="SNNP Regional">SNNP Regional</option>
+                    <option value="SWNNP Regional">SWNNP Regional</option>
+                    <option value="Gambela Regional">Gambela Regional</option>
+                    <option value="Sidama Regional">Sidama Regional</option>
+                    <option value="Addis Ababa">Addis Ababa</option> 
+                    <option value="Dire Dawa">Dire dawa</option> 
+                </select>
                 @error('region') <span class="error text-red-600">{{$message}}</span>@enderror
-            </div>
+            </div> 
             <div class="mt-4">
                 <x-jet-label for="zone" value="{{ __('Zone') }}" />
                 <x-jet-input id="zone" class="block mt-1 w-full" type="text" wire:model.debounce.800ms="zone" />
@@ -89,8 +105,7 @@
     <table class="min-w-full leading-normal">
         <thead class="text-purple-500">
             <tr >
-                <th  class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">Name center</th>
-                <th  class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">manager</th>
+                <th  class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">Name center</th> 
                 <th  class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">type</th>
                 <th   class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">region</th>
                 <th   class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">city</th>
@@ -100,9 +115,8 @@
         </thead>
         <tbody>
             @forelse($hospitals as $hospitals)
-                <tr>
-                    <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$hospitals->name}}</td>
-                    <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$hospitals->user_id}}</td>
+                <tr> 
+                    <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$hospitals->name}}</td> 
                  
                         <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{$hospitals->type}}</td>
                  

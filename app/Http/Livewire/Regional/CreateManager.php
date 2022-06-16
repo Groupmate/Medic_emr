@@ -26,7 +26,7 @@ class CreateManager extends Component
        
         $comb = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         $shfl = str_shuffle($comb);
-        $this->password = substr($shfl,0,8);
+        $this->password = "password";
         User::create($this->modeldata());  
         $http = new \GuzzleHttp\Client;
 
@@ -46,10 +46,10 @@ class CreateManager extends Component
             'lastname'=>'required',
             'email'=>'required',
             'organization_id'=>'',
-            'phone'=>'required',
+            'phone'=>'required|size:13',
             'address'=>'required',
             'sex'=>'required',
-            'date_of_birth'=>'required',
+            'date_of_birth'=>'required|before:today'
         ];
     }
 

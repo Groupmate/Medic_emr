@@ -47,12 +47,25 @@ class ReferPatient extends Component
         ];
     }
 
-    public function refer(){
-        $this->validate(); 
-        $refer = Referal::create($this->modelData());
-        session()->flash('message', 'Successfully Refered the Patient!'); 
-        $this->modelFormVisible = false;
-        $this->reset();
+    public function refer()
+    {
+        $this->validate();
+        $pw = Referal::where('patient_id', $this->patient_id)->where('status', 'waiting')->get();
+        if($pw)
+        { 
+            $this->modalFormVisible=false;
+            session()->flash('message', 'The Patient is already refered!'); 
+        }
+        else
+        {
+            $this->validate();
+         
+            $refer = Referal::create($this->modelData());
+            session()->flash('message', 'Successfully Refered the Patient!'); 
+            $this->modelFormVisible = false;
+            $this->reset();
+            } 
+             
     }
 
     public function render()

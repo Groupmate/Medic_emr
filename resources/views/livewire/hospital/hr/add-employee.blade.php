@@ -39,7 +39,7 @@
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="passwordnt-password" wire:model.debounce.800ms="password" />
+                <x-jet-input id="password" type="password" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="password" wire:model.debounce.800ms="password" />
                 @error('password') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
         </div>
@@ -51,12 +51,12 @@
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="sex" value="{{ __('Sex') }}" />
-                <select class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" wire:model.debounce.800ms="sex" />
-                :value="old('sex')" required>
-                    <option disabled>---Select sex---</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
+                <x-jet-label for="sex" value="{{ __('sex') }}" />
+                <select class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    wire:model.debounce.800ms="sex" />
+                    <option>---Select sex---</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option> 
                 </select>
                 @error('sex') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
@@ -68,7 +68,6 @@
                     wire:model.debounce.800ms="role" />
                     <option>---Select role---</option>
                     <option value="5">Receptionist</option>
-                    <option value="6">Doctor</option>
                     <option value="7">Pharmacy</option>
                     <option value="8">Laboratory</option>
                 </select>

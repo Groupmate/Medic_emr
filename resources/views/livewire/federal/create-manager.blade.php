@@ -37,7 +37,7 @@
                 <option>---Select Role---</option>
                 <option value="2">Regional Admin</option>
                 <option value="2">City Adminstration Admin</option>
-                <option value="2">Speciality Clinic</option>
+                <option value="4">Speciality Clinic</option>
             </select>
         </div>
 
@@ -67,16 +67,8 @@
             <x-jet-label for="email" value="{{ __('Email') }}" />
             <x-jet-input id="email" class="block mt-1 w-full" type="email" wire:model.defer="email" :value="old('email')" required />
             @error('email') <span class="error">{{$message}}</span>@enderror
-        </div>
-
-        {{-- <div class="mt-4">
-            <x-jet-label for="profile_pic" value="{{ __('Profile_picture') }}" />
-            <x-jet-input id="profile_pic" class="block mt-1 w-full" type="file" wire:model.defer="profile_pic" :value="old('profile_pic')" autofocus />
-            @error('profile_pic') <span class="error">{{$message}}</span>@enderror
-        </div> --}}
-
-      
-
+        </div>  
+        
         <div class="flex items-center justify-end mt-4">
             <x-jet-button class="ml-4"  wire:click="create()" wire:loading.attr="disabled">
                 Submit

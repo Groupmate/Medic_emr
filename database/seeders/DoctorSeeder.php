@@ -18,7 +18,7 @@ class DoctorSeeder extends Seeder
         //
         $faker = \Faker\Factory::create();
 
-        for ($loop = 0; $loop < 10; $loop++) {
+        for ($loop = 0; $loop < 50; $loop++) {
 
             DB::table("doctors")->insert([
                 "user_id"=>$faker->numberBetween(1,10),

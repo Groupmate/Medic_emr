@@ -20,8 +20,8 @@ class Medical_dataSeeder extends Seeder
         for ($loop = 0; $loop < 150; $loop++) {
 
             DB::table("medical_datas")->insert([
-                "hospital_id"=>$faker->numberBetween(1,150),
-                "patient_id"=>$faker->numberBetween(1,150),
+                "hospital_id"=>$faker->numberBetween(1,50),
+                "patient_id"=>$faker->numberBetween(1,50),
                 "user_id"=>$faker->numberBetween(1,10),
                 "symptom"=>$faker->randomElement(['["Anthrax"]','["Influenza"]'  ,'["Cholera"]', '["Heatitis-B(HBV)"]', '["Malari"]']),
                 "diagnosis_info"=>$faker->randomElement(['["Anthrax"]','["Influenza"]'  ,'["Cholera"]', '["Heatitis-B(HBV)"]', '["Malari"]']),

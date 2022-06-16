@@ -17,29 +17,40 @@ class Appointments extends Component
 { 
     use WithPagination;
 
-    public  $patient_id, $issue_date, $visit_date,$descrpition, $status,$user_id; 
+    public  $patient_id, $issue_date, $visit_date,$descrpition, $phone, $status,$user_id; 
     public $modelFormVisible=false;
     public $modalConfirmDeleteVisible=false;
     public $modelId;
     public function mount($id)
     { 
-       $this->patient_id = $id; 
+       $this->patient_id = $id;
     }
     
     public function create()
     {
         $this->validate();
+        $pw = Appointment::where('patient_id', $this->modelId)->where('status', 'waiting')->get();
+        if($pw)
+        {
+            session()->flash('message', 'The patient is appointed already'); 
+            $this->modalFormVisible=false;
+        }
+        else{
+            $this->validate();
          
-        $appointment = Appointment::create($this->modeldata());
-        $http = new \GuzzleHttp\Client;
-
-        $response = Http::get('https://sms.hahucloud.com/api/send', [
-            'key' => '946b92a598b36e4ad6aff1e4550d96d922656da4',
-            'phone'  => $this->phone,
-            'message' => 'Your appointment is on'. $this->visit_date,
-        ]); 
-        session()->flash('message', 'Appointment created Successfully.');
-        $this->reset();
+            $appointment = Appointment::create($this->modeldata());
+            $http = new \GuzzleHttp\Client;
+            
+            $this->phone = Patient::select('phone_no')->where('id', $this->patient_id)->first();
+            $response = Http::get('https://sms.hahucloud.com/api/send', [
+                'key' => '946b92a598b36e4ad6aff1e4550d96d922656da4',
+                'phone'  => $this->phone,
+                'message' => 'Your appointment is on'. $this->visit_date,
+            ]); 
+            session()->flash('message', 'Appointment created Successfully.');
+            $this->reset();
+        }
+        
     }
    
     /**
@@ -50,9 +61,7 @@ class Appointments extends Component
     public function modelData()
     {
         $this->user_id = Auth()->user()->id;
-        
-        //  dd($this->user_id);
-       
+         
         return [
             'user_id'=>$this->user_id,
             'patient_id'=>$this->patient_id,
@@ -73,7 +82,7 @@ class Appointments extends Component
            
             'patient_id'=>'required',
             'issue_date'=>'required',
-            'visit_date'=>'required',
+            'visit_date'=>'required|after:'.date('Y-m-d'),
             'status'=>'required', 
         ];
     }     

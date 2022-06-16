@@ -25,7 +25,7 @@ class Assignedpatients extends Component
         }  
         $this->todayAppointment =  Appointment::leftJoin('patients', 'appointments.patient_id', '=', 'patients.id')
                             ->select('appointments.patient_id','patients.firstname', 'patients.lastname','appointments.visit_date')
-                            ->where('appointments.status', 'Pending')
+                            ->where('appointments.status', 'waiting')
                             ->whereDate('visit_date', Carbon::today()) 
                             ->orderBy('appointments.visit_date', 'desc')
                             ->take(10)->get();
@@ -35,7 +35,7 @@ class Assignedpatients extends Component
     { 
         $patient_waiting = Patient_Waiting_List::where('patient_id', $id)->first();
         $patient_waiting->status = "examined";
-        //dd($patient_waiting->status); 
+        $patient_waiting->save(); 
          
         return redirect()->route('generatemedicaldata', $id);
     }
@@ -44,7 +44,7 @@ class Assignedpatients extends Component
     { 
         $appointment = Appointment::where('patient_id', $id)->first();
         $appointment->status = "examined";
-        //dd($patient_waiting->status); 
+        $appointment->save(); 
          
         return redirect()->route('generatemedicaldata', $id);
     }

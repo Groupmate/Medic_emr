@@ -112,7 +112,7 @@ class CreateHospital extends Component
         $this->validate();
         $hospital = Hospital::create($this->modeldata());
         $user = User::where('id', $this->user_id)->first();
-        $user->update(['organization_id' => 10]);
+        //$user->update(['organization_id' => 10]);
         $this->modelFormVisible= false;
 
         $this->reset();
@@ -191,7 +191,7 @@ class CreateHospital extends Component
         $hospital = Hospital::latest()->paginate(5);
         //$manager = User::where('id', $this->user_id)->first();
         return view('livewire.zonal.create-hospital', [ 'hospitals'=>$this->read(),
-            $this->hospitals = Hospital::where('type' , [1])->get(),
+            $this->hospitals = Hospital::where('type' , 'hospital')->get(),
             $this->users = User::where('organization_id', '=', 5)->where('role', '=', 4)->get(),
         ]);
     }

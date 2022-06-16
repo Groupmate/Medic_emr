@@ -21,10 +21,25 @@
 
         <x-slot name="content">
             <div class="mt-4">
-                <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" wire:model.debounce.800ms="name" />
+                <select name="name" class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="name" />
+                    :value="old('name')" required autofocus autocomplete="name">
+                    <option selected >---Select Regional Bureau Name---</option>
+                    <option value="Regional Health bureau">Oromia Regional Health bureau</option>
+                    <option value="Regional Health bureau">Amhara Regional Health bureau</option>
+                    <option value="Tigray Regional Health bureau">Tigray Regional Health bureau</option>
+                    <option value="Afar Regional Health bureau">Afar Regional Health bureau</option>
+                    <option value="Benishangul Gumuz Regional Health bureau">Benishangul Gumuz Regional Health bureau</option>
+                    <option value="Somali Regional Health bureau">Somali Regional Health bureau</option>
+                    <option value="Harari Regional Health bureau">Harari Regional Health bureau</option>
+                    <option value="SNNP Regional Health bureau">SNNP Regional Health bureau</option>
+                    <option value="SWNNP Regional Health bureau">SWNNP Regional Health bureau</option>
+                    <option value="Gambela Regional Health bureau">Gambela Regional Health bureau</option>
+                    <option value="Sidama Regional Health bureau">Sidama Regional Health bureau</option>
+                    <option value="Addis Ababa City Adminstration">Addis Ababa City Adminstration</option> 
+                    <option value="Dire City Adminstration">Dire City Adminstration</option> 
+                </select>
                 @error('name') <span class="error text-red-600">{{$message}}</span>@enderror
-            </div>
+            </div>    
             <div class="mt-4">
                 <x-jet-label for="manager" value="{{ __('Manager') }}" />
                 <select class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="user_id" />
@@ -41,9 +56,8 @@
 
             <div class="mt-4">
                 <x-jet-label for="type" value="{{ __('Type') }}" />
-                <select name="type" class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="type" />
-                :value="old('type')" required autofocus autocomplete="type">
-                    <option selected disabled>---Select Type---</option>
+                <select name="type" class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="type" >
+                    <option selected>---Select Type---</option>
                     <option value="1">Regional Health bureau</option>
                     <option value="2">City Adminstration</option>
                     <option value="3">Speciality Clinics</option>
@@ -52,9 +66,25 @@
             </div>
             <div class="mt-4">
                 <x-jet-label for="region" value="{{ __('Region') }}" />
-                <x-jet-input id="region" class="block mt-1 w-full" type="text" name="region" wire:model.debounce.800ms="region" />
+                <select name="region" class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="region" />
+                :value="old('region')" required autofocus autocomplete="region">
+                    <option selected>---Select Regional Bureau Name---</option>
+                    <option value="Oromia Regional">Oromia Regional</option>
+                    <option value="Amhara Regional ">Amhara Regional</option>
+                    <option value="Tigray Regional">Tigray Regional</option>
+                    <option value="Afar Regional">Afar Regional</option>
+                    <option value="Benishangul Gumuz Regional">Benishangul Gumuz Regional</option>
+                    <option value="Somali Regional">Somali Regional</option>
+                    <option value="Harari Regional">Harari Regional</option>
+                    <option value="SNNP Regional">SNNP Regional</option>
+                    <option value="SWNNP Regional">SWNNP Regional</option>
+                    <option value="Gambela Regional">Gambela Regional</option>
+                    <option value="Sidama Regional">Sidama Regional</option>
+                    <option value="Addis Ababa">Addis Ababa</option> 
+                    <option value="Dire Dawa">Dire dawa</option> 
+                </select>
                 @error('region') <span class="error text-red-600">{{$message}}</span>@enderror
-            </div>
+            </div>    
             <div class="mt-4">
                 <x-jet-label for="zone" value="{{ __('Zone') }}" />
                 <x-jet-input id="zone" class="block mt-1 w-full" type="text" name="zone" wire:model.debounce.800ms="zone" />

@@ -1,30 +1,24 @@
 
 
 <div class="mt-10 sm:mt-0">
-     
+  @if (session()->has('message'))
+  <div class="flex bg-red-900 border-t-4 border-red-500 rounded-b text-red-900 px-4 py-9 shadow-md my-3" role="alert">
+      <div class="flex">
+          <div>
+              <p class="text-sm border-red-500 rounded-b text-red-900">{{ session('message') }}</p>
+          </div>
+      </div>
+  </div>
+@endif  
      <!-- component -->
  <div class="p-6">
 
     <x-slot name="logo">
         <x-jet-authentication-card-logo />
     </x-slot>
-    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
+    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col p-5 my-2">
           <h1 class="text-gray-800 font-lg font-bold tracking-normal leading-tight mb-4 text-center">+Create Appointment For Patients </h1>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
-                                     
-                                
-                                        <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                                                <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="status" value="{{ __('Status') }}"/>
-                                                <select  class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" id="status" wire:model.debounce.800ms="status">
-                                                              <option value="confirmed">confirmed</option>
-                                                              <option value="pending">pending</option>
-                                                              <option value="cancelled">cancelled</option>
-                                              </select>
-                                            @error('status') <span class="error">{{$message}}</span>@enderror
-                                        </div>
-                            
-                                </div>
-                              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
                                     <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                                   
                                           <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="issue_date" value="{{ __('Issue-Date') }}"/>
@@ -61,22 +55,14 @@
                             </div>
                      </div>
       
-  @if (session()->has('message'))
-      <div class=" flex bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
-          <div class="flex">
-              <div>
-                  <p class="text-sm border-teal-500 rounded-b text-teal-900">{{ session('message') }}</p>
-              </div>
-          </div>
-      </div>
-  @endif
+  
  
 
                          
         
             
       
- <div class="flex flex-col">
+ {{-- <div class="flex flex-col">
   <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
     <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
       <div class="overflow-hidden">
@@ -270,4 +256,4 @@
 
         
 </div>
-</div>
+</div> --}}
