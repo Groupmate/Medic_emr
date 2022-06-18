@@ -1,4 +1,19 @@
-
+<div> 
+    <nav id="navbar-main" class="navbar is-fixed-top">
+      <div class="navbar-brand">
+        <a class="navbar-item mobile-aside-button">
+          <span class="icon"><i class="mdi mdi-forwardburger mdi-24px"></i></span>
+        </a>
+        <div class="navbar-item">
+          <section class="is-hero-bar">
+        <div class="flex flex-col md:flex-row items-center justify-between ">
+          <h4 >
+            <span class="widget-label "><h4><strong>{{ $hospital_name }} Human Resource Hospital  Dashboard </strong></h4></span>
+       
+          </h4>
+  
+        </div> 
+      </nav>
         <!-- card -->
       <div class="grid gap-6 grid-cols-1 md:grid-cols-3 mb-4">
       <div class="card">

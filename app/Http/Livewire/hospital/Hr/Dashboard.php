@@ -5,6 +5,8 @@ namespace App\Http\Livewire\Hospital\Hr;
 use Livewire\Component;
 use App\Models\Doctor;
 use App\Models\Patient;
+use App\Models\Hospital;
+use Illuminate\Support\Facades\Auth;
 
 class Dashboard extends Component
 {
@@ -21,10 +23,11 @@ class Dashboard extends Component
         $skel_count = Doctor::where('speciality','Skeleton')->get()->count();
         $nerve_count = Doctor::where('speciality','Nerve')->get()->count();
        
-        
+        $user_id = Auth()->user()->id;
+        $hospital_name = Hospital::where('user_id', $user_id)->first()->name;
 
 
-       return view("livewire.hospital.hr.dashboard",compact('opd_count','ipd_count','total',
+       return view("livewire.hospital.hr.dashboard",compact('opd_count','ipd_count','total','hospital_name',
        'emergency_count','rad_count','gdoc_count','eye_count','mind_count','skel_count','nerve_count'), [
          
         "terms" => json_encode(array(
