@@ -115,7 +115,7 @@ class AddEmployee extends Component
             'profile_pic'=>'required',
             'role'=>'required',
             'sex'=>'required',
-            'phone'=>'required',
+            'phone'=>'required|size:13',
             'shift'=>'required',
             'department'=>'required',
             'address'=>'required',

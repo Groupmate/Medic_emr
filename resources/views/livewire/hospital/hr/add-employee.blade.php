@@ -108,6 +108,7 @@
                 <input type="checkbox" wire:model.debounce.800ms="shift" value="Friday">Friday<br/>
                 <input type="checkbox" wire:model.debounce.800ms="shift" value="Saturday">Saturday<br/>
                 <input type="checkbox" wire:model.debounce.800ms="shift" value="Sunday">Sunday<br/> 
+                @error('shift') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
         </div>
 

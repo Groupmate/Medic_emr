@@ -8,7 +8,6 @@
                 </div>
          </div>
     @endif
-
     <form wire:submit.prevent="createPatient" class="w-full" >
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             <div>
@@ -16,19 +15,16 @@
                 <x-jet-input id="firstname" class="appearance-none block w-full bg-gray-200 text-gray-500 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" wire:model.debounce.800ms="firstname" />
                 @error('firstname') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
-
             <div>
                 <x-jet-label for="middle_name" value="{{ __('Middle-Name') }}" />
                 <x-jet-input id="middle_name" class="appearance-none block w-full bg-gray-200 text-gray-500 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text"  wire:model.debounce.800ms="middle_name" />
                 @error('middle_name') <span class="error text-red-600">{{ $message }}</span>@enderror
             </div>
-
             <div>
                 <x-jet-label for="lastname" value="{{ __('Last-Name') }}" />
                 <x-jet-input id="lastname" class="appearance-none block w-full bg-gray-200 text-gray-500 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" wire:model.debounce.800ms="lastname" />
                 @error('lastname') <span class="error text-red-600">{{ $message }}</span>@enderror
             </div>
-
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
             <div class="mt-4">
@@ -36,7 +32,6 @@
                 <x-jet-input id="email" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="email" wire:model.debounce.800ms="email"/>
                 @error('email') <span class="error text-red-600">{{ $message }}</span>@enderror
             </div>
-
             <div class="mt-4">
                 <x-jet-label for="national_id" value="{{ __('National_id') }}" />
                 <x-jet-input id="national_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" wire:model.debounce.800ms="national_id" />
@@ -49,14 +44,12 @@
                 <x-jet-input id="phone_no" class="appearance-none block w-full bg-gray-200 text-gray-500 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" wire:model.debounce.800ms="phone_no" />
                 @error('phone_no') <span class="error text-red-600">{{ $message }}</span>@enderror
             </div>
-
             <div class="mt-4">
                 <x-jet-label  value="{{ __('Sex') }}" />
                 <select class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" wire:model.debounce.800ms="sex" >
                     <option>---Select sex---</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
-
                 </select>
                 @error('sex') <span class="error text-red-600">{{ $message }}</span>@enderror
             </div>
@@ -67,7 +60,6 @@
                 <x-jet-input id="profile_picture" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="file" wire:model.debounce.800ms="profile_picture"/>
                 @error('profile_picture') <span class="error text-red-600">{{ $message }}</span>@enderror
             </div>
-
             <div class="mt-4">
                 <x-jet-label for="date_of_birth" value="{{ __('Birth-Date') }}" />
                 <x-jet-input id="date_of_birth" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="date" wire:model.debounce.800ms="date_of_birth" />
@@ -97,14 +89,12 @@
                 <x-jet-input id="woreda" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" wire:model.debounce.800ms="woreda" />
                 @error('woreda') <span class="error text-red-600">{{ $message }}</span>@enderror
             </div>
-
             <div class="mt-4">
                 <x-jet-label for="kebele" value="{{ __('Kebele') }}" />
                 <x-jet-input id="kebele" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" wire:model.debounce.800ms="kebele" />
                 @error('kebele') <span class="error text-red-600">{{ $message }}</span>@enderror
             </div>
         </div>
-
         <button class="flex items-center justify-end mt-4" type="submit">
             <x-jet-button class="ml-4">
                 Submit

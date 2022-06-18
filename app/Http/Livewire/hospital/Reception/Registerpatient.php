@@ -19,7 +19,8 @@ class Registerpatient extends Component
     public function createPatient()
     {   
         $this->validate();         
-        Patient::create($this->modeldata()); 
+        Patient::create($this->modeldata());
+        session()->flash('message', 'Succesfully Registered the patient!'); 
         $this->profile_picture->store('patient/images', 'public');
         $this->reset();
     }
@@ -32,7 +33,7 @@ class Registerpatient extends Component
             'lastname'=> 'required',
             'email'=> 'required', 
             'national_id'=> 'required|unique:patients',
-            'phone_no'=> 'required',            
+            'phone_no'=> 'required|size:13',            
             'sex'=> 'required',
             'date_of_birth'=> 'required',
             'profile_picture'=>  'required', 
@@ -70,6 +71,6 @@ class Registerpatient extends Component
     }
     public function render()
     {
-        return view('livewire.hospital.reception.registerpatient' , );
+        return view('livewire.hospital.reception.registerpatient');
     }
 }

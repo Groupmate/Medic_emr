@@ -115,7 +115,18 @@ class AddDoctor extends Component
     public function rules()
     {
         return [
-            'firstname' => 'required', 
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'address' => 'required',
+            'sex' => 'required',
+            'speciality' => 'required',
+            'department' => 'required',
+            'phone' => 'required|size:13',
+            'date_of_birth' => 'required|before:today',
+            'profile_pic' => 'required',
+            'shift' => 'required', 
         ];
     }
     /**
