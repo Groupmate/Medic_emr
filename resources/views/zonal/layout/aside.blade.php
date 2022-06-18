@@ -14,7 +14,7 @@
       <p class="menu-label">General</p>
       <ul class="menu-list">
         <li class="--set-active-index-html">
-          <a href="#">
+          <a href="{{url('/dashboard')}}">
             <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
             <span class="menu-item-label">Dashboard</span>
           </a>
@@ -22,17 +22,16 @@
       </ul>
       <p class="menu-label">HOMES</p>
       <ul class="menu-list">
-
-        <li class="--set-active-profile-html">
-          <a  href="{{ url('/create_hospital') }}">
+      <li class="--set-active-profile-html">
+          <a  href="{{ url('/create_hospitalmanager') }}">
             <span class="icon"><i class="mdi mdi-account-circle"></i></span>
-            <span class="menu-item-label">Register Health Organ</span>
+            <span class="menu-item-label">Create Hospital Managers</span>
           </a>
         </li>
         <li class="--set-active-profile-html">
-          <a  href="{{ url('/create_hospitalmanager') }}">
+          <a  href="{{ url('/create_hospital') }}">
             <span class="icon"><i class="mdi mdi-account-circle"></i></span>
-            <span class="menu-item-label">Create Managers</span>
+            <span class="menu-item-label">Register Hospitals in your Zone</span>
           </a>
         </li>
         <li>
@@ -80,7 +79,7 @@
         <section class="is-hero-bar">
       <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
         <h2 class="title">
-          <strong>List of Hospitals</strong>
+          <strong>Zonal Health Bureau Information Goes Here</strong>
         </h2>
 
       </div>

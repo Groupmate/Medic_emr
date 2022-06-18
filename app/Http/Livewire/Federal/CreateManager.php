@@ -7,11 +7,13 @@ use Illuminate\Validation\Rule;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use GuzzleHttp\Client;
 
 class CreateManager extends Component
 {
+    use WithPagination;
     public $firstname, $lastname, $email, $organization_id, $phone, $address, $sex, $date_of_birth,
     $password, $role;
     public $modelId;
@@ -24,19 +26,19 @@ class CreateManager extends Component
     public function create()
     {
         $this->validate();
-        $comb = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        $shfl = str_shuffle($comb);
+        // $comb = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        // $shfl = str_shuffle($comb);
         $this->password = "password"; 
         
-        User::create($this->modeldata()); 
-        $http = new \GuzzleHttp\Client;
+        $regionalManager = User::create($this->modeldata()); 
+        // $http = new \GuzzleHttp\Client;
 
-        $response = Http::get('https://sms.hahucloud.com/api/send', [
-            'key' => '946b92a598b36e4ad6aff1e4550d96d922656da4',
-            'phone'  => $this->phone,
-            'message' => 'Your password is '. $this->password,
-        ]); 
-        session()->flash('message', 'regional manager created Successfully.');
+        // $response = Http::get('https://sms.hahucloud.com/api/send', [
+        //     'key' => '946b92a598b36e4ad6aff1e4550d96d922656da4',
+        //     'phone'  => $this->phone,
+        //     'message' => 'Your password is '. $this->password,
+        // ]); 
+        session()->flash('message', 'regional manager created Successfully. By deafualt your password = password');
         $this->reset();
     }
 
@@ -51,6 +53,7 @@ class CreateManager extends Component
             'address'=>'required',
             'sex'=>'required',
             'date_of_birth'=>'required|before:today',
+            'role'=>'required'
         ];
     }
 

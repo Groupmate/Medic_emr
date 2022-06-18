@@ -8,6 +8,8 @@ use Livewire\WithPagination;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use GuzzleHttp\Client;
 
 class CreateManager extends Component
@@ -24,17 +26,18 @@ class CreateManager extends Component
     {
         $this->validate();
        
-        $comb = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        $shfl = str_shuffle($comb);
+        // $comb = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        // $shfl = str_shuffle($comb);
         $this->password = "password";
         User::create($this->modeldata());  
-        $http = new \GuzzleHttp\Client;
+        // $http = new \GuzzleHttp\Client;
 
-        $response = Http::get('https://sms.hahucloud.com/api/send', [
-            'key' => '946b92a598b36e4ad6aff1e4550d96d922656da4',
-            'phone'  => $this->phone,
-            'message' => 'Your password is '. $this->password,
-        ]); 
+        // $response = Http::get('https://sms.hahucloud.com/api/send', [
+        //     'key' => '946b92a598b36e4ad6aff1e4550d96d922656da4',
+        //     'phone'  => $this->phone,
+        //     'message' => 'Your password is '. $this->password,
+        // ]); 
+        session()->flash('message', 'Succesfuly created Hospital Admin. Default passcode = password, Let them change it in their profile');
         $this->reset();
     }
 
@@ -45,10 +48,11 @@ class CreateManager extends Component
             'lastname'=>'required',
             'email'=>'required',
             'organization_id'=>'',
-            'phone'=>'required',
+            'phone'=>'required|size:13',
+            'role'=>'required',
             'address'=>'required',
             'sex'=>'required',
-            'date_of_birth'=>'required',
+            'date_of_birth'=>'required|before:today',
         ];
     }
 
@@ -58,7 +62,7 @@ class CreateManager extends Component
             'firstname'=>$this->firstname,
             'lastname'=>$this->lastname,
             'email'=>$this->email,
-            'organization_id'=>5,
+            'organization_id'=>'',
             'phone'=>$this->phone,
             'address'=>$this->address,
             'sex'=>$this->sex,
@@ -71,6 +75,8 @@ class CreateManager extends Component
 
     public function render()
     {
-        return view('livewire.zonal.create-manager');
+        $userID = DB::select('select * from users where id = ?', [Auth::user()->id]);
+        // dd($userID);
+        return view('livewire.zonal.create-manager', ['userID'=>$userID]);
     }
 }

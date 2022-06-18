@@ -22,29 +22,26 @@
       </ul>
       <p class="menu-label">HOMES</p>
       <ul class="menu-list">
-
+      <li class="--set-active-profile-html">
+          <a  href="{{ url('/create_zonalmanager') }}">
+            <span class="icon"><i class="mdi mdi-account-circle"></i></span>
+            <span class="menu-item-label">Create Zone Health Bureau Managers</span>
+          </a>
+        </li>
         <li class="--set-active-profile-html">
           <a  href="{{ url('/create_zonalbureau') }}">
             <span class="icon"><i class="mdi mdi-account-circle"></i></span>
-            <span class="menu-item-label">Create zone bureau</span>
-          </a>
-        </li>
-        <li class="--set-active-profile-html">
-          <a  href="{{ url('/create_zonalmanager') }}">
-            <span class="icon"><i class="mdi mdi-account-circle"></i></span>
-            <span class="menu-item-label">Create Managers</span>
+            <span class="menu-item-label">Create zone Health bureau</span>
           </a>
         </li>
         <li>
-
         <li class="--set-active-forms-html">
           <a  href="{{ url('profile') }}">
             <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
             <span class="menu-item-label">Profile</span>
           </a>
         </li>
-        <li>
-      
+        <li>      
       </ul>
       <p class="menu-label">About</p>
       <ul class="menu-list">
@@ -82,7 +79,7 @@
         <section class="is-hero-bar">
       <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
         <h4  class="title">
-          <strong>Regional Organization Information</strong>
+          <strong>Regional Health Bureau Information</strong>
         </h4>
 
       </div>

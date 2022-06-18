@@ -8,6 +8,8 @@ use Livewire\WithPagination;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use GuzzleHttp\Client;
 
 class CreateManager extends Component
@@ -22,19 +24,19 @@ class CreateManager extends Component
      */
     public function create()
     {
-        $this->validate();
-       
-        $comb = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        $shfl = str_shuffle($comb);
+        $this->validate();       
+        // $comb = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        // $shfl = str_shuffle($comb);
         $this->password = "password";
-        User::create($this->modeldata());  
-        $http = new \GuzzleHttp\Client;
+        $zonalManager = User::create($this->modeldata()); 
+        session()->flash('messsage', 'Zonal Health Bureau Manager created successfully. By Default zonal manager passcode = password'); 
+        // $http = new \GuzzleHttp\Client;
 
-        $response = Http::get('https://sms.hahucloud.com/api/send', [
-            'key' => '946b92a598b36e4ad6aff1e4550d96d922656da4',
-            'phone'  => $this->phone,
-            'message' => 'Your password is '. $this->password,
-        ]); 
+        // $response = Http::get('https://sms.hahucloud.com/api/send', [
+        //     'key' => '946b92a598b36e4ad6aff1e4550d96d922656da4',
+        //     'phone'  => $this->phone,
+        //     'message' => 'Your password is '. $this->password,
+        // ]); 
         $this->reset();
         
     }
@@ -47,6 +49,7 @@ class CreateManager extends Component
             'email'=>'required',
             'organization_id'=>'',
             'phone'=>'required|size:13',
+            'role'=>'required',
             'address'=>'required',
             'sex'=>'required',
             'date_of_birth'=>'required|before:today'
@@ -71,6 +74,8 @@ class CreateManager extends Component
     }
     public function render()
     {
-        return view('livewire.regional.create-manager');
+        $userID = DB::select('select * from users where id = ?', [Auth::user()->id]);
+        // dd($userID);
+        return view('livewire.regional.create-manager', ['userID'=>$userID]);
     }
 }

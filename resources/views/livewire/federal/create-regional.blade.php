@@ -21,11 +21,11 @@
 
         <x-slot name="content">
             <div class="mt-4">
-                <select name="name" class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="name" />
-                    :value="old('name')" required autofocus autocomplete="name">
-                    <option selected >---Select Regional Bureau Name---</option>
-                    <option value="Regional Health bureau">Oromia Regional Health bureau</option>
-                    <option value="Regional Health bureau">Amhara Regional Health bureau</option>
+                <x-jet-label for="Bureau Name" value="{{ __('Bureau Name') }}" />
+                <select name="name" class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="name">
+                    <option selected >---Select Health Bureau Name---</option>
+                    <option value="Oromia Regional Health bureau">Oromia Regional Health bureau</option>
+                    <option value="Amhara Regional Health bureau">Amhara Regional Health bureau</option>
                     <option value="Tigray Regional Health bureau">Tigray Regional Health bureau</option>
                     <option value="Afar Regional Health bureau">Afar Regional Health bureau</option>
                     <option value="Benishangul Gumuz Regional Health bureau">Benishangul Gumuz Regional Health bureau</option>
@@ -36,19 +36,18 @@
                     <option value="Gambela Regional Health bureau">Gambela Regional Health bureau</option>
                     <option value="Sidama Regional Health bureau">Sidama Regional Health bureau</option>
                     <option value="Addis Ababa City Adminstration">Addis Ababa City Adminstration</option> 
-                    <option value="Dire City Adminstration">Dire City Adminstration</option> 
+                    <option value="Dire Dawa City Adminstration">Dire Dawa City Adminstration</option> 
                 </select>
                 @error('name') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>    
             <div class="mt-4">
                 <x-jet-label for="manager" value="{{ __('Manager') }}" />
-                <select class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="user_id" />
-                :value="old('user_id')" required autofocus autocomplete="user_id">
-                    <option>---Select Manager---</option>
+                <select id = "user_id" name = "user_id" class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="user_id">
+                    <option selected >---Select Bureau Manager---</option>
                     @forelse ($users as $user)
                         <option value={{ $user->id }}>{{ $user->firstname }} {{ $user->lastname }}</option>
                     @empty
-                        <option disabled>No Manager</option>
+                        <option disabled>---No Manager to select, create manager first---</option>
                     @endforelse
                 </select>
                 @error('user_id') <span class="error text-red-600">{{$message}}</span>@enderror
@@ -57,29 +56,28 @@
             <div class="mt-4">
                 <x-jet-label for="type" value="{{ __('Type') }}" />
                 <select name="type" class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="type" >
-                    <option selected>---Select Type---</option>
+                    <option selected>---Select Bureau Type---</option>
                     <option value="1">Regional Health bureau</option>
-                    <option value="2">City Adminstration</option>
-                    <option value="3">Speciality Clinics</option>
+                    <option value="2">City Adminstration Health Bureau</option>
+                    <option value="3">Speciality Clinics Health Bureau</option>
                 </select>
                 @error('type') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="region" value="{{ __('Region') }}" />
-                <select name="region" class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="region" />
-                :value="old('region')" required autofocus autocomplete="region">
-                    <option selected>---Select Regional Bureau Name---</option>
-                    <option value="Oromia Regional">Oromia Regional</option>
-                    <option value="Amhara Regional ">Amhara Regional</option>
-                    <option value="Tigray Regional">Tigray Regional</option>
-                    <option value="Afar Regional">Afar Regional</option>
-                    <option value="Benishangul Gumuz Regional">Benishangul Gumuz Regional</option>
-                    <option value="Somali Regional">Somali Regional</option>
-                    <option value="Harari Regional">Harari Regional</option>
-                    <option value="SNNP Regional">SNNP Regional</option>
-                    <option value="SWNNP Regional">SWNNP Regional</option>
-                    <option value="Gambela Regional">Gambela Regional</option>
-                    <option value="Sidama Regional">Sidama Regional</option>
+                <select name="region" class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="region">
+                    <option selected>---Select Bureau Region---</option>
+                    <option value="Oromia">Oromia</option>
+                    <option value="Amhara">Amhara</option>
+                    <option value="Tigray">Tigray</option>
+                    <option value="Afar">Afar</option>
+                    <option value="Benishangul Gumuz">Benishangul Gumuz</option>
+                    <option value="Somali">Somali</option>
+                    <option value="Harari">Harari</option>
+                    <option value="SNNP">SNNP</option>
+                    <option value="SWNNP">SWNNP</option>
+                    <option value="Gambela">Gambela</option>
+                    <option value="Sidama">Sidama</option>
                     <option value="Addis Ababa">Addis Ababa</option> 
                     <option value="Dire Dawa">Dire dawa</option> 
                 </select>
@@ -87,23 +85,23 @@
             </div>    
             <div class="mt-4">
                 <x-jet-label for="zone" value="{{ __('Zone') }}" />
-                <x-jet-input id="zone" class="block mt-1 w-full" type="text" name="zone" wire:model.debounce.800ms="zone" />
+                <x-jet-input id="zone" class="block mt-1 w-full" type="text" name="zone" wire:model.debounce.800ms="zone"/>
                 @error('zone') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="woreda" value="{{ __('Woreda') }}" />
-                <x-jet-input id="woreda" class="block mt-1 w-full" type="text" name="woreda" wire:model.debounce.800ms="woreda" />
+                <x-jet-input id="woreda" class="block mt-1 w-full" type="text" name="woreda" wire:model.debounce.800ms="woreda"/>
                 @error('woreda') <span class="error text-red-600">{{$message}}</span>@enderror
-            </div>
-            <div class="mt-4">
-                <x-jet-label for="kebele" value="{{ __('Kebele') }}" />
-                <x-jet-input id="kebele" class="block mt-1 w-full" type="text" name="kebele" wire:model.debounce.800ms="kebele" />
-                @error('kebele') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="city" value="{{ __('City') }}" />
                 <x-jet-input id="city" class="block mt-1 w-full" type="text" wire:model.debounce.800ms="city" />
                 @error('city') <span class="error text-red-600">{{$message}}</span>@enderror
+            </div>
+            <div class="mt-4">
+                <x-jet-label for="kebele" value="{{ __('Kebele') }}" />
+                <x-jet-input id="kebele" class="block mt-1 w-full" type="text" name="kebele" wire:model.debounce.800ms="kebele" />
+                @error('kebele') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
         </x-slot>
 
@@ -177,7 +175,7 @@
                 <tr>
                     <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
                     <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-                    <td class="px-6 py-3 border-b border-black-200 bg-white text-lg">Nope</td>
+                    <td class="px-6 py-3 border-b border-black-200 bg-white text-lg">No Health Bureau addede yet!</td>
                     <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
                     <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
                     <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">

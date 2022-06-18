@@ -138,7 +138,7 @@
                 <tr>
                     <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
                     <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-                    <td class="px-6 py-3 border-b border-black-200 bg-white text-lg">Nope</td>
+                    <td class="px-6 py-3 border-b border-black-200 bg-white text-lg">No Zonal Health Bureau added yet!</td>
                     <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
                     <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
                     <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
