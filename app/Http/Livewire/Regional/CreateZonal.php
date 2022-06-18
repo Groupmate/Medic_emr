@@ -7,6 +7,8 @@ use Illuminate\Validation\Rule;
 use Livewire\WithPagination;
 use App\Models\Organization;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class CreateZonal extends Component
 {
@@ -185,10 +187,12 @@ class CreateZonal extends Component
     public function render()
     {
         $organization = Organization::latest()->paginate(5);
+        $userID = DB::select('select * from users where id = ?', [Auth::user()->id]);
+        // dd($userID);
 
         return view('livewire.regional.create-zonal',[ 'organizations'=>$this->read(),
             $this->organizations=Organization::where('type' , [4])->get(),
-            $this->users = User::whereNull('organization_id')->where('role', '=', 3)->get(),
+            $this->users = User::whereNull('organization_id')->where('role', '=', 3)->get(), 'userID'=>$userID
         ]);
     }
 }

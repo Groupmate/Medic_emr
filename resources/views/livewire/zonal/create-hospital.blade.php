@@ -1,7 +1,7 @@
 <div class="p-6">
     <div class="flex items-center justify-end px-4 py-3 text-right sm:px-6">
         <x-jet-button wire:click="createShowModal">
-                {{ __('Add Hospital') }}
+                {{ __('Add Health Center in your Zone') }}
          </x-jet-button>
     </div>
 
@@ -9,32 +9,31 @@
     {{-- modal form is going --}}
     <x-jet-dialog-modal wire:model="modelFormVisible">
         <x-slot name="title">
-            {{ __('Add Hospital') }} {{$modelId}}
+            {{ __('Add Health Center in your Zone') }} {{$modelId}}
         </x-slot>
 
         <x-slot name="content">
 
             <div class="mt-4">
-                <x-jet-label for="name" value="{{ __('Name') }}" />
+                <x-jet-label for="name" value="{{ __('Health Center Name') }}" />
                 <x-jet-input id="name" class="block mt-1 w-full" type="text" wire:model.debounce.800ms="name" />
                 @error('name') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="manager" value="{{ __('Manager') }}" />
-                <select class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="user_id" />
-                :value="old('user_id')" required autofocus autocomplete="user_id">
-                    <option>---Select Manager---</option>
+                <select class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="user_id">                
+                    <option>---Select Health Center Manager---</option>
                     @forelse ($users as $user)
-                        <option value={{ $user->id }}>{{ $user->firstname }} {{ $user->lastname }}</option>
+                        <option value={{ $user->id }}>{{ $user->firstname }} {{ $user->lastname }}-{{$user->address}}</option>
                     @empty
-                        <option disabled>oooo</option>
+                        <option disabled>No manager to select. First Create a manager</option>
                     @endforelse
                 </select>
                 @error('user_id') <span class="error text-red-600">{{$message}}</span>@enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="type" value="{{ __('Type') }}" />
-                <select class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="type" />
+                <select class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="type">
                 :value="old('type')" required autofocus autocomplete="type">
                     <option>---Select Type---</option>
                     <option value="hospital">Hospital</option>
@@ -45,18 +44,18 @@
                 <x-jet-label for="region" value="{{ __('Region') }}" />
                 <select name="region" class="block mt-1 w-full border-gray-300 focus:border" wire:model.debounce.800ms="region" />
                 :value="old('region')" required autofocus autocomplete="region">
-                    <option selected>---Select Regional Bureau Name---</option>
-                    <option value="Oromia Regional">Oromia Regional</option>
-                    <option value="Amhara Regional ">Amhara Regional</option>
-                    <option value="Tigray Regional">Tigray Regional</option>
-                    <option value="Afar Regional">Afar Regional</option>
-                    <option value="Benishangul Gumuz Regional">Benishangul Gumuz Regional</option>
-                    <option value="Somali Regional">Somali Regional</option>
-                    <option value="Harari Regional">Harari Regional</option>
-                    <option value="SNNP Regional">SNNP Regional</option>
-                    <option value="SWNNP Regional">SWNNP Regional</option>
-                    <option value="Gambela Regional">Gambela Regional</option>
-                    <option value="Sidama Regional">Sidama Regional</option>
+                    <option selected>---Select Region---</option>
+                    <option value="Oromia">Oromia </option>
+                    <option value="Amhara ">Amhara </option>
+                    <option value="Tigray">Tigray </option>
+                    <option value="Afar">Afar </option>
+                    <option value="Benishangul Gumuz">Benishangul Gumuz </option>
+                    <option value="Somali">Somali </option>
+                    <option value="Harari">Harari </option>
+                    <option value="SNNP">SNNP </option>
+                    <option value="SWNNP">SWNNP </option>
+                    <option value="Gambela">Gambela </option>
+                    <option value="Sidama">Sidama </option>
                     <option value="Addis Ababa">Addis Ababa</option> 
                     <option value="Dire Dawa">Dire dawa</option> 
                 </select>
@@ -139,7 +138,7 @@
                 <tr>
                     <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
                     <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
-                    <td class="px-6 py-3 border-b border-black-200 bg-white text-lg">Nope</td>
+                    <td class="px-6 py-3 border-b border-black-200 bg-white text-lg">No Added</td>
                     <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
                     <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
                     <td  class="px-6 py-3 border-b border-gray-200 bg-white text-sm">

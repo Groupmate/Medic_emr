@@ -209,7 +209,7 @@
                                 <option value="Agnwaak, Gambela">Agnwaak Zone</option>
                                 <option value="Mehzenger, Gambela">Mehzenger Zone</option>
                                 <option value="Nuer, Gambela">Nuer Zone</option>
-                                <option value="Itang, Gambela">Nuer Zone</option>
+                                <option value="Itang, Gambela">Itang Zone</option>
                             </select>
                             @error('address') <span class="error text-red-600">{{$message}}</span>@enderror
                             @break

@@ -112,7 +112,7 @@ class CreateHospital extends Component
         $this->validate();
         $hospital = Hospital::create($this->modeldata());
         $user = User::where('id', $this->user_id)->first();
-        //$user->update(['organization_id' => 10]);
+        $user->update(['organization_id' => 5]);
         $this->modelFormVisible= false;
 
         $this->reset();
@@ -128,10 +128,10 @@ class CreateHospital extends Component
         $this->validate();
         $hospital = Hospital::find($this->modelId);
         $user = User::where('id', $hospital->user_id)->first();
-        $user->update(['organization_id' => 10]);
+        $user->update(['organization_id' => 5]);
         Hospital::find($this->modelId)->update($this->modelData());
         $user = User::where('id', $this->user_id)->first();
-        $user->update(['organization_id' => 10]);
+        $user->update(['organization_id' => 5]);
         $this->modelFormVisible= false;
         $this->reset();
     }
@@ -144,7 +144,7 @@ class CreateHospital extends Component
     public function delete()
     {
         $user = User::where('id', $this->user_id)->first();
-        $user->update(['organization_id' => 5]);
+        $user->update(['organization_id' =>null]);
         Hospital::destroy($this->modelId);
         $this->modalConfirmDeleteVisible=false;
         $this->resetpage();
@@ -192,7 +192,7 @@ class CreateHospital extends Component
         //$manager = User::where('id', $this->user_id)->first();
         return view('livewire.zonal.create-hospital', [ 'hospitals'=>$this->read(),
             $this->hospitals = Hospital::where('type' , 'hospital')->get(),
-            $this->users = User::where('organization_id', '=', 5)->where('role', '=', 4)->get(),
+            $this->users = User::whereNull('organization_id')->where('role', '=', 4)->get(),
         ]);
     }
 }
