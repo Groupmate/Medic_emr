@@ -1,16 +1,116 @@
 <div>
-    <div class="flex justify-center items-center mt-4 w-full bg-grey-400"> 
-        <div class="mt-4">
-            <label class="mb-1 subpixel-antialiased text-lg text-gray-900">Description</label><br> 
-            <textarea id="description" class="alert mb-4 border-1 ml-2 w-5/6 block" cols="20" wire:model.debounce.800ms="description" :value="old('description')" required> </textarea>
-            @error('description') <span class="error">{{$description}}</span>@enderror
+    <form wire:submit.prevent="request" class="w-full py-4 px-8">
+        <div class="card w-full">
+            <div class="card-header">
+                <div class="flex justify-center">
+                    <strong> Laboratory Form </strong>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="flex justify-center py-5"> 
+                    <div class="form-check form-check-inline px-8">
+                      <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                      type="checkbox" wire:model.debounce.800ms="test" value="blood">
+                      <label class="form-check-label inline-block text-gray-800" for="inlineCheckbox1">Blood</label>
+                    </div>
+                    <div class="form-check form-check-inline px-8">
+                      <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" 
+                      type="checkbox" wire:model.debounce.800ms="test" value="urine">
+                      <label class="form-check-label inline-block text-gray-800" for="inlineCheckbox2">urine</label>
+                    </div>
+                    <div class="form-check form-check-inline px-8">
+                      <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2" 
+                      type="checkbox" wire:model.debounce.800ms="test" value="sugar level">
+                      <label class="form-check-label inline-block text-gray-800" for="inlineCheckbox3">sugar level</label>
+                    </div>
+                    <div class="form-check form-check-inline px-8">
+                      <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2" 
+                      type="checkbox" wire:model.debounce.800ms="test" value="sugar level">
+                      <label class="form-check-label inline-block text-gray-800" for="inlineCheckbox3">sugar level</label>
+                    </div>
+                </div>
+                <div class="flex justify-right py-5"><strong> Imagery </strong></div>
+                <div class="flex justify-center py-2">
+                    <div class="form-check form-check-inline px-8">
+                      <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                      type="checkbox" wire:model.debounce.800ms="test" value="blood_count">
+                      <label class="form-check-label inline-block text-gray-800" for="inlineCheckbox1">Radiology</label>
+                    </div>
+                    <div class="form-check form-check-inline px-8">
+                      <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" 
+                      type="checkbox" wire:model.debounce.800ms="test" value="blood_enzyme_test">
+                      <label class="form-check-label inline-block text-gray-800" for="inlineCheckbox2">City Scan</label>
+                    </div>
+                    <div class="form-check form-check-inline px-8">
+                      <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2" 
+                      type="checkbox" wire:model.debounce.800ms="test" value="blood_thyroid_panel">
+                      <label class="form-check-label inline-block text-gray-800" for="inlineCheckbox3">Endoscopy</label>
+                    </div>
+                    <div class="form-check form-check-inline px-8">
+                      <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2" 
+                      type="checkbox" wire:model.debounce.800ms="test" value="blood_lipid_profile">
+                      <label class="form-check-label inline-block text-gray-800" for="inlineCheckbox3">X-ray</label>
+                    </div>
+                </div>
+                <div class="flex justify-right py-5"><strong> Blood Tests </strong></div>
+                <div class="flex justify-center py-2">
+                    <div class="form-check form-check-inline px-8">
+                      <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                      type="checkbox" wire:model.debounce.800ms="test" value="blood_count">
+                      <label class="form-check-label inline-block text-gray-800" for="inlineCheckbox1">Blood count</label>
+                    </div>
+                    <div class="form-check form-check-inline px-8">
+                      <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" 
+                      type="checkbox" wire:model.debounce.800ms="test" value="blood_enzyme_test">
+                      <label class="form-check-label inline-block text-gray-800" for="inlineCheckbox2">Blood enzyme test</label>
+                    </div>
+                    <div class="form-check form-check-inline px-8">
+                      <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2" 
+                      type="checkbox" wire:model.debounce.800ms="test" value="blood_thyroid_panel">
+                      <label class="form-check-label inline-block text-gray-800" for="inlineCheckbox3">Blood thyroid_panel</label>
+                    </div>
+                    <div class="form-check form-check-inline px-8">
+                      <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2" 
+                      type="checkbox" wire:model.debounce.800ms="test" value="blood_lipid_profile">
+                      <label class="form-check-label inline-block text-gray-800" for="inlineCheckbox3">Blood lipid profile</label>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center py-5">
+                    <div class="form-check form-check-inline px-8">
+                      <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                      type="checkbox" wire:model.debounce.800ms="test" value="blood">
+                      <label class="form-check-label inline-block text-gray-800" for="inlineCheckbox1">Blood</label>
+                    </div>
+                    <div class="form-check form-check-inline px-8">
+                      <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" 
+                      type="checkbox" wire:model.debounce.800ms="test" value="urine">
+                      <label class="form-check-label inline-block text-gray-800" for="inlineCheckbox2">urine</label>
+                    </div>
+                    <div class="form-check form-check-inline px-8">
+                      <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2" 
+                      type="checkbox" wire:model.debounce.800ms="test" value="sugar level">
+                      <label class="form-check-label inline-block text-gray-800" for="inlineCheckbox3">sugar level</label>
+                    </div>
+                    <div class="form-check form-check-inline px-8">
+                      <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2" 
+                      type="checkbox" wire:model.debounce.800ms="test" value="sugar level">
+                      <label class="form-check-label inline-block text-gray-800" for="inlineCheckbox3">sugar level</label>
+                    </div>
+                </div>
+            </div> 
+            <div class="card-footer">
+                <button class="flex items-center justify-end mt-4" type="submit">
+                    <x-jet-button class="ml-4">
+                        Submit
+                    </x-jet-button>
+                </button>
+            </div>
         </div>
-        <div class="flex items-center justify-end mt-4"  >
-            <x-jet-button  class="hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm"  wire:click="request" wire:loading.attr="disabled">
-                Request test
-            </x-jet-button>   
-        </div> 
-    </div>  
+        
+
+
+    </form>
     <x-jet-dialog-modal wire:model="modalFormVisible">
 
         <x-slot name="title">

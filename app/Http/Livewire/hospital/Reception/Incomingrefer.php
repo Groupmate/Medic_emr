@@ -22,31 +22,34 @@ class Incomingrefer extends Component
     public $modelId;
     public $modalFormVisible = false;
 
-
-
     public function assignShowModal($id)
     {
-        $this->modelId = $id;
+        if($this->users) {
+            $this->modalFormVisible=true;
+        }  
+        else{
+            $this->modelId = $id;
 
-        $doctor = Doctor::all();
-        foreach($doctor as $doctor)
-        {
-            $shift = $doctor->shift;
-            //dd($shift);
-            foreach($shift as $shift)
+            $doctor = Doctor::all();
+            foreach($doctor as $doctor)
             {
-                if($shift == date('l'))
+                $shift = $doctor->shift;
+                //dd($shift);
+                foreach($shift as $shift)
                 {
-                    $this->doctors[] = Doctor::where('id', $doctor->id)->pluck('user_id')->toArray();
+                    if($shift == date('l'))
+                    {
+                        $this->doctors[] = Doctor::where('id', $doctor->id)->first()->user_id;
+                    }
                 }
             }
-        }
-        foreach($this->doctors as $doctor)
-        {
-            $this->users[] = User::where('id', $doctor)->first();
-        }
+            foreach($this->doctors as $doctor)
+            {
+                $this->users[] = User::where('id', $doctor)->first();
+            }
 
-        $this->modalFormVisible=true;
+            $this->modalFormVisible=true;
+        }
     }
 
     public function rules()
@@ -76,7 +79,7 @@ class Incomingrefer extends Component
     {
         $this->validate();
         $psw = Patient_Waiting_List::create($this->modeldata());
-        $affected = DB::update("update referals set status = 'examined' where patient_id = ?", [$this->patient_id]);
+        $affected = DB::update("update referals set status = 'ongoing' where patient_id = ?", [$this->patient_id]);
         $this->modalFormVisible=false;
         session()->flash('message', 'Successfully assigned the referred  Patient!');
     }

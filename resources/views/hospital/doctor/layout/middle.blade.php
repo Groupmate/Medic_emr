@@ -87,29 +87,49 @@
           </div>  
           <!-- end sidebar toggle -->
               </a>  
-               <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/appointments/{{ $id}}">
-                  <i class="far fa-calendar-check text-xl mr-2"></i>
-                  Add Appointement</a>
-              </a>
-              <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/bedassignment/{{ $id}}">
-                  <i class="far fa-procedures text-xl mr-2"></i>
-                  Assign-Bed</a>
-              <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/referpatient/{{ $id}} ">
-                 <i class="far fa-ambulance text-xl mr-2"></i>
-                  Refer Patient
-              </a>
-              <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
+              <div id="dropdown" x-show="show" class="ml-1">
+                
+                <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/generatemedicaldata/{{$id}}">
+                    <i class="far fa-briefcase-medical text-xl mr-2"></i>
+                    Generate Medical data
+                </a>
+                <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/viewpatienthistory/{{$id}}">
                   <i class="far fa-briefcase-medical text-xl mr-2"></i>
-                  Request Examination Test
-              </a>
-             <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/prescribe-medicaldrug/{{$id}}">
-                  <i class="far fa-pills text-xl mr-2"></i>
-              Perscribe Drug
-              </a>
-              <a  class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/medcertificate/{{$id}}">
-                  <i class="far fa-file-certificate text-xl mr-2"></i>
-                  Generate Medical Certificate
-              </a>
+                  View Patient history
+                </a>
+                <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/appointments/{{$id}} ">
+                    <i class="far fa-calendar-check text-xl mr-2"></i>
+                    Add Appointement</a>
+                </a>
+                <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/bedassignment/{{$id}}">
+                    <i class="far fa-procedures text-xl mr-2"></i>
+                    Assign-Bed</a>
+                <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/referpatient/{{$id}}">
+                  <i class="far fa-ambulance text-xl mr-2"></i>
+                    Refer Patient 
+                </a>
+                <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/requestexaminationtest/{{$id}}">
+                    <i class="far fa-briefcase-medical text-xl mr-2"></i>
+                    Request Examination Test
+                </a>
+                
+                <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/prescribe-medicaldrug/{{$id}}">
+                    <i class="far fa-pills text-xl mr-2"></i>
+                Perscribe Drug
+                </a>         
+                <a href="/medcertificate" class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
+                    <i class="far fa-file-certificate text-xl mr-2"></i>
+                Generate Medical Certificate
+                </a>
+                {{-- <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
+                <i class="fas fa-file-chart-line text-xl mr-2"></i>
+                    Reports
+                </a>  --}}
+                <br><br><br>
+               </a>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+  
+              </div>
               <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
           </div>

@@ -663,6 +663,7 @@ class ComposerStaticInit2badfd143d22d02e5037dea976df4a20
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\appointment' => __DIR__ . '/../..' . '/app/Models/appointment.php',
         'App\\Models\\bedassignment' => __DIR__ . '/../..' . '/app/Models/bedassignment.php',
+        'App\\Models\\labrequest' => __DIR__ . '/../..' . '/app/Models/labrequest.php',
         'App\\Policies\\TeamPolicy' => __DIR__ . '/../..' . '/app/Policies/TeamPolicy.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

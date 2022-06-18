@@ -1,5 +1,5 @@
 <div class = "ml-6 pt-6 w-full">
-    {{-- If your happiness depends on money, you will never be happy with yourself. --}}
+ 
     @if (session()->has('message'))
         <div class=" flex bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
             <div class="flex">
@@ -15,8 +15,7 @@
                 <tr >
                     <th  class="px-6 py-3 border-b-2 border-gray-500 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">Patient ID</th>
                     <th  class="px-6 py-3 border-b-2 border-gray-500 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">First Name</th>
-                    <th   class="px-6 py-3 border-b-2 border-gray-500 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">Second Name</th>
-                    <th   class="px-5 py-3 border-b-2 border-gray-500 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">Last Name</th>
+                    <th   class="px-6 py-3 border-b-2 border-gray-500 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider">Diagnosis</th> 
                     <th   class="px-20 py-3 border-b-2 border-gray-500 bg-gray-100 text-left text-xs font-semibold text-purple-500 uppercase tracking-wider ">Action</th>
 
                 </tr>
@@ -28,9 +27,8 @@
                                 <tr>
                                     @if($refer -> refered_to == $receptionist->hospital_id && $refer->patient_id == $patient->id)
                                             <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $patient->id }}</td>
-                                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $patient->firstname }}</td>
-                                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $patient->middle_name }}</td>
-                                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $patient->lastname }}</td>
+                                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $patient->firstname }} {{ $patient->lastname }}</td>
+                                            <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">{{ $refer->diagnosis }}</td> 
                                             <td class="px-6 py-3 border-b border-gray-200 bg-white text-sm">
                                                 <x-jet-button class="bg-green-500 ml-6 rounded-full" wire:click="assignShowModal({{ $patient->id }})">
                                                     {{ __('Assign Patient') }}
@@ -53,6 +51,7 @@
             </tbody>      
         </table>
     </div>
+    
     <x-jet-dialog-modal wire:model="modalFormVisible">
 
         <x-slot name="title">

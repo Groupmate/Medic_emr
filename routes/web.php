@@ -33,6 +33,7 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
          //Hospital or HealthCenter ->> Reception
         Route::get('/register_patient', function () { return view('hospital.reception.registerpatient'); })->name('patient.registerpatient');
         Route::get('/assign_patient', function () { return view('hospital.reception.assignpatient'); })->name('patient.assignpatient');
+        Route::get('/availabledoctors', function () { return view('hospital.reception.availabledoctors'); })->name('patient.availabledoctors');
         Route::get('/receptionprofile', function ()  { return view('hospital.reception.profile'); })->name('proreceptionbureau');
         Route::get('/block', function () { return view('hospital.hr.block');})->name('block');
         Route::get('/listblock', function () { return view('hospital.hr.listblock');})->name('listblock');
@@ -64,5 +65,7 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/medical-drug', function () { return view('hospital.pharmacy.add-medical-drug'); })->name('add-medical-drug');
         Route::get('/issue-drug', function () { return view('hospital.pharmacy.issue-drug'); })->name('issue-drug');
         Route::get('/Pprofile', function () { return view('hospital.pharmacy.profile'); })->name('pharmacyprofile');
+         //pharmacy
+        Route::get('/Ldashboard', function () { return view('hospital.laboratory.dashboard'); })->name('laboratory_dashboard');
 
 });

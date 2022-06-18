@@ -26,9 +26,7 @@ class Requestexaminationtest extends Component
     public function mount($id)
     { 
        $this->patient_id = $id; 
-       $docid = Auth()->user()->id;
-       $doctor = Doctor::where('user_id', $docid)->first();
-       $this->hospital_id = $doctor->hospitals->first()->id;
+       $this->user_id = Auth()->user()->id; 
     }
 
     public function request()
@@ -40,10 +38,14 @@ class Requestexaminationtest extends Component
                       ->select('users.role', 'employees.shift', 'employees.id')
                       ->where('hospital_id', $this->hospital_id)
                       ->get();
+        $user = User::where('id', $user_id)->get();
+        $employee = Employee::all();
                      
-        foreach($employeeInfo as $employee)
+        foreach($employee as $employee)
         {
-            if($employee->role == 6){
+            $user = User::where('id', $employee->user_id)->get();
+            dd($employee->role);
+            if($employee->role == 7){
 
                 $shift = $employee->shift;
              
@@ -60,6 +62,7 @@ class Requestexaminationtest extends Component
         {
             $this->users[] = User::where('id', $employee)->first();
         }
+        dd($this->users);
      
         $this->modalFormVisible=true;
        
@@ -102,6 +105,6 @@ class Requestexaminationtest extends Component
 
     public function render()
     {
-        return view('livewire.hospital.doctor.requestexaminationtest');
+        return view('livewire.hospital.doctor.requestexaminationtest')->with('user', $this->users);
     }
 }

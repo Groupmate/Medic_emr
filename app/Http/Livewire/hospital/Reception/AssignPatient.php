@@ -45,7 +45,7 @@ class AssignPatient extends Component
             foreach($doctor as $doctor)
             {
                 $shift = $doctor->shift;
-                //dd($shift);
+               
                 foreach($shift as $shift)
                 {
                     if($shift == date('l'))
