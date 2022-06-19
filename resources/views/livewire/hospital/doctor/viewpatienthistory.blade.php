@@ -1,29 +1,30 @@
-<div class="flex">
-    <div class=" flex flex-row ml-10 gap-5 p-5 lg:grid-cols-2 xl:grid-cols-4">
-    @forelse ($medicaldata as $medicaldata) 
-        <article class="flex flex-row shadow my-4"> 
-        <div class="bg-white flex flex-col justify-start p-6">
-            <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">
-                <label>Dignosis Info</label>
+<div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-1">
+  @forelse ($medicaldata as $medicaldata) 
+    <div class="rounded overflow-hidden shadow-lg">
+       
+        <div class="px-6 py-4">
+            <div class="font-bold text-xl mb-2">  Dignosis Information </div> 
+                <p class="text-gray-700 text-base">
                 @foreach ($medicaldata->diagnosis_info as $diagnosis_info)
-                {{ $diagnosis_info }}</a>
+                    {{ $diagnosis_info }}
                 @endforeach
-            <a href="#" class="text-3xl font-bold hover:text-gray-700 pb-4">
-                @foreach ($medicaldata->numerical_info as $numerical_info)
-                {{ $numerical_info }}</a>
-                @endforeach
-            </a>
-            <p href="#" class="text-sm pb-3">
-                    <a href="#" class="font-semibold hover:text-gray-800">
-                    @foreach ($medicaldata->disease as $disease)
-                    {{ $disease }}</a>
-                    @endforeach</a>
-            </p>
-            <a href="#" class="pb-6"> {{ $medicaldata->description }}</a>
+                </p>
         </div>
-        </article>
-    @empty
-        Are you crazy did you put anything out here 
+        <div class="px-6 pt-4 pb-2">
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-black-700 mr-2 mb-2">
+              @foreach ($medicaldata->numerical_info as $numerical_info)
+                {{ $numerical_info }}
+              @endforeach
+            </span>
+           
+        </div>
+        <div class="px-6 pt-4 pb-2">
+            @foreach ($medicaldata->disease as $disease)
+                {{ $disease }}
+            @endforeach
+        </div>
+    </div>
+        @empty
+            #No Data Generated Medical Data
     @endforelse
-</div>
 </div>
