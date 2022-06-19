@@ -21,7 +21,7 @@ class AddMedicalDrug extends Component
     public function create()
     {
        
-        // $this->validate();
+          $this->validate();
        
         Medical_drug::create($this->modeldata());
         // return redirect()->to('/room');
@@ -33,7 +33,7 @@ class AddMedicalDrug extends Component
         $this->user_id = Auth()->user()->id;
         $hospital_a = Employee::where('user_id', $this->user_id)->first()->hospital_id;
         $this->hospital_id = $hospital_a;
-        // dd($this->hospital_id);
+        //  dd($this->hospital_id);
         return [
             'name'=>$this->name,
             'hospital_id'=>$this->hospital_id,
@@ -45,7 +45,17 @@ class AddMedicalDrug extends Component
             'photo'=>$this->photo,
             'department'=>$this->department,
              ];
-    }    
+    }   
+    public function rules()
+    {
+        return [
+            'name'=>'required',
+             'quantity'=>'required|integer|min:0',
+            // 'hospital_id'=>'required',
+            'expired_date'=>'required',
+            'price'=>'required|integer|min:0',
+        ];
+    }   
     public function render()
     {
         return view('livewire.hospital.pharmacy.add-medical-drug');

@@ -24,10 +24,9 @@
                       {{$prescribed->quantity}}
                     </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                <x-jet-button  class="hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm"  wire:click="create" wire:loading.attr="disabled">
-                                    submite
-                                </x-jet-button>   
-                                
+                  <x-jet-button wire:click="createShowModal({{$prescribed->id}})">
+                                {{ __('take') }}
+                            </x-jet-button>
                   </td> 
                     @empty
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">

@@ -17,16 +17,14 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('hospital_id');
-            $table->string('type');
-            $table->string('department');
+            $table->string('type')->nullable();
+            $table->string('department')->nullable();
             $table->string('quantity');
             $table->dateTime('expired_date');
-            $table->string('photo');
-            $table->string('description');
+            $table->string('photo')->nullable();
+            $table->string('description')->nullable();
             $table->string('price');
             $table->timestamps();
-             
-            // $table->foreign('hospital_id')->references('id')->on('hospitals')->onDelete('cascade');
         });
     }
 
