@@ -1,5 +1,7 @@
 <div class="mt-10 sm:mt-0">
-     
+      <span class="bg-gray-900 mt-10 ml-4">
+        <h4><strong>  +Add Hospitals Room Bed Information </strong></h4>
+    </span> 
      <!-- component -->
        
     <x-guest-layout>

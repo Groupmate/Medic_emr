@@ -89,28 +89,24 @@
     </div>
     <div class="navbar-brand is-right">
     </div>
-   <div class="navbar-menu" id="navbar-menu">
-       <div class="navbar-end">
-
+    
+    <div class="navbar-menu" id="navbar-menu">
+      <div class="navbar-end">
         <div class="navbar-item dropdown has-divider has-user-avatar">
-         
-         
         </div>
-     
-         <a class="navbar-item">
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                  aria-labelledby="userDropdown">
-                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                      <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                      {{ __('Logout') }}
-                  </a>
-
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                      @csrf
-                  </form>
-                </div>
-            </a>
+        <a class="navbar-item">
+          <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+              aria-labelledby="userDropdown">
+              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  {{ __('Logout') }}
+              </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+              </form>
+          </div>
+        </a>
       </div>
     </div>
   </nav>

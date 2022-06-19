@@ -28,17 +28,25 @@
 
 <div id="app">
     <nav id="navbar-main" class="navbar is-fixed-top">
-        <div class="navbar-brand">
-            <div class="navbar-brand">
-                <a class="navbar-item mobile-aside-button">
-                    <span class="icon"><i class="mdi mdi-forwardburger mdi-24px"></i></span>
-                </a>
-            </div>
+       <div class="navbar-menu" id="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item dropdown has-user-avatar">
         </div>
-        <a title="Log out" class="navbar-item desktop-icon-only">
-            <span class="icon"><i class="mdi mdi-logout"></i></span>
-            <span>Log out</span>
+        <a class="navbar-item">
+          <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+              aria-labelledby="userDropdown">
+              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  {{ __('Logout') }}
+              </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+              </form>
+          </div>
         </a>
+      </div>
+    </div>
         </div>
     </nav>
  

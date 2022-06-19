@@ -1,19 +1,28 @@
 <div> 
-    <nav id="navbar-main" class="navbar is-fixed-top">
+    <nav  class="navbar is-fixed-top">
       <div class="navbar-brand">
         <a class="navbar-item mobile-aside-button">
           <span class="icon"><i class="mdi mdi-forwardburger mdi-24px"></i></span>
         </a>
-        <div class="navbar-item">
-          <section class="is-hero-bar">
-        <div class="flex flex-col md:flex-row items-center justify-between ">
-          <h4 >
-            <span class="widget-label "><h4><strong>{{ $hospital_name }} Human Resource Hospital  Dashboard </strong></h4></span>
-       
-          </h4>
-  
-        </div> 
-      </nav>
+         <span class="ml-2">
+          <h4><strong>{{ $hospital_name }} Human Resource Hospital  Dashboard </strong></h4>
+        </span>
+      </div>  
+      <div class="navbar-item">
+        <div class="flex">
+           
+          <div class="flex flex-row mr-2 w-24 h-10">
+              <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-900"></i>
+                  {{ __('Logout') }}
+              </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+              </form>
+          </div>
+      </div> 
+    </nav>
         <!-- card -->
       <div class="grid gap-6 grid-cols-1 md:grid-cols-3 mb-4">
       <div class="card">

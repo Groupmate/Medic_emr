@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('city');
             $table->timestamps();
 
-            // $table->foreign('user_id')->references('id')->on('users')->onDeletes('cascade');
+            // $table->foreign('user_id')->references('id');
         });
     }
 

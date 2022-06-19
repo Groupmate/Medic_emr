@@ -21,9 +21,8 @@ return new class extends Migration
             $table->string('department');
             $table->json('shift');
             $table->timestamps();
-
-            $table->foreign('hospital_id')->references('id')->on('hospitals')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+           // $table->foreign('hospital_id')->references('id');
+           // $table->foreign('user_id')->references('id');
         });
     }
 

@@ -184,4 +184,25 @@
         </ul>
         </div>
     </aside>
+    <nav  class="navbar is-fixed-top">
+      <div class="navbar-brand">
+        <a class="navbar-item mobile-aside-button">
+          <span class="icon"><i class="mdi mdi-forwardburger mdi-24px"></i></span>
+        </a>
+      </div>  
+      <div class="navbar-item">
+        <div class="flex">
+           
+          <div class="flex flex-row mr-2 w-24 h-10">
+              <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-900"></i>
+                  {{ __('Logout') }}
+              </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+              </form>
+          </div>
+      </div> 
+    </nav>
 
