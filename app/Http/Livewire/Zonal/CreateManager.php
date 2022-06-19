@@ -62,7 +62,7 @@ class CreateManager extends Component
             'firstname'=>$this->firstname,
             'lastname'=>$this->lastname,
             'email'=>$this->email,
-            'organization_id'=>'',
+            'organization_id'=>null,
             'phone'=>$this->phone,
             'address'=>$this->address,
             'sex'=>$this->sex,

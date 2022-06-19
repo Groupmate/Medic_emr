@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Zonal;
 
 use Livewire\Component;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Livewire\WithPagination;
 use App\Models\Hospital;
 use App\Models\User;
@@ -13,7 +15,7 @@ class CreateHospital extends Component
     use WithPagination;
 
     public $modelFormVisible, $modalConfirmDeleteVisible, $modalViewDetailVisible=false;
-    public $name, $user_id ,$type, $zone, $woreda, $kebele, $region, $city, $hospitals, $modelId, $users, $user;
+    public $name, $user_id, $hospital_id ,$type, $zone, $woreda, $kebele, $region, $city, $hospitals, $modelId, $users, $user;
 
     /**
      * createShowModel show modal
@@ -111,10 +113,14 @@ class CreateHospital extends Component
     {
         $this->validate();
         $hospital = Hospital::create($this->modeldata());
+        $FetchHospital = DB::select('select * from hospitals where user_id = ?',[$this->user_id]);
+        // dd($FetchHospital);
+        foreach($FetchHospital as $fetchHospital){
+            $this->hospital_id = $fetchHospital->id;
+        }
         $user = User::where('id', $this->user_id)->first();
-        $user->update(['organization_id' => 5]);
+        $user->update(['organization_id' => $this->hospital_id]);
         $this->modelFormVisible= false;
-
         $this->reset();
     }
 
@@ -128,10 +134,15 @@ class CreateHospital extends Component
         $this->validate();
         $hospital = Hospital::find($this->modelId);
         $user = User::where('id', $hospital->user_id)->first();
-        $user->update(['organization_id' => 5]);
+        $user->update(['organization_id' => null]);
         Hospital::find($this->modelId)->update($this->modelData());
+        $FetchHospital = DB::select('select * from hospitals where user_id = ?',[$this->user_id]);
+        // dd($FetchHospital);
+        foreach($FetchHospital as $fetchHospital){
+            $this->hospital_id = $fetchHospital->id;
+        }
         $user = User::where('id', $this->user_id)->first();
-        $user->update(['organization_id' => 5]);
+        $user->update(['organization_id' =>$this->hospital_id]);
         $this->modelFormVisible= false;
         $this->reset();
     }

@@ -51,12 +51,6 @@
           <span class="menu-item-label"><strong>Available Doctors</strong></span>
         </a>
       </li>
-      <li class="--set-active-forms-html">
-        <a href="{{ url('/create-discharge') }}">
-          <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
-          <span class="menu-item-label"><strong>Discharge patient</strong></span>
-        </a>
-      </li>
       <li>
       <li class="--set-active-tables-html">
         <a href="{{ url('/receptionprofile') }}">

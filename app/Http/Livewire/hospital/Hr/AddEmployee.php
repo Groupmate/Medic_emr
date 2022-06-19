@@ -32,7 +32,6 @@ class AddEmployee extends Component
     public function CreateEmployee()
     {
         $this->validate();
-
         $user = User::create($this->userModelData());
         $this->user_id = $user->id;
         $Employee = Employee::create($this->employeeModelData());

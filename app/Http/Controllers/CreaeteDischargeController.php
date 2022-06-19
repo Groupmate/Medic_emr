@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Auth;
 class CreaeteDischargeController extends Controller
 {
     public function discharge(){
-        if(Auth::user()->role == 5){
-            return view('hospital.reception.create-discharge');
+        if(Auth::user()->role == 6){
+            return view('hospital.doctor.create-discharge');
         }
         else{
             return view('error.custome-error');

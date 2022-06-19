@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Hospital\Reception;
+namespace App\Http\Livewire\Hospital\Doctor;
 
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -13,7 +13,7 @@ use App\Models\Bed;
 use App\Models\Patient;
 
 class CreateDischarge extends Component
-{       
+{
     public $search='';
     public $ward,$admission_charge,$date_in,$date_out,$status,$patient_id,$bed_id;
 
@@ -61,9 +61,9 @@ class CreateDischarge extends Component
     {
         $bedpatientID =  DB::select('select * from bedassignments');
         $patientID = DB::select('select * from patients');
-        $receptionists = DB::select('select * from employees where user_id = ?', [Auth::user()->id]);
-        // dd($receptionists);
+        $doctors = DB::select('select * from doctors where user_id = ?', [Auth::user()->id]);
+        // dd($doctors);
         $blocks = DB::select('select * from blocks');
-        return view('livewire.hospital.reception.create-discharge', ['bedpatientID'=>$bedpatientID, 'patientID'=>$patientID, 'receptionists'=>$receptionists, 'blocks'=>$blocks]);
+        return view('livewire.hospital.doctor.create-discharge', ['bedpatientID'=>$bedpatientID, 'patientID'=>$patientID, 'doctors'=>$doctors, 'blocks'=>$blocks]);
     }
 }

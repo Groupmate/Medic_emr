@@ -9,7 +9,7 @@ class Doctor extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'user_id', 'speciality', 'department', 'shift'
+        'user_id', 'speciality', 'department', 'shift', 'hospital_id'
     ];
     protected $casts = [
         'shift' => 'array'

@@ -16,7 +16,7 @@ class Dashboard extends Component
 {
     public function render()
     {
-        $patient_waiting_count =  Patient_Waiting_List::where('status','Waiting')->count(); 
+        $patient_waiting_count =  Patient_Waiting_List::where('status','Waiting')->where('user_id', Auth::user()->id)->count(); 
 
         $id = Auth()->user()->id; 
         $doctor = Doctor::where('user_id', $id)->first()->id; 

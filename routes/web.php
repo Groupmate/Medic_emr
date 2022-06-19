@@ -42,8 +42,7 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/room', function () { return view('hospital.hr.room');})->name('room');
         Route::get('/bed', function () { return view('hospital.hr.bed');})->name('bed');
         Route::get('/bedassignment/{id}', function ($id) { return view('hospital.doctor.bedassignment', ['id' => $id]);})->name('bedassignment');
-        Route::get('/incomingrefer', 'App\Http\Controllers\IncomingReferController@incomingRefer')->name('incoming-refer');
-        Route::get('/create-discharge', 'App\Http\Controllers\CreaeteDischargeController@discharge')->name('create-discharge');
+        Route::get('/incomingrefer', 'App\Http\Controllers\IncomingReferController@incomingRefer')->name('incoming-refer');        
         //Doctor
         Route::get('/appointments/{id}', function ($id) { return view('hospital.doctor.appointments', ['id' => $id]);})->name('appointments');
         Route::get('/assignedpatients', function () { return view('hospital.doctor.assignedpatients'); })->name('assignedpatients');
@@ -54,6 +53,7 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/requestexaminationtest/{id} ', function ($id) { return view('hospital.doctor.requestexaminationtest', ['id' => $id]); })->name('requestexaminationtest');
         Route::get('/referpatient/{id}', function($id) { return view('hospital.doctor.refer-patient', ['id' => $id]); })->name('refer-patient');
         Route::get('/medcertificate/{id}', function($id) { return view('hospital.doctor.generatemedicalcertificate', ['id' => $id]); })->name('medical certificate');
+        Route::get('/create-discharge', 'App\Http\Controllers\CreaeteDischargeController@discharge')->name('create-discharge');
         //Statics 
         Route::get('/fstatics', function () { return view('Statics.Fstatics'); })->name('Federal_Statics');
         Route::get('/hstatics', function () { return view('Statics.Hrstatics'); })->name('HR_Statics');

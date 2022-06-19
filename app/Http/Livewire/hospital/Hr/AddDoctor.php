@@ -95,12 +95,15 @@ class AddDoctor extends Component
 
     public function doctorModelData()
     {
-        $ser_id = Auth()->user()->id;
-        $hospitals = Hospital::where('user_id', $ser_id)->first();
+        // $ser_id = Auth()->user()->id;
+        // $hospitals = Hospital::where('user_id', $ser_id)->first();
         $this->hospitals = 15;
+        $id = Auth()->user()->id;
+        $hospital_a = Hospital::where('user_id', $id)->first();
 
         return [
             'user_id'=>$this->user_id,
+            'hospital_id'=>$hospital_a->id,
             'shift'=>$this->shift,
             'department'=>$this->department,
             'speciality'=>$this->speciality,

@@ -17,14 +17,14 @@
 <!-- start navbar -->
 <body class="">
 <div>
-<!-- start navbar -->
-  <div class="md:fixed md:w-full md:top-0 md:z-20 flex flex-row flex-wrap items-center bg-white p-6 border-b border-gray-300">      
+        <!-- start navbar -->
+  <div class="md:fixed md:w-full md:top-0 md:z-20 flex flex-row flex-wrap items-center bg-white p-6 border-b border-gray-300">     
       <!-- logo -->
       <div class="flex-none w-56 flex flex-row items-center">
-        <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/light-with-button-svg3.svg" alt="logo" />        
-          <strong class="capitalize ml-1 flex-1">Medic-EMR</strong>
-          <button id="sliderBtn" class="flex-none text-right text-gray-900 hidden md:block">
-          </button>
+                <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/light-with-button-svg3.svg" alt="logo" />        
+                <strong class="capitalize ml-1 flex-1">Medic-EMR</strong>
+                <button id="sliderBtn" class="flex-none text-right text-gray-900 hidden md:block">         
+                </button>
       </div>      
       <!-- navbar content toggle -->
       <button id="navbarToggle" class="hidden md:block md:fixed right-0 mr-6">
@@ -50,15 +50,15 @@
                   <img class="w-full h-full object-cover" src="<?php echo e(asset('frontend/img/user.svg')); ?>" >
               </div> 
               <div class="ml-2 capitalize flex ">
-                <strong class="text-sm text-gray-800 font-semibold m-0 p-0 leading-none"></strong>
-              
+                <strong class="text-sm text-gray-800 font-semibold m-0 p-0 leading-none"></strong>              
                   <!-- Topbar Navbar -->
                       <ul class="navbar-nav ml-auto">
                           <!-- Nav Item - User Information -->
                           <li class="nav-item dropdown no-arrow">
                               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  <span class="mr-2 d-none d-lg-inline text-gray-600 large"> {{ "Dr." }} {{""}}<?php echo  Auth::user()->firstname; echo " "; echo Auth::user()->lastname; ?></span>
+                                  <span
+                                      class="mr-2 d-none d-lg-inline text-gray-600 small"> {{ "Dr." }} {{""}}<?php echo  Auth::user()->firstname; echo " "; echo Auth::user()->lastname; ?> </span>
                               </a>
                               <!-- Dropdown - User Information -->
                               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -74,7 +74,7 @@
                               </div>
                           </li>
                       </ul>
-              </div>                      
+              </div>                                
             <div class="text-gray-500 menu hidden md:mt-10 md:w-full rounded bg-white shadow-md absolute z-20 right-0 w-40 mt-5 py-2 animated faster">
               <!-- item -->
               <a class="px-4 py-2 block capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 hover:text-gray-900 transition-all duration-300 ease-in-out" href="#">
@@ -107,7 +107,6 @@
                 log out
               </a>     
               <!-- end item -->
-
             </div>
           </div>
           <!-- end user -->
@@ -115,54 +114,63 @@
         <!-- end right -->
       </div>
       <!-- end navbar content -->
-
   </div>
   <!-- end navbar -->
-
-     
-  <div class="screen flex flex-row">
-    
+        <!-- start wrapper -->
+  <div class="screen flex flex-row">    
       <!-- start sidebar -->
-      <div id="sideBar" class="relative flex flex-col flex-wrap bg-white border-r border-gray-300 p-6 flex-none w-64 md:-ml-64 md:fixed md:top-0 md:z-30 md:h-screen md:shadow-xl animated faster">
-        
+      <div id="sideBar" class="relative flex flex-col flex-wrap bg-white border-r border-gray-300 p-6 flex-none w-64 md:-ml-64 md:fixed md:top-0 md:z-30 md:h-screen md:shadow-xl animated faster">        
         <!-- sidebar content -->
         <div class="flex flex-col">
-
           <!-- sidebar toggle -->
           <div class="text-right hidden md:block mb-4">
             <button id="sideBarHideBtn">
               <i class="fad fa-times-circle"></i>
             </button>
           </div>  
-          <!-- end sidebar toggle -->
-         <a href="/dashboard" class="mb-5 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
-               <p class="uppercase text-xm text-blue-900  tracking-wider">homes</p>
-            {{-- <hr class="border-t border-gray-500 my-0"> --}}
-              </a>  
-          <div id="dropdown" x-show="show" class="ml-1">
-           <a href="/dashboard" class=" mblock px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500">
-            <i class="fas fa-desktop text-xl mr-2"></i>
-                  Dashboard
-              </a>
-                 <hr class="border-t border-gray-200 my-0"><br>
-              <a href="/assignedpatients" class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500">              
-               <i class="far fa-hospital-user text-xl mr-2"></i>
-                  Assigned Patients
-              </a>
-               <hr class="border-t border-gray-200 my-0"><br>  
-               <a href="/create-discharge" class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500">              
-               <i class="far fa-hospital-user text-xl mr-2"></i>
-                 Discharge Patients
-              </a>
-               <hr class="border-t border-gray-200 my-0"><br>            
-              {{-- <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
-              <i class="fas fa-file-chart-line text-xl mr-2"></i>
-                  Reports
-              </a>  --}}
-                  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>              
-            <hr class="border-t border-gray-600 my-0">
-          </div>
-          <!-- end link -->                  
+          <!-- end sidebar toggle -->                
+              <div id="dropdown" x-show="show" class="ml-1">                
+                <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
+                    <i class="far fa-briefcase-medical text-xl mr-2"></i>
+                    Generate Medical data
+                </a>
+                <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
+                  <i class="far fa-briefcase-medical text-xl mr-2"></i>
+                  View Patient history
+                </a>
+                <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="# ">
+                    <i class="far fa-calendar-check text-xl mr-2"></i>
+                    Add Appointement</a>
+                </a>
+                <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
+                    <i class="far fa-procedures text-xl mr-2"></i>
+                    Assign-Bed</a>
+                <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
+                  <i class="far fa-ambulance text-xl mr-2"></i>
+                    Refer Patient 
+                </a>
+                <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
+                    <i class="far fa-briefcase-medical text-xl mr-2"></i>
+                    Request Examination Test
+                </a>
+                
+                <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
+                    <i class="far fa-pills text-xl mr-2"></i>
+                Perscribe Drug
+                </a>         
+                <a href="/medcertificate" class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
+                    <i class="far fa-file-certificate text-xl mr-2"></i>
+                Generate Medical Certificate
+                </a>
+                {{-- <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
+                <i class="fas fa-file-chart-line text-xl mr-2"></i>
+                    Reports
+                </a>  --}}
+                <br><br><br>
+               </a>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>   
+              </div>
+          <!-- end link -->
         </div>
-        <!-- end sidebar content -->
-      </div>
+      <!-- end sidebar content -->
+  </div>
