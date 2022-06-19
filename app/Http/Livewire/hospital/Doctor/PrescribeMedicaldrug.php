@@ -33,10 +33,11 @@ class PrescribeMedicaldrug extends Component
     ];
    
     public function create()
-    {
-        
+    { 
          $this->validate();
         Prescribe_drug::create($this->modeldata());
+        $this->prescribe= Prescribe_drug::where('status','waiting')->where('patient_id', $this->patient_id)->get();
+        $this->reset(['drug_name','quantity','descrpition']);
         session()->flash('message', 'prescribed Successfully.');
         $this->emitself('refresh-me');
         $this->reset(); 
@@ -44,9 +45,7 @@ class PrescribeMedicaldrug extends Component
     }
     public function rules()
     {
-        return [
-           
-           
+        return [ 
             'descrpition'=>'required',
             'quantity'=>'required|integer|min:0',
             'drug_name'=>'required',

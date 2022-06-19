@@ -10,6 +10,7 @@ class IssueDrug extends Component
 {
     public $search='',$prescribed ,$patient_id;
   
+<<<<<<< Updated upstream
    public function issue($id)
    {
         
@@ -29,6 +30,8 @@ class IssueDrug extends Component
       
    }
      
+=======
+>>>>>>> Stashed changes
     public function render()
     {   
         if(empty($this->search)){
@@ -36,7 +39,7 @@ class IssueDrug extends Component
             return view('livewire.hospital.pharmacy.issue-drug');
         }
         else{
-          $this->prescribed=Prescribe_drug::where('national_id','like','%'.$this->search.'%')->where('status','wating')->get();
+          $this->prescribed=Prescribe_drug::where('national_id','like',$this->search.'%')->where('status','waiting')->get();
           return view('livewire.hospital.pharmacy.issue-drug')->with('prescribed',$this->prescribed);
         }
        

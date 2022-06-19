@@ -11,9 +11,11 @@ class Employee extends Model
     protected $fillable = [
         'user_id','hospital_id', 'department', 'shift'
     ];
+
     protected $casts = [
         'shift' => 'array'
     ];
+    
     public function user()
     {
         return $this->hasOne(User::class);
