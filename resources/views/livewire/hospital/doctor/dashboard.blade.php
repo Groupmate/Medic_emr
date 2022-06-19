@@ -57,7 +57,7 @@
                     <div class="flex flex-row justify-between items-center">
                         <div class="h6 text-yellow-600 fad fa-sitemap"></div>
                         <span class="rounded-full text-white badge bg-teal-400 text-xs">
-                             {{-- {{$TotalPatients}} --}}
+                              {{$totalPatientvisited}}
                             <i class="fal fa-chevron-up ml-1"></i>
                         </span>
                     </div>
@@ -65,7 +65,7 @@
                     <!-- bottom -->
                     <div class="mt-8">
                         <h1 class="h5 num-4"></h1>
-                        <p>Total Patients vist</p>
+                        <a href="/thisweekvisitedpatients">Total Patients visted this Week</a>
                     </div>                
                     <!-- end bottom -->        
                 </div>

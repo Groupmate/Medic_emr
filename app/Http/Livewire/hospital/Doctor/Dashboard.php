@@ -11,13 +11,18 @@ use App\Models\Appointment;
 use App\Models\Doctor;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Carbon\CarbonImmutable;
 
 class Dashboard extends Component
 {
     public function render()
     {
+        $now = CarbonImmutable::now();
+        $weekStartDate = $now->startOfWeek();
+        $weekEndDate = $now->endOfWeek();
         $patient_waiting_count =  Patient_Waiting_List::where('status','Waiting')->where('user_id', Auth::user()->id)->count(); 
-
+        $totalPatientvisited  = Patient_Waiting_List::whereDate('created_at','>=', $weekStartDate)->whereDate('created_at', '<=', $weekEndDate)->where('user_id', Auth::user()->id)->where('status','examined')->count();
+        // dd($totalPatient);
         $id = Auth()->user()->id; 
         $doctor = Doctor::where('user_id', $id)->first()->id; 
         $TotalPatients = Hospital::leftJoin('medical_datas', 'hospitals.id', '=', 'medical_datas.hospital_id')
@@ -43,7 +48,7 @@ class Dashboard extends Component
                             ->take(10)->get();
         //dd($TodayAppointment);
         return view('livewire.hospital.doctor.dashboard',compact(
-            'patient_waiting_count','NoTodayAppointment', 'TotalPatients'   
+            'patient_waiting_count','NoTodayAppointment', 'TotalPatients', 'totalPatientvisited'   
         ))->with('WeeklyAppointment',$WeeklyAppointment)->with('appt',$TodayAppointment);
     }
 }

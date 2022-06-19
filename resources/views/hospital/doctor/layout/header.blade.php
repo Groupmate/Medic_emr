@@ -158,7 +158,12 @@
           </div>  
           <!-- end sidebar toggle -->
               </a>  
-              <div id="dropdown" x-show="show" class="ml-1">                
+              <div id="dropdown" x-show="show" class="ml-1"> 
+                <a href="/dashboard" class=" mblock px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500">
+                  <i class="fas fa-desktop text-xl mr-2"></i>
+                        Dashboard
+                </a>
+                <hr class="border-t border-gray-200 my-0"><br>                
                 <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/generatemedicaldata/{{$id}}">
                     <i class="far fa-briefcase-medical text-xl mr-2"></i>
                     Generate Medical data

@@ -37,8 +37,8 @@
                                             </td>
                                         </tr>  
                                         @empty
-                                        <td class="text-lg border border-l-0  px-6 py-4 whitespace-nowrap">
-                                             No recently visited patient
+                                        <td class="text-lg border border-l-0 text-red-500 px-6 py-4 whitespace-nowrap">
+                                             You have No recently visited patient
                                         </td>
                                         @endforelse  
                                 </tbody>

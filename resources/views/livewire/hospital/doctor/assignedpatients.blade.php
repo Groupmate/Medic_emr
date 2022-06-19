@@ -28,21 +28,21 @@
                                         @forelse($todayAppointment as $patient) 
                                             <tr class="border-b">
                                             <td class="border border-l-0 px-4 py-2 text-center text-green-500">  {{ $patient['patient_id']}} </td>
-                                                <td class="text-sm border border-l-0 px-4 py-2 px-6 py-4 whitespace-nowrap">
+                                                <td class="text-sm border border-l-0  px-6 py-4 whitespace-nowrap">
                                                     {{ $patient['firstname']}}
                                                 </td> 
-                                                <td class="text-sm border border-l-0 px-4 py-2 px-6 py-4 whitespace-nowrap">
-                                                    {{ $patient['lastname']}} 
+                                                <td class="text-sm border border-l-0  px-6 py-4 whitespace-nowrap">
+                                                    {{ $patient['middle_name']}} 
                                                 </td>
-                                                <td class="text-sm border border-l-0 px-4 py-2 px-6 py-4 whitespace-nowrap">
+                                                <td class="text-sm border border-l-0  px-6 py-4 whitespace-nowrap">
                                                     <button class="btn-shadow" wire:click="appoint({{ $patient['patient_id'] }})">
                                                         {{ __('Examine') }}
                                                     </button>
                                                 </td>
                                             </tr>  
                                         @empty
-                                        <td class="text-lg border border-l-0 px-4 py-2 px-6 py-4 whitespace-nowrap">
-                                            no appointed patient
+                                        <td class="text-lg text-red-500 border border-l-0  px-6 py-4 whitespace-nowrap">
+                                            You have No appointed patient
                                         </td>
                                         @endforelse 
                                     </tbody>
@@ -73,21 +73,21 @@
                                     @forelse($patients as $patient) 
                                         <tr class="border-b">
                                          <td class="border border-l-0 px-4 py-2 text-center text-green-500">  {{ $patient['id']}} </td>
-                                            <td class="text-sm border border-l-0 px-4 py-2 px-6 py-4 whitespace-nowrap">
+                                            <td class="text-sm border border-l-0  px-6 py-4 whitespace-nowrap">
                                                 {{ $patient['firstname']}}
                                             </td> 
-                                            <td class="text-sm border border-l-0 px-4 py-2 px-6 py-4 whitespace-nowrap">
-                                                {{ $patient['lastname']}} 
+                                            <td class="text-sm border border-l-0  px-6 py-4 whitespace-nowrap">
+                                                {{ $patient['middle_name']}} 
                                             </td>
-                                            <td class="text-sm border border-l-0 px-4 py-2 px-6 py-4 whitespace-nowrap">
+                                            <td class="text-sm border border-l-0  px-6 py-4 whitespace-nowrap">
                                                 <button class="btn-shadow" wire:click="examine({{ $patient['id'] }})">
                                                     {{ __('Examine') }}
                                                 </button>
                                             </td>
                                         </tr>  
                                         @empty
-                                        <td class="text-lg border border-l-0 px-4 py-2 px-6 py-4 whitespace-nowrap">
-                                            no assigned patient
+                                        <td class="text-lg text-red-500 border border-l-0  px-6 py-4 whitespace-nowrap">
+                                            You Have No assigned patient
                                         </td>
                                         @endforelse  
                                 </tbody>
