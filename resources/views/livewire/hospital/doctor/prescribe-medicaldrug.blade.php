@@ -74,21 +74,12 @@
                         @empty
                         @endforelse
                     </tbody>
-<<<<<<< Updated upstream
                 </table>
                   <div class="flex items-center justify-end mt-4"  >
                         <button  class="bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm"  wire:click="complete" wire:loading.attr="disabled">
-                        complet
+                        complete
                         </button>   
                     </div>          
-=======
-                </table> 
-                              <div class="flex items-center justify-end mt-4"  >
-                                    <button class="bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm"  wire:click="complete()" wire:loading.attr="disabled">
-                                        complete
-                                    </button>   
-                                </div> 
->>>>>>> Stashed changes
             </div>
             
         </div>
