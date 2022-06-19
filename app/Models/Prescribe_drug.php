@@ -9,11 +9,7 @@ class Prescribe_drug extends Model
 {
     use HasFactory;
     protected $fillable = [
-         'patient_id', 'user_id','status','quantity','descrpition', 'drug_name'
+         'patient_id', 'user_id','status','quantity','descrpition', 'drug_name','national_id', 'quantity'
   ];
-  protected $casts = [
-    'drug_name' => 'array',
-    'quantity' => 'array',
-];
-
+ 
 }

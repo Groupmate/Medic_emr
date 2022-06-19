@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('patient_id')->constrained()->onDelete('cascade');
             $table->string('drug_name');
+            $table->string('national_id');
             $table->string('quantity');
             $table->string('descrpition');
             $table->string('status');
