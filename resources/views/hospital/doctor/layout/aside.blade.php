@@ -154,6 +154,11 @@
                <i class="far fa-hospital-user text-xl mr-2"></i>
                  Discharge Patients
               </a>
+               <hr class="border-t border-gray-200 my-0"><br> 
+               <a href="/ongoingpatients" class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500">              
+               <i class="far fa-hospital-user text-xl mr-2"></i>
+                 Ongoing Patients
+              </a>
                <hr class="border-t border-gray-200 my-0"><br>            
               {{-- <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
               <i class="fas fa-file-chart-line text-xl mr-2"></i>

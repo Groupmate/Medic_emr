@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OngoingPatientController;
 use App\Http\Livewire\hospital\Doctor\Generatemedicaldata;
 
 
@@ -46,6 +47,7 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         //Doctor
         Route::get('/appointments/{id}', function ($id) { return view('hospital.doctor.appointments', ['id' => $id]);})->name('appointments');
         Route::get('/assignedpatients', function () { return view('hospital.doctor.assignedpatients'); })->name('assignedpatients');
+        Route::get('/ongoingpatients', 'App\Http\Controllers\OngoingPatientController@ongoing')->name('ongoingpatients');
         Route::get('/todayappointments', function () { return view('hospital.doctor.today-appointment'); })->name('today-appointments'); 
         Route::get('/prescribe-medicaldrug/{id}', function ($id) { return view('hospital.doctor.prescribe-medicaldrug', ['id' => $id]); })->name('prescribe-medicaldrug');
         Route::get('/generatemedicaldata/{id} ', function ($id) { return view('hospital.doctor.generatemedicaldata', ['id' => $id]); })->name('generatemedicaldata');

@@ -33,8 +33,8 @@ class Assignedpatients extends Component
 
     public function examine($id)
     { 
-        $patient_waiting = Patient_Waiting_List::where('patient_id', $id)->first();
-        $patient_waiting->status = "examined";
+        $patient_waiting = Patient_Waiting_List::where('patient_id', $id)->where('status', 'waiting')->first();
+        $patient_waiting->status = "ongoing";
         $patient_waiting->save(); 
          
         return redirect()->route('generatemedicaldata', $id);
