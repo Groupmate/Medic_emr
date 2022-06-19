@@ -45,7 +45,7 @@
                   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
                            <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                               <x-jet-label class="text-gray-800 text-sm font-bold leading-tight tracking-normal" for="quantity" value="{{ __('Quantity') }}"/>
-                              <x-jet-input id="quantity" class="block mt-1 w-full" type="number" placeholder="quantity" wire:model.debounce.800ms="quantity"/> 
+                              <x-jet-input id="quantity" min=1 class="block mt-1 w-full" type="number" placeholder="quantity" wire:model.debounce.800ms="quantity"/> 
                               @error('quantity') <span class="error">{{$message}}</span>@enderror
                           </div>
                           <div class="md:w-1/2 px-3 mb-6 md:mb-0">

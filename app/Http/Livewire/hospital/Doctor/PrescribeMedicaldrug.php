@@ -8,6 +8,7 @@ use Illuminate\Validation\Rule;
 use App\Models\Prescribe_drug;
 use App\Models\Doctor;
 use App\Models\Patient;
+use App\Models\Medical_drug;
 class PrescribeMedicaldrug extends Component
 {
     public $message;
@@ -84,8 +85,8 @@ class PrescribeMedicaldrug extends Component
        
     } 
     public function render()
-    { 
+    {   $medical_drug=Medical_drug::all();
         $this->prescribe= Prescribe_drug::where('status','pending')->where('patient_id', $this->patient_id)->get();
-        return view('livewire.hospital.doctor.prescribe-medicaldrug')->with('prescribe',$this->prescribe);
+        return view('livewire.hospital.doctor.prescribe-medicaldrug')->with('prescribe',$this->prescribe)->with('medical_drug',$medical_drug);
     }
 }

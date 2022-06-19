@@ -1,4 +1,13 @@
 <div class="mt-10 sm:mt-0">
+              @if (session()->has('message'))
+                        <div class=" flex bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
+                            <div class="flex">
+                                <div>
+                                    <p class="text-sm border-teal-500 rounded-b text-teal-900">{{ session('message') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
           <form >
             <input  type="text"  placeholder="Search patient " class="shadow apperance none bounded  rounded bg-transparent focus:outline-none text-xs" wire:model="search" /> 
             </form>        
@@ -24,7 +33,7 @@
                       {{$prescribed->quantity}}
                     </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  <x-jet-button wire:click="createShowModal({{$prescribed->id}})">
+                  <x-jet-button wire:click="issue({{$prescribed->id}})">
                                 {{ __('take') }}
                             </x-jet-button>
                   </td> 

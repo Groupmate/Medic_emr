@@ -5,11 +5,29 @@ namespace App\Http\Livewire\Hospital\Pharmacy;
 use Livewire\Component;
 use App\Models\Prescribe_drug;
 use App\Models\Patient;
+use App\Models\Medical_drug;
 class IssueDrug extends Component
 {
     public $search='',$prescribed ,$patient_id;
   
-  
+   public function issue($id)
+   {
+        
+        $prescribe_drug=Prescribe_drug::where('id',$id)->first();
+        $quantity=Prescribe_drug::where('id',$id)->first()->quantity;
+        $medical_drug=Medical_drug::where('name',$prescribe_drug->drug_name)->first();
+         if($medical_drug->quantity >= $quantity)
+         {
+            $medical_drug->quantity = $medical_drug->quantity - $quantity;
+            $medical_drug->save();
+            $prescribe_drug->status = "taken";
+            $prescribe_drug->save();
+         }
+         else{
+            session()->flash('message', 'there is no ');
+         }
+      
+   }
      
     public function render()
     {   
