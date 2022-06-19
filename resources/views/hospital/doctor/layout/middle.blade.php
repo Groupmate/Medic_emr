@@ -62,22 +62,29 @@
     </nav>
 
     <aside class="aside is-placed-left is-expanded">
-        <div class="aside-tools">
+        <div class="aside-tools flex">
+            <div class="flex">
+                <div class="md:fixed md:w-full md:top-0 md:z-20 flex flex-row flex-wrap items-center bg-white p-6 border-b border-gray-300">
+                    <div class="flex-none w-56 flex flex-row items-center">
+                        <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/light-with-button-svg3.svg" alt="logo" />
+                        
+                        <strong class="capitalize ml-1 flex-1">Medic-EMR</strong>
 
-            <div class="md:fixed md:w-full md:top-0 md:z-20 flex flex-row flex-wrap items-center bg-white p-6 border-b border-gray-300">
-      
-                <!-- logo -->
-                <div class="flex-none w-56 flex flex-row items-center">
-                    <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/light-with-button-svg3.svg" alt="logo" />
-                    
-                    <strong class="capitalize ml-1 flex-1">Medic-EMR</strong>
-
+                    </div>
+                </div>   
+                <div class="flex-row justify-end  mt-4 ">
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-900"></i>
+                        {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </div>
-                <button id="sliderBtn" class="flex-none text-right text-black-900 hidden md:block">
-                <i class="fad fa-list-ul"></i>
-                </button>
             </div>
         </div>
+        
            <div class="flex flex-col ml-4 bg-white">
 
           <!-- sidebar toggle -->
@@ -88,6 +95,11 @@
           <!-- end sidebar toggle -->
               </a>  
               <div id="dropdown" x-show="show" class="ml-1">
+                 <a href="/dashboard" class=" mblock px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500">
+                    <i class="fas fa-desktop text-xl mr-2"></i>
+                  Dashboard
+                 </a>
+                 <hr class="border-t border-gray-200 my-0"><br>
                 
                 <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/generatemedicaldata/{{$id}}">
                     <i class="far fa-briefcase-medical text-xl mr-2"></i>
@@ -121,6 +133,16 @@
                     <i class="far fa-file-certificate text-xl mr-2"></i>
                 Generate Medical Certificate
                 </a>
+             
+                <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500">
+                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                      <span i class="fas fa-lock"></i></i></span>
+                      {{ __('Logout') }}
+                  </a>
+
+                </a>
+              
                 {{-- <a class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
                 <i class="fas fa-file-chart-line text-xl mr-2"></i>
                     Reports
@@ -133,24 +155,7 @@
               <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
           </div>
-        <li class="--set-active-forms-html">
-            </a>
-             <li class="--set-active-forms-html">
-                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ __('Dr. ') }} {{ Auth::user()->firstname }} {{ Auth::user()->lastname }} </span>
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                  aria-labelledby="userDropdown">
-                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                      <span class="icon"><i class="mdi mdi-lock"></i></span>
-                      {{ __('Logout') }}
-                  </a>
-
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                      @csrf
-                  </form>
-              
-            </a>
-        </li>
+        
         </li>
         </ul>
         </div>
