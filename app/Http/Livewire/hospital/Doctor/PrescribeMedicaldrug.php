@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Livewire\Hospital\Doctor;
 
 use Livewire\Component;
@@ -32,22 +31,22 @@ class PrescribeMedicaldrug extends Component
         'refresh-me'=>'$refresh'
     ];
    
-    public function create()
+    public function create() 
     { 
-        $this->validate();
+        $this->validate();   
         Prescribe_drug::create($this->modeldata());
         $this->prescribe= Prescribe_drug::where('status','waiting')->where('patient_id', $this->patient_id)->get();
         $this->reset(['drug_name','quantity','descrpition']);
-        session()->flash('message', 'prescribed Successfully.');
+        session()->flash('message', 'prescribed Successfully.'); 
         //  $this->validate();
         // Prescribe_drug::create($this->modeldata());
         // $this->prescribe= Prescribe_drug::where('status','waiting')->where('patient_id', $this->patient_id)->get();
         // $this->reset(['drug_name','quantity','descrpition']);
         // session()->flash('message', 'prescribed Successfully.');
         // $this->emitself('refresh-me');
-        // $this->reset(); 
-
+        // $this->reset();  
     }
+
     public function rules()
     {
         return [ 
@@ -55,16 +54,14 @@ class PrescribeMedicaldrug extends Component
             'quantity'=>'required|integer|min:0',
             'drug_name'=>'required',
             'national_id'=>'required',
-            'patient_id'=>'required',
-         
-          
+            'patient_id'=>'required', 
         ];
     }  
+
     public function modelData()
     {
         $this->user_id = Auth()->user()->id;
-    
-       
+     
         return [
             'user_id'=>$this->user_id,
             'patient_id'=>$this->patient_id,
@@ -73,21 +70,18 @@ class PrescribeMedicaldrug extends Component
             'descrpition'=>$this->descrpition,
             'drug_name' =>$this->drug_name,
             'quantity'=>$this->quantity,
-             ];
-            
-             $this->reset(); 
+        ]; 
     }   
     public function complete(){
   
         $prescribe=Prescribe_drug::where('status','pending')->where('patient_id', $this->patient_id)->get();
-    //   dd($prescribe);
-      foreach($prescribe as $prescribe){
-        $prescribe->status="wating";
-        $prescribe->save(); 
-      }
-      
-       
+
+        foreach($prescribe as $prescribe){
+            $prescribe->status="wating";
+            $prescribe->save(); 
+        } 
     } 
+    
     public function render()
     {   $medical_drug=Medical_drug::all();
         $this->prescribe= Prescribe_drug::where('status','pending')->where('patient_id', $this->patient_id)->get();

@@ -70,7 +70,8 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/medical-drug', function () { return view('hospital.pharmacy.add-medical-drug'); })->name('add-medical-drug');
         Route::get('/issue-drug', function () { return view('hospital.pharmacy.issue-drug'); })->name('issue-drug');
         Route::get('/Pprofile', function () { return view('hospital.pharmacy.profile'); })->name('pharmacyprofile');
-         //pharmacy
+         //laboratory
         Route::get('/Ldashboard', function () { return view('hospital.laboratory.dashboard'); })->name('laboratory_dashboard');
+        Route::get('/waitinglist', function () { return view('hospital.laboratory.waitinglist'); })->name('waitinglist');
 
 });
