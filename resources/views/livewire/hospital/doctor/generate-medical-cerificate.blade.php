@@ -12,9 +12,6 @@
     @livewireStyles
 </head>
 <button class="show" data-toggle="modal" data-target="#CertificationModal" aria-haspopup="true">Show Modal</button>
-<div class="modal fade" id="CertificationModal" tabindex="-1" role="dialog" aria-labelledby="CertificationModalTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body">
                 <div class="container-fluid">
@@ -45,15 +42,15 @@
                                     </div><br>
                                    
                                         <div class="row text-left">
-                                            <div class="col-sm-8 "><b> National Identification : {{ $PatientInfo['national_id']}} </b> </div>
-                                            <div class="col-sm-8 "><b> Full Name : {{$PatientInfo['firstname']}} {{$PatientInfo['lastname']}}</b> </div>
-                                            <div class="col-sm-8 "><b> Date and place of birth : {{$PatientInfo['date_of_birth']}} </div>
-                                            <div class="col-sm-8 "><b> Residing at: {{$PatientInfo['city']}} {{$PatientInfo['zone']}}</b></div>
-                                        </div>
+                                            <div class="col-sm-12 "><b> National Identification : {{ $PatientInfo['national_id']}} </b> </div>
+                                            <div class="col-sm-12 "><b> Full Name : {{$PatientInfo['firstname']}} {{$PatientInfo['lastname']}}</b> </div>
+                                            <div class="col-sm-12"><b> Date and place of birth : {{$PatientInfo['date_of_birth']}} </div>
+                                            <div class="col-sm-12"><b> Residing at: {{$PatientInfo['city']}} {{$PatientInfo['zone']}}</b></div>
+                                       
                                         <br>
 
                                         <div class="col-sm-8">
-                                            <b>Issued at : on : {{$PatientInfo['updated_at']}}</b>
+                                            <br>Issued at : on : {{$PatientInfo['updated_at']}}<br>
                                         </div>
                                 
                                     <div class="col-sm-12">
@@ -72,32 +69,32 @@
                               
                                         <div class="row ">
                                             <div class="col-sm-12">
-                                                <p >The undersigned Doctor in medicine (full name): {{$DoctorInfo['firstname']}}{{$DoctorInfo['lastname']}} </p>
+                                                <p >The undersigned Doctor in medicine (full name): <div class="text-sm bg-gray-700">{{$DoctorInfo['firstname']}}{{$DoctorInfo['lastname']}} </div></p>
                                                 <p> The certificate is valid until 2018-08-26</p>
                                             </div>
                                         </div>
                                    
                                         <div class="row">
                                         <div class="col-sm-12">
-                                            <img class="pull-right" id="signLogo" src={{ asset('assets/sign.png')}}>
+                                            {{-- <img class="pull-right" id="signLogo" src={{ asset('assets/sign.png')}}> --}}
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-12 text-center">
-                                            <p id="smallFont">Medic EMR Hospital. &#9679; 29F, Two IFC, 10 Addis Ababa &#9679; Ethiopia</p>
+                                        <div class="col-sm-10 text-center">
+                                            <p class="pull-right ">Medic EMR Hospital. &#9679; 29F, Two IFC, 10 Addis Ababa &#9679; Ethiopia</p>
                                         </div>
                                     </div>
-                                    <img class="pull-right" id="footerLogo" src={{ asset('assets/logo1.png')}}>
+                                    {{-- <img class="pull-right" id="footerLogo" src={{ asset('assets/logo1.png')}}> --}}
                             </div>
                         </div>
-                         <button wire:click="generateMedicalPDF()" class="mr-12 text-xl  background-color:red py-8 px-22">Print-Pdf </button>
+                         
                     </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </body>
+<button wire:click="generateMedicalPDF()" class="mr-12 text-xl  background-color:red py-8 px-22">Print-Pdf </button>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- Latest compiled JavaScript -->

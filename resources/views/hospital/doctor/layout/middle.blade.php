@@ -129,7 +129,7 @@
                     <i class="far fa-pills text-xl mr-2"></i>
                 Perscribe Drug
                 </a>         
-                <a href="/medcertificate" class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="#">
+                <a  class="block px-3 py-2  capitalize font-medium text-base hover:text-teal-600 transition ease-in-out duration-500" href="/medcertificate/{{$id}}">
                     <i class="far fa-file-certificate text-xl mr-2"></i>
                 Generate Medical Certificate
                 </a>

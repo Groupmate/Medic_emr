@@ -3,14 +3,11 @@
     <div class="rounded overflow-hidden shadow-lg">
        
         <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">  Dignosis Information 
-               @ <div class="mr-2">
-                 @foreach ($medicaldata->created_at as $created_at)
-                    {{ $created_at }}
-                @endforeach
+            <div class="font-bold text-xl mb-2">  Dignosis Information  </div> 
+              <div class=" font-bold flex justify-end">
+                     @ {{ $medicaldata->created_at }}
                </div>
-            
-            </div> 
+           
             <p class="text-gray-700 text-base">
             @foreach ($medicaldata->diagnosis_info as $diagnosis_info)
                 {{ $diagnosis_info }}
