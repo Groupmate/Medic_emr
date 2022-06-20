@@ -7,6 +7,7 @@ use App\Models\Patient;
 use App\Models\Medical_data;
 use App\Models\Doctor;
 use App\Models\User;
+use App\Models\Hospital;
 use Illuminate\Support\Facades\Auth;
 // use Maatwebsite\Excel\Concerns\WithHeadings;
 // use Maatwebsite\Excel\Concerns\FromCollection;
@@ -28,8 +29,10 @@ class GenerateMedicalCerificate extends Component
         $userID      = Auth::user()->id;
         $DoctorInfo  = User::select('firstname','lastname')
                         ->where('users.id', $userID )->first();
+        $HospitalInfo =Hospital::select('name')
+                        ->where('hospitals.user_id',  $userID)->first();  
     
-        $pdf = PDF::loadView('livewire.hospital.doctor.generate-medical-cerificate',compact('DoctorInfo','PatientInfo'));
+        $pdf = PDF::loadView('livewire.hospital.doctor.generate-medical-cerificate',compact('DoctorInfo','PatientInfo','HospitalInfo'));  
     
         return $pdf->download('MedicalCertificate.pdf');
     }
@@ -46,7 +49,9 @@ class GenerateMedicalCerificate extends Component
         $userID      = Auth::user()->id;
         $DoctorInfo  = User::select('firstname','lastname')
                         ->where('users.id', $userID )->first();
-        return view('livewire.hospital.doctor.generate-medical-cerificate',compact('DoctorInfo','PatientInfo'));
+        $HospitalInfo =Hospital::select('name')
+                        ->where('hospitals.user_id',  $userID)->first();  
+        return view('livewire.hospital.doctor.generate-medical-cerificate',compact('DoctorInfo','PatientInfo','HospitalInfo'));
     }
 }
 

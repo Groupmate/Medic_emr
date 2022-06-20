@@ -27,6 +27,11 @@
                                     <div class="col-sm-12">
                                         <p class="header-large">MEDICAL CERTIFICATE</p>
                                     </div>
+                                     <div class="col-sm-12">
+                                        <h3 class="header-medium">
+                                         {{ $HospitalInfo['name']}} Hospital
+                                        </h3>
+                                    </div>
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <p><strong>About the medical certificate</strong>
