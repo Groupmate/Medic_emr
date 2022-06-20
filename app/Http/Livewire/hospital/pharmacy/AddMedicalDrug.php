@@ -26,6 +26,7 @@ class AddMedicalDrug extends Component
         Medical_drug::create($this->modeldata());
         // return redirect()->to('/room');
         session()->flash('message', 'medicaldrug saved Successfully.');
+        return redirect()->to('/Pdashboard');
         $this->reset();
     }
     public function modelData()
@@ -50,10 +51,10 @@ class AddMedicalDrug extends Component
     {
         return [
             'name'=>'required',
-             'quantity'=>'required|integer|min:0',
+             'quantity'=>'required',
             // 'hospital_id'=>'required',
             'expired_date'=>'required',
-            'price'=>'required|integer|min:0',
+            'price'=>'required|min:1',
         ];
     }   
     public function render()

@@ -70,7 +70,7 @@
                 <select class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     wire:model.debounce.800ms="role" />
                     <option>---Select role---</option>
-                    <option value="5">Receptionist</option>
+                    <option value="6">Receptionist</option>
                     <option value="7">Pharmacy</option>
                     <option value="8">Laboratory</option>
                 </select>

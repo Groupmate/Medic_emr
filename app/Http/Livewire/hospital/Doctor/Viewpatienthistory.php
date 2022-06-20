@@ -16,6 +16,7 @@ class Viewpatienthistory extends Component
     public function render()
     {
         $medicaldata = Medical_data::where('patient_id', $this->patient_id)->get();
+        // dd($medicaldata)
         return view('livewire.hospital.doctor.viewpatienthistory',[
             'medicaldata' =>  $medicaldata,
         ]);

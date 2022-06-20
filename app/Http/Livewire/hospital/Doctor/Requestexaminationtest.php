@@ -11,6 +11,7 @@ use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Patient_waiting_list; 
+use App\Models\labrequest; 
 use Illuminate\Support\Facades\Http;
 use GuzzleHttp\Client;
 
@@ -19,7 +20,7 @@ class Requestexaminationtest extends Component
     use WithPagination;
 
     public $patient_id, $user_id, $employee = [], $users = [], $available_doctors, $patients,
-    $hospital_id, $status, $description;
+    $hospital_id, $status, $description, $test = [];
     public $modelId;
     public $modalFormVisible = false;
  
@@ -32,38 +33,31 @@ class Requestexaminationtest extends Component
     public function request()
     {
         $this->modelId = $this->patient_id;
-
+  
         $employee = Employee::all();
-        $employeeInfo = Employee::leftJoin('users' , 'employees.user_id' ,'=','users.id')
-                      ->select('users.role', 'employees.shift', 'employees.id')
-                      ->where('hospital_id', $this->hospital_id)
-                      ->get();
-        $user = User::where('id', $user_id)->get();
-        $employee = Employee::all();
-                     
+                    
         foreach($employee as $employee)
         {
-            $user = User::where('id', $employee->user_id)->get();
-            dd($employee->role);
-            if($employee->role == 7){
-
-                $shift = $employee->shift;
+            $user = User::where('id', $employee->user_id)->first();
              
-                foreach($shift as $shift)
-                {
-                    if($shift == date('l'))
+            if($user->role == 7){
+
+                    $shifts = $employee->shift;
+                
+                    foreach($shifts as $shift)
                     {
-                        $this->employee[] = Employee::where('id', $employee->id)->pluck('user_id')->toArray();
-                    }
-                } 
+                        if($shift == date('l'))
+                        { 
+                            $this->employee[$employee->user_id]['user_id'] = $employee->user_id;   
+                            $this->employee[$employee->user_id]['full_name'] = $user->firstname.' '.$user->lastname;
+                            $this->employee[$employee->user_id]['department'] = $employee->department;
+                        }
+                    } 
+                }
+              
             }
-        }
-        foreach($this->employee as $employee)
-        {
-            $this->users[] = User::where('id', $employee)->first();
-        }
-        dd($this->users);
-     
+ 
+        
         $this->modalFormVisible=true;
        
     }
@@ -80,8 +74,19 @@ class Requestexaminationtest extends Component
         return[
             'user_id'=> $this->user_id,
             'status'=> "waiting",
-            'description' => $this->description,
-            'hospital_id'=> $this->hospital_id,
+            'description' => "",
+            'hospital_id'=> 1,
+            'patient_id'=> $this->patient_id,
+        ];
+    }
+
+    public function labmodeldata()
+    { 
+        return[
+            'user_id'=> $this->user_id,
+            'test'=> $this->test,
+            'description' => "gjhghj",
+            'hospital_id'=> 1,
             'patient_id'=> $this->patient_id,
         ];
     }
@@ -89,22 +94,24 @@ class Requestexaminationtest extends Component
     public function create()
     {
         $this->validate();
-        $psw = Patient_Waiting_List::create($this->modeldata()); 
+        $psw = Patient_Waiting_List::create($this->modeldata());
+        labrequest::create($this->labmodeldata()); 
         $this->modalFormVisible=false; 
 
-        $http = new \GuzzleHttp\Client;
+        // $http = new \GuzzleHttp\Client;
 
-        $response = Http::get('https://sms.hahucloud.com/api/send', [
-            'key' => '946b92a598b36e4ad6aff1e4550d96d922656da4',
-            'phone'  => $this->phone,
-            'message' => 'Your queue no '. $psw->id,
-        ]); 
+        // $response = Http::get('https://sms.hahucloud.com/api/send', [
+        //     'key' => '946b92a598b36e4ad6aff1e4550d96d922656da4',
+        //     'phone'  => $this->phone,
+        //     'message' => 'Your queue no '. $psw->id,
+        // ]); 
 
-        session()->flash('message', 'The patient is assigned succesfully'); 
+        // session()->flash('message', 'The patient is assigned succesfully'); 
+        $this->reset();
     } 
 
     public function render()
     {
-        return view('livewire.hospital.doctor.requestexaminationtest')->with('user', $this->users);
+        return view('livewire.hospital.doctor.requestexaminationtest')->with('employee', $this->employee);
     }
 }

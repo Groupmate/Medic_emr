@@ -45,18 +45,20 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
         Route::get('/bedassignment/{id}', function ($id) { return view('hospital.doctor.bedassignment', ['id' => $id]);})->name('bedassignment');
         Route::get('/incomingrefer', 'App\Http\Controllers\IncomingReferController@incomingRefer')->name('incoming-refer');        
         //Doctor
-        Route::get('/appointments/{id}', function ($id) { return view('hospital.doctor.appointments', ['id' => $id]);})->name('appointments');
-        Route::get('/assignedpatients', function () { return view('hospital.doctor.assignedpatients'); })->name('assignedpatients');
-        Route::get('/ongoingpatients', 'App\Http\Controllers\OngoingPatientController@ongoing')->name('ongoingpatients');
-        Route::get('/thisweekvisitedpatients', 'App\Http\Controllers\ThisweekvisitedpatientsController@visited')->name('thisweekvisitedpatients');
-        Route::get('/todayappointments', function () { return view('hospital.doctor.today-appointment'); })->name('today-appointments'); 
-        Route::get('/prescribe-medicaldrug/{id}', function ($id) { return view('hospital.doctor.prescribe-medicaldrug', ['id' => $id]); })->name('prescribe-medicaldrug');
-        Route::get('/generatemedicaldata/{id} ', function ($id) { return view('hospital.doctor.generatemedicaldata', ['id' => $id]); })->name('generatemedicaldata');
-        Route::get('/viewpatienthistory/{id} ', function ($id) { return view('hospital.doctor.viewpatienthistory', ['id' => $id]); })->name('viewpatienthistory');
-        Route::get('/requestexaminationtest/{id} ', function ($id) { return view('hospital.doctor.requestexaminationtest', ['id' => $id]); })->name('requestexaminationtest');
-        Route::get('/referpatient/{id}', function($id) { return view('hospital.doctor.refer-patient', ['id' => $id]); })->name('refer-patient');
-        Route::get('/medcertificate/{id}', function($id) { return view('hospital.doctor.generatemedicalcertificate', ['id' => $id]); })->name('medical certificate');
-        Route::get('/create-discharge', 'App\Http\Controllers\CreaeteDischargeController@discharge')->name('create-discharge');
+        Route::middleware(['doctor'])->group(function(){
+            Route::get('/appointments/{id}', function ($id) { return view('hospital.doctor.appointments', ['id' => $id]);})->name('appointments');
+            Route::get('/assignedpatients', function () { return view('hospital.doctor.assignedpatients'); })->name('assignedpatients');
+            Route::get('/ongoingpatients', 'App\Http\Controllers\OngoingPatientController@ongoing')->name('ongoingpatients');
+            Route::get('/thisweekvisitedpatients', 'App\Http\Controllers\ThisweekvisitedpatientsController@visited')->name('thisweekvisitedpatients');
+            Route::get('/todayappointments', function () { return view('hospital.doctor.today-appointment'); })->name('today-appointments'); 
+            Route::get('/prescribe-medicaldrug/{id}', function ($id) { return view('hospital.doctor.prescribe-medicaldrug', ['id' => $id]); })->name('prescribe-medicaldrug');
+            Route::get('/generatemedicaldata/{id} ', function ($id) { return view('hospital.doctor.generatemedicaldata', ['id' => $id]); })->name('generatemedicaldata');
+            Route::get('/viewpatienthistory/{id} ', function ($id) { return view('hospital.doctor.viewpatienthistory', ['id' => $id]); })->name('viewpatienthistory');
+            Route::get('/requestexaminationtest/{id} ', function ($id) { return view('hospital.doctor.requestexaminationtest', ['id' => $id]); })->name('requestexaminationtest');
+            Route::get('/referpatient/{id}', function($id) { return view('hospital.doctor.refer-patient', ['id' => $id]); })->name('refer-patient');
+            Route::get('/medcertificate/{id}', function($id) { return view('hospital.doctor.generatemedicalcertificate', ['id' => $id]); })->name('medical certificate');
+            Route::get('/create-discharge', 'App\Http\Controllers\CreaeteDischargeController@discharge')->name('create-discharge');
+        });
         //Statics 
         Route::get('/fstatics', function () { return view('Statics.Fstatics'); })->name('Federal_Statics');
         Route::get('/hstatics', function () { return view('Statics.Hrstatics'); })->name('HR_Statics');

@@ -8,6 +8,7 @@ use Illuminate\Validation\Rule;
 use App\Models\Prescribe_drug;
 use App\Models\Doctor;
 use App\Models\Patient;
+use App\Models\Medical_drug;
 class PrescribeMedicaldrug extends Component
 {
     public $message;
@@ -32,20 +33,24 @@ class PrescribeMedicaldrug extends Component
     ];
    
     public function create()
-    {
-        
-         $this->validate();
+    { 
+        $this->validate();
         Prescribe_drug::create($this->modeldata());
+        $this->prescribe= Prescribe_drug::where('status','waiting')->where('patient_id', $this->patient_id)->get();
+        $this->reset(['drug_name','quantity','descrpition']);
         session()->flash('message', 'prescribed Successfully.');
-        $this->emitself('refresh-me');
-        $this->reset(); 
+        //  $this->validate();
+        // Prescribe_drug::create($this->modeldata());
+        // $this->prescribe= Prescribe_drug::where('status','waiting')->where('patient_id', $this->patient_id)->get();
+        // $this->reset(['drug_name','quantity','descrpition']);
+        // session()->flash('message', 'prescribed Successfully.');
+        // $this->emitself('refresh-me');
+        // $this->reset(); 
 
     }
     public function rules()
     {
-        return [
-           
-           
+        return [ 
             'descrpition'=>'required',
             'quantity'=>'required|integer|min:0',
             'drug_name'=>'required',
@@ -84,8 +89,8 @@ class PrescribeMedicaldrug extends Component
        
     } 
     public function render()
-    { 
+    {   $medical_drug=Medical_drug::all();
         $this->prescribe= Prescribe_drug::where('status','pending')->where('patient_id', $this->patient_id)->get();
-        return view('livewire.hospital.doctor.prescribe-medicaldrug')->with('prescribe',$this->prescribe);
+        return view('livewire.hospital.doctor.prescribe-medicaldrug')->with('prescribe',$this->prescribe)->with('medical_drug',$medical_drug);
     }
 }

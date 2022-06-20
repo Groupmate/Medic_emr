@@ -25,35 +25,35 @@
           <form  class="w-full max-w-lg" action="">
             @csrf
               <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                                <div class="mt-4">
-                                    <x-jet-label for="firstname" value="{{ __('First-Name') }}" />
-                                    <x-jet-input id="firstname" class="appearance-none block w-full bg-gray-200 text-gray-500 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="firstname" wire:model.debounce.800ms="firstname" />
-                                    @error('firstname') <span class="error text-red-600">{{$message}}</span>@enderror
-                                </div>
-                            <div class="mt-4">
-                                <x-jet-label for="middel_name" value="{{ __('Middel-Name') }}" />
-                                <x-jet-input id="middel_name" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="middel_name" wire:model.debounce.800ms="middel_name" />
-                                @error('middel_name') <span class="error text-red-600">{{$message}}</span>@enderror
-                            </div>
-                          <div class="mt-4">
-                              <x-jet-label for="lastname" value="{{ __('Last-Name') }}" />
-                              <x-jet-input id="lastname" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="lastname" wire:model.debounce.800ms="lastname" />
-                              @error('lastname') <span class="error text-red-600">{{$message}}</span>@enderror
-                          </div>
-
+                    <div class="mt-4">
+                        <x-jet-label for="firstname" value="{{ __('First-Name') }}" />
+                        <x-jet-input id="firstname" class="appearance-none block w-full bg-gray-200 text-gray-500 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="firstname" wire:model.debounce.800ms="firstname" />
+                        @error('firstname') <span class="error text-red-600">{{$message}}</span>@enderror
+                    </div>
+                    <div class="mt-4">
+                        <x-jet-label for="middel_name" value="{{ __('Middel-Name') }}" />
+                        <x-jet-input id="middel_name" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="middel_name" wire:model.debounce.800ms="middel_name" />
+                        @error('middel_name') <span class="error text-red-600">{{$message}}</span>@enderror
+                    </div>
+                    <div class="mt-4">
+                        <x-jet-label for="lastname" value="{{ __('Last-Name') }}" />
+                        <x-jet-input id="lastname" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="lastname" wire:model.debounce.800ms="lastname" />
+                        @error('lastname') <span class="error text-red-600">{{$message}}</span>@enderror
+                    </div>
                 </div>
+
                 <div  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
-                            <div class="mt-4">
-                                <x-jet-label for="user_id" value="{{ __('User-Id') }}" />
-                                <x-jet-input id="user_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="user_id" wire:model.debounce.800ms="user_id" />
-                                @error('user_id') <span class="error text-red-600">{{$message}}</span>@enderror
-                            </div>
-                            <div class="mt-4">
-                                <x-jet-label for="organization_id" value="{{ __('Organization_Id') }}" />
-                                <x-jet-input id="organization_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="organization_id" wire:model.debounce.800ms="organization_id" />
-                                @error('organization_id') <span class="error text-red-600">{{$message}}</span>@enderror
-                            </div>
-                  </div>
+                    <div class="mt-4">
+                        <x-jet-label for="user_id" value="{{ __('User-Id') }}" />
+                        <x-jet-input id="user_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="user_id" wire:model.debounce.800ms="user_id" />
+                        @error('user_id') <span class="error text-red-600">{{$message}}</span>@enderror
+                    </div>
+                    <div class="mt-4">
+                        <x-jet-label for="organization_id" value="{{ __('Organization_Id') }}" />
+                        <x-jet-input id="organization_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="organization_id" wire:model.debounce.800ms="organization_id" />
+                        @error('organization_id') <span class="error text-red-600">{{$message}}</span>@enderror
+                    </div>
+                </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
                         <div class="mt-4">
                               <x-jet-label for="email" value="{{ __('Email') }}" />
