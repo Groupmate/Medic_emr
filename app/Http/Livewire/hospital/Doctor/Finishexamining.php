@@ -10,8 +10,10 @@ use App\Models\Patient_Waiting_List;
 use Carbon\Carbon;  
 use Illuminate\Support\Facades\Auth;
 
-class OngoingPatients extends Component
+
+class Finishexamining extends Component
 {
+
     public $patient= [];
 
     public function read(){
@@ -25,28 +27,17 @@ class OngoingPatients extends Component
         }  
     }
 
-    public function rexamine($id)
-    { 
-        $patient_waiting = Patient_Waiting_List::where('patient_id', $id)->where('status', 'ongoing')->first();
-        $patient_waiting->status = "ongoing";
-        $patient_waiting->save(); 
-         
-        return redirect()->route('generatemedicaldata', $id);
-    }
-
     public function finish($id)
     { 
         $patient_waiting = Patient_Waiting_List::where('patient_id', $id)->where('status', 'ongoing')->first();
         $patient_waiting->status = "examined";
         $patient_waiting->save(); 
          
-        return redirect()->route('ongoingpatients');
+        return redirect()->route('dashboard');
     }
-
-
     public function render()
     {
         $this->read();
-        return view('livewire.hospital.doctor.ongoing-patients', ['patients' => $this->patient]);
+        return view('livewire.hospital.doctor.finishexamining', ['patients' => $this->patient]);
     }
 }

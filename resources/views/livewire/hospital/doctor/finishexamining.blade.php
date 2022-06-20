@@ -1,10 +1,10 @@
-    {{-- Care about people's approval and you will be their prisoner. --}}
-    <div class="bg-gray-100 flex-1 p-6 md:mt-16">   
+{{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
+<div class="bg-gray-100 flex-1 p-6 md:mt-16">   
         <div class="flex flex-col">
             <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">                                       
                      <div class="card col-span-4 xl:col-span-1">
-                        <div class="card-header alert alert-dark mb-5 h4">Recently visited Patients</div>
+                        <div class="card-header alert alert-dark mb-5 h4">Close this Patients examine sessions</div>
                             <table class="min-w-full">
                                 <thead class="border-b">
                                     <tr>
@@ -32,16 +32,13 @@
                                             </td>
                                             <td class=" flex flex-row text-sm border border-l-0  px-6 py-4 whitespace-nowrap">
                                                 <button class="btn-shadow" wire:click="rexamine({{ $patient['id'] }})">
-                                                    {{ __('Rexamine') }}
-                                                </button>
-                                                <button class="btn-shadow ml-6" wire:click="finish({{ $patient['id'] }})">
-                                                        {{ __('Finish Examining') }}
-                                                </button>
+                                                    {{ __('Finish Examining') }}
+                                                </button>                                        
                                             </td>
                                         </tr>  
                                         @empty
                                         <td class="text-lg border border-l-0 text-red-500 px-6 py-4 whitespace-nowrap">
-                                             You have No recently visited patient
+                                             You have No active patients to finish examine session for!
                                         </td>
                                         @endforelse  
                                 </tbody>
@@ -53,4 +50,5 @@
             </div>
         </div>  
     </div>
+
 

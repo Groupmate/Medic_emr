@@ -57,6 +57,7 @@ Route::middleware([ 'auth:sanctum',config('jetstream.auth_session'), 'verified'
             Route::get('/requestexaminationtest/{id} ', function ($id) { return view('hospital.doctor.requestexaminationtest', ['id' => $id]); })->name('requestexaminationtest');
             Route::get('/referpatient/{id}', function($id) { return view('hospital.doctor.refer-patient', ['id' => $id]); })->name('refer-patient');
             Route::get('/medcertificate/{id}', function($id) { return view('hospital.doctor.generatemedicalcertificate', ['id' => $id]); })->name('medical certificate');
+            Route::get('/finishexamining/{id}', function($id) { return view('hospital.doctor.finishexamining', ['id' => $id]); })->name('finishexamining');
             Route::get('/create-discharge', 'App\Http\Controllers\CreaeteDischargeController@discharge')->name('create-discharge');
         });
         //Statics 
