@@ -13,7 +13,7 @@
     <p class="menu-label">General</p>
     <ul class="menu-list">
       <li class="">
-        <a  href="{{ url('/Pdashboard') }}">
+        <a  href="{{ url('/Ldashboard') }}">
           <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
           <span class="menu-item-label"><strong>Dashboard</strong></span>
         </a>
@@ -22,14 +22,14 @@
     <p class="menu-label">HOMES</p>
     <ul class="menu-list"> 
       <li class="--set-active-forms-html">
-        <a href="{{ url('/issue-drug') }}">
+        <a href="{{ url('/waitinglist') }}">
           <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
-          <span class="menu-item-label"><strong>Issue Drug</strong></span>
+          <span class="menu-item-label"><strong>Laboratory waiting lists</strong></span>
         </a>
       </li>
       <li>
       <li class="--set-active-tables-html">
-        <a href="{{ url('/Pprofile') }}">
+        <a href="{{ url('/profile') }}">
           <span class="icon"><i class="mdi mdi-table"></i></span>
           <span class="menu-item-label"><strong>Profile</strong></span>
         </a>
