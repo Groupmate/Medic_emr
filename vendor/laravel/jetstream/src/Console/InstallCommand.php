@@ -16,7 +16,7 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'jetstream:install {stack : The development stack that should be installed}
+    protected $signature = 'jetstream:install {stack : The development stack that should be installed (inertia,livewire)}
                                               {--teams : Indicates if team support should be installed}
                                               {--api : Indicates if API support should be installed}
                                               {--verification : Indicates if email verification support should be installed}
@@ -142,7 +142,7 @@ class InstallCommand extends Command
                 '@tailwindcss/forms' => '^0.5.0',
                 '@tailwindcss/typography' => '^0.5.0',
                 'alpinejs' => '^3.0.6',
-                'tailwindcss' => '^3.0.0',
+                'tailwindcss' => '^3.1.0',
             ] + $packages;
         });
 
@@ -302,7 +302,7 @@ EOF;
                 '@inertiajs/progress' => '^0.2.7',
                 '@tailwindcss/forms' => '^0.5.0',
                 '@tailwindcss/typography' => '^0.5.2',
-                'tailwindcss' => '^3.0.0',
+                'tailwindcss' => '^3.1.0',
                 'vue' => '^3.2.31',
                 '@vue/compiler-sfc' => '^3.2.31',
                 'vue-loader' => '^17.0.0',

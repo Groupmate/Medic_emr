@@ -1,6 +1,39 @@
 # Release Notes for 9.x
 
-## [Unreleased](https://github.com/laravel/framework/compare/v9.15.0...9.x)
+## [Unreleased](https://github.com/laravel/framework/compare/v9.17.0...9.x)
+
+
+## [v9.17.0](https://github.com/laravel/framework/compare/v9.16.0...v9.17.0) - 2022-06-07
+
+### Added
+- Added Illuminate/Database/Eloquent/Builder::withoutEagerLoad() ([#42641](https://github.com/laravel/framework/pull/42641))
+- Allow random string generation to be controlled ([#42669](https://github.com/laravel/framework/pull/42669))
+- Adds doesnt_start_with validation ([#42683](https://github.com/laravel/framework/pull/42683), [de35bf2](https://github.com/laravel/framework/commit/de35bf2a8ab40013d997c62b5a80cdb907c73b99))
+- Added quarterlyOn cron schedule frequency command ([#42692](https://github.com/laravel/framework/pull/42692))
+
+### Fixed
+- Free reserved memory before handling fatal errors ([#42630](https://github.com/laravel/framework/pull/42630), [#42646](https://github.com/laravel/framework/pull/42646))
+- Prevent $mailer being reset when testing mailables that implement ShouldQueue ([#42695](https://github.com/laravel/framework/pull/42695))
+- Added checks for Pusher 7.1 preps ([#42632](https://github.com/laravel/framework/pull/42632))
+- Fixed grouping for user authorization ([#42664](https://github.com/laravel/framework/pull/42664))
+
+### Changed
+-  Allow assertions against pushed string based pushed jobs ([#42676](https://github.com/laravel/framework/pull/42676))
+
+
+## [v9.16.0](https://github.com/laravel/framework/compare/v9.15.0...v9.16.0) - 2022-06-02
+
+### Added
+- Added Eloquent withWhereHas method ([#42597](https://github.com/laravel/framework/pull/42597))
+- User authentication for Pusher ([#42531](https://github.com/laravel/framework/pull/42531))
+- Added additional uuid testing helpers ([#42619](https://github.com/laravel/framework/pull/42619))
+
+### Fixed
+- Fix queueable notification's ID overwritten ([#42581](https://github.com/laravel/framework/pull/42581))
+- Handle undefined array key error in route ([#42606](https://github.com/laravel/framework/pull/42606))
+
+### Deprecated
+- Illuminate/Routing/Redirector::home() ([#42600](https://github.com/laravel/framework/pull/42600))
 
 
 ## [v9.15.0](https://github.com/laravel/framework/compare/v9.14.1...v9.15.0) - 2022-05-31
